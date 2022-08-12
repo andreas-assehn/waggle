@@ -7,7 +7,10 @@ User:
 - location: (find out data type), (looks like float tuple), possible {long: float, lat: float}?
 - verified: boolean,
 - notifications: boolean/string,
-- dark mode: boolean
+- dark mode: boolean,
+- swipe_yes: userId[],
+- swipe_no: userId[],
+- images: Images[]
 - Dog:
   - name: string,
   - breed?: string,
@@ -22,9 +25,17 @@ User:
   - dislikes: string[] (pre approved options?),
   - preferences: [{}]
 
+get /users/
+post /users/:userId
+put /users/:userId
+
 Matches
 
-- matches: userIds[]
+- userId: userIds[]
+
+get /matches/
+post /matches/:userId
+put /matches/:userId
 
 Events:
 
@@ -33,7 +44,12 @@ Events:
 - Location: string, map pinned?, possible {long: float, lat: float}?
 - Brief Description: string,
 - Description: string,
+- images: Images[],
 - Attendees: [{userdId:number, creator: boolean}]
+
+get /events/
+post /events/:userId
+put /events/:eventId/:userId
 
 Messages? (How does websocket store prev messages?)
 
