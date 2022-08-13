@@ -22,4 +22,4 @@ function deg2rad(deg) {
   return deg * (Math.PI / 180);
 }
 
-console.log(getDistanceFromLatLonInKm(distance2, distance1));
+console.log(getDistanceFromLatLonInKm(distance2, distance4));
