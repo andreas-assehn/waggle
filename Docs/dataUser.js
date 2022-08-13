@@ -17,6 +17,29 @@ const likesDislikes = [
   'fireworks',
 ];
 
+const matches = [
+  {
+    userId: 1,
+    matched: [2, 4],
+  },
+  {
+    userId: 2,
+    matched: [3],
+  },
+  {
+    userId: 3,
+    matched: [2, 5],
+  },
+  {
+    userId: 4,
+    matched: [1, 5],
+  },
+  {
+    userId: 5,
+    matched: [3, 4],
+  },
+];
+
 const users = [
   {
     userId: 1,
@@ -152,8 +175,8 @@ const users = [
     verified: true,
     notifications: true,
     darkMode: true,
-    swipeYes: [1, 4, 5],
-    swipeNo: [2],
+    swipeYes: [2, 4, 5],
+    swipeNo: [],
     dog: {
       name: 'Lacey',
       breed: 'Golden Retriever',
@@ -239,60 +262,6 @@ const users = [
     },
   },
   {
-    userId: 4,
-    name: 'Andreas',
-    email: 'andreas@test.com',
-    password: 'passandreas',
-    location: {
-      city: 'London',
-      county: 'Greater London',
-      state: 'England',
-      postcode: 'SE1 8QH',
-      country: 'United Kingdom',
-      country_code: 'gb',
-      lon: -0.10572646114155257,
-      lat: 51.5016975,
-      state_code: 'ENG',
-      formatted: '5 Valentine Place, London, SE1 8QH, United Kingdom',
-      address_line1: '5 Valentine Place',
-      address_line2: 'London, SE1 8QH, United Kingdom',
-    },
-    profilePicture: 'https://images.dog.ceo/breeds/samoyed/n02111889_10059.jpg',
-    verified: true,
-    notifications: true,
-    darkMode: false,
-    swipeYes: [1, 5],
-    swipeNo: [2],
-    dog: {
-      name: 'Cleo',
-      breed: '',
-      size: 3,
-      gender: 'female',
-      energy_level: 3,
-      dogFriendliness: 4,
-      humanFriendliness: 3,
-      images: [
-        'https://images.dog.ceo/breeds/samoyed/n02111889_10059.jpg',
-        'https://images.dog.ceo/breeds/samoyed/n02111889_2136.jpg',
-        'https://images.dog.ceo/breeds/samoyed/n02111889_2650.jpg',
-      ],
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
-      briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
-      likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
-      dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
-      preferences: [
-        {
-          distance: 750,
-          size: [2, 3, 4],
-          gender: 'female',
-          energy_level: [3, 4, 5],
-        },
-      ],
-    },
-  },
-  {
     userId: 5,
     name: 'Kara',
     email: 'kara@test.com',
@@ -315,10 +284,10 @@ const users = [
     verified: true,
     notifications: true,
     darkMode: false,
-    swipeYes: [1],
-    swipeNo: [4],
+    swipeYes: [1, 3, 4],
+    swipeNo: [],
     dog: {
-      name: 'Emma',
+      name: 'Hannah',
       breed: '',
       size: 4,
       gender: 'female',

@@ -1,6 +1,6 @@
 const event1 = {
   EventId: 1,
-  DateTime: '2022-09-12T16:00', // YYYY-MM-DD => input type date output
+  DateTime: '2022-09-12T16:00',
   Location: {
     city: 'London',
     county: 'Greater London',
@@ -32,7 +32,7 @@ const event1 = {
 
 const event2 = {
   EventId: 2,
-  DateTime: '2022-08-29T:15:30', // YYYY-MM-DD => input type date output
+  DateTime: '2022-08-29T:15:30',
   Location: {
     city: 'London',
     county: 'Greater London',
@@ -64,7 +64,7 @@ const event2 = {
 
 const event3 = {
   EventId: 3,
-  DateTime: '2022-09-02T09:00', // YYYY-MM-DD => input type date output
+  DateTime: '2022-09-02T09:00',
   Location: {
     city: 'London',
     county: 'Greater London',
@@ -95,7 +95,7 @@ const event3 = {
 
 const event4 = {
   EventId: 4,
-  DateTime: '2022-09-15T18:00', // YYYY-MM-DD => input type date output
+  DateTime: '2022-09-15T18:00',
   Location: {
     city: 'Westminster',
     county: 'Greater London',
@@ -126,7 +126,7 @@ const event4 = {
 
 const event5 = {
   EventId: 1,
-  DateTime: '2022-09-12T10:00', // YYYY-MM-DD => input type date output
+  DateTime: '2022-09-12T10:00',
   Location: {
     city: 'London',
     county: 'Greater London',
