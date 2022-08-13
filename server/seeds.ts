@@ -8,17 +8,9 @@ const mongoose = require('mongoose');
 // const Event = require('./models/event')
 // const Match = require('./models/match')
 
-(async () => {
-  try {
-    await mongoose.connect(
-      'mongodb+srv://process.env.MONGODB_USER:process.env.MONGODB_PASSWORD@cluster0.0rmucpd.mongodb.net/?retryWrites=true&w=majority'
-    );
-    console.log('Connected to mongodb atlas');
-  } catch (e) {
-    console.log('Connection to mongodb atlas failed', e.message);
-  }
-})();
-
+// Deletes the contents of the database
+// Seeds it with mock data
+// Disconnects from the database
 const seedDb = async () => {
   try {
     await User.deleteMany({});
@@ -33,3 +25,16 @@ const seedDb = async () => {
     console.log('Could not seed database', e.message);
   }
 };
+
+// Connects to the database and calls seedDb()
+(async () => {
+  try {
+    await mongoose.connect(
+      'mongodb+srv://process.env.MONGODB_USER:process.env.MONGODB_PASSWORD@cluster0.0rmucpd.mongodb.net/?retryWrites=true&w=majority'
+    );
+    console.log('Connected to mongodb atlas');
+    seedDb();
+  } catch (e) {
+    console.log('Connection to mongodb atlas failed', e.message);
+  }
+})();
