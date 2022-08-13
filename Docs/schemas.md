@@ -4,7 +4,7 @@ User:
 - name: string, (user input),
 - email: string, (user input),
 - password: hash string, (user input/firebase generated),
-- location: look at samplelocation data page,
+- location: look at Location below,
 - verified: boolean,
 - notifications: boolean/string,
 - dark mode: boolean,
@@ -54,6 +54,20 @@ put /events/:eventId/:userId
 Messages? (How does websocket store prev messages?)
 
 Location:
+
+- city: string,
+- county: string,
+- state: string,
+- postcode?: string,
+- country: string,
+- country_code: string,
+- lon: double,
+- lat: double,
+- state_code: string,
+- formatted: string,
+- address_line1: string,
+- address_line2: string,
+
 https://apidocs.geoapify.com/playground/geocoding#autocomplete
 @geoapify/geocoder-autocomplete
 
