@@ -14,13 +14,13 @@ User:
 - Dog:
   - name: string,
   - breed?: string,
-  - size: string, (dropdown, by weight category?)
+  - size: string, (dropdown, by weight category?,1smallest - 4 biggest)
   - gender: string, (dropdown, Male&Female option too)
   - energy_level: string (dropdown), number? (scale?)
   - dog friendliness: string (dropdown), number? (scale?)
   - human friendliness: string (dropdown), number? (scale?)
   - description: string,
-  - brief description: string (150 chars);
+  - brief description: string (100 chars);
   - likes: string[] (pre approved options?),
   - dislikes: string[] (pre approved options?),
   - preferences: [{}]
