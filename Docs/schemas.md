@@ -4,7 +4,7 @@ User:
 - name: string, (user input),
 - email: string, (user input),
 - password: hash string, (user input/firebase generated),
-- location: (find out data type), (looks like float tuple), possible {long: float, lat: float}?
+- location: look at samplelocation data page,
 - verified: boolean,
 - notifications: boolean/string,
 - dark mode: boolean,
@@ -53,9 +53,24 @@ put /events/:eventId/:userId
 
 Messages? (How does websocket store prev messages?)
 
-Location: https://nominatim.org/
-https://nominatim.org/release-docs/develop/api/Reverse/
-use above API to convert a long/lat point into an address. Test to see what data is sent back
-Google Maps API: distance calulated
+Location:
+https://apidocs.geoapify.com/playground/geocoding#autocomplete
+@geoapify/geocoder-autocomplete
+
+user location input, autocomplete, or use my location (if this is clicked then take current log/lat and send to geoapify reverse geocoding)
+
+Possible to update user location in settings page
 
 MongoAtlas setup
+
+ROUTES = {
+user-page: (id)=>`/user${id}`,
+dashboard: '/dashboard'
+}
+
+Distance between users:
+https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates
+
+Extra Credits:
+Route Planning: https://apidocs.geoapify.com/playground/routing
+Npm GeoApify
