@@ -46,7 +46,7 @@ export type User = {
   swipeYes: number[];
   swipeNo: number[];
   dog?: Dog;
-  preferences: UserPreferences[];
+  preferences: UserPreferences;
 };
 
 export type Matches = {

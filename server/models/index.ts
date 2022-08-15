@@ -57,12 +57,12 @@ const UserSchema = new mongoose.Schema<User>({
   },
   preferences: {
     type: {
-      maxDistance: { type: Number, required: true },
       size: { type: [String], required: true },
+      maxDistance: { type: Number, required: true },
       gender: { type: [String], required: true },
       energyLevel: { type: [String], required: true },
     },
-    // required: true,
+    required: true,
   },
 });
 
