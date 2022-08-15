@@ -1,12 +1,16 @@
 import { Request, Response } from 'express';
-// import User model
+import User from '../models/user';
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.find();
     res.status(200).send(users);
   } catch (e) {
-    console.log(e.message);
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
     res
       .status(500)
       .send('userController: getUsers could not query users from database');
@@ -18,7 +22,11 @@ export const getOneUser = async (req: Request, res: Response) => {
     const oneUser = await User.findById(urlId);
     res.status(200).send(oneUser);
   } catch (e) {
-    console.log(e.message);
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
     res
       .status(500)
       .send(
@@ -31,7 +39,11 @@ export const setUser = async (req: Request, res: Response) => {
     const newUser = await User.create(req.body);
     res.status(200).send(newUser);
   } catch (e) {
-    console.log(e.message);
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
     res
       .status(500)
       .send(
@@ -42,14 +54,36 @@ export const setUser = async (req: Request, res: Response) => {
 export const modifyUser = async (req: Request, res: Response) => {
   const urlId = req.params.userId;
   try {
-    const users = await User.findByIdAndUpdate(urlId, req.body);
-    res.status(200).send(users);
+    const modifiedUser = await User.findByIdAndUpdate(urlId, req.body);
+    res.status(200).send(modifiedUser);
   } catch (e) {
-    console.log(e.message);
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
     res
       .status(500)
       .send(
         `userController: modifyUser could not modify user with id ${urlId}`
+      );
+  }
+};
+export const deleteUser = async (req: Request, res: Response) => {
+  const urlId = req.params.userId;
+  try {
+    const deletedUser = await User.findByIdAndDelete(urlId);
+    res.status(200).send(deletedUser);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send(
+        `userController: deleteUser could not delete user with id ${urlId}`
       );
   }
 };
