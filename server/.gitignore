@@ -1,5 +1,8 @@
 # dependencies
 /node_modules
 
+# compiled files
+/dist/**
+
 # dotenv environment variables file
 .env
