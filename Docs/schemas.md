@@ -1,72 +1,90 @@
-User:
+# Schemas
 
-- userId: number, (firebase generated),
+## User
+
+- userId: string, (firebase generated),
 - name: string, (user input),
 - email: string, (user input),
-- password: hash string, (user input/firebase generated),
-- location: look at Location below,
+- location?: look at Location below,
 - verified: boolean,
-- notifications: boolean/string,
-- dark mode: boolean,
-- swipe_yes: userId[],
-- swipe_no: userId[],
-- images: Images[]
-- Dog:
+- notifications: boolean,
+- darkMode: boolean,
+- swipeYes: userId[],
+- swipeNo: userId[],
+- preferences: {  maxDistance: number (2.5K?);
+  size: string[];
+  gender: string[];
+  energyLevel: string[]}
+- dog?:
   - name: string,
   - breed?: string,
   - size: string, (dropdown, by weight category?,1smallest - 4 biggest)
   - gender: string, (dropdown, Male&Female option too)
-  - energy_level: string (dropdown), number? (scale?)
-  - dog friendliness: string (dropdown), number? (scale?)
-  - human friendliness: string (dropdown), number? (scale?)
-  - description: string,
-  - brief description: string (100 chars);
-  - likes: string[] (pre approved options?),
-  - dislikes: string[] (pre approved options?),
-  - preferences: [{}]
+  - energyLevel: string (dropdown), number? (scale?)
+  - dogFriendliness?: string (dropdown), number? (scale?)
+  - humanFriendliness?: string (dropdown), number? (scale?)
+  - description?: string,
+  - brief description?: string (100 chars);
+  - likes?: string[] (pre approved options?),
+  - dislikes?: string[] (pre approved options?),
+  - images?: Images[]
 
 get /users/
 post /users/:userId
 put /users/:userId
 
-Matches
+## Matches
 
-- userId: userIds[]
+- userId: string
+- matchIds: string[]
 
 get /matches/
 post /matches/:userId
 put /matches/:userId
 
-Events:
+## Events
 
-- EventId: number,
-- DateTime: number/Date,
-- Location: string, map pinned?, possible {long: float, lat: float}?
-- Brief Description: string,
-- Description: string,
-- images: Images[],
-- Attendees: [{userdId:number, creator: boolean}]
+- eventId: string,
+- dateTime: Date,
+- location: {
+  city: string;
+  county: string;
+  state: string;
+  postcode?: string;
+  country: string;
+  countryCode: string;
+  lon: number;
+  lat: number;
+  stateCode: string;
+  formatted: string;
+  addressLine1: string;
+  addressLine2: string;
+}
+- briefDescription?: string,
+- description: string,
+- images?: Images[],
+- attendees: [{userdId:number, creator: boolean}]
 
 get /events/
 post /events/:userId
 put /events/:eventId/:userId
 
-Messages? (How does websocket store prev messages?)
+## Messages? (How does websocket store prev messages?)
 
-Location:
+## Location
 
 - city: string,
 - county: string,
 - state: string,
 - postcode?: string,
 - country: string,
-- country_code: string,
+- countryCode: string,
 - lon: double,
 - lat: double,
-- state_code: string,
+- stateCode?: string,
 - formatted: string,
-- address_line1: string,
-- address_line2: string,
+- addressLine1: string,
+- addressLine2: string,
 
 https://apidocs.geoapify.com/playground/geocoding#autocomplete
 @geoapify/geocoder-autocomplete
@@ -75,7 +93,7 @@ user location input, autocomplete, or use my location (if this is clicked then t
 
 Possible to update user location in settings page
 
-MongoAtlas setup
+## MongoAtlas setup
 
 ROUTES = {
 user-page: (id)=>`/user${id}`,
@@ -85,6 +103,6 @@ dashboard: '/dashboard'
 Distance between users:
 https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates
 
-Extra Credits:
+## Extra Credits
 Route Planning: https://apidocs.geoapify.com/playground/routing
 Npm GeoApify
