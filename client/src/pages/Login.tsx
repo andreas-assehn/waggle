@@ -6,12 +6,6 @@ import { setActiveUser, setUserLogout } from '../app/isAuthSlice';
 import { RootState } from '../app/store';
 
 function Login() {
-  // const [formFields: signInFields, setFormFields] = useState({
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  //   confirmPassword:'',
-  //   })
   const { isAuthenticated } = useSelector(
     (state: RootState) => state.isAuthenticated
   );
