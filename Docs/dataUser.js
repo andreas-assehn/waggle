@@ -1,4 +1,4 @@
-const likesDislikes = [
+export const likesDislikes = [
   'hugs',
   'pets',
   'walks',
@@ -17,7 +17,7 @@ const likesDislikes = [
   'fireworks',
 ];
 
-const matches = [
+export const matches = [
   {
     userId: 1,
     matched: [2, 4],
@@ -40,7 +40,7 @@ const matches = [
   },
 ];
 
-const users = [
+export const users = [
   {
     userId: 1,
     name: 'Keval',
