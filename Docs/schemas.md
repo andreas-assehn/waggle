@@ -4,27 +4,38 @@ User:
 - name: string, (user input),
 - email: string, (user input),
 - password: hash string, (user input/firebase generated),
-- location: (find out data type), (looks like float tuple), possible {long: float, lat: float}?
+- location: look at Location below,
 - verified: boolean,
 - notifications: boolean/string,
-- dark mode: boolean
+- dark mode: boolean,
+- swipe_yes: userId[],
+- swipe_no: userId[],
+- images: Images[]
 - Dog:
   - name: string,
   - breed?: string,
-  - size: string, (dropdown, by weight category?)
+  - size: string, (dropdown, by weight category?,1smallest - 4 biggest)
   - gender: string, (dropdown, Male&Female option too)
   - energy_level: string (dropdown), number? (scale?)
   - dog friendliness: string (dropdown), number? (scale?)
   - human friendliness: string (dropdown), number? (scale?)
   - description: string,
-  - brief description: string (150 chars);
+  - brief description: string (100 chars);
   - likes: string[] (pre approved options?),
   - dislikes: string[] (pre approved options?),
   - preferences: [{}]
 
+get /users/
+post /users/:userId
+put /users/:userId
+
 Matches
 
-- matches: userIds[]
+- userId: userIds[]
+
+get /matches/
+post /matches/:userId
+put /matches/:userId
 
 Events:
 
@@ -33,13 +44,47 @@ Events:
 - Location: string, map pinned?, possible {long: float, lat: float}?
 - Brief Description: string,
 - Description: string,
+- images: Images[],
 - Attendees: [{userdId:number, creator: boolean}]
+
+get /events/
+post /events/:userId
+put /events/:eventId/:userId
 
 Messages? (How does websocket store prev messages?)
 
-Location: https://nominatim.org/
-https://nominatim.org/release-docs/develop/api/Reverse/
-use above API to convert a long/lat point into an address. Test to see what data is sent back
-Google Maps API: distance calulated
+Location:
+
+- city: string,
+- county: string,
+- state: string,
+- postcode?: string,
+- country: string,
+- country_code: string,
+- lon: double,
+- lat: double,
+- state_code: string,
+- formatted: string,
+- address_line1: string,
+- address_line2: string,
+
+https://apidocs.geoapify.com/playground/geocoding#autocomplete
+@geoapify/geocoder-autocomplete
+
+user location input, autocomplete, or use my location (if this is clicked then take current log/lat and send to geoapify reverse geocoding)
+
+Possible to update user location in settings page
 
 MongoAtlas setup
+
+ROUTES = {
+user-page: (id)=>`/user${id}`,
+dashboard: '/dashboard'
+}
+
+Distance between users:
+https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates
+
+Extra Credits:
+Route Planning: https://apidocs.geoapify.com/playground/routing
+Npm GeoApify
