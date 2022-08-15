@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import Match from '../models/match';
+import Matches from '../models/matchesModel';
 
 export const getMatches = async (req: Request, res: Response) => {
   try {
-    const matches = await Match.find();
+    const matches = await Matches.find();
     res.status(200).send(matches);
   } catch (e) {
     if (typeof e === 'string') {
@@ -20,7 +20,7 @@ export const getMatches = async (req: Request, res: Response) => {
 };
 export const setMatch = async (req: Request, res: Response) => {
   try {
-    const newMatch = await Match.create(req.body);
+    const newMatch = await Matches.create(req.body);
     res.status(200).send(newMatch);
   } catch (e) {
     if (typeof e === 'string') {
@@ -38,7 +38,7 @@ export const setMatch = async (req: Request, res: Response) => {
 export const modifyMatch = async (req: Request, res: Response) => {
   const urlId = req.params.userId;
   try {
-    const modifiedMatch = await Match.findByIdAndUpdate(urlId, req.body);
+    const modifiedMatch = await Matches.findByIdAndUpdate(urlId, req.body);
     res.status(200).send(modifiedMatch);
   } catch (e) {
     if (typeof e === 'string') {
@@ -56,7 +56,7 @@ export const modifyMatch = async (req: Request, res: Response) => {
 export const deleteMatch = async (req: Request, res: Response) => {
   const urlId = req.params.userId;
   try {
-    const deletedMatch = await Match.findByIdAndDelete(urlId);
+    const deletedMatch = await Matches.findByIdAndDelete(urlId);
     res.status(200).send(deletedMatch);
   } catch (e) {
     if (typeof e === 'string') {
