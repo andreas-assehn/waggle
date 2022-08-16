@@ -3,7 +3,6 @@ import './Sass/App.scss'; // Do not remove!
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import SplashScreen from './pages/SplashScreen';
-import LoginRegister from './pages/LoginRegister';
 import MatchingView from './pages/MatchingView';
 import MatchingViewDetail from './pages/MatchingViewDetail';
 import ChatDashboard from './pages/ChatDashboard';
@@ -14,17 +13,16 @@ import AddEventForm from './pages/AddEventForm';
 import SettingsView from './pages/SettingsView';
 import EditProfile from './pages/EditProfile';
 import { auth, methods } from './utils/auth/firebase';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './app/store';
+import { useDispatch } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   const dispatch = useDispatch();
 
-  const { userAuth } = useSelector((state: RootState) => state.userAuth);
-
   useEffect(() => {
-    const unsubscribe = methods.onAuthStateChanged(auth, (cred: any) => {
+    const unsubscribe = methods.onAuthStateChanged(auth, (cred) => {
       if (cred) {
         dispatch(
           login({
@@ -45,7 +43,8 @@ function App() {
       <h1>App</h1>
       <Routes>
         <Route path='/' element={<SplashScreen />} />
-        <Route path='/loginRegister' element={<LoginRegister />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/matchingView' element={<MatchingView />} />
         <Route path='/matchingViewDetail' element={<MatchingViewDetail />} />

@@ -19,6 +19,7 @@ import {
   modifyEvent,
   deleteEvent,
 } from './controllers/eventController';
+import authMiddleware from './middleware/auth';
 
 router.get('/users', getUsers);
 router.get('/users/:userId', getOneUser);
