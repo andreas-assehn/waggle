@@ -6,10 +6,10 @@ import { Dog, User } from './Types';
 export function sortWaggles(user: User, otherUsers: User[]) {
   if (!user.dog) return new Error('Please complete your profile');
   const myDog: Dog = user.dog;
-  const otherDogs: Dog[] = otherUsers.filter((user) => {
-    if (user.dog) return user.dog;
+  const filteredUsers: User[] = otherUsers.filter((user) => {
+    if (user.dog) return user;
   });
-  const arrayOfDogs: Dog[] = otherDogs;
+
   const paramOne: keyof Dog = 'energyLevel';
   const paramTwo: keyof Dog = 'size';
   const paramThree: keyof Dog = 'age';
@@ -19,26 +19,26 @@ export function sortWaggles(user: User, otherUsers: User[]) {
   // and in different order, according to algorithm description.
   const firstFilter = threeParameterMatches(
     myDog,
-    arrayOfDogs,
+    filteredUsers,
     paramOne,
     paramTwo,
     paramThree
   );
   const secondFilter = twoParameterMatches(
     myDog,
-    arrayOfDogs,
+    filteredUsers,
     paramOne,
     paramTwo
   );
-  const thirdFilter = oneParameterMatches(myDog, arrayOfDogs, paramOne);
+  const thirdFilter = oneParameterMatches(myDog, filteredUsers, paramOne);
   const fourthFitler = twoParameterMatches(
     myDog,
-    arrayOfDogs,
+    filteredUsers,
     paramTwo,
     paramThree
   );
-  const fifthFilter = oneParameterMatches(myDog, arrayOfDogs, paramTwo);
-  const sixthFilter = oneParameterMatches(myDog, arrayOfDogs, paramThree);
+  const fifthFilter = oneParameterMatches(myDog, filteredUsers, paramTwo);
+  const sixthFilter = oneParameterMatches(myDog, filteredUsers, paramThree);
 
   // Returning results in order plus the remaining dogs
   // that doesn't match any parameter.
@@ -49,7 +49,7 @@ export function sortWaggles(user: User, otherUsers: User[]) {
     ...fourthFitler,
     ...fifthFilter,
     ...sixthFilter,
-    ...arrayOfDogs,
+    ...filteredUsers,
   ];
 }
 
@@ -57,19 +57,19 @@ export function sortWaggles(user: User, otherUsers: User[]) {
 // remove matched dog from array copy, so they won't be iterated again
 function threeParameterMatches(
   myDog: Dog,
-  arrayOfDogs: Dog[],
+  filteredUsers: User[],
   paramOne: keyof Dog,
   paramTwo: keyof Dog,
   paramThree: keyof Dog
 ) {
-  const filtered = arrayOfDogs.filter((dog, index) => {
+  const filtered = filteredUsers.filter((user, index) => {
     if (
-      myDog[paramOne] === dog[paramOne] &&
-      myDog[paramTwo] === dog[paramTwo] &&
-      myDog[paramThree] === dog[paramThree]
+      myDog[paramOne] === user.dog![paramOne] &&
+      myDog[paramTwo] === user.dog![paramTwo] &&
+      myDog[paramThree] === user.dog![paramThree]
     ) {
-      arrayOfDogs.splice(index, 1);
-      return dog;
+      filteredUsers.splice(index, 1);
+      return user;
     }
   });
   return filtered;
@@ -77,17 +77,17 @@ function threeParameterMatches(
 
 function twoParameterMatches(
   myDog: Dog,
-  arrayOfDogs: Dog[],
+  filteredUsers: User[],
   paramOne: keyof Dog,
   paramTwo: keyof Dog
 ) {
-  const filtered = arrayOfDogs.filter((dog, index) => {
+  const filtered = filteredUsers.filter((user, index) => {
     if (
-      myDog[paramOne] === dog[paramOne] &&
-      myDog[paramTwo] === dog[paramTwo]
+      myDog[paramOne] === user.dog![paramOne] &&
+      myDog[paramTwo] === user.dog![paramTwo]
     ) {
-      arrayOfDogs.splice(index, 1);
-      return dog;
+      filteredUsers.splice(index, 1);
+      return user;
     }
   });
   return filtered;
@@ -95,13 +95,13 @@ function twoParameterMatches(
 
 function oneParameterMatches(
   myDog: Dog,
-  arrayOfDogs: Dog[],
+  filteredUsers: User[],
   paramOne: keyof Dog
 ) {
-  const filtered = arrayOfDogs.filter((dog, index) => {
-    if (myDog[paramOne] === dog[paramOne]) {
-      arrayOfDogs.splice(index, 1);
-      return dog;
+  const filtered = filteredUsers.filter((user, index) => {
+    if (myDog[paramOne] === user.dog![paramOne]) {
+      filteredUsers.splice(index, 1);
+      return user;
     }
   });
   return filtered;
