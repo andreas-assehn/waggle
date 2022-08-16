@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema<User>({
   darkMode: { type: Boolean, required: true },
   swipeYes: { type: [Number], required: true },
   swipeNo: { type: [Number], required: true },
+  ownerImage: String,
   dog: {
     type: {
       name: { type: String, required: true },
