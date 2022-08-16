@@ -34,6 +34,7 @@ export function sortWaggles(myDog: Dog, otherDogs: Dog[]) {
   );
   const fifthFilter = oneParameterMatches(myDog, arrayOfDogs, paramTwo);
   const sixthFilter = oneParameterMatches(myDog, arrayOfDogs, paramThree);
+
   // Returning results in order plus the remaining dogs
   // that doesn't match any parameter.
   return [
@@ -46,6 +47,7 @@ export function sortWaggles(myDog: Dog, otherDogs: Dog[]) {
     ...arrayOfDogs,
   ];
 }
+
 // Actual filter functions: When finding a match they will
 // remove matched dog from array copy, so they won't be iterated again
 function threeParameterMatches(
