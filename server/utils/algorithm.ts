@@ -1,9 +1,14 @@
-import { Dog } from './Types';
+import { Dog, User } from './Types';
 
 // SORTING BASELINE ALGORITHM
 // No geo! This doesn't take user preferences into account,
 // but will sort dogs matching energylevel, size and age.
-export function sortWaggles(myDog: Dog, otherDogs: Dog[]) {
+export function sortWaggles(user: User, otherUsers: User[]) {
+  if (!user.dog) return new Error('Please complete your profile');
+  const myDog: Dog = user.dog;
+  const otherDogs: Dog[] = otherUsers.filter((user) => {
+    if (user.dog) return user.dog;
+  });
   const arrayOfDogs: Dog[] = otherDogs;
   const paramOne: keyof Dog = 'energyLevel';
   const paramTwo: keyof Dog = 'size';
