@@ -4,11 +4,14 @@ import { Dog } from './Types';
 // No geo! This doesn't take user preferences into account,
 // but will sort dogs matching energylevel, size and age.
 export function sortWaggles(myDog: Dog, otherDogs: Dog[]) {
-  const arrayOfDogs = otherDogs;
-  const paramOne = 'energyLevel';
-  const paramTwo = 'size';
-  const paramThree = 'age';
+  const arrayOfDogs: Dog[] = otherDogs;
+  const paramOne: keyof Dog = 'energyLevel';
+  const paramTwo: keyof Dog = 'size';
+  const paramThree: keyof Dog = 'age';
 
+  // First to sixth filter function is calling the actual
+  // filter functions with varyring amounts of parameters
+  // and in different order, according to algorithm description.
   const firstFilter = threeParameterMatches(
     myDog,
     arrayOfDogs,
@@ -31,6 +34,8 @@ export function sortWaggles(myDog: Dog, otherDogs: Dog[]) {
   );
   const fifthFilter = oneParameterMatches(myDog, arrayOfDogs, paramTwo);
   const sixthFilter = oneParameterMatches(myDog, arrayOfDogs, paramThree);
+  // Returning results in order plus the remaining dogs
+  // that doesn't match any parameter.
   return [
     ...firstFilter,
     ...secondFilter,
@@ -41,7 +46,8 @@ export function sortWaggles(myDog: Dog, otherDogs: Dog[]) {
     ...arrayOfDogs,
   ];
 }
-
+// Actual filter functions: When finding a match they will
+// remove matched dog from array copy, so they won't be iterated again
 function threeParameterMatches(
   myDog: Dog,
   arrayOfDogs: Dog[],
@@ -94,9 +100,8 @@ function oneParameterMatches(
   return filtered;
 }
 
+// MOCK DATA ( Let it stay for now. )
 // console.log(sortWaggles(dogToFindSwagglesFor, dogs));
-
-// MOCK DATA
 
 // const dogs = [
 //   {
