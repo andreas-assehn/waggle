@@ -68,5 +68,5 @@ export type Event = {
   briefDescription?: string;
   description: string;
   images?: string[];
-  attendees: Attendee[];
+  attendees?: Attendee[];
 };
