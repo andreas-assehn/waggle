@@ -1,6 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
+import authMiddleware from './middleware/auth';
 // Import controllers here
 
 router.get('/users', getUsers);
