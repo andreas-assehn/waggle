@@ -42,7 +42,7 @@ function LoginRegister() {
   const handleLogin = async (e: any) => {
     await methods
       .signInWithEmailAndPassword(auth, email, password)
-      .then((cred) => {
+      .then((cred: any) => {
         console.log('Success!');
         dispatch(
           login({
@@ -50,7 +50,7 @@ function LoginRegister() {
           })
         );
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.log(error);
       });
   };
@@ -66,7 +66,7 @@ function LoginRegister() {
 
     await methods
       .createUserWithEmailAndPassword(auth, email, password)
-      .then((cred) => {
+      .then((cred:any) => {
         methods.updateProfile(cred.user, {
           displayName: name,
         });
@@ -80,7 +80,7 @@ function LoginRegister() {
           })
         );
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.log(error);
       });
     console.log('End of signUp');
@@ -89,7 +89,7 @@ function LoginRegister() {
   const handleSignInWithGoogle = async () => {
     await methods
       .signInWithPopup(auth, methods.googleProvider)
-      .then((cred) => {
+      .then((cred:any) => {
         //send a fetch req with cred.user.uid, cred.user.email & cred.user.displayname to create our own version of user
         dispatch(
           login({
@@ -97,7 +97,7 @@ function LoginRegister() {
           })
         );
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.log(error);
       });
   };
@@ -108,7 +108,7 @@ function LoginRegister() {
       .then(() => {
         dispatch(logout());
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.log(error);
       });
   };

@@ -24,7 +24,7 @@ function App() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
   useEffect(() => {
-    const unsubscribe = methods.onAuthStateChanged(auth, (cred) => {
+    const unsubscribe = methods.onAuthStateChanged(auth, (cred: any) => {
       if (cred) {
         dispatch(
           login({
