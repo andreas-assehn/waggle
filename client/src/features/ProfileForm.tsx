@@ -1,9 +1,30 @@
 import * as React from 'react';
 
 export default function ProfileForm() {
+  const showCloudinaryWidget = (event: any) => {
+    event.preventDefault();
+    const widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: process.env.REACT_APP_CLOUDINARY_URL,
+        uploadPreset: 'yxtws6c1',
+      },
+      (error: any, result: any) => {
+        if (!error && result && result.event === 'success') {
+          console.log(result);
+        }
+      }
+    );
+    widget.open();
+  };
+
   return (
     <form className="profile-form">
       <h3> Please fill out the following about your dog(s):</h3>
+
+      <button onClick={showCloudinaryWidget}>Upload images of your dog</button>
+      <br />
+      <button onClick={showCloudinaryWidget}>Upload image of you</button>
+      <br />
       <label htmlFor="dog-name">Name</label>
       <input type="text" placeholder="Dog's name..." id="dog-name" />
       <br />
