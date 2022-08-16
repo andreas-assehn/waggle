@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.0.6",
     "cloudinary-build-url": "^0.2.4",
     "dotenv": "^16.0.1",
+    "firebase": "^9.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
