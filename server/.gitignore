@@ -6,4 +6,6 @@
 
 # dotenv environment variables file
 .env
-.env.dev
+
+# serviceAccoutn firebase
+serviceAccount.json
