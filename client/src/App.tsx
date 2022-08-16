@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import './Sass/App.scss'; // Do not remove!
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import Register from './pages/Register';
 import SplashScreen from './pages/SplashScreen';
 import LoginRegister from './pages/LoginRegister';
 import MatchingView from './pages/MatchingView';
@@ -18,29 +16,29 @@ import EditProfile from './pages/EditProfile';
 import { auth, methods } from './utils/auth/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './app/store';
-import { setActiveUser } from './app/isAuthSlice';
+import { login, logout } from './app/userAuthSlice';
 
 function App() {
-  const { isAuthenticated } = useSelector(
-    (state: RootState) => state.isAuthenticated
-  );
   const dispatch = useDispatch();
 
-  // const { user } = useSelector(
-  //   (state: RootState) => state.isAuthenticated.user
-  // );
-  // useEffect(() => {
-  //   const unsubscribe = methods.onAuthStateChanged(auth, (user) => {
-  //     dispatch(
-  //       setActiveUser({
-  //         isAuthenticated: true,
-  //         user: user,
-  //       })
-  //     );
-  //   });
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
-  //   return unsubscribe;
-  // }, []);
+  useEffect(() => {
+    const unsubscribe = methods.onAuthStateChanged(auth, (cred) => {
+      if (cred) {
+        dispatch(
+          login({
+            id: cred.uid,
+            name: cred.displayName,
+            email: cred.email,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+    return unsubscribe;
+  }, [dispatch]);
 
   return (
     <div className='App'>
@@ -48,18 +46,16 @@ function App() {
       <Routes>
         <Route path='/' element={<SplashScreen />} />
         <Route path='/loginRegister' element={<LoginRegister />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/matchingView' element={<MatchingView />} />
         <Route path='/matchingViewDetail' element={<MatchingViewDetail />} />
-        <Route path='/ChatDashboard' element={<ChatDashboard />} />
-        <Route path='/Chat' element={<Chat />} />
-        <Route path='/EventsDashboard' element={<EventsDashboard />} />
-        <Route path='/EventDetails' element={<EventDetails />} />
-        <Route path='/AddEventForm' element={<AddEventForm />} />
-        <Route path='/SettingsView' element={<SettingsView />} />
-        <Route path='/EditProfile' element={<EditProfile />} />
+        <Route path='/chatDashboard' element={<ChatDashboard />} />
+        <Route path='/chat' element={<Chat />} />
+        <Route path='/eventsDashboard' element={<EventsDashboard />} />
+        <Route path='/eventDetails' element={<EventDetails />} />
+        <Route path='/addEventForm' element={<AddEventForm />} />
+        <Route path='/settingsView' element={<SettingsView />} />
+        <Route path='/editProfile' element={<EditProfile />} />
       </Routes>
     </div>
   );

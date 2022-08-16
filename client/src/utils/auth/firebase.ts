@@ -7,6 +7,7 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  updateProfile,
 } from 'firebase/auth';
 
 const app = initializeApp({
@@ -27,6 +28,7 @@ export const methods = {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
+  updateProfile,
   googleProvider,
 };
 export default app;
