@@ -23,7 +23,7 @@ import authMiddleware from './middleware/auth';
 
 router.get('/users', getUsers);
 router.get('/users/:userId', getOneUser);
-router.post('/users/', setUser);
+router.post('/users', setUser);
 router.put('/users/:userId', modifyUser);
 router.delete('/users/:userId', deleteUser);
 

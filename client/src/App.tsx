@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Navbar from './components/Navbar';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,23 +40,24 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className='App'>
+    <div className="App">
       <h1>App</h1>
       <Routes>
-        <Route path='/' element={<SplashScreen />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/matchingView' element={<MatchingView />} />
-        <Route path='/matchingViewDetail' element={<MatchingViewDetail />} />
-        <Route path='/chatDashboard' element={<ChatDashboard />} />
-        <Route path='/chat' element={<Chat />} />
-        <Route path='/eventsDashboard' element={<EventsDashboard />} />
-        <Route path='/eventDetails' element={<EventDetails />} />
-        <Route path='/addEventForm' element={<AddEventForm />} />
-        <Route path='/settingsView' element={<SettingsView />} />
-        <Route path='/editProfile' element={<EditProfile />} />
+        <Route path="/" element={<SplashScreen />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/matchingView" element={<MatchingView />} />
+        <Route path="/matchingViewDetail" element={<MatchingViewDetail />} />
+        <Route path="/chatDashboard" element={<ChatDashboard />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/eventsDashboard" element={<EventsDashboard />} />
+        <Route path="/eventDetails" element={<EventDetails />} />
+        <Route path="/addEventForm" element={<AddEventForm />} />
+        <Route path="/settingsView" element={<SettingsView />} />
+        <Route path="/editProfile" element={<EditProfile />} />
       </Routes>
+      <Navbar />
     </div>
   );
 }
