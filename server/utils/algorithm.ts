@@ -1,14 +1,54 @@
 import { Dog, User } from './Types';
 
+// Function that returns only users who have a dog
+function usersWithDog(user: User, users: User[]) {
+  const filteredUsers: User[] = users.filter((user) => {
+    if (user.dog) return user;
+  });
+  return filteredUsers;
+}
+
+// Function that return only users who match distance preference
+function usersInArea(user: User, users: User[]) {
+  const filteredUsers = users.filter((otherUser) => {
+    if (
+      getDistanceFromLatLonInKm(user, otherUser) <= user.preferences.maxDistance
+    )
+      return otherUser;
+  });
+  return filteredUsers;
+}
+
+function getDistanceFromLatLonInKm(user: User, otherUser: User) {
+  const radiusOfEarth = 6371;
+  const degreesLatitude = degreesToRadiant(
+    otherUser.location!.lat - user.location!.lat
+  );
+  const degreesLongitude = degreesToRadiant(
+    otherUser.location!.lon - user.location!.lon
+  );
+  const a =
+    Math.sin(degreesLatitude / 2) * Math.sin(degreesLatitude / 2) +
+    Math.cos(degreesToRadiant(user.location!.lat)) *
+      Math.cos(degreesToRadiant(otherUser.location!.lon)) *
+      Math.sin(degreesLongitude / 2) *
+      Math.sin(degreesLongitude / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distanceInKm = radiusOfEarth * c;
+  return distanceInKm;
+}
+
+function degreesToRadiant(degree: number) {
+  return degree * (Math.PI / 180);
+}
+
 // SORTING BASELINE ALGORITHM
 // No geo! This doesn't take user preferences into account,
 // but will sort dogs matching energylevel, size and age.
 export function sortWaggles(user: User, users: User[]) {
   if (!user.dog) return new Error('Please complete your profile');
   const myDog: Dog = user.dog;
-  const filteredUsers: User[] = users.filter((user) => {
-    if (user.dog) return user;
-  });
+  const filteredUsers: User[] = usersInArea(user, usersWithDog(user, users));
 
   const paramOne: keyof Dog = 'energyLevel';
   const paramTwo: keyof Dog = 'size';
