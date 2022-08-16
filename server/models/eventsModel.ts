@@ -31,7 +31,7 @@ const EventsSchema = new mongoose.Schema<Event>({
         creator: { type: Boolean, required: true },
       },
     ],
-    required: true,
+    required: false,
   },
 });
 
