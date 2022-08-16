@@ -11,6 +11,7 @@
 - darkMode: boolean,
 - swipeYes: userId[],
 - swipeNo: userId[],
+- OwnerImage: string,
 - preferences: {  maxDistance: number (2.5K?);
   size: string[];
   gender: string[];

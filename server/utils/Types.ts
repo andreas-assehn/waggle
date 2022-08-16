@@ -45,6 +45,7 @@ export type User = {
   darkMode: boolean;
   swipeYes: number[];
   swipeNo: number[];
+  ownerImage: string;
   dog?: Dog;
   preferences: UserPreferences;
 };
