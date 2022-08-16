@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
 import { Link } from 'react-router-dom';
+import apiUserService from '../utils/services/apiUserService';
+import { User } from '../utils/types/user';
 
 function Register() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
@@ -43,17 +45,27 @@ function Register() {
 
     await methods
       .createUserWithEmailAndPassword(auth, email, password)
-      .then((cred) => {
+      .then(async (cred) => {
         methods.updateProfile(cred.user, {
           displayName: name,
         });
         dispatch(
           login({
             id: cred.user.uid,
-            name: cred.user.displayName,
+            name: name,
             email: cred.user.email,
           })
         );
+        const user = {
+          userId: cred.user.uid,
+          name: name,
+          email: cred.user.email,
+        };
+        console.log({ user });
+        const res = await apiUserService.register(user as User);
+        if (res.error) {
+          setError('User Create Error!');
+        }
       })
       .catch((error) => {
         console.log(error);

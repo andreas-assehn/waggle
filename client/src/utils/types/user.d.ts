@@ -5,14 +5,14 @@ export type User = {
   name: string;
   email: string;
   location?: LocationType;
-  verified: boolean;
-  notifications: boolean;
-  darkMode: boolean;
-  swipeYes: number[];
-  swipeNo: number[];
+  verified?: boolean;
+  notifications?: boolean;
+  darkMode?: boolean;
+  swipeYes?: string[];
+  swipeNo?: string[];
   dog?: Dog;
-  preferences: UserPreferences;
-  ownerImage: string;
+  preferences?: UserPreferences;
+  ownerImage?: string;
 };
 export type UserPreferences = {
   maxDistance: number;
