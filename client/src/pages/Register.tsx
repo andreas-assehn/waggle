@@ -8,12 +8,14 @@ import { Link } from 'react-router-dom';
 function Register() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
 
   const [error, setError] = useState('');
 
@@ -45,8 +47,6 @@ function Register() {
         methods.updateProfile(cred.user, {
           displayName: name,
         });
-
-        console.log('updated user', cred.user);
         dispatch(
           login({
             id: cred.user.uid,
@@ -58,7 +58,7 @@ function Register() {
       .catch((error) => {
         console.log(error);
       });
-    console.log('End of signUp');
+    setFormData((prev) => ({ ...prev, initialFormState }));
   };
 
   const handleSignInWithGoogle = async () => {

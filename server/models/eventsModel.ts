@@ -17,7 +17,7 @@ const EventsSchema = new mongoose.Schema<Event>({
       stateCode: String,
       formatted: { type: String, required: true },
       addressLine1: { type: String, required: true },
-      addressLine2: { type: String, required: true },
+      addressLine2: String,
     },
     required: true,
   },

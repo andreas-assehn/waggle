@@ -86,14 +86,12 @@ export const users = [
         'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
       likes: ['sniffs', 'horses', 'outdoors'],
       dislikes: ['cars', 'bicycles', 'fireworks'],
-      preferences: [
-        {
-          distance: 500,
-          size: [1, 2, 3],
-          gender: 'any',
-          energy_level: [3, 4, 5],
-        },
-      ],
+      preferences: {
+        distance: 500,
+        size: [1, 2, 3],
+        gender: 'any',
+        energy_level: [3, 4, 5],
+      },
     },
   },
   {
@@ -141,14 +139,12 @@ export const users = [
         'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
-      preferences: [
-        {
-          distance: 500,
-          size: [1, 2, 3, 4],
-          gender: 'any',
-          energy_level: [3, 4, 5],
-        },
-      ],
+      preferences: {
+        distance: 500,
+        size: [1, 2, 3, 4],
+        gender: 'any',
+        energy_level: [3, 4, 5],
+      },
     },
   },
   {
@@ -196,14 +192,12 @@ export const users = [
         'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
-      preferences: [
-        {
-          distance: 500,
-          size: [1, 2, 3, 4],
-          gender: 'female',
-          energy_level: [3, 4, 5],
-        },
-      ],
+      preferences: {
+        distance: 500,
+        size: [1, 2, 3, 4],
+        gender: 'female',
+        energy_level: [3, 4, 5],
+      },
     },
   },
   {
@@ -251,14 +245,12 @@ export const users = [
         'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
-      preferences: [
-        {
-          distance: 750,
-          size: [2, 3, 4],
-          gender: 'female',
-          energy_level: [3, 4, 5],
-        },
-      ],
+      preferences: {
+        distance: 750,
+        size: [2, 3, 4],
+        gender: 'female',
+        energy_level: [3, 4, 5],
+      },
     },
   },
   {
@@ -305,14 +297,12 @@ export const users = [
         'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
-      preferences: [
-        {
-          distance: 750,
-          size: [3, 4, 5],
-          gender: 'any',
-          energy_level: [3, 4, 5],
-        },
-      ],
+      preferences: {
+        distance: 750,
+        size: [3, 4, 5],
+        gender: 'any',
+        energy_level: [3, 4, 5],
+      },
     },
   },
 ];
