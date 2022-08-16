@@ -1,28 +1,33 @@
-const mongoose = require('mongoose');
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* //@ts-nocheck */
+import 'dotenv/config';
+import mongoose from 'mongoose';
 
-// Mock data needs to be merged to dev first!
-// const mockData = require('./data/mockData');
+import { users, matches } from './utils/mock-data/dataUser';
+import { events } from './utils/mock-data/dataEvent';
 
-// When models are finished:
-// const User = require('./models/user')
-// const Event = require('./models/event')
-// const Match = require('./models/match')
+import userModel from './models/userModel';
+import eventsModel from './models/eventsModel';
+import matchesModel from './models/matchesModel';
 
 // Deletes the contents of the database
 // Seeds it with mock data
 // Disconnects from the database
 const seedDb = async () => {
   try {
-    await User.deleteMany({});
-    await Event.deleteMany({});
-    await Match.deleteMany({});
-    await User.insertMany(mockData.users);
-    await Event.insertMany(mockData.event);
-    await Match.insertMany(mockData.match);
+    await userModel.deleteMany({});
+    await eventsModel.deleteMany({});
+    await matchesModel.deleteMany({});
+    await userModel.insertMany(users);
+    await eventsModel.insertMany(events);
+    await matchesModel.insertMany(matches);
     console.log('Database successfully seeded!');
     mongoose.connection.close();
   } catch (e) {
-    console.log('Could not seed database', e.message);
+    if (e instanceof Error) {
+      console.log('Could not seed database', e.message);
+    }
+    console.log('Could not seed database');
   }
 };
 
@@ -30,11 +35,15 @@ const seedDb = async () => {
 (async () => {
   try {
     await mongoose.connect(
-      'mongodb+srv://process.env.MONGODB_USER:process.env.MONGODB_PASSWORD@cluster0.0rmucpd.mongodb.net/?retryWrites=true&w=majority'
+      `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.0rmucpd.mongodb.net/?retryWrites=true&w=majority`,
+      { dbName: 'thesis' }
     );
     console.log('Connected to mongodb atlas');
     seedDb();
   } catch (e) {
-    console.log('Connection to mongodb atlas failed', e.message);
+    if (e instanceof Error) {
+      console.log('Connection to mongodb atlas failed', e.message);
+    }
+    console.log('Connection to mongodb atlas failed');
   }
 })();
