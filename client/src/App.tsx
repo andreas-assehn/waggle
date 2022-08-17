@@ -17,20 +17,16 @@ import { useDispatch } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import apiUserService from './utils/services/apiUserService';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = methods.onAuthStateChanged(auth, (cred) => {
+    const unsubscribe = methods.onAuthStateChanged(auth, async (cred) => {
       if (cred) {
-        dispatch(
-          login({
-            id: cred.uid,
-            name: cred.displayName,
-            email: cred.email,
-          })
-        );
+        const res = await apiUserService.getUser(cred.uid);
+        dispatch(login(res));
       } else {
         dispatch(logout());
       }

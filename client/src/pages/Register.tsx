@@ -51,21 +51,22 @@ function Register() {
         });
         dispatch(
           login({
-            id: cred.user.uid,
+            userId: cred.user.uid,
             name: name,
-            email: cred.user.email,
+            email: email,
           })
         );
         const user = {
           userId: cred.user.uid,
           name: name,
-          email: cred.user.email,
+          email: email,
         };
-        console.log({ user });
-        const res = await apiUserService.register(user as User);
+        const res = await apiUserService.register(user);
         if (res.error) {
           setError('User Create Error!');
         }
+        // access token is not yet sent to slice
+        dispatch(login(res));
       })
       .catch((error) => {
         console.log(error);
@@ -76,13 +77,15 @@ function Register() {
   const handleSignInWithGoogle = async () => {
     await methods
       .signInWithPopup(auth, methods.googleProvider)
-      .then((cred) => {
-        //send a fetch req with cred.user.uid, cred.user.email & cred.user.displayname to create our own version of user
-        dispatch(
-          login({
-            userAuth: cred.user,
-          })
-        );
+      .then(async (cred) => {
+        const user = {
+          userId: cred.user.uid,
+          name: cred.user.displayName!,
+          email: cred.user.email!,
+        };
+        const res = await apiUserService.register(user);
+        // access token is not yet sent to slice
+        dispatch(login(res));
       })
       .catch((error) => {
         console.log(error);

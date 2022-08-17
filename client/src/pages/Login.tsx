@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
 import { Link } from 'react-router-dom';
+import apiUserService from '../utils/services/apiUserService';
 
 function Login() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
@@ -30,15 +31,10 @@ function Login() {
     e.preventDefault();
     await methods
       .signInWithEmailAndPassword(auth, email, password)
-      .then((cred) => {
-        console.log('Success!');
-        dispatch(
-          login({
-            id: cred.user.uid,
-            name: cred.user.displayName,
-            email: cred.user.email,
-          })
-        );
+      .then(async (cred) => {
+        // access token is not yet sent to slice
+        const res = await apiUserService.getUser(cred.user.uid);
+        dispatch(login(res));
       })
       .catch((error) => {
         console.log(error);
@@ -48,13 +44,10 @@ function Login() {
   const handleSignInWithGoogle = async () => {
     await methods
       .signInWithPopup(auth, methods.googleProvider)
-      .then((cred) => {
-        //send a fetch req with cred.user.uid, cred.user.email & cred.user.displayname to create our own version of user
-        dispatch(
-          login({
-            userAuth: cred.user,
-          })
-        );
+      .then(async (cred) => {
+        // access token is not yet sent to slice
+        const res = await apiUserService.getUser(cred.user.uid);
+        dispatch(login(res));
       })
       .catch((error) => {
         console.log(error);

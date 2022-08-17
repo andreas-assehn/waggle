@@ -58,6 +58,12 @@ const UserSchema = new mongoose.Schema<User>({
       energyLevel: { type: [Number], required: true, default: [1, 2, 3, 4, 5] },
     },
     required: true,
+    default: {
+      size: ['small', 'medium', 'large'],
+      maxDistance: 2.5,
+      gender: 'any',
+      energyLevel: [1, 2, 3, 4, 5],
+    },
   },
 });
 

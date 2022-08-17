@@ -1,6 +1,7 @@
 import { LocationType } from './location';
 
 export type User = {
+  _id?: string;
   userId: string;
   name: string;
   email: string;
