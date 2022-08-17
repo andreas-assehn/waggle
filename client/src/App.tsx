@@ -13,18 +13,21 @@ import AddEventForm from './pages/AddEventForm';
 import SettingsView from './pages/SettingsView';
 import EditProfile from './pages/EditProfile';
 import { auth, methods } from './utils/auth/firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import apiUserService from './utils/services/apiUserService';
+import { RootState } from './app/store';
+import { clearAllUsersState, setAllUsersState } from './app/allUsersSlice';
 
 function App() {
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = methods.onAuthStateChanged(auth, async (cred) => {
+    const isAuth = methods.onAuthStateChanged(auth, async (cred) => {
       if (cred) {
         const res = await apiUserService.getUser(cred.uid);
         dispatch(login(res));
@@ -32,8 +35,19 @@ function App() {
         dispatch(logout());
       }
     });
-    return unsubscribe;
+    return isAuth;
   }, [dispatch]);
+
+  useEffect(() => {
+    if (userAuth) {
+      apiUserService
+        .getAllUsers()
+        .then((allUsers) => dispatch(setAllUsersState(allUsers)))
+        .catch((err) => console.error(err));
+    } else {
+      dispatch(clearAllUsersState());
+    }
+  }, [userAuth]);
 
   return (
     <div className='App'>

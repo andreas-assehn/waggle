@@ -43,7 +43,18 @@ const getUser = async (id: string) => {
     .catch((err) => console.error(err));
 };
 
-// const get;
+const getAllUsers = async () => {
+  const options: RequestInit = {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  return await fetch(`${BASE_URL}/users`, options)
+    .then((response) => response.json())
+    .then((userData) => userData)
+    .catch((err) => console.error(err));
+};
 
-const apiUserService = { register, updateUser, getUser };
+const apiUserService = { register, updateUser, getUser, getAllUsers };
 export default apiUserService;
