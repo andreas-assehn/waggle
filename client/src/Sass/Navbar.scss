@@ -1,14 +1,16 @@
+@use 'abstracts' as *;
+
 $size: 7vh;
 .btn-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: #292929;
+  background-color: $main-dark-grey;
   height: $size;
 }
 .current {
-  background-color: #ff2c55;
+  background-color: $pink-pop;
 }
 .nav-btn {
   $circle: $size * 0.8;
