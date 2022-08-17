@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User } from '../../../globalUtils/Types';
 
 const initialState = {
-  userAuth: null,
+  userAuth: null as User | null,
 };
 
 const userAuthSlice = createSlice({
