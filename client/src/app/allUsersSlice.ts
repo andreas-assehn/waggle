@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User } from '../../../globalUtils/Types';
 
 const initialState = {
-  allUsers: null,
+  allUsers: [] as User[],
 };
 
 const allUsersSlice = createSlice({
@@ -12,7 +13,7 @@ const allUsersSlice = createSlice({
       state.allUsers = action.payload;
     },
     clearAllUsersState: (state) => {
-      state.allUsers = null;
+      state.allUsers = [];
     },
   },
 });
@@ -20,3 +21,5 @@ const allUsersSlice = createSlice({
 export const { setAllUsersState, clearAllUsersState } = allUsersSlice.actions;
 
 export default allUsersSlice.reducer;
+
+export const userSelector = (state: any) => state.allUsers;

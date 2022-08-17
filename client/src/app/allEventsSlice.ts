@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Event } from '../../../globalUtils/Types';
 
 const initialState = {
-  allEvents: null,
+  allEvents: [] as Event[],
 };
 
 const allEventsSlice = createSlice({
@@ -12,7 +13,7 @@ const allEventsSlice = createSlice({
       state.allEvents = action.payload;
     },
     clearAllEventsState: (state) => {
-      state.allEvents = null;
+      state.allEvents = [];
     },
   },
 });
