@@ -21,6 +21,8 @@ import Navbar from './components/Navbar';
 import apiUserService from './utils/services/apiUserService';
 import { RootState } from './app/store';
 import { clearAllUsersState, setAllUsersState } from './app/allUsersSlice';
+import apiEventService from './utils/services/apiEventsService';
+import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 
 function App() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
@@ -46,6 +48,17 @@ function App() {
         .catch((err) => console.error(err));
     } else {
       dispatch(clearAllUsersState());
+    }
+  }, [userAuth]);
+
+  useEffect(() => {
+    if (userAuth) {
+      apiEventService
+        .getAllEvents()
+        .then((allEvents) => dispatch(setAllEventsState(allEvents)))
+        .catch((err) => console.error(err));
+    } else {
+      dispatch(clearAllEventsState());
     }
   }, [userAuth]);
 

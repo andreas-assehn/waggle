@@ -7,7 +7,7 @@ import {
   twoParameterMatches,
   threeParameterMatches,
 } from './helperFunctions';
-import { Dog, User } from '../Types';
+import { Dog, User } from '../../../globalUtils/Types';
 
 // Main algorithm
 export function sortWaggles(user: User, users: User[]) {

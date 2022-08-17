@@ -5,7 +5,7 @@ import { login, logout } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
 import { Link } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
-import { User } from '../utils/types/user';
+import { User } from '../../../globalUtils/Types';
 
 function Register() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
@@ -56,7 +56,7 @@ function Register() {
             email: email,
           })
         );
-        const user = {
+        const user: User = {
           userId: cred.user.uid,
           name: name,
           email: email,
@@ -78,7 +78,7 @@ function Register() {
     await methods
       .signInWithPopup(auth, methods.googleProvider)
       .then(async (cred) => {
-        const user = {
+        const user: User = {
           userId: cred.user.uid,
           name: cred.user.displayName!,
           email: cred.user.email!,

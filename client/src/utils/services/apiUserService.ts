@@ -1,6 +1,4 @@
-import { User } from '../types/user';
-import { login, logout } from '../../app/userAuthSlice';
-import { useDispatch } from 'react-redux';
+import { User } from '../../../../globalUtils/Types';
 
 const BASE_URL = 'http://localhost:4000';
 

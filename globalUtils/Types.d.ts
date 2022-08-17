@@ -37,18 +37,19 @@ export type UserPreferences = {
 };
 
 export type User = {
+  _id?: string;
   userId: string;
   name: string;
   email: string;
   location?: LocationType;
-  verified: boolean;
-  notifications: boolean;
-  darkMode: boolean;
-  swipeYes: string[];
-  swipeNo: string[];
-  ownerImage: string;
+  verified?: boolean;
+  notifications?: boolean;
+  darkMode?: boolean;
+  swipeYes?: string[];
+  swipeNo?: string[];
   dog?: Dog;
-  preferences: UserPreferences;
+  preferences?: UserPreferences;
+  ownerImage?: string;
 };
 
 export type Matches = {
