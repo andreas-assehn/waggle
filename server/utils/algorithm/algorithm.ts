@@ -1,4 +1,3 @@
-import { users } from '../mock-data/dataUser';
 import {
   usersWithDog,
   usersWithLocation,
@@ -71,5 +70,3 @@ export function sortWaggles(user: User, users: User[]) {
     ...filteredUsers,
   ];
 }
-
-console.log(sortWaggles(users[0], users));

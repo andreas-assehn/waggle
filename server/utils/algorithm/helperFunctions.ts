@@ -28,8 +28,8 @@ export function filterOutYourself(user: User, users: User[]) {
 export function usersNotSwiped(user: User, users: User[]) {
   const filteredUsers: User[] = users.filter((otherUser) => {
     if (
-      !user.swipeYes.includes(otherUser.userId) &&
-      !user.swipeNo.includes(otherUser.userId)
+      !user.swipeYes!.includes(otherUser.userId) &&
+      !user.swipeNo!.includes(otherUser.userId)
     )
       return otherUser;
   });
