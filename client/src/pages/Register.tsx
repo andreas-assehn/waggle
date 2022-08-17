@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
 import { Link } from 'react-router-dom';
+import apiUserService from '../utils/services/apiUserService';
+import { User } from '../utils/types/user';
 
 function Register() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
@@ -43,17 +45,28 @@ function Register() {
 
     await methods
       .createUserWithEmailAndPassword(auth, email, password)
-      .then((cred) => {
+      .then(async (cred) => {
         methods.updateProfile(cred.user, {
           displayName: name,
         });
         dispatch(
           login({
-            id: cred.user.uid,
-            name: cred.user.displayName,
-            email: cred.user.email,
+            userId: cred.user.uid,
+            name: name,
+            email: email,
           })
         );
+        const user = {
+          userId: cred.user.uid,
+          name: name,
+          email: email,
+        };
+        const res = await apiUserService.register(user);
+        if (res.error) {
+          setError('User Create Error!');
+        }
+        // access token is not yet sent to slice
+        dispatch(login(res));
       })
       .catch((error) => {
         console.log(error);
@@ -64,13 +77,15 @@ function Register() {
   const handleSignInWithGoogle = async () => {
     await methods
       .signInWithPopup(auth, methods.googleProvider)
-      .then((cred) => {
-        //send a fetch req with cred.user.uid, cred.user.email & cred.user.displayname to create our own version of user
-        dispatch(
-          login({
-            userAuth: cred.user,
-          })
-        );
+      .then(async (cred) => {
+        const user = {
+          userId: cred.user.uid,
+          name: cred.user.displayName!,
+          email: cred.user.email!,
+        };
+        const res = await apiUserService.register(user);
+        // access token is not yet sent to slice
+        dispatch(login(res));
       })
       .catch((error) => {
         console.log(error);

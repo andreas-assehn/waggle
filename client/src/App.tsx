@@ -13,49 +13,59 @@ import AddEventForm from './pages/AddEventForm';
 import SettingsView from './pages/SettingsView';
 import EditProfile from './pages/EditProfile';
 import { auth, methods } from './utils/auth/firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
+import apiUserService from './utils/services/apiUserService';
+import { RootState } from './app/store';
+import { clearAllUsersState, setAllUsersState } from './app/allUsersSlice';
 
 function App() {
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = methods.onAuthStateChanged(auth, (cred) => {
+    const isAuth = methods.onAuthStateChanged(auth, async (cred) => {
       if (cred) {
-        dispatch(
-          login({
-            id: cred.uid,
-            name: cred.displayName,
-            email: cred.email,
-          })
-        );
+        const res = await apiUserService.getUser(cred.uid);
+        dispatch(login(res));
       } else {
         dispatch(logout());
       }
     });
-    return unsubscribe;
+    return isAuth;
   }, [dispatch]);
 
+  useEffect(() => {
+    if (userAuth) {
+      apiUserService
+        .getAllUsers()
+        .then((allUsers) => dispatch(setAllUsersState(allUsers)))
+        .catch((err) => console.error(err));
+    } else {
+      dispatch(clearAllUsersState());
+    }
+  }, [userAuth]);
+
   return (
-    <div className="App">
+    <div className='App'>
       <h1>App</h1>
       <Routes>
-        <Route path="/" element={<SplashScreen />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/matchingView" element={<MatchingView />} />
-        <Route path="/matchingViewDetail" element={<MatchingViewDetail />} />
-        <Route path="/chatDashboard" element={<ChatDashboard />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/eventsDashboard" element={<EventsDashboard />} />
-        <Route path="/eventDetails" element={<EventDetails />} />
-        <Route path="/addEventForm" element={<AddEventForm />} />
-        <Route path="/settingsView" element={<SettingsView />} />
-        <Route path="/editProfile" element={<EditProfile />} />
+        <Route path='/' element={<SplashScreen />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/matchingView' element={<MatchingView />} />
+        <Route path='/matchingViewDetail' element={<MatchingViewDetail />} />
+        <Route path='/chatDashboard' element={<ChatDashboard />} />
+        <Route path='/chat' element={<Chat />} />
+        <Route path='/eventsDashboard' element={<EventsDashboard />} />
+        <Route path='/eventDetails' element={<EventDetails />} />
+        <Route path='/addEventForm' element={<AddEventForm />} />
+        <Route path='/settingsView' element={<SettingsView />} />
+        <Route path='/editProfile' element={<EditProfile />} />
       </Routes>
       <Navbar />
     </div>
