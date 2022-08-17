@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { Event } from '../utils/Types';
 
 const EventsSchema = new mongoose.Schema<Event>({
-  eventId: { type: String, required: true },
+  createdBy: { type: String, required: true },
   dateTime: { type: Date, required: true },
   location: {
     type: {
@@ -17,7 +17,7 @@ const EventsSchema = new mongoose.Schema<Event>({
       stateCode: String,
       formatted: { type: String, required: true },
       addressLine1: { type: String, required: true },
-      addressLine2: { type: String, required: true },
+      addressLine2: String,
     },
     required: true,
   },
@@ -31,7 +31,7 @@ const EventsSchema = new mongoose.Schema<Event>({
         creator: { type: Boolean, required: true },
       },
     ],
-    required: true,
+    required: false,
   },
 });
 

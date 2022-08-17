@@ -17,9 +17,9 @@ export const getUsers = async (req: Request, res: Response) => {
   }
 };
 export const getOneUser = async (req: Request, res: Response) => {
-  const urlId = req.params.userId;
+  const userId = req.params.userId;
   try {
-    const oneUser = await User.findById(urlId);
+    const oneUser = await User.findOne({ userId });
     res.status(200).send(oneUser);
   } catch (e) {
     if (typeof e === 'string') {
@@ -30,7 +30,7 @@ export const getOneUser = async (req: Request, res: Response) => {
     res
       .status(500)
       .send(
-        `userController: getOneUser could not query user with id: ${urlId} from database`
+        `userController: getOneUser could not query user with id: ${userId} from database`
       );
   }
 };

@@ -10,12 +10,13 @@ export type LocationType = {
   stateCode?: string;
   formatted: string;
   addressLine1: string;
-  addressLine2: string;
+  addressLine2?: string;
 };
 
 export type Dog = {
   name: string;
   breed?: string;
+  age?: number;
   size: string;
   gender: string;
   energyLevel: number;
@@ -31,8 +32,8 @@ export type Dog = {
 export type UserPreferences = {
   maxDistance: number;
   size: string[];
-  gender: string[];
-  energyLevel: string[];
+  gender: string;
+  energyLevel: number[];
 };
 
 export type User = {
@@ -43,8 +44,8 @@ export type User = {
   verified: boolean;
   notifications: boolean;
   darkMode: boolean;
-  swipeYes: number[];
-  swipeNo: number[];
+  swipeYes: string[];
+  swipeNo: string[];
   ownerImage: string;
   dog?: Dog;
   preferences: UserPreferences;
@@ -61,11 +62,11 @@ export type Attendee = {
 };
 
 export type Event = {
-  eventId: string;
+  createdBy: string;
   dateTime: Date;
   location: LocationType;
   briefDescription?: string;
   description: string;
   images?: string[];
-  attendees: Attendee[];
+  attendees?: Attendee[];
 };
