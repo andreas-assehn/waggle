@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import matches from '../assets/navbar-matches.svg';
-import routes from '../assets/navbar-routes.svg';
 import dashboard from '../assets/navbar-dashboard.svg';
 import events from '../assets/navbar-events.svg';
 import chat from '../assets/navbar-chat.svg';
@@ -32,9 +31,6 @@ function Navbar() {
               to={'/matchingView'}
             >
               <img src={matches} />
-            </Link>
-            <Link className="nav-btn" to={'/matchingView'}>
-              <img src={routes} />
             </Link>
             <Link
               className={url === '/dashboard' ? 'nav-btn current' : 'nav-btn'}
