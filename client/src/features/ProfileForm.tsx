@@ -6,10 +6,9 @@ import { EditUserProfile } from '../utils/types/user';
 import { LocationType } from '../utils/types/location';
 import { useSelector } from 'react-redux';
 import apiUserService from '../utils/services/apiUserService';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfileForm() {
-  const _id = useSelector((state: any) => state.userAuth);
-
   const [user, setUser] = useState({
     _id: '',
     location: {},
@@ -25,6 +24,8 @@ export default function ProfileForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
+  const _id = useSelector((state: any) => state.userAuth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (_id.userAuth) {
@@ -123,6 +124,7 @@ export default function ProfileForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     await apiUserService.updateUser(user);
+    navigate('/profile');
   }
 
   return (
