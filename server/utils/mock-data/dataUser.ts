@@ -63,8 +63,8 @@ export const users = [
     verified: true,
     notifications: true,
     darkMode: false,
-    swipeYes: ['HsUxOdRgSbeq2oxCgAIox63m8oA3', 'pBpXPtTC8tP3ARlhUn45IzHgKyp2'],
-    swipeNo: ['8qw4gtm1VhWfcQDlfdNw7y9sQVm2'],
+    swipeYes: [],
+    swipeNo: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -92,7 +92,7 @@ export const users = [
       size: ['small', 'medium'],
       maxDistance: 0.5,
       gender: 'male',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -117,8 +117,8 @@ export const users = [
     verified: true,
     notifications: true,
     darkMode: true,
-    swipeYes: ['4jg6OCap5PQ3FANMuoG1FONJBvF2', '8qw4gtm1VhWfcQDlfdNw7y9sQVm2'],
-    swipeNo: ['pBpXPtTC8tP3ARlhUn45IzHgKyp2'],
+    swipeYes: [],
+    swipeNo: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -146,7 +146,7 @@ export const users = [
       size: ['medium', 'small'],
       maxDistance: 0.5,
       gender: 'any',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -171,11 +171,7 @@ export const users = [
     verified: true,
     notifications: true,
     darkMode: true,
-    swipeYes: [
-      'HsUxOdRgSbeq2oxCgAIox63m8oA3',
-      'pBpXPtTC8tP3ARlhUn45IzHgKyp2',
-      'Z9R01fG87SYOQg1ASouLqPDskso2',
-    ],
+    swipeYes: [],
     swipeNo: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
@@ -204,7 +200,7 @@ export const users = [
       size: ['small', 'medium', 'large'],
       maxDistance: 0.5,
       gender: 'female',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -229,8 +225,8 @@ export const users = [
     verified: true,
     notifications: true,
     darkMode: false,
-    swipeYes: ['4jg6OCap5PQ3FANMuoG1FONJBvF2', 'Z9R01fG87SYOQg1ASouLqPDskso2'],
-    swipeNo: ['HsUxOdRgSbeq2oxCgAIox63m8oA3'],
+    swipeYes: [],
+    swipeNo: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -258,7 +254,7 @@ export const users = [
       size: ['small', 'medium'],
       maxDistance: 0.75,
       gender: 'female',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -282,11 +278,7 @@ export const users = [
     verified: true,
     notifications: true,
     darkMode: false,
-    swipeYes: [
-      '4jg6OCap5PQ3FANMuoG1FONJBvF2',
-      '8qw4gtm1VhWfcQDlfdNw7y9sQVm2',
-      'pBpXPtTC8tP3ARlhUn45IzHgKyp2',
-    ],
+    swipeYes: [],
     swipeNo: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
@@ -315,7 +307,7 @@ export const users = [
       size: ['small', 'medium', 'large'],
       maxDistance: 0.75,
       gender: 'any',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
 ];

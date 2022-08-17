@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { Event } from '../utils/Types';
 
 const EventsSchema = new mongoose.Schema<Event>({
-  eventId: { type: String, required: true },
+  createdBy: { type: String, required: true },
   dateTime: { type: Date, required: true },
   location: {
     type: {

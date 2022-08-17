@@ -62,7 +62,7 @@ export type Attendee = {
 };
 
 export type Event = {
-  eventId: string;
+  createdBy: string;
   dateTime: Date;
   location: LocationType;
   briefDescription?: string;
