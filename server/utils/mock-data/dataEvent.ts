@@ -1,6 +1,6 @@
 export const events = [
   {
-    eventId: '1',
+    createdBy: '4jg6OCap5PQ3FANMuoG1FONJBvF2',
     dateTime: new Date('2022-09-12T16:00'),
     location: {
       city: 'London',
@@ -23,7 +23,7 @@ export const events = [
     attendees: [],
   },
   {
-    eventId: '2',
+    createdBy: '4jg6OCap5PQ3FANMuoG1FONJBvF2',
     dateTime: new Date('2022-08-29T15:30'),
     location: {
       city: 'London',
@@ -47,7 +47,7 @@ export const events = [
     attendees: [],
   },
   {
-    eventId: '3',
+    createdBy: '4jg6OCap5PQ3FANMuoG1FONJBvF2',
     dateTime: new Date('2022-09-02T09:00'),
     location: {
       city: 'London',
@@ -70,7 +70,7 @@ export const events = [
     attendees: [],
   },
   {
-    eventId: '4',
+    createdBy: '4jg6OCap5PQ3FANMuoG1FONJBvF2',
     dateTime: new Date('2022-09-15T18:00'),
     location: {
       city: 'Westminster',
@@ -94,7 +94,7 @@ export const events = [
     attendees: [],
   },
   {
-    eventId: '1',
+    createdBy: '4jg6OCap5PQ3FANMuoG1FONJBvF2',
     dateTime: new Date('2022-09-12T10:00'),
     location: {
       city: 'London',
