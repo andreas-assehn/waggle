@@ -92,7 +92,7 @@ export const users = [
       size: ['small', 'medium'],
       maxDistance: 0.5,
       gender: 'male',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -146,7 +146,7 @@ export const users = [
       size: ['medium', 'small'],
       maxDistance: 0.5,
       gender: 'any',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -204,7 +204,7 @@ export const users = [
       size: ['small', 'medium', 'large'],
       maxDistance: 0.5,
       gender: 'female',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -258,7 +258,7 @@ export const users = [
       size: ['small', 'medium'],
       maxDistance: 0.75,
       gender: 'female',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
   {
@@ -315,7 +315,7 @@ export const users = [
       size: ['small', 'medium', 'large'],
       maxDistance: 0.75,
       gender: 'any',
-      energyLevel: ['3', '4', '5'],
+      energyLevel: [3, 4, 5],
     },
   },
 ];
