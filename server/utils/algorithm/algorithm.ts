@@ -8,7 +8,6 @@ import {
   threeParameterMatches,
 } from './helperFunctions';
 import { Dog, User } from '../Types';
-import { users } from '../mock-data/dataUser';
 
 // Main algorithm
 export function sortWaggles(user: User, users: User[]) {

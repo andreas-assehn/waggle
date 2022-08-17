@@ -1,5 +1,4 @@
 import { Dog, User } from '../Types';
-import { users } from '../mock-data/dataUser';
 
 // Filters out users who do not have a dog
 export function usersWithDog(user: User, users: User[]) {
