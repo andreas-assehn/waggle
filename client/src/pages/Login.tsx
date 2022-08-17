@@ -3,7 +3,7 @@ import { auth, methods } from '../utils/auth/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
 
 function Login() {
@@ -17,7 +17,9 @@ function Login() {
   const [error, setError] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  if (userAuth) navigate('/matchingView');
   const { email, password } = formData;
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,24 +56,9 @@ function Login() {
       });
   };
 
-  const handleSignOut = async () => {
-    await methods
-      .signOut(auth)
-      .then(() => {
-        dispatch(logout());
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   return (
     <>
       <h2>Login</h2>
-
-      {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
-
-      <button onClick={handleSignOut}>Sign Out</button>
 
       <form onSubmit={handleSubmit}>
         <fieldset>

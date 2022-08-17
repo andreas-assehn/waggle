@@ -24,6 +24,7 @@ import { clearAllUsersState, setAllUsersState } from './app/allUsersSlice';
 import apiEventService from './utils/services/apiEventsService';
 import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 import { useAppSelector } from './app/hooks';
+import LoginRegister from './pages/LoginRegister';
 
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -67,19 +68,20 @@ function App() {
     <div className="App">
       <h1>App</h1>
       <Routes>
-        <Route path="/" element={<SplashScreen />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/matchingView" element={<MatchingView />} />
-        <Route path="/matchingViewDetail" element={<MatchingViewDetail />} />
-        <Route path="/chatDashboard" element={<ChatDashboard />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/eventsDashboard" element={<EventsDashboard />} />
-        <Route path="/eventDetails" element={<EventDetails />} />
-        <Route path="/addEventForm" element={<AddEventForm />} />
-        <Route path="/settingsView" element={<SettingsView />} />
-        <Route path="/editProfile" element={<EditProfile />} />
+        <Route path='/' element={<SplashScreen />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/loginRegister' element={<LoginRegister />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/matchingView' element={<MatchingView />} />
+        <Route path='/matchingViewDetail' element={<MatchingViewDetail />} />
+        <Route path='/chatDashboard' element={<ChatDashboard />} />
+        <Route path='/chat' element={<Chat />} />
+        <Route path='/eventsDashboard' element={<EventsDashboard />} />
+        <Route path='/eventDetails' element={<EventDetails />} />
+        <Route path='/addEventForm' element={<AddEventForm />} />
+        <Route path='/settingsView' element={<SettingsView />} />
+        <Route path='/editProfile' element={<EditProfile />} />
       </Routes>
       <Navbar />
     </div>

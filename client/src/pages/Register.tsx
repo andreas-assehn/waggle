@@ -3,7 +3,7 @@ import { auth, methods } from '../utils/auth/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
 import { User } from '../../../globalUtils/Types';
 
@@ -22,6 +22,9 @@ function Register() {
   const [error, setError] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  if (userAuth) navigate('/matchingView');
 
   const { name, email, password, confirmPassword } = formData;
 
@@ -32,7 +35,7 @@ function Register() {
     }));
   };
 
-  const handleSubmit = async (e: React.SyntheticEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -71,7 +74,6 @@ function Register() {
       .catch((error) => {
         console.log(error);
       });
-    setFormData((prev) => ({ ...prev, initialFormState }));
   };
 
   const handleSignInWithGoogle = async () => {
@@ -92,24 +94,24 @@ function Register() {
       });
   };
 
-  const handleSignOut = async () => {
-    await methods
-      .signOut(auth)
-      .then(() => {
-        dispatch(logout());
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleSignOut = async () => {
+  //   await methods
+  //     .signOut(auth)
+  //     .then(() => {
+  //       dispatch(logout());
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <>
       <h2>Register</h2>
 
-      {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
+      {/* {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
 
-      <button onClick={handleSignOut}>Sign Out</button>
+      <button onClick={handleSignOut}>Sign Out</button> */}
 
       <form onSubmit={handleSubmit}>
         <fieldset>
