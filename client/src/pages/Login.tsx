@@ -56,24 +56,9 @@ function Login() {
       });
   };
 
-  const handleSignOut = async () => {
-    await methods
-      .signOut(auth)
-      .then(() => {
-        dispatch(logout());
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   return (
     <>
       <h2>Login</h2>
-
-      {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
-
-      <button onClick={handleSignOut}>Sign Out</button>
 
       <form onSubmit={handleSubmit}>
         <fieldset>

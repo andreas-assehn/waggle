@@ -94,24 +94,24 @@ function Register() {
       });
   };
 
-  const handleSignOut = async () => {
-    await methods
-      .signOut(auth)
-      .then(() => {
-        dispatch(logout());
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleSignOut = async () => {
+  //   await methods
+  //     .signOut(auth)
+  //     .then(() => {
+  //       dispatch(logout());
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <>
       <h2>Register</h2>
 
-      {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
+      {/* {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
 
-      <button onClick={handleSignOut}>Sign Out</button>
+      <button onClick={handleSignOut}>Sign Out</button> */}
 
       <form onSubmit={handleSubmit}>
         <fieldset>
