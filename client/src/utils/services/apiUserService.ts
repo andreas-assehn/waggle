@@ -1,4 +1,5 @@
 import { User } from '../../../../globalUtils/Types';
+import { EditUserProfile } from '../types/user';
 
 const BASE_URL = 'http://localhost:4000';
 
@@ -15,7 +16,7 @@ const register = async (user: User) => {
     .catch((err) => console.error(err));
 };
 
-const updateUser = async (user: User) => {
+const updateUser = async (user: EditUserProfile) => {
   const options: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(user),

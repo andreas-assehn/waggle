@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 import { EditUserProfile } from '../utils/types/user';
+import { LocationType } from '../utils/types/location';
 import { useSelector } from 'react-redux';
 import apiUserService from '../utils/services/apiUserService';
 
@@ -41,7 +42,6 @@ export default function ProfileForm() {
       },
       (error: any, result: any) => {
         if (!error && result && result.event === 'success') {
-          console.log(result, result.event);
           if (event.target.id === 'dogImages') {
             setUser({
               ...user,
@@ -81,24 +81,30 @@ export default function ProfileForm() {
         }
       );
       autocomplete.on('select', (location) => {
-        console.log(location);
-        setUser({
-          ...user,
-          location: {
-            city: location.properties.city,
-            country: location.properties.country,
-            county: location.properties.county,
-            state: location.properties.state,
-            postcode: location.properties.postcode,
-            countryCode: location.properties.countryCode,
-            lon: location.properties.lon,
-            lat: location.properties.lat,
-            stateCode: location.properties.statecode,
-            formatted: location.properties.formatted,
-            addressLine1: location.properties.addressLine1,
-            addressLine2: location.properties.addressLine2,
-          },
-        });
+        if (location.properties.city) {
+          setUser((prevUser) => ({
+            ...prevUser,
+            location: {
+              city: location.properties.city,
+              country: location.properties.country,
+              county: location.properties.county,
+              state: location.properties.state,
+              postcode: location.properties.postcode,
+              countryCode: location.properties.countryCode,
+              lon: location.properties.lon,
+              lat: location.properties.lat,
+              stateCode: location.properties.statecode,
+              formatted: location.properties.formatted,
+              addressLine1: location.properties.addressLine1,
+              addressLine2: location.properties.addressLine2,
+            },
+          }));
+        } else {
+          setUser((prevUser) => ({
+            ...prevUser,
+            location: {} as LocationType,
+          }));
+        }
       });
       initialized.current = true;
     }
@@ -114,10 +120,9 @@ export default function ProfileForm() {
   }
 
   //Api call
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(user);
-    // apiUserService.updateUser(user);
+    await apiUserService.updateUser(user);
   }
 
   return (
@@ -285,7 +290,7 @@ export default function ProfileForm() {
         disabled={
           !(
             user.dog!.name &&
-            user.location &&
+            user.location.city &&
             user.dog!.size &&
             user.dog!.gender &&
             user.dog!.energyLevel
