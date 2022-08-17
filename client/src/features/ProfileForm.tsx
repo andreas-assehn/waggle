@@ -3,16 +3,14 @@ import { useState, useRef, useEffect } from 'react';
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 import { EditUserProfile } from '../utils/types/user';
-import { store } from '../app/store';
 import { useSelector } from 'react-redux';
 import apiUserService from '../utils/services/apiUserService';
 
 export default function ProfileForm() {
-  const _id = store.getState().userAuth.userAuth!._id;
-  // const _id = useSelector((state: any) => state.userAuth).userAuth._id;
-  console.log(_id);
+  const _id = useSelector((state: any) => state.userAuth);
+
   const [user, setUser] = useState({
-    // _id: _id,
+    _id: '',
     location: {},
     dog: {
       name: '',
@@ -26,6 +24,12 @@ export default function ProfileForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
+
+  useEffect(() => {
+    if (_id.userAuth) {
+      setUser({ ...user, _id: _id.userAuth._id });
+    }
+  }, [_id]);
 
   //image upload
   const showCloudinaryWidget = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -113,6 +117,7 @@ export default function ProfileForm() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log(user);
+    // apiUserService.updateUser(user);
   }
 
   return (
