@@ -1,29 +1,72 @@
 import * as React from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
+import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 
 export default function ProfileForm() {
-  const showCloudinaryWidget = (event: any) => {
+  const [dogImages, setDogImages] = useState([] as string[]);
+  const [ownerImage, setOwnerImage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  //image upload
+  const showCloudinaryWidget = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    console.log(event.target.id);
     const widget = window.cloudinary.createUploadWidget(
       {
         cloudName: process.env.REACT_APP_CLOUDINARY_URL,
-        uploadPreset: 'yxtws6c1',
+        uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
       },
       (error: any, result: any) => {
         if (!error && result && result.event === 'success') {
-          console.log(result);
+          console.log(result.info);
+          if (event.target.id === 'dogImages') {
+            setDogImages([...dogImages, result.info.secure_url]);
+          }
+          if (event.target.id === 'ownerImage') {
+            setOwnerImage(result.info.secure_url);
+          }
+        } else {
+          setErrorMessage(`Upload failed of ${result.info.original_filename}`);
         }
       }
     );
     widget.open();
   };
 
+  const geocoderContainer: any = useRef(null);
+  useEffect(() => {
+    const autocomplete = new GeocoderAutocomplete(
+      geocoderContainer.current,
+      process.env.REACT_APP_GEOAPIFY_KEY!,
+      {
+        placeholder: 'Enter your rough area/location...',
+        skipDetails: false,
+        skipIcons: true,
+      }
+    );
+    autocomplete.on('select', (location) => {
+      console.log(location);
+    });
+  }, [geocoderContainer]);
+
+  //Api call
+  function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    console.log('hello');
+  }
+
   return (
-    <form className="profile-form">
+    <form className="profile-form" onSubmit={(event) => handleSubmit(event)}>
       <h3> Please fill out the following about your dog(s):</h3>
 
-      <button onClick={showCloudinaryWidget}>Upload images of your dog</button>
+      <button onClick={showCloudinaryWidget} id="dogImages">
+        Upload images of your dog
+      </button>
       <br />
-      <button onClick={showCloudinaryWidget}>Upload image of you</button>
+      <button onClick={showCloudinaryWidget} id="ownerImage">
+        Upload image of you
+      </button>
       <br />
       <label htmlFor="dog-name">Name</label>
       <input type="text" placeholder="Dog's name..." id="dog-name" />
@@ -36,6 +79,13 @@ export default function ProfileForm() {
       <br />
       <label htmlFor="bio">Bio</label>
       <input type="text" placeholder="Bio..." id="bio" />
+      <br />
+      <div
+        className="autocomplete-container"
+        style={{ position: 'relative' }}
+        ref={geocoderContainer}
+      ></div>
+
       <br />
       <label htmlFor="size-selector">Size</label>
       <select name="size" id="size-selector">
