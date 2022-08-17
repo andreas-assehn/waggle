@@ -34,4 +34,5 @@ export type Dog = {
   likes?: string[];
   dislikes?: string[];
   images?: string[];
+  age?: number;
 };

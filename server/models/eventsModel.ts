@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Event } from '../utils/Types';
+import { Event } from '../../globalUtils/Types';
 
 const EventsSchema = new mongoose.Schema<Event>({
   createdBy: { type: String, required: true },

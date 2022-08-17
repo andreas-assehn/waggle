@@ -1,4 +1,4 @@
-import { User } from '../types/user';
+import { User } from '../../../../globalUtils/Types';
 
 const BASE_URL = 'http://localhost:4000';
 

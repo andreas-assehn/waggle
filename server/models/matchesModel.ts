@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Matches } from '../utils/Types';
+import { Matches } from '../../globalUtils/Types';
 
 const MatchesSchema = new mongoose.Schema<Matches>({
   userId: { type: String, required: true },
