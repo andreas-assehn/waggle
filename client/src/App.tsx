@@ -23,9 +23,10 @@ import { RootState } from './app/store';
 import { clearAllUsersState, setAllUsersState } from './app/allUsersSlice';
 import apiEventService from './utils/services/apiEventsService';
 import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
+import { useAppSelector } from './app/hooks';
 
 function App() {
-  const { userAuth } = useSelector((state: RootState) => state.userAuth);
+  const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
   console.log(userAuth);
   useEffect(() => {
