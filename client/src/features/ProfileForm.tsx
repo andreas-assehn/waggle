@@ -7,6 +7,8 @@ export default function ProfileForm() {
   const [dogImages, setDogImages] = useState([] as string[]);
   const [ownerImage, setOwnerImage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const geocoderContainer = useRef(null);
+  const initialized = useRef(false);
 
   //image upload
   const showCloudinaryWidget = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -34,21 +36,27 @@ export default function ProfileForm() {
     widget.open();
   };
 
-  const geocoderContainer: any = useRef(null);
   useEffect(() => {
-    const autocomplete = new GeocoderAutocomplete(
-      geocoderContainer.current,
-      process.env.REACT_APP_GEOAPIFY_KEY!,
-      {
-        placeholder: 'Enter your rough area/location...',
-        skipDetails: false,
-        skipIcons: true,
-      }
-    );
-    autocomplete.on('select', (location) => {
-      console.log(location);
-    });
-  }, [geocoderContainer]);
+    if (
+      !initialized.current &&
+      process.env.REACT_APP_GEOAPIFY_KEY &&
+      geocoderContainer.current
+    ) {
+      const autocomplete = new GeocoderAutocomplete(
+        geocoderContainer.current,
+        process.env.REACT_APP_GEOAPIFY_KEY,
+        {
+          placeholder: 'Enter your rough area/location...',
+          skipDetails: false,
+          skipIcons: true,
+        }
+      );
+      autocomplete.on('select', (location) => {
+        console.log(location);
+      });
+      initialized.current = true;
+    }
+  }, []);
 
   //Api call
   function handleSubmit(event: React.FormEvent) {
@@ -64,29 +72,35 @@ export default function ProfileForm() {
         Upload images of your dog
       </button>
       <br />
+
       <button onClick={showCloudinaryWidget} id="ownerImage">
         Upload image of you
       </button>
       <br />
+
       <label htmlFor="dog-name">Name</label>
       <input type="text" placeholder="Dog's name..." id="dog-name" />
       <br />
+
       <label htmlFor="dog-age">Age</label>
       <input type="number" placeholder="Dog's Age..." id="dog-age" />
       <br />
+
       <label htmlFor="tagline">Tagline</label>
       <input type="text" placeholder="Tagline..." id="tagline" />
       <br />
+
       <label htmlFor="bio">Bio</label>
       <input type="text" placeholder="Bio..." id="bio" />
       <br />
+
       <div
         className="autocomplete-container"
         style={{ position: 'relative' }}
         ref={geocoderContainer}
       ></div>
-
       <br />
+
       <label htmlFor="size-selector">Size</label>
       <select name="size" id="size-selector">
         <option value="Large">Large ({'>'}25kg)</option>
@@ -94,6 +108,7 @@ export default function ProfileForm() {
         <option value="Small">Small ({'<'}10kg)</option>
       </select>
       <br />
+
       <label htmlFor="gender-selector">Gender</label>
       <select name="gender" id="gender-selector">
         <option value="Male">Male</option>
@@ -101,6 +116,7 @@ export default function ProfileForm() {
         <option value="Both">Both (multiple dogs)</option>
       </select>
       <br />
+
       <label htmlFor="energy-selector">Energy</label>
       <select name="energy" id="energy-selector">
         <option value="4">Very high</option>
@@ -110,6 +126,7 @@ export default function ProfileForm() {
         <option value="0">Very Low</option>
       </select>
       <br />
+
       <label htmlFor="human-friendly-selector">Human friendliness</label>
       <select name="human-friendly" id="human-friendly-selector">
         <option value="4">Very high</option>
@@ -119,6 +136,7 @@ export default function ProfileForm() {
         <option value="0">Very Low</option>
       </select>
       <br />
+
       <label htmlFor="dog-friendly-selector">Dog friendliness</label>
       <select name="dog-friendly" id="dog-friendly-selector">
         <option value="4">Very high</option>
@@ -128,6 +146,7 @@ export default function ProfileForm() {
         <option value="0">Very Low</option>
       </select>
       <br />
+
       <label htmlFor="breed">Breed</label>
       <input type="text" placeholder="Breed..." id="breed" />
       <br />
@@ -137,6 +156,7 @@ export default function ProfileForm() {
       <label htmlFor="dislikes">Dislikes</label>
       <input type="text" placeholder="Dislikes..." id="dislikes" />
       <br />
+
       <input type="submit" />
     </form>
   );
