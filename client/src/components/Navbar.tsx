@@ -4,7 +4,7 @@ import matches from '../assets/navbar-matches.svg';
 import dashboard from '../assets/navbar-dashboard.svg';
 import events from '../assets/navbar-events.svg';
 import chat from '../assets/navbar-chat.svg';
-import '../Css/Navbar.css';
+import '../Css/components/Navbar.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 
