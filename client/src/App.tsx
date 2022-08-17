@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Navbar from './components/Navbar';
 import apiUserService from './utils/services/apiUserService';
 
 function App() {
