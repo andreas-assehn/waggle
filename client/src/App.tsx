@@ -52,6 +52,7 @@ function App() {
         <Route path='/settingsView' element={<SettingsView />} />
         <Route path='/editProfile' element={<EditProfile />} />
       </Routes>
+      <Navbar />
     </div>
   );
 }

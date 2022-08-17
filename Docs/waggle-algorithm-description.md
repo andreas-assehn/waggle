@@ -4,7 +4,7 @@ Important
 - Energy level (Temperament)
 - Size
 - Age
-- Gender
+- Gender (Optional - would be set in user settings)
 
 1. Get a list of all potential matches within the geographical bounderies.
 
@@ -20,10 +20,8 @@ As a baseline it will be sorted on the GESAG algo.
 
 Actual algorithm would run like this:
 
-(G)ESAG => (G)ESA => (G)ES => (G)E
+(G)ESA => (G)ES => (G)E
 
-(G)SAG => (G)SA => (G)S
+(G)SA => (G)S
 
-(G)AG => (G)A
-
-(G)G
+(G)A
