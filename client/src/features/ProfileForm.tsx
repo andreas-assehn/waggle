@@ -2,20 +2,21 @@ import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
-import { User } from '../utils/types/user';
+import { EditUserProfile } from '../utils/types/user';
 
 export default function ProfileForm() {
   const [user, setUser] = useState({
-    // dog: {
-    //   name: '',
-    //   age: 0,
-    //   size: '',
-    //   gender: '',
-    //   energyLevel: 0,
-    //   images: [] as string[],
-    // },
-    // ownerImage: '',
-  } as User);
+    _id: '',
+    location: {},
+    dog: {
+      name: '',
+      size: '',
+      gender: '',
+      energyLevel: 0,
+      images: [] as string[],
+    },
+    ownerImage: '',
+  } as EditUserProfile);
   const [errorMessage, setErrorMessage] = useState('');
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
@@ -23,7 +24,6 @@ export default function ProfileForm() {
   //image upload
   const showCloudinaryWidget = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(event.target.id);
     const widget = window.cloudinary.createUploadWidget(
       {
         cloudName: process.env.REACT_APP_CLOUDINARY_URL,
@@ -31,20 +31,23 @@ export default function ProfileForm() {
       },
       (error: any, result: any) => {
         if (!error && result && result.event === 'success') {
-          console.log(result.info);
+          console.log(result, result.event);
           if (event.target.id === 'dogImages') {
             setUser({
               ...user,
               dog: {
-                ...user.dog,
-                images: [...user.dog.images, result.info.secure_url],
+                ...user.dog!,
+                images: [...user.dog!.images!, result.info.secure_url],
               },
             });
           }
           if (event.target.id === 'ownerImage') {
-            setUser({ ...user, ownerImage: result.info.secure_url });
+            setUser({
+              ...user,
+              ownerImage: result.info.secure_url,
+            });
           }
-        } else {
+        } else if (error) {
           setErrorMessage(`Upload failed of ${result.info.original_filename}`);
         }
       }
@@ -69,27 +72,46 @@ export default function ProfileForm() {
       );
       autocomplete.on('select', (location) => {
         console.log(location);
+        setUser({
+          ...user,
+          location: {
+            city: location.properties.city,
+            country: location.properties.country,
+            county: location.properties.county,
+            state: location.properties.state,
+            postcode: location.properties.postcode,
+            countryCode: location.properties.countryCode,
+            lon: location.properties.lon,
+            lat: location.properties.lat,
+            stateCode: location.properties.statecode,
+            formatted: location.properties.formatted,
+            addressLine1: location.properties.addressLine1,
+            addressLine2: location.properties.addressLine2,
+          },
+        });
       });
       initialized.current = true;
     }
   }, []);
 
-  function handleInputChanges(event: React.ChangeEvent<HTMLInputElement>) {
-    console.log(event.target.id, event.currentTarget.value);
+  function handleInputChanges(
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     setUser({
       ...user,
-      dog: { ...user.dog, [event.target.id]: event.currentTarget.value },
+      dog: { ...user.dog!, [event.target.id]: event.currentTarget.value },
     });
   }
 
   //Api call
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    console.log(user);
   }
 
   return (
     <form className="profile-form" onSubmit={handleSubmit}>
-      <h3> Details about your dog(s):</h3>
+      <h3> Details about your dog(s)</h3>
 
       <button onClick={showCloudinaryWidget} id="dogImages">
         Upload images of your dog
@@ -101,16 +123,17 @@ export default function ProfileForm() {
       </button>
       <br />
 
-      <label htmlFor="dog-name">Name {user.dog!.name}</label>
+      <label htmlFor="dog-name">Name</label>
       <input
         type="text"
         placeholder="Dog's name..."
         id="name"
         onChange={handleInputChanges}
+        required
       />
       <br />
 
-      <label htmlFor="dog-age">Age {user.dog!.age}</label>
+      <label htmlFor="dog-age">Age</label>
       <input
         type="number"
         placeholder="Dog's Age..."
@@ -119,9 +142,7 @@ export default function ProfileForm() {
       />
       <br />
 
-      <label htmlFor="briefDescription">
-        Tagline {user.dog!.briefDescription}
-      </label>
+      <label htmlFor="briefDescription">Tagline</label>
       <input
         type="text"
         placeholder="Tagline..."
@@ -130,7 +151,7 @@ export default function ProfileForm() {
       />
       <br />
 
-      <label htmlFor="description">Bio {user.dog!.description}</label>
+      <label htmlFor="description">Bio</label>
       <input
         type="text"
         placeholder="Bio..."
@@ -147,7 +168,10 @@ export default function ProfileForm() {
       <br />
 
       <label htmlFor="size-selector">Size</label>
-      <select name="size" id="size">
+      <select name="size" id="size" onChange={handleInputChanges}>
+        <option value="" disabled selected>
+          Please select...
+        </option>
         <option value="Large">Large ({'>'}25kg)</option>
         <option value="Medium">Medium (10-25kg)</option>
         <option value="Small">Small ({'<'}10kg)</option>
@@ -155,7 +179,10 @@ export default function ProfileForm() {
       <br />
 
       <label htmlFor="gender-selector">Gender</label>
-      <select name="gender" id="gender">
+      <select name="gender" id="gender" onChange={handleInputChanges}>
+        <option value="" disabled selected>
+          Please select...
+        </option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Both">Both (multiple dogs)</option>
@@ -163,7 +190,10 @@ export default function ProfileForm() {
       <br />
 
       <label htmlFor="energy-selector">Energy</label>
-      <select name="energy" id="energyLevel">
+      <select name="energy" id="energyLevel" onChange={handleInputChanges}>
+        <option value="" disabled selected>
+          Please select...
+        </option>
         <option value="4">Very high</option>
         <option value="3">High</option>
         <option value="2">Moderate</option>
@@ -173,7 +203,14 @@ export default function ProfileForm() {
       <br />
 
       <label htmlFor="human-friendly-selector">Human friendliness</label>
-      <select name="human-friendly" id="humanFriendliness">
+      <select
+        name="human-friendly"
+        id="humanFriendliness"
+        onChange={handleInputChanges}
+      >
+        <option value="" disabled selected>
+          Please select...
+        </option>
         <option value="4">Very high</option>
         <option value="3">High</option>
         <option value="2">Moderate</option>
@@ -183,7 +220,14 @@ export default function ProfileForm() {
       <br />
 
       <label htmlFor="dog-friendly-selector">Dog friendliness</label>
-      <select name="dog-friendly" id="dogFriendliness">
+      <select
+        name="dog-friendly"
+        id="dogFriendliness"
+        onChange={handleInputChanges}
+      >
+        <option value="" disabled selected>
+          Please select...
+        </option>
         <option value="4">Very high</option>
         <option value="3">High</option>
         <option value="2">Moderate</option>
@@ -192,7 +236,7 @@ export default function ProfileForm() {
       </select>
       <br />
 
-      <label htmlFor="breed">Breed {user.dog!.breed}</label>
+      <label htmlFor="breed">Breed</label>
       <input
         type="text"
         placeholder="Breed..."
@@ -201,7 +245,7 @@ export default function ProfileForm() {
       />
       <br />
 
-      <label htmlFor="likes">Likes {user.dog!.likes}</label>
+      <label htmlFor="likes">Likes</label>
       <input
         type="text"
         placeholder="Likes..."
@@ -210,7 +254,7 @@ export default function ProfileForm() {
       />
       <br />
 
-      <label htmlFor="dislikes">Dislikes {user.dog!.dislikes}</label>
+      <label htmlFor="dislikes">Dislikes</label>
       <input
         type="text"
         placeholder="Dislikes..."
@@ -225,7 +269,18 @@ export default function ProfileForm() {
         </div>
       )}
 
-      <input type="submit" />
+      <input
+        type="submit"
+        disabled={
+          !(
+            user.dog!.name &&
+            user.location &&
+            user.dog!.size &&
+            user.dog!.gender &&
+            user.dog!.energyLevel
+          )
+        }
+      />
     </form>
   );
 }
