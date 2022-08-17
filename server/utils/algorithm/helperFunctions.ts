@@ -3,7 +3,7 @@ import { Dog, User } from '../../../globalUtils/Types';
 // Filters out users who do not have a dog
 export function usersWithDog(user: User, users: User[]) {
   const filteredUsers: User[] = users.filter((otherUser) => {
-    if (otherUser.dog) return user;
+    if (otherUser.dog) return otherUser;
   });
   return filteredUsers;
 }
@@ -11,7 +11,7 @@ export function usersWithDog(user: User, users: User[]) {
 // Filters out users who do not have a location
 export function usersWithLocation(user: User, users: User[]) {
   const filteredUsers: User[] = users.filter((otherUser) => {
-    if (otherUser.location) return user;
+    if (otherUser.location) return otherUser;
   });
   return filteredUsers;
 }
@@ -19,7 +19,19 @@ export function usersWithLocation(user: User, users: User[]) {
 // Filters out yourself from users array
 export function filterOutYourself(user: User, users: User[]) {
   const filteredUsers: User[] = users.filter((otherUser) => {
-    if (user.userId !== otherUser.userId) return user;
+    if (user.userId !== otherUser.userId) return otherUser;
+  });
+  return filteredUsers;
+}
+
+// Filters out users already swiped
+export function usersNotSwiped(user: User, users: User[]) {
+  const filteredUsers: User[] = users.filter((otherUser) => {
+    if (
+      !user.swipeYes!.includes(otherUser.userId) &&
+      !user.swipeNo!.includes(otherUser.userId)
+    )
+      return otherUser;
   });
   return filteredUsers;
 }
@@ -61,7 +73,7 @@ export function degreesToRadian(degree: number) {
 }
 
 // Actual filter functions: When finding a match they will
-// remove matched dog from array copy, so they won't be iterated again
+// remove matched user from array copy, so they won't be iterated again
 export function threeParameterMatches(
   myDog: Dog,
   filteredUsers: User[],

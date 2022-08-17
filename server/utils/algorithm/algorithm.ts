@@ -2,6 +2,7 @@ import {
   usersWithDog,
   usersWithLocation,
   filterOutYourself,
+  usersNotSwiped,
   usersInArea,
   oneParameterMatches,
   twoParameterMatches,
@@ -15,11 +16,15 @@ export function sortWaggles(user: User, users: User[]) {
     return new Error('Please complete your profile');
 
   const myDog: Dog = user.dog;
-  // Initial filtering, see function names
-  const usersHavingDog: User[] = usersWithDog(user, users);
-  const usersHavingLocation: User[] = usersWithLocation(user, usersHavingDog);
-  const usersNotYou: User[] = filterOutYourself(user, usersHavingLocation);
-  const filteredUsers: User[] = usersInArea(user, usersNotYou);
+  const usersCopy: User[] = users;
+
+  // Initial filtering
+  const getUsersWithDog: User[] = usersWithDog(user, usersCopy);
+  const getUsersWithLocation: User[] = usersWithLocation(user, getUsersWithDog);
+  const getUsersNotYou: User[] = filterOutYourself(user, getUsersWithLocation);
+  const getUsersNotSwiped: User[] = usersNotSwiped(user, getUsersNotYou);
+  const getUsersInArea: User[] = usersInArea(user, getUsersNotSwiped);
+  const filteredUsers: User[] = getUsersInArea;
 
   // Sorting parameters
   const paramOne: keyof Dog = 'energyLevel';
