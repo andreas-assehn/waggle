@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { User } from '../utils/Types';
+import { User } from '../../globalUtils/Types';
 
 const UserSchema = new mongoose.Schema<User>({
   userId: { type: String, required: true },

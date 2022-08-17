@@ -1,4 +1,4 @@
-import { Dog, User } from '../Types';
+import { Dog, User } from '../../../globalUtils/Types';
 
 // Filters out users who do not have a dog
 export function usersWithDog(user: User, users: User[]) {
@@ -28,7 +28,8 @@ export function filterOutYourself(user: User, users: User[]) {
 export function usersInArea(user: User, users: User[]) {
   const filteredUsers = users.filter((otherUser) => {
     if (
-      getDistanceFromLatLonInKm(user, otherUser) <= user.preferences.maxDistance
+      getDistanceFromLatLonInKm(user, otherUser) <=
+      user.preferences!.maxDistance
     )
       return otherUser;
   });
