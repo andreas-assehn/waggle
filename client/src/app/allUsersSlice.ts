@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User } from '../../../globalUtils/Types';
 
 const initialState = {
-  allUsers: null,
+  allUsers: [] as User[],
 };
 
 const allUsersSlice = createSlice({
@@ -12,7 +13,7 @@ const allUsersSlice = createSlice({
       state.allUsers = action.payload;
     },
     clearAllUsersState: (state) => {
-      state.allUsers = null;
+      state.allUsers = [];
     },
   },
 });

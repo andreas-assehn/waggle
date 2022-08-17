@@ -27,7 +27,7 @@ import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 function App() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
-
+  console.log(userAuth);
   useEffect(() => {
     const isAuth = methods.onAuthStateChanged(auth, async (cred) => {
       if (cred) {
