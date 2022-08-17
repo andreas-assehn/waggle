@@ -20,3 +20,5 @@ const allUsersSlice = createSlice({
 export const { setAllUsersState, clearAllUsersState } = allUsersSlice.actions;
 
 export default allUsersSlice.reducer;
+
+export const userSelector = (state: any) => state.allUsers;
