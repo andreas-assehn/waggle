@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Sass/App.scss'; // Do not remove!
+import './Sass/components/App.scss';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import SplashScreen from './pages/SplashScreen';
@@ -65,7 +65,7 @@ function App() {
   }, [userAuth]);
 
   return (
-    <div className='App'>
+    <div className="App">
       <h1>App</h1>
       <Routes>
         <Route path='/' element={<SplashScreen />} />
