@@ -3,13 +3,11 @@ import React from 'react';
 function Modal({
   setOpenModal,
   message,
-  title,
   handleModalConfirm,
   openModal,
 }: {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   message: string;
-  title: string;
   handleModalConfirm: any;
   openModal: boolean;
 }) {
@@ -28,8 +26,6 @@ function Modal({
   // const handleModalConfirm = ()=>{
   // // whatever your function wants to do on confirm
   // }
-  //
-  //
 
   return (
     <div className='modalBackground'>
@@ -42,9 +38,6 @@ function Modal({
           >
             X
           </button>
-        </div>
-        <div className='modalTitle'>
-          <h3>{title}</h3>
         </div>
         <div className='modalBody'>
           <p>{message}</p>

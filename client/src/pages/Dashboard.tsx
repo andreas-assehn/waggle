@@ -29,7 +29,6 @@ function Dashboard() {
         <Modal
           openModal={openModal}
           handleModalConfirm={handleModalConfirm}
-          title={modalTitle}
           message={modalMessage}
           setOpenModal={setOpenModal}
         />
