@@ -21,8 +21,8 @@ function HeaderBar() {
     else return false;
   };
 
-  let showHeaderBar = false;
-  if (typeof pageTitle(url) === 'string') showHeaderBar = true;
+  let showHeaderBar = true;
+  if (pageTitle(url) === false) showHeaderBar = false;
 
   return (
     <>
