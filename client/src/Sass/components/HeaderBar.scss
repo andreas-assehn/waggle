@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+$size: 11vh;
+.headerBar-container {
+  display: flex;
+  background-color: $main-dark-grey;
+  color: $main-white;
+  height: $size;
+}
+
+.headerBar-btn {
+  height: $size * 0.7;
+}
