@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10em;
+
+  &__button {
+    width: 30vw;
+    margin: 0.3em;
+  }
+}

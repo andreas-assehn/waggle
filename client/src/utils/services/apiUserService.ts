@@ -29,6 +29,19 @@ const updateUser = async (user: EditUserProfile) => {
     .catch((err) => console.error(err));
 };
 
+const updateUserSwipes = (user: User, swipe: string) => {
+  const options: RequestInit = {
+    method: 'PUT',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  return fetch(`${BASE_URL}/users/swipe${swipe}/${user._id}`, options)
+    .then((response) => response.json())
+    .catch((err) => console.error(err));
+};
+
 const getUser = async (id: string) => {
   const options: RequestInit = {
     method: 'GET',
@@ -55,5 +68,11 @@ const getAllUsers = async () => {
     .catch((err) => console.error(err));
 };
 
-const apiUserService = { register, updateUser, getUser, getAllUsers };
+const apiUserService = {
+  register,
+  updateUser,
+  updateUserSwipes,
+  getUser,
+  getAllUsers,
+};
 export default apiUserService;

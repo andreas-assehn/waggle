@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
+import SplashGraphics from '../components/SplashGraphics';
+import '../Css/pages/LoginRegister.css';
 
 function LoginRegister() {
   const navigate = useNavigate();
@@ -11,9 +13,15 @@ function LoginRegister() {
 
   return (
     <>
-      <div>Waggle LOGO</div>
-      <Link to='/login'>Login</Link>
-      <Link to='/register'>Register</Link>
+      <SplashGraphics />
+      <div className='link-container'>
+        <Link to='/login'>
+          <button className='link-container__button'>Login</button>
+        </Link>
+        <Link to='/register'>
+          <button className='link-container__button'>Register</button>
+        </Link>
+      </div>
     </>
   );
 }

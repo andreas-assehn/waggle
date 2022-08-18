@@ -11,9 +11,11 @@ const allEventsSlice = createSlice({
   reducers: {
     setAllEventsState: (state, action) => {
       state.allEvents = action.payload;
+      return state;
     },
     clearAllEventsState: (state) => {
       state.allEvents = [];
+      return state;
     },
   },
 });

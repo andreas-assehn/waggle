@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.card {
+  position: relative;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+.card__profileImage {
+  width: 95vw;
+  height: 80vw;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  margin: 5vw auto;
+  display: block;
+  border-radius: 10px;
+}
