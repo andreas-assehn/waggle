@@ -12,6 +12,7 @@ import EventDetails from './pages/EventDetails';
 import AddEventForm from './pages/AddEventForm';
 import SettingsView from './pages/SettingsView';
 import EditProfile from './pages/EditProfile';
+import UserProfile from './pages/UserProfile';
 import { auth, methods } from './utils/auth/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
@@ -66,6 +67,10 @@ function App() {
 
   return (
     <div className='App'>
+<<<<<<< HEAD
+=======
+      <h1>App</h1>
+>>>>>>> b896c6ca64a87e804f2644ca3cab6ca1a64166e0
       <Routes>
         <Route path='/' element={<SplashScreen />} />
         <Route path='/login' element={<Login />} />
@@ -81,6 +86,7 @@ function App() {
         <Route path='/addEventForm' element={<AddEventForm />} />
         <Route path='/settingsView' element={<SettingsView />} />
         <Route path='/editProfile' element={<EditProfile />} />
+        <Route path='/profile' element={<UserProfile />} />
       </Routes>
       <Navbar />
     </div>
