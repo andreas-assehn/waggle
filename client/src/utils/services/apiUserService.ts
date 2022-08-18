@@ -29,7 +29,7 @@ const updateUser = async (user: EditUserProfile) => {
     .catch((err) => console.error(err));
 };
 
-const updateUserSwipes = async (user: User) => {
+const updateUserSwipes = (user: User, swipe: string) => {
   const options: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(user),
@@ -37,7 +37,7 @@ const updateUserSwipes = async (user: User) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users/${user._id}`, options)
+  return fetch(`${BASE_URL}/users/swipe${swipe}/${user._id}`, options)
     .then((response) => response.json())
     .catch((err) => console.error(err));
 };

@@ -12,6 +12,7 @@ function ProfileDetails({ user }: { user: User }) {
         {user.dog?.name}, {user.dog?.age}, {user.dog?.gender}
       </h3>
       <p>{user.dog?.briefDescription}</p>
+      <p>{user.dog?.description}</p>
     </div>
   );
 }
