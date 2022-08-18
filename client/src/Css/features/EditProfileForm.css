@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 4vw;
+  overflow-y: scroll;
+  overflow-x: unset;
+}
+.profile-form__input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+  margin: 0 10px;
+}
+.profile-form__input-row__label {
+  margin: 0 1.5vw;
+  color: #373737;
+  width: 20vw;
+}

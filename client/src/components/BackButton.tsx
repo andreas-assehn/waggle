@@ -7,7 +7,7 @@ function BackButton() {
 
   return (
     <>
-      <button>
+      <button className='--transparent'>
         <img src={backButton} onClick={() => navigate(-1)} />
       </button>
     </>

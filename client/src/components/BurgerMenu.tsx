@@ -28,13 +28,13 @@ function BurgerMenu() {
   // Add aria! chrome vox to test blind user experience
   return (
     <>
-      <button onClick={handleShowModal}>
+      <button onClick={handleShowModal} className='--transparent'>
         <img src={burgerMenuIcon} />
       </button>
       {showModal ? (
-        <div className="modalBackground">
-          <div className="modalContainer">
-            <div className="titleCloseBtn">
+        <div className='modalBackground'>
+          <div className='modalContainer'>
+            <div className='titleCloseBtn'>
               <button
                 onClick={() => {
                   setShowModal(false);
@@ -43,7 +43,7 @@ function BurgerMenu() {
                 X
               </button>
             </div>
-            <div className="modalBody">
+            <div className='modalBody'>
               <button
                 onClick={() => {
                   navigate('/settingsView'), setShowModal(false);

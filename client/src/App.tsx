@@ -66,27 +66,26 @@ function App() {
   }, [userAuth]);
 
   return (
-    <div className="App">
-      <h1>App</h1>
+    <div className='App'>
+      <HeaderBar />
       <Routes>
-        <Route path="/" element={<SplashScreen />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/loginRegister" element={<LoginRegister />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/matchingView" element={<MatchingView />} />
-        <Route path="/matchingViewDetail" element={<MatchingViewDetail />} />
-        <Route path="/chatDashboard" element={<ChatDashboard />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/eventsDashboard" element={<EventsDashboard />} />
-        <Route path="/eventDetails" element={<EventDetails />} />
-        <Route path="/addEventForm" element={<AddEventForm />} />
-        <Route path="/settingsView" element={<SettingsView />} />
-        <Route path="/editProfile" element={<EditProfile />} />
-        <Route path="/profile" element={<UserProfile />} />
+        <Route path='/' element={<SplashScreen />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/loginRegister' element={<LoginRegister />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/matchingView' element={<MatchingView />} />
+        <Route path='/matchingViewDetail' element={<MatchingViewDetail />} />
+        <Route path='/chatDashboard' element={<ChatDashboard />} />
+        <Route path='/chat' element={<Chat />} />
+        <Route path='/eventsDashboard' element={<EventsDashboard />} />
+        <Route path='/eventDetails' element={<EventDetails />} />
+        <Route path='/addEventForm' element={<AddEventForm />} />
+        <Route path='/settingsView' element={<SettingsView />} />
+        <Route path='/editProfile' element={<EditProfile />} />
+        <Route path='/profile' element={<UserProfile />} />
       </Routes>
       <Navbar />
-      <HeaderBar />
     </div>
   );
 }

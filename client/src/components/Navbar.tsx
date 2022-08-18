@@ -14,52 +14,52 @@ function Navbar() {
   const url = useLocation().pathname;
 
   useEffect(() => {
-    if (url !== '/' && url !== '/login' && url !== '/register') {
+    if (
+      url !== '/' &&
+      url !== '/login' &&
+      url !== '/register' &&
+      url !== '/loginRegister'
+    ) {
       setNotProtected(true);
     }
   });
 
-  return (
+  return isLoggedIn && notProtected ? (
     <>
-      {isLoggedIn && notProtected ? (
-        <div className='navbar'>
-          <div className='btn-container'>
-            <Link
-              className={
-                url === '/matchingView' ? 'nav-btn current' : 'nav-btn'
-              }
-              to={'/matchingView'}
-            >
-              <img src={matches} />
-            </Link>
-            <Link
-              className={url === '/dashboard' ? 'nav-btn current' : 'nav-btn'}
-              to={'/dashboard'}
-            >
-              <img src={dashboard} />
-            </Link>
-            <Link
-              className={
-                url === '/eventsDashboard' ? 'nav-btn current' : 'nav-btn'
-              }
-              to={'/eventsDashboard'}
-            >
-              <img src={events} />
-            </Link>
-            <Link
-              className={
-                url === '/chatDashboard' ? 'nav-btn current' : 'nav-btn'
-              }
-              to={'/chatDashboard'}
-            >
-              <img src={chat} />
-            </Link>
-          </div>
+      <div className='navbar-padding' />
+      <div className='navbar'>
+        <div className='btn-container'>
+          <Link
+            className={url === '/matchingView' ? 'nav-btn current' : 'nav-btn'}
+            to={'/matchingView'}
+          >
+            <img src={matches} />
+          </Link>
+          <Link
+            className={url === '/dashboard' ? 'nav-btn current' : 'nav-btn'}
+            to={'/dashboard'}
+          >
+            <img src={dashboard} />
+          </Link>
+          <Link
+            className={
+              url === '/eventsDashboard' ? 'nav-btn current' : 'nav-btn'
+            }
+            to={'/eventsDashboard'}
+          >
+            <img src={events} />
+          </Link>
+          <Link
+            className={url === '/chatDashboard' ? 'nav-btn current' : 'nav-btn'}
+            to={'/chatDashboard'}
+          >
+            <img src={chat} />
+          </Link>
         </div>
-      ) : (
-        <></>
-      )}
+      </div>
     </>
+  ) : (
+    <></>
   );
 }
 

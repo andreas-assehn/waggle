@@ -15,20 +15,19 @@ function HeaderBar() {
   let showBackButton = true;
   if (pagesWithBackButton(url) === false) showBackButton = false;
 
-  return (
+  return showHeaderBar ? (
     <>
-      {showHeaderBar ? (
-        <div className="headerBar">
-          <div className="headerBar-container">
-            {showBackButton ? <BackButton /> : <></>}
-            <h1>{pageTitle(url)}</h1>
-            <BurgerMenu />
-          </div>
+      <div className='header-padding' />
+      <div className='headerBar'>
+        <div className='headerBar-container'>
+          {showBackButton ? <BackButton /> : <></>}
+          <h1>{pageTitle(url)}</h1>
+          <BurgerMenu />
         </div>
-      ) : (
-        <></>
-      )}
+      </div>
     </>
+  ) : (
+    <></>
   );
 }
 
