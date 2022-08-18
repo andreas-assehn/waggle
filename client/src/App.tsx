@@ -67,6 +67,7 @@ function App() {
 
   return (
     <div className='App'>
+      <HeaderBar />
       <Routes>
         <Route path='/' element={<SplashScreen />} />
         <Route path='/login' element={<Login />} />
@@ -85,7 +86,6 @@ function App() {
         <Route path='/profile' element={<UserProfile />} />
       </Routes>
       <Navbar />
-      <HeaderBar />
     </div>
   );
 }

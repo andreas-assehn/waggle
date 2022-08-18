@@ -4,7 +4,7 @@ import burgerMenuIcon from '../assets/burgerMenu.svg';
 function BurgerMenu() {
   return (
     <>
-      <button>
+      <button className='--transparent'>
         <img src={burgerMenuIcon} />
       </button>
     </>

@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 4vw;
+  overflow-y: scroll;
+  overflow-x: unset;
+
+  &__input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 93%;
+    margin: 0 10px;
+
+    &__label {
+      margin: 0 1.5vw;
+      color: $text-dark-grey;
+      width: 20vw;
+    }
+  }
+}

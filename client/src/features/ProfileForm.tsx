@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
+import '../Css/features/EditProfileForm.css';
 import '../Css/components/geocoderInput.css';
 import { EditUserProfile } from '../utils/types/user';
 import { LocationType } from '../utils/types/location';
@@ -130,159 +131,223 @@ export default function ProfileForm() {
 
   return (
     <form className='profile-form' onSubmit={handleSubmit}>
-      <h3> Details about your dog(s)</h3>
-
-      <button onClick={showCloudinaryWidget} id='dogImages'>
-        Upload images of your dog
-      </button>
-      <br />
-
-      <button onClick={showCloudinaryWidget} id='ownerImage'>
-        Upload image of you
-      </button>
-      <br />
-
-      <label htmlFor='dog-name'>Name</label>
-      <input
-        type='text'
-        placeholder="Dog's name..."
-        id='name'
-        onChange={handleInputChanges}
-        required
-      />
-      <br />
-
-      <label htmlFor='dog-age'>Age</label>
-      <input
-        type='number'
-        placeholder="Dog's Age..."
-        id='age'
-        onChange={handleInputChanges}
-      />
-      <br />
-
-      <label htmlFor='briefDescription'>Tagline</label>
-      <input
-        type='text'
-        placeholder='Tagline...'
-        id='briefDescription'
-        onChange={handleInputChanges}
-      />
-      <br />
-
-      <label htmlFor='description'>Bio</label>
-      <input
-        type='text'
-        placeholder='Bio...'
-        id='description'
-        onChange={handleInputChanges}
-      />
-      <br />
-
-      <label htmlFor='autocomplete'>Location</label>
-      <div
-        className='autocomplete-container'
-        id='autocomplete'
-        style={{ position: 'relative' }}
-        ref={geocoderContainer}
-      ></div>
-      <br />
-
-      <label htmlFor='size-selector'>Size</label>
-      <select name='size' id='size' onChange={handleInputChanges}>
-        <option value='' disabled selected>
-          Please select...
-        </option>
-        <option value='Large'>Large ({'>'}25kg)</option>
-        <option value='Medium'>Medium (10-25kg)</option>
-        <option value='Small'>Small ({'<'}10kg)</option>
-      </select>
-      <br />
-
-      <label htmlFor='gender-selector'>Gender</label>
-      <select name='gender' id='gender' onChange={handleInputChanges}>
-        <option value='' disabled selected>
-          Please select...
-        </option>
-        <option value='Male'>Male</option>
-        <option value='Female'>Female</option>
-        <option value='Both'>Both (multiple dogs)</option>
-      </select>
-      <br />
-
-      <label htmlFor='energy-selector'>Energy</label>
-      <select name='energy' id='energyLevel' onChange={handleInputChanges}>
-        <option value='' disabled selected>
-          Please select...
-        </option>
-        <option value='4'>Very high</option>
-        <option value='3'>High</option>
-        <option value='2'>Moderate</option>
-        <option value='1'>Low</option>
-        <option value='0'>Very Low</option>
-      </select>
-      <br />
-
-      <label htmlFor='human-friendly-selector'>Human friendliness</label>
-      <select
-        name='human-friendly'
-        id='humanFriendliness'
-        onChange={handleInputChanges}
+      <button
+        onClick={showCloudinaryWidget}
+        id='dogImages'
+        className='--fixed-width'
       >
-        <option value='' disabled selected>
-          Please select...
-        </option>
-        <option value='4'>Very high</option>
-        <option value='3'>High</option>
-        <option value='2'>Moderate</option>
-        <option value='1'>Low</option>
-        <option value='0'>Very Low</option>
-      </select>
-      <br />
+        Upload dog image(s)
+      </button>
 
-      <label htmlFor='dog-friendly-selector'>Dog friendliness</label>
-      <select
-        name='dog-friendly'
-        id='dogFriendliness'
-        onChange={handleInputChanges}
+      <button
+        onClick={showCloudinaryWidget}
+        id='ownerImage'
+        className='--fixed-width'
       >
-        <option value='' disabled selected>
-          Please select...
-        </option>
-        <option value='4'>Very high</option>
-        <option value='3'>High</option>
-        <option value='2'>Moderate</option>
-        <option value='1'>Low</option>
-        <option value='0'>Very Low</option>
-      </select>
-      <br />
+        Upload an image of you
+      </button>
 
-      <label htmlFor='breed'>Breed</label>
-      <input
-        type='text'
-        placeholder='Breed...'
-        id='breed'
-        onChange={handleInputChanges}
-      />
-      <br />
+      <div className='profile-form__input-row'>
+        <label htmlFor='dog-name' className='profile-form__input-row__label'>
+          Name
+        </label>
+        <input
+          type='text'
+          placeholder="Dog's name..."
+          id='name'
+          onChange={handleInputChanges}
+          required
+        />
+      </div>
 
-      <label htmlFor='likes'>Likes</label>
-      <input
-        type='text'
-        placeholder='Likes...'
-        id='likes'
-        onChange={handleInputChanges}
-      />
-      <br />
+      <div className='profile-form__input-row'>
+        <label htmlFor='dog-age' className='profile-form__input-row__label'>
+          Age
+        </label>
+        <input
+          type='number'
+          placeholder="Dog's Age..."
+          id='age'
+          onChange={handleInputChanges}
+        />
+      </div>
 
-      <label htmlFor='dislikes'>Dislikes</label>
-      <input
-        type='text'
-        placeholder='Dislikes...'
-        id='dislikes'
-        onChange={handleInputChanges}
-      />
-      <br />
+      <div className='profile-form__input-row'>
+        <label
+          htmlFor='briefDescription'
+          className='profile-form__input-row__label'
+        >
+          Tagline
+        </label>
+        <input
+          type='text'
+          placeholder='Tagline...'
+          id='briefDescription'
+          onChange={handleInputChanges}
+        />
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label htmlFor='description' className='profile-form__input-row__label'>
+          Bio
+        </label>
+        <input
+          type='text'
+          placeholder='Bio...'
+          id='description'
+          onChange={handleInputChanges}
+        />
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label
+          htmlFor='autocomplete'
+          className='profile-form__input-row__label'
+        >
+          Location
+        </label>
+        <div
+          className='autocomplete-container'
+          id='autocomplete'
+          style={{ position: 'relative' }}
+          ref={geocoderContainer}
+        ></div>
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label
+          htmlFor='size-selector'
+          className='profile-form__input-row__label'
+        >
+          Size
+        </label>
+        <select name='size' id='size' onChange={handleInputChanges}>
+          <option value='' disabled selected>
+            Please select...
+          </option>
+          <option value='Large'>Large ({'>'}25kg)</option>
+          <option value='Medium'>Medium (10-25kg)</option>
+          <option value='Small'>Small ({'<'}10kg)</option>
+        </select>
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label
+          htmlFor='gender-selector'
+          className='profile-form__input-row__label'
+        >
+          Gender
+        </label>
+        <select name='gender' id='gender' onChange={handleInputChanges}>
+          <option value='' disabled selected>
+            Please select...
+          </option>
+          <option value='Male'>Male</option>
+          <option value='Female'>Female</option>
+          <option value='Both'>Both (multiple dogs)</option>
+        </select>
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label
+          htmlFor='energy-selector'
+          className='profile-form__input-row__label'
+        >
+          Energy
+        </label>
+        <select name='energy' id='energyLevel' onChange={handleInputChanges}>
+          <option value='' disabled selected>
+            Please select...
+          </option>
+          <option value='4'>Very high</option>
+          <option value='3'>High</option>
+          <option value='2'>Moderate</option>
+          <option value='1'>Low</option>
+          <option value='0'>Very Low</option>
+        </select>
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label
+          htmlFor='human-friendly-selector'
+          className='profile-form__input-row__label'
+        >
+          Human friendliness
+        </label>
+        <select
+          name='human-friendly'
+          id='humanFriendliness'
+          onChange={handleInputChanges}
+        >
+          <option value='' disabled selected>
+            Please select...
+          </option>
+          <option value='4'>Very high</option>
+          <option value='3'>High</option>
+          <option value='2'>Moderate</option>
+          <option value='1'>Low</option>
+          <option value='0'>Very Low</option>
+        </select>
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label
+          htmlFor='dog-friendly-selector'
+          className='profile-form__input-row__label'
+        >
+          Dog friendliness
+        </label>
+        <select
+          name='dog-friendly'
+          id='dogFriendliness'
+          onChange={handleInputChanges}
+        >
+          <option value='' disabled selected>
+            Please select...
+          </option>
+          <option value='4'>Very high</option>
+          <option value='3'>High</option>
+          <option value='2'>Moderate</option>
+          <option value='1'>Low</option>
+          <option value='0'>Very Low</option>
+        </select>
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label htmlFor='breed' className='profile-form__input-row__label'>
+          Breed
+        </label>
+        <input
+          type='text'
+          placeholder='Breed...'
+          id='breed'
+          onChange={handleInputChanges}
+        />
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label htmlFor='likes' className='profile-form__input-row__label'>
+          Likes
+        </label>
+        <input
+          type='text'
+          placeholder='Likes...'
+          id='likes'
+          onChange={handleInputChanges}
+        />
+      </div>
+
+      <div className='profile-form__input-row'>
+        <label htmlFor='dislikes' className='profile-form__input-row__label'>
+          Dislikes
+        </label>
+        <input
+          type='text'
+          placeholder='Dislikes...'
+          id='dislikes'
+          onChange={handleInputChanges}
+        />
+      </div>
 
       {errorMessage && (
         <div className='errorMessage'>

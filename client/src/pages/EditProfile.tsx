@@ -4,7 +4,7 @@ import ProfileForm from '../features/ProfileForm';
 function EditProfile() {
   return (
     <>
-      <h1>Edit Profile</h1>
+      <h3> Details about your dog(s)</h3>
       <ProfileForm />
     </>
   );

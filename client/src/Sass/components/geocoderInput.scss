@@ -3,6 +3,7 @@
 .autocomplete-container {
   width: 60vw;
   display: inline-block;
+  margin: 0 1.5vw;
 }
 
 .geoapify-autocomplete-input {
@@ -11,6 +12,7 @@
   line-height: normal;
   padding: 5px 25px 5px 10px;
   font-size: $p-size;
+  margin: 0.3vh 0;
 }
 
 .geoapify-close-button {

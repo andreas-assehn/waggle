@@ -6,6 +6,7 @@ import { RootState } from '../app/store';
 import { Link, useNavigate } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
 import { User } from '../../../globalUtils/Types';
+import '../Css/pages/register.css';
 
 function Register() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
@@ -106,14 +107,14 @@ function Register() {
   // };
 
   return (
-    <>
-      <h2>Register</h2>
+    <div className='register'>
+      <h2 className='register__title'>Register</h2>
 
       {/* {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
 
       <button onClick={handleSignOut}>Sign Out</button> */}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='register__form'>
         <fieldset>
           <label htmlFor='name'>Name</label>
           <input
@@ -163,15 +164,21 @@ function Register() {
           />
         </fieldset>
 
-        <button type='submit'>Register</button>
+        <button type='submit' className='--fixed-width'>
+          Register
+        </button>
       </form>
-      <button onClick={handleSignInWithGoogle}>Sign In with Google</button>
+      <button onClick={handleSignInWithGoogle} className='--fixed-width'>
+        Sign In with Google
+      </button>
       <p>{error}</p>
       <p>
         Already registered?
-        <Link to='/login'>Login</Link>
+        <Link to='/login' className='register__link'>
+          Login
+        </Link>
       </p>
-    </>
+    </div>
   );
 }
 

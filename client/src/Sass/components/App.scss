@@ -5,16 +5,18 @@ button {
   border: none;
   border-radius: 20px;
   padding: 4px 15px;
-  margin: 0.2vh 1vw;
+  margin: 0.5vh 1vw;
   border: 2px $button-blue solid;
   font-family: $body-font;
   color: $text-white;
   font-size: 4.5vw;
+  width: fit-content;
 
   &.--disabled {
     border: 2px $button-disabled solid;
     background-color: $button-disabled;
   }
+
   &.--pop {
     background-color: $pop-color;
     border: 2px $pop-color solid;
@@ -30,6 +32,15 @@ button {
     font-size: 5.5vw;
   }
 
+  &.--fixed-width {
+    width: 60vw;
+  }
+
+  &.--transparent {
+    background-color: transparent;
+    border: none;
+  }
+
   &:active {
     background-color: transparent;
     border: 2px $button-blue solid;
@@ -38,6 +49,10 @@ button {
     }
     &.--pop {
       border: 2px $pop-color solid;
+    }
+    &.--transparent {
+      background-color: rgba(255, 255, 255, 0.3);
+      border: none;
     }
   }
 }
@@ -69,8 +84,9 @@ select {
   @extend input;
 }
 
-.headerBar {
-  position: absolute;
-  top: 0px;
-  width: 100%;
+.navbar-padding {
+  height: 50px;
+}
+.header-padding {
+  height: 75px;
 }
