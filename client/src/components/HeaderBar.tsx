@@ -3,10 +3,8 @@ import { useLocation } from 'react-router-dom';
 import '../Css/components/HeaderBar.css';
 import BackButton from './BackButton';
 import BurgerMenu from './BurgerMenu';
-import {
-  pageTitle,
-  pagesWithBackButton,
-} from '../utils/helperFunctions/headerBar';
+import { pageTitle } from '../utils/helperFunctions/headerBar';
+import { pagesWithBackButton } from '../utils/helperFunctions/headerBar';
 
 function HeaderBar() {
   const url = useLocation().pathname;
