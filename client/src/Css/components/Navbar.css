@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .btn-container {
   display: flex;
   flex-direction: row;
@@ -19,5 +20,3 @@
   height: 5.6vh;
   border-radius: 2.8vh;
 }
-
-/*# sourceMappingURL=Navbar.css.map */

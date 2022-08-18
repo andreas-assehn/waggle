@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
-import Logo from '../assets/waggle-logo.svg';
+import SplashGraphics from '../components/SplashGraphics';
 
 function LoginRegister() {
   const navigate = useNavigate();
@@ -12,9 +12,7 @@ function LoginRegister() {
 
   return (
     <>
-      <div>
-        <img src={Logo} alt='logo' />
-      </div>
+      <SplashGraphics />
       <Link to='/login'>
         <button>Login</button>
       </Link>

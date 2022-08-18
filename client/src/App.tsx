@@ -67,10 +67,6 @@ function App() {
 
   return (
     <div className='App'>
-<<<<<<< HEAD
-=======
-      <h1>App</h1>
->>>>>>> b896c6ca64a87e804f2644ca3cab6ca1a64166e0
       <Routes>
         <Route path='/' element={<SplashScreen />} />
         <Route path='/login' element={<Login />} />

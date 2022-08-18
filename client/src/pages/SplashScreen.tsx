@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/waggle-logo.svg';
-import Lottie from 'lottie-react';
-import pawPrints from '../assets/paws.json';
+import SplashGraphics from '../components/SplashGraphics';
 
 function SplashScreen() {
   const navigate = useNavigate();
@@ -17,15 +15,7 @@ function SplashScreen() {
       navigate('/loginRegister');
     }
   }, [timePassed]);
-  return (
-    <div className='splash'>
-      <Lottie animationData={pawPrints} />
-
-      <div>
-        <img src={Logo} alt='logo' />
-      </div>
-    </div>
-  );
+  return <SplashGraphics />;
 }
 
 export default SplashScreen;
