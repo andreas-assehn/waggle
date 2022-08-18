@@ -31,7 +31,6 @@ import HeaderBar from './components/HeaderBar';
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
-  console.log(userAuth);
   useEffect(() => {
     const isAuth = methods.onAuthStateChanged(auth, async (cred) => {
       if (cred) {
