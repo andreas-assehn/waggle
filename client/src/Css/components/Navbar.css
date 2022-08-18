@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .navbar {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
 }
 

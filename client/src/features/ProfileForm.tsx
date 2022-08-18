@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
+import '../Css/components/geocoderInput.css';
 import { EditUserProfile } from '../utils/types/user';
 import { LocationType } from '../utils/types/location';
 import { useSelector } from 'react-redux';
@@ -76,7 +77,7 @@ export default function ProfileForm() {
         geocoderContainer.current,
         process.env.REACT_APP_GEOAPIFY_KEY,
         {
-          placeholder: 'Enter your rough area/location...',
+          placeholder: 'Area/location...',
           skipDetails: false,
           skipIcons: true,
         }
@@ -178,8 +179,10 @@ export default function ProfileForm() {
       />
       <br />
 
+      <label htmlFor='autocomplete'>Location</label>
       <div
         className='autocomplete-container'
+        id='autocomplete'
         style={{ position: 'relative' }}
         ref={geocoderContainer}
       ></div>

@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+.autocomplete-container {
+  width: 60vw;
+  display: inline-block;
+}
+
+.geoapify-autocomplete-input {
+  border: none;
+  height: fit-content;
+  line-height: normal;
+  padding: 5px 25px 5px 10px;
+  font-size: $p-size;
+}
+
+.geoapify-close-button {
+  width: 15px;
+}

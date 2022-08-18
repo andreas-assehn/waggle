@@ -46,6 +46,7 @@ input, select {
   font-size: 3.8vw;
   color: #373737;
   margin: 0.3vh 1.5vw;
+  width: 60vw;
 }
 input.--white, select.--white {
   background-color: #fff;
