@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
+import Logo from '../assets/waggle-logo.svg';
 
 function LoginRegister() {
   const navigate = useNavigate();
@@ -11,9 +12,15 @@ function LoginRegister() {
 
   return (
     <>
-      <div>Waggle LOGO</div>
-      <Link to='/login'>Login</Link>
-      <Link to='/register'>Register</Link>
+      <div>
+        <img src={Logo} alt='logo' />
+      </div>
+      <Link to='/login'>
+        <button>Login</button>
+      </Link>
+      <Link to='/register'>
+        <button>Register</button>
+      </Link>
     </>
   );
 }

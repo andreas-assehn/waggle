@@ -65,8 +65,7 @@ function App() {
   }, [userAuth]);
 
   return (
-    <div className="App">
-      <h1>App</h1>
+    <div className='App'>
       <Routes>
         <Route path='/' element={<SplashScreen />} />
         <Route path='/login' element={<Login />} />
