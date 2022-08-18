@@ -128,167 +128,167 @@ export default function ProfileForm() {
   }
 
   return (
-    <form className="profile-form" onSubmit={handleSubmit}>
+    <form className='profile-form' onSubmit={handleSubmit}>
       <h3> Details about your dog(s)</h3>
 
-      <button onClick={showCloudinaryWidget} id="dogImages">
+      <button onClick={showCloudinaryWidget} id='dogImages'>
         Upload images of your dog
       </button>
       <br />
 
-      <button onClick={showCloudinaryWidget} id="ownerImage">
+      <button onClick={showCloudinaryWidget} id='ownerImage'>
         Upload image of you
       </button>
       <br />
 
-      <label htmlFor="dog-name">Name</label>
+      <label htmlFor='dog-name'>Name</label>
       <input
-        type="text"
+        type='text'
         placeholder="Dog's name..."
-        id="name"
+        id='name'
         onChange={handleInputChanges}
         required
       />
       <br />
 
-      <label htmlFor="dog-age">Age</label>
+      <label htmlFor='dog-age'>Age</label>
       <input
-        type="number"
+        type='number'
         placeholder="Dog's Age..."
-        id="age"
+        id='age'
         onChange={handleInputChanges}
       />
       <br />
 
-      <label htmlFor="briefDescription">Tagline</label>
+      <label htmlFor='briefDescription'>Tagline</label>
       <input
-        type="text"
-        placeholder="Tagline..."
-        id="briefDescription"
+        type='text'
+        placeholder='Tagline...'
+        id='briefDescription'
         onChange={handleInputChanges}
       />
       <br />
 
-      <label htmlFor="description">Bio</label>
+      <label htmlFor='description'>Bio</label>
       <input
-        type="text"
-        placeholder="Bio..."
-        id="description"
+        type='text'
+        placeholder='Bio...'
+        id='description'
         onChange={handleInputChanges}
       />
       <br />
 
       <div
-        className="autocomplete-container"
+        className='autocomplete-container'
         style={{ position: 'relative' }}
         ref={geocoderContainer}
       ></div>
       <br />
 
-      <label htmlFor="size-selector">Size</label>
-      <select name="size" id="size" onChange={handleInputChanges}>
-        <option value="" disabled selected>
+      <label htmlFor='size-selector'>Size</label>
+      <select name='size' id='size' onChange={handleInputChanges}>
+        <option value='' disabled selected>
           Please select...
         </option>
-        <option value="Large">Large ({'>'}25kg)</option>
-        <option value="Medium">Medium (10-25kg)</option>
-        <option value="Small">Small ({'<'}10kg)</option>
+        <option value='Large'>Large ({'>'}25kg)</option>
+        <option value='Medium'>Medium (10-25kg)</option>
+        <option value='Small'>Small ({'<'}10kg)</option>
       </select>
       <br />
 
-      <label htmlFor="gender-selector">Gender</label>
-      <select name="gender" id="gender" onChange={handleInputChanges}>
-        <option value="" disabled selected>
+      <label htmlFor='gender-selector'>Gender</label>
+      <select name='gender' id='gender' onChange={handleInputChanges}>
+        <option value='' disabled selected>
           Please select...
         </option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Both">Both (multiple dogs)</option>
+        <option value='Male'>Male</option>
+        <option value='Female'>Female</option>
+        <option value='Both'>Both (multiple dogs)</option>
       </select>
       <br />
 
-      <label htmlFor="energy-selector">Energy</label>
-      <select name="energy" id="energyLevel" onChange={handleInputChanges}>
-        <option value="" disabled selected>
+      <label htmlFor='energy-selector'>Energy</label>
+      <select name='energy' id='energyLevel' onChange={handleInputChanges}>
+        <option value='' disabled selected>
           Please select...
         </option>
-        <option value="4">Very high</option>
-        <option value="3">High</option>
-        <option value="2">Moderate</option>
-        <option value="1">Low</option>
-        <option value="0">Very Low</option>
+        <option value='4'>Very high</option>
+        <option value='3'>High</option>
+        <option value='2'>Moderate</option>
+        <option value='1'>Low</option>
+        <option value='0'>Very Low</option>
       </select>
       <br />
 
-      <label htmlFor="human-friendly-selector">Human friendliness</label>
+      <label htmlFor='human-friendly-selector'>Human friendliness</label>
       <select
-        name="human-friendly"
-        id="humanFriendliness"
+        name='human-friendly'
+        id='humanFriendliness'
         onChange={handleInputChanges}
       >
-        <option value="" disabled selected>
+        <option value='' disabled selected>
           Please select...
         </option>
-        <option value="4">Very high</option>
-        <option value="3">High</option>
-        <option value="2">Moderate</option>
-        <option value="1">Low</option>
-        <option value="0">Very Low</option>
+        <option value='4'>Very high</option>
+        <option value='3'>High</option>
+        <option value='2'>Moderate</option>
+        <option value='1'>Low</option>
+        <option value='0'>Very Low</option>
       </select>
       <br />
 
-      <label htmlFor="dog-friendly-selector">Dog friendliness</label>
+      <label htmlFor='dog-friendly-selector'>Dog friendliness</label>
       <select
-        name="dog-friendly"
-        id="dogFriendliness"
+        name='dog-friendly'
+        id='dogFriendliness'
         onChange={handleInputChanges}
       >
-        <option value="" disabled selected>
+        <option value='' disabled selected>
           Please select...
         </option>
-        <option value="4">Very high</option>
-        <option value="3">High</option>
-        <option value="2">Moderate</option>
-        <option value="1">Low</option>
-        <option value="0">Very Low</option>
+        <option value='4'>Very high</option>
+        <option value='3'>High</option>
+        <option value='2'>Moderate</option>
+        <option value='1'>Low</option>
+        <option value='0'>Very Low</option>
       </select>
       <br />
 
-      <label htmlFor="breed">Breed</label>
+      <label htmlFor='breed'>Breed</label>
       <input
-        type="text"
-        placeholder="Breed..."
-        id="breed"
+        type='text'
+        placeholder='Breed...'
+        id='breed'
         onChange={handleInputChanges}
       />
       <br />
 
-      <label htmlFor="likes">Likes</label>
+      <label htmlFor='likes'>Likes</label>
       <input
-        type="text"
-        placeholder="Likes..."
-        id="likes"
+        type='text'
+        placeholder='Likes...'
+        id='likes'
         onChange={handleInputChanges}
       />
       <br />
 
-      <label htmlFor="dislikes">Dislikes</label>
+      <label htmlFor='dislikes'>Dislikes</label>
       <input
-        type="text"
-        placeholder="Dislikes..."
-        id="dislikes"
+        type='text'
+        placeholder='Dislikes...'
+        id='dislikes'
         onChange={handleInputChanges}
       />
       <br />
 
       {errorMessage && (
-        <div className="errorMessage">
+        <div className='errorMessage'>
           <p>{errorMessage}</p>
         </div>
       )}
 
       <input
-        type="submit"
+        type='submit'
         disabled={
           !(
             user.dog!.name &&
