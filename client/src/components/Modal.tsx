@@ -1,16 +1,22 @@
 import React from 'react';
 import '../Css/components/Modal.css';
+import DeleteModal from './DeleteModal';
+import MatchModal from './MatchModal';
 
 function Modal({
+  imageUrl = '',
+  title = '',
+  message = '',
+  enableCross = true,
   setOpenModal,
-  message,
   handleModalConfirm,
   openModal,
-  enableCross = true,
 }: {
+  imageUrl: string;
+  title: string;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   message: string;
-  handleModalConfirm: any;
+  handleModalConfirm: React.MouseEventHandler<HTMLButtonElement>;
   openModal: boolean;
   enableCross: boolean;
 }) {
@@ -36,6 +42,7 @@ function Modal({
         {enableCross && (
           <div className="titleCloseBtn">
             <button
+              className="titleCloseBtn__btn"
               onClick={() => {
                 setOpenModal(false);
               }}
@@ -44,22 +51,20 @@ function Modal({
             </button>
           </div>
         )}
-        <div className="modalBody">
-          <p>{message}</p>
-        </div>
-        <div className="modalFooter">
-          <button onClick={handleModalConfirm} id="modalConfirmBtn">
-            Continue
-          </button>
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-            id="modalCancelBtn"
-          >
-            Cancel
-          </button>
-        </div>
+        {
+          <DeleteModal
+            setOpenModal={setOpenModal}
+            message={message}
+            handleModalConfirm={handleModalConfirm}
+          />
+        }
+        <MatchModal
+          imageUrl={imageUrl}
+          title={title}
+          setOpenModal={setOpenModal}
+          message={message}
+          handleModalConfirm={handleModalConfirm}
+        />
       </div>
     </div>
   );

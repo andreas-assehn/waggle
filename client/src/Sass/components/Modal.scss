@@ -17,13 +17,20 @@
   color: $main-white;
   background-color: $main-dark-grey;
   width: 70%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 15px;
+  padding: 20px;
 }
 
 .titleCloseBtn {
   align-self: flex-end;
+}
+
+.modalCheckbox__form {
+  display: flex;
+  flex-direction: column;
 }
