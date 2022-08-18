@@ -51,13 +51,13 @@ function Modal({
             </button>
           </div>
         )}
-        {
-          <DeleteModal
-            setOpenModal={setOpenModal}
-            message={message}
-            handleModalConfirm={handleModalConfirm}
-          />
-        }
+
+        {/* <DeleteModal
+          setOpenModal={setOpenModal}
+          message={message}
+          handleModalConfirm={handleModalConfirm}
+        /> */}
+
         <MatchModal
           imageUrl={imageUrl}
           title={title}

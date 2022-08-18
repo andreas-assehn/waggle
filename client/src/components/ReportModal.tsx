@@ -2,7 +2,6 @@ import React from 'react';
 import '../Css/components/Modal.css';
 
 function ReportModal({
-  setOpenModal,
   message,
   handleModalConfirm,
 }: {
