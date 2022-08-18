@@ -4,7 +4,9 @@ import burgerMenuIcon from '../assets/burgerMenu.svg';
 function BurgerMenu() {
   return (
     <>
-      <img src={burgerMenuIcon} />
+      <button>
+        <img src={burgerMenuIcon} />
+      </button>
     </>
   );
 }

@@ -68,3 +68,9 @@ input {
 select {
   @extend input;
 }
+
+.headerBar {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
