@@ -1,9 +1,11 @@
-import React from 'react';
+import * as React from 'react';
+import ProfileForm from '../features/ProfileForm';
 
 function EditProfile() {
   return (
     <>
-      <div>EditProfile</div>
+      <h1>Edit Profile</h1>
+      <ProfileForm />
     </>
   );
 }
