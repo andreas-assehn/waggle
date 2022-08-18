@@ -1,0 +1,27 @@
+.modalBackground {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.452);
+  z-index: 1;
+}
+
+.modalContainer {
+  color: #ffffff;
+  background-color: #292929;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.titleCloseBtn {
+  align-self: flex-end;
+}

@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+.modalBackground {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $translucent-black;
+  z-index: 1;
+}
+
+.modalContainer {
+  color: $main-white;
+  background-color: $main-dark-grey;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.titleCloseBtn {
+  align-self: flex-end;
+}
