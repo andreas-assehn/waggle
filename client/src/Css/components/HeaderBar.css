@@ -1,0 +1,12 @@
+.headerBar-container {
+  display: flex;
+  background-color: #292929;
+  color: #ffffff;
+  height: 11vh;
+}
+
+.headerBar-btn {
+  height: 7.7vh;
+}
+
+/*# sourceMappingURL=HeaderBar.css.map */
