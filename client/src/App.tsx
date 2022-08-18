@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Sass/App.scss'; // Do not remove!
+import './Sass/components/App.scss';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import SplashScreen from './pages/SplashScreen';
@@ -24,11 +24,13 @@ import { RootState } from './app/store';
 import { clearAllUsersState, setAllUsersState } from './app/allUsersSlice';
 import apiEventService from './utils/services/apiEventsService';
 import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
+import { useAppSelector } from './app/hooks';
+import LoginRegister from './pages/LoginRegister';
 
 function App() {
-  const { userAuth } = useSelector((state: RootState) => state.userAuth);
+  const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
-
+  console.log(userAuth);
   useEffect(() => {
     const isAuth = methods.onAuthStateChanged(auth, async (cred) => {
       if (cred) {
@@ -70,6 +72,7 @@ function App() {
         <Route path="/" element={<SplashScreen />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/loginRegister" element={<LoginRegister />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/matchingView" element={<MatchingView />} />
         <Route path="/matchingViewDetail" element={<MatchingViewDetail />} />

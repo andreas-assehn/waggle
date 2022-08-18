@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+$size: 7vh;
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: $main-dark-grey;
+  height: $size;
+}
+.current {
+  background-color: $pink-pop;
+}
+.nav-btn {
+  $circle: $size * 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $circle;
+  height: $circle;
+  border-radius: $circle * 0.5;
+}
