@@ -14,7 +14,12 @@ function Navbar() {
   const url = useLocation().pathname;
 
   useEffect(() => {
-    if (url !== '/' && url !== '/login' && url !== '/register') {
+    if (
+      url !== '/' &&
+      url !== '/login' &&
+      url !== '/register' &&
+      url !== '/loginRegister'
+    ) {
       setNotProtected(true);
     }
   });
@@ -22,8 +27,8 @@ function Navbar() {
   return (
     <>
       {isLoggedIn && notProtected ? (
-        <div className="navbar">
-          <div className="btn-container">
+        <div className='navbar'>
+          <div className='btn-container'>
             <Link
               className={
                 url === '/matchingView' ? 'nav-btn current' : 'nav-btn'

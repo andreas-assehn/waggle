@@ -6,9 +6,9 @@ function SplashScreen() {
   const navigate = useNavigate();
   const [timePassed, setTimePassed] = useState(false);
 
-  // setTimeout(function () {
-  //   setTimePassed(true);
-  // }, 2000);
+  setTimeout(function () {
+    setTimePassed(true);
+  }, 2000);
 
   useEffect(() => {
     if (timePassed) {
