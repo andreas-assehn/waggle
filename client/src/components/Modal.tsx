@@ -1,7 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/store';
 import '../Css/components/Modal.css';
 import DeleteModal from './DeleteModal';
 import MatchModal from './MatchModal';
+import PictureModal from './PictureModal';
 
 function Modal({
   imageUrl = '',
@@ -35,10 +38,11 @@ function Modal({
   // const handleModalConfirm = ()=>{
   // // whatever your function wants to do on confirm
   // }
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
   return (
     <div className="modalBackground">
-      <div className="modalContainer">
+      <div className="pictureModalContainer">
         {enableCross && (
           <div className="titleCloseBtn">
             <button
@@ -52,19 +56,21 @@ function Modal({
           </div>
         )}
 
+        <PictureModal userAuth={userAuth} />
+
         {/* <DeleteModal
           setOpenModal={setOpenModal}
           message={message}
           handleModalConfirm={handleModalConfirm}
         /> */}
 
-        <MatchModal
+        {/* <MatchModal
           imageUrl={imageUrl}
           title={title}
           setOpenModal={setOpenModal}
           message={message}
           handleModalConfirm={handleModalConfirm}
-        />
+        /> */}
       </div>
     </div>
   );

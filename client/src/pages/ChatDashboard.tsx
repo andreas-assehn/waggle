@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/store';
 import Modal from '../components/Modal';
+import PictureModal from '../components/PictureModal';
 
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);
@@ -17,11 +20,13 @@ function ChatDashboard() {
   const handleModalConfirm = () => {
     // whatever your function wants to do on confirm
   };
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
   return (
     <>
       <div>ChatDashboard</div>
       <button onClick={handleOpenModal}>Open Modal</button>
+      {/* <PictureModal userAuth={userAuth} /> */}
       <Modal
         imageUrl={imageUrl}
         title={title}
