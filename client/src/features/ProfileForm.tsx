@@ -24,14 +24,14 @@ export default function ProfileForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
-  const _id = useSelector((state: any) => state.userAuth);
+  const currentUser = useSelector((state: any) => state.userAuth);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (_id.userAuth) {
-      setUser({ ...user, _id: _id.userAuth._id });
+    if (currentUser.userAuth) {
+      setUser({ ...user, _id: currentUser.userAuth._id });
     }
-  }, [_id]);
+  }, [currentUser]);
 
   //image upload
   const showCloudinaryWidget = (event: React.MouseEvent<HTMLButtonElement>) => {
