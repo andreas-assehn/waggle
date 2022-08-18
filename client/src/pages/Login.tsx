@@ -5,6 +5,7 @@ import { login, logout } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
 import { Link, useNavigate } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
+import '../Css/pages/Login.css';
 
 function Login() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
@@ -57,10 +58,10 @@ function Login() {
   };
 
   return (
-    <>
-      <h2>Login</h2>
+    <div className='login'>
+      <h2 className='login__title'>Login</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='login__form'>
         <fieldset>
           <label htmlFor='email'>Email</label>
           <input
@@ -85,15 +86,21 @@ function Login() {
           />
         </fieldset>
 
-        <button type='submit'>Login</button>
+        <button type='submit' className='--fixed-width'>
+          Login
+        </button>
       </form>
-      <button onClick={handleSignInWithGoogle}>Sign In with Google</button>
+      <button onClick={handleSignInWithGoogle} className='--fixed-width'>
+        Sign In with Google
+      </button>
       <p>{error}</p>
       <p>
         Create an account
-        <Link to='/register'>Register</Link>
+        <Link to='/register' className='login__link'>
+          Register
+        </Link>
       </p>
-    </>
+    </div>
   );
 }
 

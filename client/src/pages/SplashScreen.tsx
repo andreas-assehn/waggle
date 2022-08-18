@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SplashGraphics from '../components/SplashGraphics';
 
 function SplashScreen() {
   const navigate = useNavigate();
@@ -14,11 +15,7 @@ function SplashScreen() {
       navigate('/loginRegister');
     }
   }, [timePassed]);
-  return (
-    <>
-      <div>Waggle LOGO</div>
-    </>
-  );
+  return <SplashGraphics />;
 }
 
 export default SplashScreen;

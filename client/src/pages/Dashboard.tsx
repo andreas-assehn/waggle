@@ -17,12 +17,7 @@ function Dashboard() {
 
   return (
     <div>
-      <div style={{ backgroundColor: 'grey' }}>
-        <div style={{ fontFamily: 'Satisfy' }}>Dashboard</div>
-        <div>
-          <BurgerMenu />
-        </div>
-      </div>
+      <div>Dashboard</div>
       <div>
         {/* <button onClick={handleOpenModal}>Open Modal</button>
         <Modal

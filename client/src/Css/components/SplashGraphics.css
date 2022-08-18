@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.splash-graphics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.splash-graphics__animation {
+  transform: rotate(45deg) scale(1.6);
+  object-fit: cover;
+  width: 80vw;
+  height: 35vh;
+}
+.splash-graphics__logo {
+  margin-top: 2vh;
+}
