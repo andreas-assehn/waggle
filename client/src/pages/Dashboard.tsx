@@ -3,18 +3,17 @@ import BurgerMenu from '../components/BurgerMenu';
 import Modal from '../components/Modal';
 
 function Dashboard() {
-  const [openModal, setOpenModal] = useState(false);
+  // const [openModal, setOpenModal] = useState(false);
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-  const handleModalConfirm = () => {
-    // whatever your function wants to do on confirm
-    console.log('modal Success!');
-  };
+  // const handleOpenModal = () => {
+  //   setOpenModal(true);
+  // };
+  // const handleModalConfirm = () => {
+  //   // whatever your function wants to do on confirm
+  //   console.log('modal Success!');
+  // };
 
-  const modalTitle = 'Modal Title';
-  const modalMessage = 'Modal Message';
+  // const modalMessage = 'Modal Message';
 
   return (
     <div>
@@ -25,13 +24,13 @@ function Dashboard() {
         </div>
       </div>
       <div>
-        <button onClick={handleOpenModal}>Open Modal</button>
+        {/* <button onClick={handleOpenModal}>Open Modal</button>
         <Modal
           openModal={openModal}
           handleModalConfirm={handleModalConfirm}
           message={modalMessage}
           setOpenModal={setOpenModal}
-        />
+        /> */}
       </div>
     </div>
   );
