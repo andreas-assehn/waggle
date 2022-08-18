@@ -298,6 +298,17 @@ export default function ProfileForm() {
             user.dog!.energyLevel
           )
         }
+        className={
+          !(
+            user.dog!.name &&
+            user.location.city &&
+            user.dog!.size &&
+            user.dog!.gender &&
+            user.dog!.energyLevel
+          )
+            ? '--disabled'
+            : ''
+        }
       />
     </form>
   );

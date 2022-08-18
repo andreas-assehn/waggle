@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
-button {
+button, input[type=submit], select[type=submit] {
   background-color: #3bbee8;
   border: none;
   border-radius: 20px;
@@ -10,13 +10,15 @@ button {
   color: #ffffff;
   font-size: 4.5vw;
 }
-button.--disabled {
+button.--disabled, input.--disabled[type=submit], select.--disabled[type=submit] {
+  border: 2px #bfbfbf solid;
   background-color: #bfbfbf;
 }
-button.--pop {
+button.--pop, input.--pop[type=submit], select.--pop[type=submit] {
   background-color: #ff2c55;
+  border: 2px #ff2c55 solid;
 }
-button.--round {
+button.--round, input.--round[type=submit], select.--round[type=submit] {
   display: flex;
   justify-content: center;
   width: 35px;
@@ -25,14 +27,29 @@ button.--round {
   padding: 0;
   font-size: 5.5vw;
 }
-
-button:active {
+button:active, input[type=submit]:active, select[type=submit]:active {
   background-color: transparent;
   border: 2px #3bbee8 solid;
 }
-button:active.--disabled {
+button:active.--disabled, input[type=submit]:active.--disabled, select[type=submit]:active.--disabled {
   border: 2px #bfbfbf solid;
 }
-button:active.--pop {
+button:active.--pop, input[type=submit]:active.--pop, select[type=submit]:active.--pop {
   border: 2px #ff2c55 solid;
+}
+
+input, select {
+  background-color: #bfbfbf;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 3.8vw;
+  color: #373737;
+  margin: 0.3vh 1.5vw;
+}
+input.--white, select.--white {
+  background-color: #fff;
+}
+input::placeholder, select::placeholder {
+  color: #373737;
 }
