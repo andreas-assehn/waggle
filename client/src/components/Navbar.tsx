@@ -22,8 +22,8 @@ function Navbar() {
   return (
     <>
       {isLoggedIn && notProtected ? (
-        <div className="navbar">
-          <div className="btn-container">
+        <div className='navbar'>
+          <div className='btn-container'>
             <Link
               className={
                 url === '/matchingView' ? 'nav-btn current' : 'nav-btn'
