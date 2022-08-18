@@ -6,6 +6,8 @@ import {
   setUser,
   modifyUser,
   deleteUser,
+  addUserSwipeNo,
+  addUserSwipeYes,
 } from './controllers/userController';
 import {
   getMatches,
@@ -25,6 +27,8 @@ router.get('/users', getUsers);
 router.get('/users/:userId', getOneUser);
 router.post('/users', setUser);
 router.put('/users/:userId', modifyUser);
+router.put('/users/swipeNo/:userId', addUserSwipeNo);
+router.put('/users/swipeYes/:userId', addUserSwipeYes);
 router.delete('/users/:userId', deleteUser);
 
 router.get('/matches', getMatches);

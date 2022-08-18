@@ -11,9 +11,11 @@ const allUsersSlice = createSlice({
   reducers: {
     setAllUsersState: (state, action) => {
       state.allUsers = action.payload;
+      return state;
     },
     clearAllUsersState: (state) => {
       state.allUsers = [];
+      return state;
     },
   },
 });
