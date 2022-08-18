@@ -12,7 +12,7 @@ function HeaderBar() {
     if (path === '/matchingView') return 'Waggles';
     if (path === '/matchingViewDetail') return 'Waggles';
     if (path === '/chatDashboard') return 'Matches';
-    if (path === '/chat') return 'Fix this!'; // Get user from somewhere!!!
+    if (path === '/chat') return 'Fix this!'; // Get user from somewhere!
     if (path === '/eventsDashboard') return 'Events';
     if (path === '/eventDetails') return 'Events';
     if (path === '/addEventForm') return 'Add Event';
