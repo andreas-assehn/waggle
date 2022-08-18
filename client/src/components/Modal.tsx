@@ -4,19 +4,14 @@ import { RootState } from '../app/store';
 import '../Css/components/Modal.css';
 import DeleteModal from './DeleteModal';
 import MatchModal from './MatchModal';
-import PictureModal from './PictureModal';
 
 function Modal({
-  imageUrl = '',
-  title = '',
   message = '',
   enableCross = true,
   setOpenModal,
   handleModalConfirm,
   openModal,
 }: {
-  imageUrl: string;
-  title: string;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   message: string;
   handleModalConfirm: React.MouseEventHandler<HTMLButtonElement>;
@@ -42,7 +37,7 @@ function Modal({
 
   return (
     <div className="modalBackground">
-      <div className="pictureModalContainer">
+      <div className="modalContainer">
         {enableCross && (
           <div className="titleCloseBtn">
             <button
@@ -56,8 +51,6 @@ function Modal({
           </div>
         )}
 
-        <PictureModal userAuth={userAuth} />
-
         {/* <DeleteModal
           setOpenModal={setOpenModal}
           message={message}
@@ -65,9 +58,7 @@ function Modal({
         /> */}
 
         {/* <MatchModal
-          imageUrl={imageUrl}
-          title={title}
-          setOpenModal={setOpenModal}
+          user={userAuth!}
           message={message}
           handleModalConfirm={handleModalConfirm}
         /> */}

@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
+import MatchModal from '../components/MatchModal';
 import Modal from '../components/Modal';
 import PictureModal from '../components/PictureModal';
 
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
+  const { allUsers } = useSelector((state: RootState) => state.allUsers);
+
   // const message =
   //   'Are you sure you want to delete all messages with Guapa? This action is irreversible.';
-  const message = 'Please select a reason for reporting user Guapa:';
-  // eslint-disable-next-line quotes
-  const title = "It's a match!";
-  const imageUrl = 'imageUrl';
+  const message = '';
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -20,14 +21,18 @@ function ChatDashboard() {
   const handleModalConfirm = () => {
     // whatever your function wants to do on confirm
   };
-  const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
   return (
     <>
       <div>ChatDashboard</div>
       <button onClick={handleOpenModal}>Open Modal</button>
-      {/* <PictureModal userAuth={userAuth} /> */}
-      <Modal
+      <MatchModal
+        user={userAuth}
+        setOpenModal={setOpenModal}
+        handleModalConfirm={handleModalConfirm}
+        openModal={openModal}
+      />
+      {/* <Modal
         imageUrl={imageUrl}
         title={title}
         setOpenModal={setOpenModal}
@@ -35,7 +40,7 @@ function ChatDashboard() {
         handleModalConfirm={handleModalConfirm}
         openModal={openModal}
         enableCross={true}
-      />
+      /> */}
     </>
   );
 }

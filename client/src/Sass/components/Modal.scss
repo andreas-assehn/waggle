@@ -14,7 +14,7 @@
 }
 
 .modalContainer {
-  color: $main-white;
+  color: $text-white;
   background-color: $main-dark-grey;
   width: 70%;
   height: fit-content;
@@ -35,6 +35,22 @@
   flex-direction: column;
 }
 
-#matchModalBtn {
-  background-color: $pink-pop;
+.modalBody__img {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  font-family: $title-font;
+}
+
+.modalBody__msg {
+  font-family: $body-font;
 }
