@@ -1,7 +1,38 @@
-.navbar {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+button {
+  background-color: #3bbee8;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 15px;
+  margin: 0.2vh 1vw;
+  border: 2px #3bbee8 solid;
+  font-family: "Nunito", sans-serif;
+  color: #ffffff;
+  font-size: 4.5vw;
+}
+button.--disabled {
+  background-color: #bfbfbf;
+}
+button.--pop {
+  background-color: #ff2c55;
+}
+button.--round {
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  padding: 0;
+  font-size: 5.5vw;
 }
 
-/*# sourceMappingURL=App.css.map */
+button:active {
+  background-color: transparent;
+  border: 2px #3bbee8 solid;
+}
+button:active.--disabled {
+  border: 2px #bfbfbf solid;
+}
+button:active.--pop {
+  border: 2px #ff2c55 solid;
+}

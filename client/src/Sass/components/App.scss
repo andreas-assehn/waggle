@@ -1,5 +1,41 @@
-.navbar {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
+@use '../abstracts' as *;
+
+button {
+  background-color: $button-blue;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 15px;
+  margin: 0.2vh 1vw;
+  border: 2px $button-blue solid;
+  font-family: $body-font;
+  color: $text-white;
+  font-size: 4.5vw;
+
+  &.--disabled {
+    background-color: $button-disabled;
+  }
+  &.--pop {
+    background-color: $pop-color;
+  }
+
+  &.--round {
+    display: flex;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    padding: 0;
+    font-size: 5.5vw;
+  }
+}
+
+button:active {
+  background-color: transparent;
+  border: 2px $button-blue solid;
+  &.--disabled {
+    border: 2px $button-disabled solid;
+  }
+  &.--pop {
+    border: 2px $pop-color solid;
+  }
 }

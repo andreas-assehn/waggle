@@ -5,12 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   &__animation {
     transform: rotate(45deg) scale(1.6);
     object-fit: cover;
     width: 80vw;
     height: 35vh;
   }
+
   &__logo {
     margin-top: 2vh;
   }
