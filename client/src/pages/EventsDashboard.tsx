@@ -8,7 +8,6 @@ import { Event } from '../../../globalUtils/Types';
 function EventsDashboard() {
   const [openModal, setOpenModal] = useState(false);
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
-  const { allUsers } = useSelector((state: RootState) => state.allUsers);
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
 
   const handleOpenModal = () => {

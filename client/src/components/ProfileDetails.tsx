@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/ProfileDetails.css';
 import PictureModal from './PictureModal';
+import Scale from './Scale';
 
 function ProfileDetails({ user }: { user: User }) {
   const [openModal, setOpenModal] = useState(false);
-  const [showDetails, setShowDetails] = useState(true);
+  const [showDetails, setShowDetails] = useState(true); //TODO revert back to false as default
 
   const handleOpenModal = () => {
     console.log('handleOpenModal');
-
     setOpenModal(true);
   };
 
@@ -18,7 +18,6 @@ function ProfileDetails({ user }: { user: User }) {
     setShowDetails(!showDetails);
   };
 
-  console.log(user.name, user.dog?.likes);
   return (
     <div className='card'>
       <div>
@@ -38,6 +37,7 @@ function ProfileDetails({ user }: { user: User }) {
           {user.dog?.name} {user.dog?.age && <>- {user.dog?.age} </>}-{' '}
           {user.dog?.gender}
         </h3>
+        {/* TODO show distance */}
         <div className='card__owner-container'>
           <img className='card__owner-image' src={user.ownerImage} />
           <p>{user.name}</p>
@@ -48,7 +48,10 @@ function ProfileDetails({ user }: { user: User }) {
             <p>
               Size: {user.dog?.size} <br />
               Gender: {user.dog?.gender} <br />
-              Energy: {user.dog?.energyLevel} <br />
+              Energy: {user.dog?.energyLevel}{' '}
+              {/* <Scale scaleValue={user.dog?.energyLevel} /> */}
+              <br />
+              {/* TODO scales to render as visual */}
               {user.dog?.humanFriendliness && (
                 <>
                   Human friendliness: {user.dog?.humanFriendliness} <br />

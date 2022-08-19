@@ -1,6 +1,5 @@
 import TinderCard from 'brian-react-tinder-card';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { User } from '../../../globalUtils/Types';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
@@ -44,16 +43,20 @@ function MatchingView() {
       <div className="dashboard">
         <div className="swipe-container">
           <div className="card-container">
-            {allUsers.map((user) => (
-              <TinderCard
-                className="swipe"
-                key={user.userId}
-                onSwipe={(dir) => swiped(dir, user.userId)}
-                // onCardLeftScreen={() => outOfFrame(user.name)}
-              >
-                <ProfileDetails user={user} />
-              </TinderCard>
-            ))}
+            {allUsers.map((user) => {
+              return (
+                user.userId !== userAuth.userId && (
+                  <TinderCard
+                    className="swipe"
+                    key={user.userId}
+                    onSwipe={(dir) => swiped(dir, user.userId)}
+                    // onCardLeftScreen={() => outOfFrame(user.name)}
+                  >
+                    <ProfileDetails user={user} />
+                  </TinderCard>
+                )
+              );
+            })}
             <div className="swipe-info"></div>
           </div>
         </div>
