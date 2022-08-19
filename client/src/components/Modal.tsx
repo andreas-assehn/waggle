@@ -2,8 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import '../Css/components/Modal.css';
-import DeleteModal from './DeleteModal';
-import MatchModal from './MatchModal';
 
 function Modal({
   message = '',
@@ -33,35 +31,20 @@ function Modal({
   // const handleModalConfirm = ()=>{
   // // whatever your function wants to do on confirm
   // }
-  const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-        {enableCross && (
-          <div className="titleCloseBtn">
-            <button
-              className="titleCloseBtn__btn"
-              onClick={() => {
-                setOpenModal(false);
-              }}
-            >
-              X
-            </button>
-          </div>
-        )}
-
-        {/* <DeleteModal
-          setOpenModal={setOpenModal}
-          message={message}
-          handleModalConfirm={handleModalConfirm}
-        /> */}
-
-        {/* <MatchModal
-          user={userAuth!}
-          message={message}
-          handleModalConfirm={handleModalConfirm}
-        /> */}
+        <div className="titleCloseBtn">
+          <button
+            className="titleCloseBtn__btn"
+            onClick={() => {
+              setOpenModal(false);
+            }}
+          >
+            X
+          </button>
+        </div>
       </div>
     </div>
   );

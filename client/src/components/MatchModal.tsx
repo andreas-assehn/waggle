@@ -1,8 +1,6 @@
 import React from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/Modal.css';
-import { useSelector } from 'react-redux';
-import { RootState } from '../app/store';
 
 function MatchModal({
   user,
@@ -18,7 +16,6 @@ function MatchModal({
   if (!openModal) return null;
   // eslint-disable-next-line quotes
   const title = "It's a match!";
-  const { userAuth } = useSelector((state: RootState) => state.userAuth);
 
   // To use this modal, copy the following useState into the page you are calling the modal from:
   // const [openModal, setOpenModal] = useState(false)
@@ -53,10 +50,12 @@ function MatchModal({
         <div className="modalBody">
           <img
             className="modalBody__img"
-            src={user!.dog!.images![0] as string | undefined}
+            src={user!.dog!.images![0]}
             alt="dog profile"
           ></img>
-          <p className="modalBody__msg">{user!.dog!.name!}</p>
+          <p className="modalBody__msg">
+            {user!.dog!.name!}, {user!.dog!.age!}
+          </p>
         </div>
         <div className="modalFooter">
           <button

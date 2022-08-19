@@ -9,7 +9,7 @@ function PictureModal({
   setOpenModal,
   openModal,
 }: {
-  user: User;
+  user: User | null;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   openModal: boolean;
 }) {

@@ -25,22 +25,13 @@ function ChatDashboard() {
   return (
     <>
       <div>ChatDashboard</div>
-      <button onClick={handleOpenModal}>Open Modal</button>
+      <button onClick={handleOpenModal}>Open MatchModal</button>
       <MatchModal
         user={userAuth}
         setOpenModal={setOpenModal}
         handleModalConfirm={handleModalConfirm}
         openModal={openModal}
       />
-      {/* <Modal
-        imageUrl={imageUrl}
-        title={title}
-        setOpenModal={setOpenModal}
-        message={message}
-        handleModalConfirm={handleModalConfirm}
-        openModal={openModal}
-        enableCross={true}
-      /> */}
     </>
   );
 }
