@@ -39,11 +39,11 @@ export function usersNotSwiped(user: User, users: User[]) {
 // Filters out users that does not match your distance preference
 export function usersInArea(user: User, users: User[]) {
   const filteredUsers = users.filter((otherUser) => {
-    if (
-      getDistanceFromLatLonInKm(user, otherUser) <=
-      user.preferences!.maxDistance
-    )
+    const distanceBetweenUsers = getDistanceFromLatLonInKm(user, otherUser);
+    if (distanceBetweenUsers <= user.preferences!.maxDistance) {
+      otherUser['distance'] = distanceBetweenUsers;
       return otherUser;
+    }
   });
   return filteredUsers;
 }
