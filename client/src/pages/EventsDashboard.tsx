@@ -1,17 +1,37 @@
-import React from 'react';
-import { Event } from '../../../globalUtils/Types';
-import { useAppSelector } from '../app/hooks';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
+import PictureModal from '../components/PictureModal';
+import { useAppSelector } from '../app/hooks';
+import { Event } from '../../../globalUtils/Types';
 
 function EventsDashboard() {
+  const [openModal, setOpenModal] = useState(false);
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
+  const { allUsers } = useSelector((state: RootState) => state.allUsers);
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleModalConfirm = () => {
+    // whatever your function wants to do on confirm
+  };
+
   return allEvents && allEvents.length ? (
     <>
+      <button onClick={handleOpenModal}>Open PictureModal</button>
+      <PictureModal
+        user={userAuth}
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+      />
       <div>EventsDashboard</div>
       <div>
         {allEvents.map((eventData: Event) => (
           <div key={eventData._id}>
-            <p>{eventData.description}</p>
+            <p>{eventData.briefDescription}</p>
             <p>{`${eventData.dateTime}`}</p>
           </div>
         ))}

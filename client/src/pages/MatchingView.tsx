@@ -41,12 +41,12 @@ function MatchingView() {
   // };
   return userAuth && allUsers && allUsers.length ? (
     <>
-      <div className='dashboard'>
-        <div className='swipe-container'>
-          <div className='card-container'>
+      <div className="dashboard">
+        <div className="swipe-container">
+          <div className="card-container">
             {allUsers.map((user) => (
               <TinderCard
-                className='swipe'
+                className="swipe"
                 key={user.userId}
                 onSwipe={(dir) => swiped(dir, user.userId)}
                 // onCardLeftScreen={() => outOfFrame(user.name)}
@@ -54,7 +54,7 @@ function MatchingView() {
                 <ProfileDetails user={user} />
               </TinderCard>
             ))}
-            <div className='swipe-info'></div>
+            <div className="swipe-info"></div>
           </div>
         </div>
       </div>
