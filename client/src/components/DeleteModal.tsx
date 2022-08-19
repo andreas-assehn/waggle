@@ -1,7 +1,5 @@
 import React from 'react';
 import '../Css/components/Modal.css';
-import { useSelector } from 'react-redux';
-import { RootState } from '../app/store';
 
 function DeleteModal({
   setOpenModal,
@@ -16,7 +14,6 @@ function DeleteModal({
 }) {
   if (!openModal) return null;
   // eslint-disable-next-line quotes
-  const title = "It's a match!";
 
   // To use this modal, copy the following useState into the page you are calling the modal from:
   // const [openModal, setOpenModal] = useState(false)
@@ -35,25 +32,12 @@ function DeleteModal({
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-        <div className="titleCloseBtn">
-          <button
-            className="titleCloseBtn__btn"
-            onClick={() => {
-              setOpenModal(false);
-            }}
-          >
-            X
-          </button>
-        </div>
-        <div className="modalTitle">
-          <p>{title}</p>
-        </div>
         <div className="modalBody">
           <p className="modalBody__msg">{message}</p>
         </div>
         <div className="modalFooter">
           <button
-            className="modalFooter__yesBtn"
+            className="modalFooter__yesBtn --pop"
             onClick={handleModalConfirm}
             id="modalConfirmBtn"
           >
