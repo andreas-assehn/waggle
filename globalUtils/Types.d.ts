@@ -63,6 +63,7 @@ export type Attendee = {
 };
 
 export type Event = {
+  _id?: string;
   createdBy: string;
   dateTime: Date;
   location: LocationType;
