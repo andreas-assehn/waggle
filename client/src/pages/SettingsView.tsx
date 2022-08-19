@@ -37,6 +37,13 @@ function SettingsView() {
       >
         Sign Out
       </button>
+      <button
+        onClick={() => {
+          navigate('/editProfile');
+        }}
+      >
+        Edit profile
+      </button>
     </div>
   );
 }

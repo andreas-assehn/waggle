@@ -49,6 +49,7 @@ const updateUserSwipes = async (data: Swiped, swipe: string) => {
       `${BASE_URL}/users/swipe${swipe}/${data._id}`,
       options
     );
+
     return await response.json();
   } catch (error) {
     console.error(error);
@@ -100,6 +101,21 @@ const getUnSwipedUsers = async (id: string) => {
   }
 };
 
+const getMatchedUsers = async (id: string) => {
+  const options: RequestInit = {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(`${BASE_URL}/users/matched/${id}`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const apiUserService = {
   register,
   updateUser,
@@ -107,5 +123,6 @@ const apiUserService = {
   getUser,
   getAllUsers,
   getUnSwipedUsers,
+  getMatchedUsers,
 };
 export default apiUserService;
