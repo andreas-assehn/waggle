@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/store';
+import PictureModal from '../components/PictureModal';
 
 function EventsDashboard() {
+  const [openModal, setOpenModal] = useState(false);
+  const { userAuth } = useSelector((state: RootState) => state.userAuth);
+  const { allUsers } = useSelector((state: RootState) => state.allUsers);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleModalConfirm = () => {
+    // whatever your function wants to do on confirm
+  };
+
   return (
     <>
-      <div>EventsDashboard</div>
+      <div>ChatDashboard</div>
+      <button onClick={handleOpenModal}>Open PictureModal</button>
+      <PictureModal
+        user={userAuth}
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+      />
     </>
   );
 }

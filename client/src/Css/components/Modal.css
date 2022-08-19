@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.modalBackground {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.452);
+  z-index: 1;
+}
+
+.modalContainer {
+  color: #ffffff;
+  background-color: #292929;
+  width: 70%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.titleCloseBtn {
+  align-self: flex-end;
+}
+
+.modalCheckbox__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalBody__img {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  font-family: "Satisfy", cursive;
+}
+
+.modalBody__msg {
+  font-family: "Nunito", sans-serif;
+}
