@@ -28,6 +28,7 @@
 .titleCloseBtn {
   display: flex;
   justify-content: flex-end;
+  align-self: flex-end;
 }
 
 .modalCheckbox__form {
