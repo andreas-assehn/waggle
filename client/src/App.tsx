@@ -31,6 +31,10 @@ import {
   clearUnSwipedUsersState,
   setUnSwipedUsersState,
 } from './app/unSwipedUsersSlice';
+import {
+  clearMatchedUsersState,
+  setMatchedUsersState,
+} from './app/matchedUsersSlice';
 
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -55,6 +59,17 @@ function App() {
         .catch((err) => console.error(err));
     } else {
       dispatch(clearUnSwipedUsersState());
+    }
+  }, [userAuth]);
+
+  useEffect(() => {
+    if (userAuth) {
+      apiUserService
+        .getMatchedUsers(userAuth.userId)
+        .then((allUsers) => dispatch(setMatchedUsersState(allUsers)))
+        .catch((err) => console.error(err));
+    } else {
+      dispatch(clearMatchedUsersState());
     }
   }, [userAuth]);
 

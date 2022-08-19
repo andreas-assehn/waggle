@@ -10,10 +10,11 @@ import '../Css/components/MatchingView.css';
 
 function MatchingView() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
+  const { unSwipedUsers } = useAppSelector(
+    (state: RootState) => state.unSwipedUsers
+  );
 
-  const { allUsers } = useAppSelector((state: RootState) => state.allUsers);
-
-  if (!userAuth && !allUsers) return <div>Loading...</div>;
+  if (!userAuth && !unSwipedUsers) return <div>Loading...</div>;
   const updateUser = async (swipedData: Swiped, swipe: string) => {
     apiUserService
       .updateUserSwipes(swipedData, swipe)
@@ -26,6 +27,7 @@ function MatchingView() {
         _id: userAuth!._id!,
         swipedUserId: swipedUserId,
       };
+      console.log({ swipedData });
       updateUser(swipedData, 'Yes');
     } else if (direction === 'left') {
       const swipedData: Swiped = {
@@ -36,12 +38,12 @@ function MatchingView() {
     }
   };
 
-  return userAuth && allUsers && allUsers.length ? (
+  return userAuth && unSwipedUsers && unSwipedUsers.length ? (
     <>
       <div className='dashboard'>
         <div className='swipe-container'>
           <div className='card-container'>
-            {allUsers.map((user) => (
+            {unSwipedUsers.map((user) => (
               <TinderCard
                 className='swipe'
                 key={user.userId}
@@ -56,7 +58,9 @@ function MatchingView() {
       </div>
     </>
   ) : (
-    <div>Loading</div>
+    <div>
+      Sorry no new Dogs in your area. Expand distance or wait for new dogs
+    </div>
   );
 }
 

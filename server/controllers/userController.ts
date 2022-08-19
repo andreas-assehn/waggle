@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import User from '../models/userModel';
-import { sortWaggles } from '../utils/algorithm/algorithm';
+import { sortWaggles, matchedWaggles } from '../utils/algorithm/algorithm';
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -78,8 +78,16 @@ export const addUserSwipeYes = async (req: Request, res: Response) => {
     const modifiedUser = await User.findById(urlId);
     modifiedUser?.swipeYes?.push(req.body.swipedUserId);
     const updatedUser = await modifiedUser?.save();
-    // check if part of other user likes, if yes, then add match into both match fields
-    res.status(200).send(updatedUser);
+
+    const swipedUser = await User.findOne({ userId: req.body.swipedUserId });
+    if (swipedUser?.swipeYes?.includes(updatedUser?.userId!)) {
+      swipedUser.matches?.push(updatedUser?.userId!);
+      updatedUser?.matches?.push(req.body.swipedUserId);
+      const currentUser = await updatedUser?.save();
+      const updatedOtherUser = await swipedUser?.save();
+      return res.status(200).send(currentUser);
+    }
+    return res.status(200).send(updatedUser);
   } catch (e) {
     if (typeof e === 'string') {
       console.log(e);
@@ -136,8 +144,8 @@ export const getMatchedUsers = async (req: Request, res: Response) => {
   try {
     const currentUser = await User.findOne({ userId });
     const users = await User.find();
-    // sort through swipedYes of currentUser
-    res.status(200).send(users);
+    const filteredUsers = matchedWaggles(currentUser!, users);
+    res.status(200).send(filteredUsers);
   } catch (e) {
     if (typeof e === 'string') {
       console.log(e);

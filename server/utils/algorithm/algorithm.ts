@@ -68,5 +68,19 @@ export function sortWaggles(user: User, users: User[]) {
     ...fifthFilter,
     ...sixthFilter,
     ...filteredUsers,
-  ];
+  ].map((user) => ({
+    _id: user._id,
+    userId: user.userId,
+    name: user.name,
+    verified: user.verified,
+    dog: user.dog,
+    ownerImage: user.ownerImage,
+    distance: user.distance,
+  }));
+}
+
+export function matchedWaggles(user: User, users: User[]) {
+  if (user.matches?.length) {
+    return users.filter((eachUser) => user.matches?.includes(eachUser.userId));
+  } else return null;
 }
