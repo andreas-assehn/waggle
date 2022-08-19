@@ -51,6 +51,7 @@ export type User = {
   dog?: Dog;
   preferences?: UserPreferences;
   ownerImage?: string;
+  distance?: number;
 };
 
 export type Matches = {
@@ -77,4 +78,14 @@ export type Event = {
 export type Swiped = {
   _id: string;
   swipedUserId: string;
+};
+
+export type OtherUsers = {
+  _id: string;
+  userId: string;
+  name: string;
+  verified: boolean;
+  dog: Dog;
+  ownerImage: string;
+  distance: number;
 };
