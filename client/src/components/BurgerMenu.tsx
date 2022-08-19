@@ -4,6 +4,7 @@ import { auth, methods } from '../utils/auth/firebase';
 import { logout } from '../app/userAuthSlice';
 import { useDispatch } from 'react-redux';
 import burgerMenuIcon from '../assets/burgerMenu.svg';
+import '../Css/components/BurgerMenu.css';
 
 function BurgerMenu() {
   const navigate = useNavigate();
@@ -25,16 +26,16 @@ function BurgerMenu() {
       });
   };
 
-  // Add aria! chrome vox to test blind user experience
+  // Add aria in the future! chrome vox to test blind user experience
   return (
     <>
       <button onClick={handleShowModal} className="--transparent">
         <img src={burgerMenuIcon} />
       </button>
       {showModal ? (
-        <div className="modalBackground">
-          <div className="modalContainer">
-            <div className="titleCloseBtn">
+        <div className="BMmodalBackground">
+          <div className="BMmodalContainer">
+            <div className="BMtitleCloseBtn">
               <button
                 onClick={() => {
                   setShowModal(false);
@@ -43,7 +44,7 @@ function BurgerMenu() {
                 X
               </button>
             </div>
-            <div className="modalBody">
+            <div className="BMmodalBody">
               <button
                 onClick={() => {
                   navigate('/settingsView'), setShowModal(false);
