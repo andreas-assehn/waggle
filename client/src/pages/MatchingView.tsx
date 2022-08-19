@@ -44,6 +44,20 @@ function MatchingView() {
         <div className="swipe-container">
           <div className="card-container">
             {allUsers.map((user) => {
+              return (
+                user.userId !== userAuth.userId && (
+                  <TinderCard
+                    className="swipe"
+                    key={user.userId}
+                    onSwipe={(dir) => swiped(dir, user.userId)}
+                    // onCardLeftScreen={() => outOfFrame(user.name)}
+                  >
+                    <ProfileDetails user={user} />
+                  </TinderCard>
+                )
+              );
+            })}
+            {/* {allUsers.map((user) => {
               if (user.userId !== userAuth.userId) {
                 return (
                   <TinderCard
@@ -56,7 +70,7 @@ function MatchingView() {
                   </TinderCard>
                 );
               }
-            })}
+            })} */}
             <div className="swipe-info"></div>
           </div>
         </div>
