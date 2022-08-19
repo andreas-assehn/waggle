@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import PictureModal from '../components/PictureModal';
+import { useAppSelector } from '../app/hooks';
+import { Event } from '../../../globalUtils/Types';
 
 function EventsDashboard() {
   const [openModal, setOpenModal] = useState(false);
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
-  const { allUsers } = useSelector((state: RootState) => state.allUsers);
+  const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -16,16 +18,26 @@ function EventsDashboard() {
     // whatever your function wants to do on confirm
   };
 
-  return (
+  return allEvents && allEvents.length ? (
     <>
-      <div>ChatDashboard</div>
       <button onClick={handleOpenModal}>Open PictureModal</button>
       <PictureModal
         user={userAuth}
         setOpenModal={setOpenModal}
         openModal={openModal}
       />
+      <div>EventsDashboard</div>
+      <div>
+        {allEvents.map((eventData: Event) => (
+          <div key={eventData._id}>
+            <p>{eventData.briefDescription}</p>
+            <p>{`${eventData.dateTime}`}</p>
+          </div>
+        ))}
+      </div>
     </>
+  ) : (
+    <div>Loading</div>
   );
 }
 

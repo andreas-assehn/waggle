@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../app/store';
 import BurgerMenu from '../components/BurgerMenu';
 import DeleteModal from '../components/DeleteModal';
-import Modal from '../components/Modal';
 
 function Dashboard() {
   const [openModal, setOpenModal] = useState(false);
