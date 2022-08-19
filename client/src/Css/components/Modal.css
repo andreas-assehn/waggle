@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap');
 .modalBackground {
   position: fixed;
   display: flex;
@@ -49,11 +49,11 @@
 }
 
 .modalTitle {
-  font-family: "Satisfy", cursive;
+  font-family: 'Satisfy', cursive;
 }
 
 .modalBody__msg {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .carousel.carousel-slider img {
