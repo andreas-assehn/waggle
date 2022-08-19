@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+
+.matchPreferencesBackground {
+  background-color: $background-light-grey;
+  width: 96vw;
+  height: 15vh;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-block: 15px;
+  margin-block: 5px;
+}
+
+.matchPreferencesText {
+  padding-inline: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $body-font;
+  font-size: $p-size;
+  padding-block: 5px;
+}
+
+.customSlider {
+  /* max width of your slider */
+  max-width: 300px;
+  min-width: 200px;
+  /* Optional: Only If you want to center your slider in the page */
+  margin: auto;
+}
+
+.customSlider-track {
+  /* Top value to align your track to the center of your thumb */
+  top: 8px;
+  /* thickness of the track */
+  height: 4px;
+  /* default color of your track */
+  background: $text-dark-grey;
+}
+
+.customSlider-track.customSlider-track-0 {
+  /* color of the track before the thumb */
+  background: $button-blue;
+}
+
+.customSlider-thumb {
+  cursor: pointer;
+  /*color for the thumb */
+  background: $pop-color;
+  /* shape of the thumb: circle */
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  /* remove default outline when selected */
+  outline: none;
+}
+
+.customSlider-thumb:hover {
+  box-shadow: 0 0 0 8px $translucent-black;
+}
