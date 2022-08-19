@@ -22,6 +22,7 @@ const UserSchema = new mongoose.Schema<User>({
     },
     required: false,
   },
+  distance: { type: Number, required: false },
   verified: { type: Boolean, required: true, default: false },
   notifications: { type: Boolean, required: true, default: false },
   darkMode: { type: Boolean, required: true, default: false },
