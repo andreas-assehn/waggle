@@ -37,15 +37,15 @@ const UserSchema = new mongoose.Schema<User>({
   dog: {
     type: {
       name: { type: String, required: true },
-      breed: { type: Number, required: false },
+      breed: { type: String, required: false },
       age: { type: Number, required: false },
       size: { type: String, required: true },
       gender: { type: String, required: true },
       energyLevel: { type: Number, required: false },
       dogFriendliness: { type: Number, required: false },
       humanFriendliness: { type: Number, required: false },
-      description: { type: Number, required: false },
-      briefDescription: { type: Number, required: false },
+      description: { type: String, required: false },
+      briefDescription: { type: String, required: false },
       likes: { type: [String], required: false },
       dislikes: { type: [String], required: false },
       images: {
