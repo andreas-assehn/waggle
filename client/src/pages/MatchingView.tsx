@@ -57,20 +57,6 @@ function MatchingView() {
                 )
               );
             })}
-            {/* {allUsers.map((user) => {
-              if (user.userId !== userAuth.userId) {
-                return (
-                  <TinderCard
-                    className="swipe"
-                    key={user.userId}
-                    onSwipe={(dir) => swiped(dir, user.userId)}
-                    // onCardLeftScreen={() => outOfFrame(user.name)}
-                  >
-                    <ProfileDetails user={user} />
-                  </TinderCard>
-                );
-              }
-            })} */}
             <div className="swipe-info"></div>
           </div>
         </div>
