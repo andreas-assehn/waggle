@@ -10,7 +10,7 @@
   background-size: cover;
   background-position: center;
 
-  &__profileImage {
+  &__profile-image {
     width: 95vw;
     height: 80vw;
     max-width: 400px;
@@ -19,5 +19,26 @@
     margin: 5vw auto;
     display: block;
     border-radius: 10px;
+  }
+
+  &__owner-container {
+    display: flex;
+  }
+  &__owner-image {
+    width: 15vw;
+    height: 15vw;
+    object-fit: cover;
+    border-radius: 8vw;
+    display: inline-block;
+    margin-right: 3vw;
+  }
+
+  &__details-container {
+    padding: 0 1.9em;
+  }
+
+  &__details-button {
+    display: block;
+    margin: 0 auto;
   }
 }

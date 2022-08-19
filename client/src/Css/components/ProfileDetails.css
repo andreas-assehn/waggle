@@ -8,7 +8,7 @@
   background-size: cover;
   background-position: center;
 }
-.card__profileImage {
+.card__profile-image {
   width: 95vw;
   height: 80vw;
   max-width: 400px;
@@ -17,4 +17,22 @@
   margin: 5vw auto;
   display: block;
   border-radius: 10px;
+}
+.card__owner-container {
+  display: flex;
+}
+.card__owner-image {
+  width: 15vw;
+  height: 15vw;
+  object-fit: cover;
+  border-radius: 8vw;
+  display: inline-block;
+  margin-right: 3vw;
+}
+.card__details-container {
+  padding: 0 1.9em;
+}
+.card__details-button {
+  display: block;
+  margin: 0 auto;
 }
