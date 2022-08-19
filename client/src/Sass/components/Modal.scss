@@ -1,0 +1,56 @@
+@use '../abstracts' as *;
+
+.modalBackground {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $translucent-black;
+  z-index: 1;
+}
+
+.modalContainer {
+  color: $text-white;
+  background-color: $main-dark-grey;
+  width: 70%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.titleCloseBtn {
+  align-self: flex-end;
+}
+
+.modalCheckbox__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalBody__img {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  font-family: $title-font;
+}
+
+.modalBody__msg {
+  font-family: $body-font;
+}
