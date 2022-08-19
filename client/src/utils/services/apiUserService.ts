@@ -49,10 +49,8 @@ const updateUserSwipes = async (data: Swiped, swipe: string) => {
       `${BASE_URL}/users/swipe${swipe}/${data._id}`,
       options
     );
-    console.log('Swiped!');
-    const res = await response.json();
-    console.log({ res });
-    return res;
+
+    return await response.json();
   } catch (error) {
     console.error(error);
   }

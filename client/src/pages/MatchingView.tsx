@@ -27,7 +27,6 @@ function MatchingView() {
         _id: userAuth!._id!,
         swipedUserId: swipedUserId,
       };
-      console.log({ swipedData });
       updateUser(swipedData, 'Yes');
     } else if (direction === 'left') {
       const swipedData: Swiped = {
