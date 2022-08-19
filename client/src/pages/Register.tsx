@@ -174,13 +174,26 @@ function Register() {
           />
         </fieldset>
 
-        <div>
-          <text>
-            This app uses cookies to provide a better user experience. By
-            choosing to accept, you consent to ALL cookies necessary to provide
-            an optimal user experience.
-          </text>
-          <input type="checkbox" checked={checked} onChange={handleCheckbox} />
+        <div className="cookieCheck">
+          <div className="textBox">
+            <p>
+              This app uses cookies to provide a better user experience. By
+              choosing to accept, you consent to ALL cookies necessary to
+              provide an optimal user experience.
+            </p>
+          </div>
+          <div className="checkBox">
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleCheckbox}
+              id="box"
+            />
+
+            <div className="accept">
+              <span>Accept</span>
+            </div>
+          </div>
         </div>
 
         <button type="submit" className="--fixed-width">
