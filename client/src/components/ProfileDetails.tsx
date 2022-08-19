@@ -82,6 +82,7 @@ function ProfileDetails({ user }: { user: User }) {
           {showDetails ? 'see less' : 'see more'}
         </button>
       </div>
+      <div className='navbar-padding'></div>
     </div>
   );
 }
