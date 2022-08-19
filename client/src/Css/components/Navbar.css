@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 .btn-container {
   display: flex;
   flex-direction: row;

@@ -1,4 +1,4 @@
-import { User } from '../../../../globalUtils/Types';
+import { Swiped, User } from '../../../../globalUtils/Types';
 import { EditUserProfile } from '../types/user';
 
 const BASE_URL = 'http://localhost:4000';
@@ -11,9 +11,13 @@ const register = async (user: User) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users`, options)
-    .then(async (response) => await response.json())
-    .catch((err) => console.error(err));
+
+  try {
+    const response = await fetch(`${BASE_URL}/users`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const updateUser = async (user: EditUserProfile) => {
@@ -24,9 +28,31 @@ const updateUser = async (user: EditUserProfile) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users/${user._id}`, options)
-    .then((response) => response.json())
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(`${BASE_URL}/users/${user._id}`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const updateUserSwipes = async (data: Swiped, swipe: string) => {
+  const options: RequestInit = {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(
+      `${BASE_URL}/users/swipe${swipe}/${data._id}`,
+      options
+    );
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const getUser = async (id: string) => {
@@ -36,10 +62,12 @@ const getUser = async (id: string) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users/${id}`, options)
-    .then((response) => response.json())
-    .then((userData) => userData)
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(`${BASE_URL}/users/${id}`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const getAllUsers = async () => {
@@ -49,11 +77,35 @@ const getAllUsers = async () => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users`, options)
-    .then((response) => response.json())
-    .then((userData) => userData)
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(`${BASE_URL}/users`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const apiUserService = { register, updateUser, getUser, getAllUsers };
+const getUnSwipedUsers = async (id: string) => {
+  const options: RequestInit = {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(`${BASE_URL}/users/unSwiped/${id}`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const apiUserService = {
+  register,
+  updateUser,
+  updateUserSwipes,
+  getUser,
+  getAllUsers,
+  getUnSwipedUsers,
+};
 export default apiUserService;

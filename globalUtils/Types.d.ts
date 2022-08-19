@@ -47,9 +47,11 @@ export type User = {
   darkMode?: boolean;
   swipeYes?: string[];
   swipeNo?: string[];
+  matches?: string[];
   dog?: Dog;
   preferences?: UserPreferences;
   ownerImage?: string;
+  distance?: number;
 };
 
 export type Matches = {
@@ -63,6 +65,7 @@ export type Attendee = {
 };
 
 export type Event = {
+  _id?: string;
   createdBy: string;
   dateTime: Date;
   location: LocationType;
@@ -70,4 +73,19 @@ export type Event = {
   description: string;
   images?: string[];
   attendees?: Attendee[];
+};
+
+export type Swiped = {
+  _id: string;
+  swipedUserId: string;
+};
+
+export type OtherUsers = {
+  _id: string;
+  userId: string;
+  name: string;
+  verified: boolean;
+  dog: Dog;
+  ownerImage: string;
+  distance: number;
 };

@@ -1,6 +1,13 @@
 @use '../abstracts' as *;
 
 $size: 7vh;
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 .btn-container {
   display: flex;
   flex-direction: row;
@@ -10,7 +17,7 @@ $size: 7vh;
   height: $size;
 }
 .current {
-  background-color: $pink-pop;
+  background-color: $pop-color;
 }
 .nav-btn {
   $circle: $size * 0.8;

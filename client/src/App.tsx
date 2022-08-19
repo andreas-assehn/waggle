@@ -26,11 +26,15 @@ import apiEventService from './utils/services/apiEventsService';
 import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 import { useAppSelector } from './app/hooks';
 import LoginRegister from './pages/LoginRegister';
+import HeaderBar from './components/HeaderBar';
+import {
+  clearUnSwipedUsersState,
+  setUnSwipedUsersState,
+} from './app/unSwipedUsersSlice';
 
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
-  console.log(userAuth);
   useEffect(() => {
     const isAuth = methods.onAuthStateChanged(auth, async (cred) => {
       if (cred) {
@@ -41,7 +45,18 @@ function App() {
       }
     });
     return isAuth;
-  }, [dispatch]);
+  }, []);
+
+  useEffect(() => {
+    if (userAuth) {
+      apiUserService
+        .getUnSwipedUsers(userAuth.userId)
+        .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
+        .catch((err) => console.error(err));
+    } else {
+      dispatch(clearUnSwipedUsersState());
+    }
+  }, [userAuth]);
 
   useEffect(() => {
     if (userAuth) {
@@ -67,7 +82,7 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>App</h1>
+      <HeaderBar />
       <Routes>
         <Route path='/' element={<SplashScreen />} />
         <Route path='/login' element={<Login />} />

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import User from '../models/userModel';
+import { sortWaggles } from '../utils/algorithm/algorithm';
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -51,6 +52,48 @@ export const setUser = async (req: Request, res: Response) => {
       );
   }
 };
+export const addUserSwipeNo = async (req: Request, res: Response) => {
+  const urlId = req.params.userId;
+  try {
+    const modifiedUser = await User.findById(urlId);
+    modifiedUser?.swipeNo?.push(req.body.swipedUserId);
+    const updatedUser = await modifiedUser?.save();
+    res.status(200).send(updatedUser);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send(
+        `userController: modifyUser could not modify user with id ${urlId}`
+      );
+  }
+};
+export const addUserSwipeYes = async (req: Request, res: Response) => {
+  const urlId = req.params.userId;
+  try {
+    const modifiedUser = await User.findById(urlId);
+    modifiedUser?.swipeYes?.push(req.body.swipedUserId);
+    const updatedUser = await modifiedUser?.save();
+    // check if part of other user likes, if yes, then add match into both match fields
+    res.status(200).send(updatedUser);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send(
+        `userController: modifyUser could not modify user with id ${urlId}`
+      );
+  }
+};
+
 export const modifyUser = async (req: Request, res: Response) => {
   const urlId = req.params.userId;
   try {
@@ -85,5 +128,45 @@ export const deleteUser = async (req: Request, res: Response) => {
       .send(
         `userController: deleteUser could not delete user with id ${urlId}`
       );
+  }
+};
+
+export const getMatchedUsers = async (req: Request, res: Response) => {
+  const userId = req.params.userId;
+  try {
+    const currentUser = await User.findOne({ userId });
+    const users = await User.find();
+    // sort through swipedYes of currentUser
+    res.status(200).send(users);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send('userController: getUsers could not query users from database');
+  }
+};
+
+// get req for match check
+
+export const getUnSwipedUsers = async (req: Request, res: Response) => {
+  const userId = req.params.userId;
+  try {
+    const currentUser = await User.findOne({ userId });
+    const allUsers = await User.find();
+    const filteredUsers = sortWaggles(currentUser!, allUsers);
+    res.status(200).send(filteredUsers);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send('userController: getUsers could not query users from database');
   }
 };
