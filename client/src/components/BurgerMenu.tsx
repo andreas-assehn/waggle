@@ -34,14 +34,23 @@ function BurgerMenu() {
       </button>
       {showModal ? (
         <div className="modalBackground">
-          <div className="modalContainer">
+          <div
+            className="modalContainer"
+            style={{
+              width: '40%',
+              padding: '2.5%',
+              position: 'absolute',
+              top: '8%',
+              right: '12%',
+            }}
+          >
             <div className="titleCloseBtn">
               <button
                 onClick={() => {
                   setShowModal(false);
                 }}
               >
-                X
+                &times;
               </button>
             </div>
             <div className="modalBody">
@@ -53,6 +62,7 @@ function BurgerMenu() {
                 Settings
               </button>
               <button
+                className="--pop"
                 onClick={() => {
                   handleSignOut(), navigate('/');
                 }}
