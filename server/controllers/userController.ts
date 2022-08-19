@@ -51,6 +51,47 @@ export const setUser = async (req: Request, res: Response) => {
       );
   }
 };
+export const addUserSwipeNo = async (req: Request, res: Response) => {
+  const urlId = req.params.userId;
+  try {
+    const modifiedUser = await User.findById(urlId);
+    modifiedUser?.swipeNo?.push(...req.body.swipeNo);
+    const updatedUser = await modifiedUser?.save();
+    res.status(200).send(updatedUser);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send(
+        `userController: modifyUser could not modify user with id ${urlId}`
+      );
+  }
+};
+export const addUserSwipeYes = async (req: Request, res: Response) => {
+  const urlId = req.params.userId;
+  try {
+    const modifiedUser = await User.findById(urlId);
+    modifiedUser?.swipeYes?.push(...req.body.swipeYes);
+    const updatedUser = await modifiedUser?.save();
+    res.status(200).send(updatedUser);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send(
+        `userController: modifyUser could not modify user with id ${urlId}`
+      );
+  }
+};
+
 export const modifyUser = async (req: Request, res: Response) => {
   const urlId = req.params.userId;
   try {

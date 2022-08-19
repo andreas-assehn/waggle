@@ -11,9 +11,13 @@ const register = async (user: User) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users`, options)
-    .then(async (response) => await response.json())
-    .catch((err) => console.error(err));
+
+  try {
+    const response = await fetch(`${BASE_URL}/users`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const updateUser = async (user: EditUserProfile) => {
@@ -24,12 +28,15 @@ const updateUser = async (user: EditUserProfile) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users/${user._id}`, options)
-    .then((response) => response.json())
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(`${BASE_URL}/users/${user._id}`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const updateUserSwipes = async (user: User) => {
+const updateUserSwipes = async (user: User, swipe: string) => {
   const options: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(user),
@@ -37,9 +44,15 @@ const updateUserSwipes = async (user: User) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users/${user._id}`, options)
-    .then((response) => response.json())
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(
+      `${BASE_URL}/users/swipe${swipe}/${user._id}`,
+      options
+    );
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const getUser = async (id: string) => {
@@ -49,10 +62,12 @@ const getUser = async (id: string) => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users/${id}`, options)
-    .then((response) => response.json())
-    .then((userData) => userData)
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(`${BASE_URL}/users/${id}`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const getAllUsers = async () => {
@@ -62,10 +77,12 @@ const getAllUsers = async () => {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/users`, options)
-    .then((response) => response.json())
-    .then((userData) => userData)
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(`${BASE_URL}/users`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const apiUserService = {

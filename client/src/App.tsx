@@ -41,7 +41,7 @@ function App() {
       }
     });
     return isAuth;
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (userAuth) {
