@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/ProfileDetails.css';
 import PictureModal from './PictureModal';
-import Scale from './Scale';
+// import Scale from './Scale';
 
 function ProfileDetails({ user }: { user: User }) {
   const [openModal, setOpenModal] = useState(false);
