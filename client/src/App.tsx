@@ -27,6 +27,10 @@ import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 import { useAppSelector } from './app/hooks';
 import LoginRegister from './pages/LoginRegister';
 import HeaderBar from './components/HeaderBar';
+import {
+  clearUnSwipedUsersState,
+  setUnSwipedUsersState,
+} from './app/unSwipedUsersSlice';
 
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -42,6 +46,17 @@ function App() {
     });
     return isAuth;
   }, []);
+
+  useEffect(() => {
+    if (userAuth) {
+      apiUserService
+        .getUnSwipedUsers(userAuth.userId)
+        .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
+        .catch((err) => console.error(err));
+    } else {
+      dispatch(clearUnSwipedUsersState());
+    }
+  }, [userAuth]);
 
   useEffect(() => {
     if (userAuth) {

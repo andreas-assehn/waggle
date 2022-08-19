@@ -65,6 +65,7 @@ export const users = [
     darkMode: false,
     swipeYes: [],
     swipeNo: [],
+    matches: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -73,9 +74,9 @@ export const users = [
       age: 5,
       size: 'small',
       gender: 'male',
-      energyLevel: 4,
+      energyLevel: 3,
       dogFriendliness: 3,
-      humanFriendliness: 5,
+      humanFriendliness: 4,
       images: [
         'https://images.dog.ceo/breeds/maltese/n02085936_4506.jpg',
         'https://images.dog.ceo/breeds/maltese/n02085936_899.jpg',
@@ -90,9 +91,9 @@ export const users = [
     },
     preferences: {
       size: ['small', 'medium'],
-      maxDistance: 0.5,
+      maxDistance: 3,
       gender: 'male',
-      energyLevel: [3, 4, 5],
+      energyLevel: [2, 3, 4],
     },
   },
   {
@@ -119,6 +120,7 @@ export const users = [
     darkMode: true,
     swipeYes: [],
     swipeNo: [],
+    matches: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -127,9 +129,9 @@ export const users = [
       age: 6,
       size: 'medium',
       gender: 'male',
-      energyLevel: 5,
-      dogFriendliness: 4,
-      humanFriendliness: 4,
+      energyLevel: 4,
+      dogFriendliness: 3,
+      humanFriendliness: 3,
       images: [
         'https://images.dog.ceo/breeds/husky/n02110185_4186.jpg',
         'https://images.dog.ceo/breeds/husky/n02110185_1614.jpg',
@@ -144,9 +146,9 @@ export const users = [
     },
     preferences: {
       size: ['medium', 'small'],
-      maxDistance: 0.5,
+      maxDistance: 1,
       gender: 'any',
-      energyLevel: [3, 4, 5],
+      energyLevel: [2, 3, 4],
     },
   },
   {
@@ -173,6 +175,7 @@ export const users = [
     darkMode: true,
     swipeYes: [],
     swipeNo: [],
+    matches: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -181,7 +184,7 @@ export const users = [
       age: 5,
       size: 'medium',
       gender: 'female',
-      energyLevel: 5,
+      energyLevel: 3,
       dogFriendliness: 4,
       humanFriendliness: 4,
       images: [
@@ -200,7 +203,7 @@ export const users = [
       size: ['small', 'medium', 'large'],
       maxDistance: 0.5,
       gender: 'female',
-      energyLevel: [3, 4, 5],
+      energyLevel: [2, 3, 4],
     },
   },
   {
@@ -227,6 +230,7 @@ export const users = [
     darkMode: false,
     swipeYes: [],
     swipeNo: [],
+    matches: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -254,7 +258,7 @@ export const users = [
       size: ['small', 'medium'],
       maxDistance: 0.75,
       gender: 'female',
-      energyLevel: [3, 4, 5],
+      energyLevel: [2, 3, 4],
     },
   },
   {
@@ -280,6 +284,7 @@ export const users = [
     darkMode: false,
     swipeYes: [],
     swipeNo: [],
+    matches: [],
     ownerImage:
       'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
     dog: {
@@ -289,7 +294,7 @@ export const users = [
       size: 'medium',
       gender: 'female',
       energyLevel: 4,
-      dogFriendliness: 5,
+      dogFriendliness: 4,
       humanFriendliness: 3,
       images: [
         'https://images.dog.ceo/breeds/germanshepherd/n02106662_13912.jpg',
@@ -307,7 +312,146 @@ export const users = [
       size: ['small', 'medium', 'large'],
       maxDistance: 0.75,
       gender: 'any',
-      energyLevel: [3, 4, 5],
+      energyLevel: [2, 3, 4],
+    },
+  },
+  {
+    userId: 'VctUVBo8YbX8hGYSVNM5vrLVtg13',
+    name: 'Alex',
+    email: 'alex@test.com',
+    location: {
+      countryCode: 'gb',
+      country: 'United Kingdom',
+      city: 'London',
+      state: 'England',
+      postcode: 'SE1 4HU"',
+      county: 'Greater London',
+      lon: -0.094505,
+      lat: 51.498161,
+      stateCode: 'ENG',
+      formatted:
+        'Rutherford Lodge, 7 Brockham Street, London, SE1 4HU, United Kingdom',
+      addressLine1: 'Rutherford Lodge',
+      addressLine2: '7 Brockham Street, London, SE1 4HU, United Kingdom',
+    },
+    verified: false,
+    notifications: true,
+    darkMode: false,
+    swipeYes: [],
+    swipeNo: [],
+    matches: [],
+    ownerImage:
+      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
+    dog: {
+      name: 'Emma',
+      size: 'medium',
+      gender: 'female',
+    },
+  },
+  {
+    userId: 'jUIXoPI1tOMbFOXwph9YStubqZT2',
+    name: 'James',
+    email: 'james@test.com',
+    location: {
+      countryCode: 'gb',
+      country: 'United Kingdom',
+      city: 'London',
+      state: 'England',
+      postcode: 'SE17',
+      county: 'Greater London',
+      lon: -0.0922512,
+      lat: 51.4977061,
+      stateCode: 'ENG',
+      formatted: 'Merrick Square, London, SE1 4JB, United Kingdom',
+      addressLine1: 'Merrick Square',
+      addressLine2: 'London, SE1 4JB, United Kingdom',
+    },
+    verified: true,
+    notifications: true,
+    darkMode: false,
+    swipeYes: [],
+    swipeNo: [],
+    matches: [],
+    ownerImage:
+      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
+    dog: {
+      name: 'Berty',
+      age: 3,
+      size: 'medium',
+      gender: 'female',
+      energyLevel: 4,
+      dogFriendliness: 4,
+      humanFriendliness: 3,
+      images: [
+        'https://images.dog.ceo/breeds/beagle/n02088364_639.jpg',
+        'https://images.dog.ceo/breeds/beagle/n02088364_14613.jpg',
+        'https://images.dog.ceo/breeds/beagle/n02088364_14690.jpg',
+      ],
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
+      briefDescription:
+        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+      likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
+      dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
+    },
+    preferences: {
+      size: ['small', 'medium', 'large'],
+      maxDistance: 0.75,
+      gender: 'any',
+      energyLevel: [2, 3, 4],
+    },
+  },
+  {
+    userId: 'VzQh0Rz6oOcceVK9pqPSovIZRLm1',
+    name: 'Raul',
+    email: 'raul@test.com',
+    location: {
+      countryCode: 'gb',
+      country: 'United Kingdom',
+      city: 'London',
+      state: 'England',
+      postcode: 'SE1 4YG',
+      county: 'Greater London',
+      lon: -0.09139095000000394,
+      lat: 51.49866165,
+      stateCode: 'ENG',
+      formatted: 'Shere House, Trinity Street, London, SE1 4YG, United Kingdom',
+      addressLine1: 'Shere House',
+      addressLine2: 'Trinity Street, London, SE1 4YG, United Kingdom',
+    },
+    verified: false,
+    notifications: true,
+    darkMode: false,
+    swipeYes: [],
+    swipeNo: [],
+    matches: [],
+    ownerImage:
+      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
+    dog: {
+      name: 'Perry',
+      age: 6,
+      size: 'medium',
+      gender: 'female',
+      energyLevel: 4,
+      dogFriendliness: 4,
+      humanFriendliness: 3,
+      images: [
+        'https://images.dog.ceo/breeds/pyrenees/n02111500_8319.jpg',
+        'https://images.dog.ceo/breeds/pyrenees/n02111500_2617.jpg',
+        'https://images.dog.ceo/breeds/pyrenees/n02111500_7218.jpg',
+      ],
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
+      briefDescription:
+        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+      likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
+      dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
+    },
+    preferences: {
+      size: ['small', 'medium', 'large'],
+      maxDistance: 0.75,
+      gender: 'any',
+      energyLevel: [2, 3, 4],
     },
   },
 ];
