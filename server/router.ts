@@ -8,6 +8,8 @@ import {
   deleteUser,
   addUserSwipeNo,
   addUserSwipeYes,
+  getMatchedUsers,
+  getUnSwipedUsers,
 } from './controllers/userController';
 import {
   getMatches,
@@ -24,6 +26,8 @@ import {
 import authMiddleware from './middleware/auth';
 
 router.get('/users', getUsers);
+router.get('/users/matched/:userId', getMatchedUsers);
+router.get('/users/unSwiped/:userId', getUnSwipedUsers);
 router.get('/users/:userId', getOneUser);
 router.post('/users', setUser);
 router.put('/users/:userId', modifyUser);
