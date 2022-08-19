@@ -11,6 +11,8 @@ import apiUserService from '../utils/services/apiUserService';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProfileForm() {
+  const currentUser = useSelector((state: any) => state.userAuth);
+
   const [user, setUser] = useState({
     _id: '',
     location: {},
@@ -26,7 +28,6 @@ export default function ProfileForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
-  const currentUser = useSelector((state: any) => state.userAuth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -123,15 +124,13 @@ export default function ProfileForm() {
   };
 
   useEffect(() => {
-    console.log(user.location.postcode, typeof user.location.formatted);
-    const placeholderText = user.location.postcode;
-    // const placeholderText = 'Enter location';
-    // const placeholderText = '';
     if (
       !initialized.current &&
       process.env.REACT_APP_GEOAPIFY_KEY &&
-      geocoderContainer.current
+      geocoderContainer.current &&
+      user.location.formatted
     ) {
+      const placeholderText = user.location.formatted;
       const autocomplete = new GeocoderAutocomplete(
         geocoderContainer.current,
         process.env.REACT_APP_GEOAPIFY_KEY,
