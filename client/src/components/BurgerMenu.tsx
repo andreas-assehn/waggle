@@ -33,9 +33,9 @@ function BurgerMenu() {
         <img src={burgerMenuIcon} />
       </button>
       {showModal ? (
-        <div className="BMmodalBackground">
-          <div className="BMmodalContainer">
-            <div className="BMtitleCloseBtn">
+        <div className="modalBackground">
+          <div className="modalContainer">
+            <div className="titleCloseBtn">
               <button
                 onClick={() => {
                   setShowModal(false);
@@ -44,7 +44,7 @@ function BurgerMenu() {
                 X
               </button>
             </div>
-            <div className="BMmodalBody">
+            <div className="modalBody">
               <button
                 onClick={() => {
                   navigate('/settingsView'), setShowModal(false);
