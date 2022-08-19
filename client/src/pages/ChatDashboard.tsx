@@ -6,7 +6,6 @@ import MatchModal from '../components/MatchModal';
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
-  const { allUsers } = useSelector((state: RootState) => state.allUsers);
 
   const handleOpenModal = () => {
     setOpenModal(true);
