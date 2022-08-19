@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/ProfileDetails.css';
 import PictureModal from './PictureModal';
-// import Scale from './Scale';
+import Scale from './Scale';
 
 function ProfileDetails({ user }: { user: User }) {
   const [openModal, setOpenModal] = useState(false);
@@ -48,18 +48,22 @@ function ProfileDetails({ user }: { user: User }) {
             <p>
               Size: {user.dog?.size} <br />
               Gender: {user.dog?.gender} <br />
-              Energy: {user.dog?.energyLevel}{' '}
-              {/* <Scale scaleValue={user.dog?.energyLevel} /> */}
-              <br />
-              {/* TODO scales to render as visual */}
+              {user.dog?.energyLevel && (
+                <>
+                  Energy: <Scale scaleValue={user.dog?.energyLevel} />
+                  <br />
+                </>
+              )}
               {user.dog?.humanFriendliness && (
                 <>
-                  Human friendliness: {user.dog?.humanFriendliness} <br />
+                  Human friendliness:{' '}
+                  <Scale scaleValue={user.dog?.humanFriendliness} /> <br />
                 </>
               )}
               {user.dog?.dogFriendliness && (
                 <>
-                  Dog friendliness: {user.dog?.dogFriendliness} <br />
+                  Dog friendliness:{' '}
+                  <Scale scaleValue={user.dog?.dogFriendliness} /> <br />
                 </>
               )}
               {user.dog?.breed && (
