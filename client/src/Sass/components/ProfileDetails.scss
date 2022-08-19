@@ -20,4 +20,13 @@
     display: block;
     border-radius: 10px;
   }
+
+  &__details-container {
+    padding: 0 1.9em;
+  }
+
+  &__details-button {
+    display: block;
+    margin: 0 auto;
+  }
 }

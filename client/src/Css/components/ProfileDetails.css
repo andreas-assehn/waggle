@@ -18,3 +18,10 @@
   display: block;
   border-radius: 10px;
 }
+.card__details-container {
+  padding: 0 1.9em;
+}
+.card__details-button {
+  display: block;
+  margin: 0 auto;
+}
