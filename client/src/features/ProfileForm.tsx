@@ -9,6 +9,8 @@ import { LocationType } from '../utils/types/location';
 import { useSelector } from 'react-redux';
 import apiUserService from '../utils/services/apiUserService';
 import { useNavigate } from 'react-router-dom';
+import { showCloudinaryWidget } from '../utils/helperFunctions/cloudinaryWidget';
+import { geoapifyInput } from '../utils/helperFunctions/geoapifyInput';
 
 export default function ProfileForm() {
   const currentUser = useSelector((state: any) => state.userAuth);
@@ -65,7 +67,7 @@ export default function ProfileForm() {
       setUser(() => {
         let newValue = { ...user, _id: currentUser.userAuth._id };
         savedValues.forEach((value, i) => {
-          if (value && value.length) {
+          if (value && (value.length || typeof value === 'number')) {
             newValue = {
               ...newValue,
               dog: { ...newValue.dog!, [keys[i]]: value },
@@ -78,97 +80,81 @@ export default function ProfileForm() {
             ownerImage: currentUser.userAuth.ownerImage,
           };
         }
-        if (currentUser.userAuth.location.city) {
+        if (
+          currentUser &&
+          currentUser.userAuth &&
+          currentUser.userAuth.location &&
+          currentUser.userAuth.location.city
+        ) {
           newValue = {
             ...newValue,
             location: currentUser.userAuth.location,
           };
         }
+
+        geoapifyInput(
+          initialized,
+          geocoderContainer,
+          newValue.location,
+          geocoderOnSelectLogic
+        );
+
         return newValue;
       });
     }
   }, [currentUser]);
 
-  //image upload
-  //TODO delete images
-  const showCloudinaryWidget = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    const widget = window.cloudinary.createUploadWidget(
-      {
-        cloudName: process.env.REACT_APP_CLOUDINARY_URL,
-        uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
-      },
-      (error: any, result: any) => {
-        if (!error && result && result.event === 'success') {
-          if (event.target.id === 'dogImages') {
-            setUser({
-              ...user,
-              dog: {
-                ...user.dog!,
-                images: [...user.dog!.images!, result.info.secure_url],
-              },
-            });
-          }
-          if (event.target.id === 'ownerImage') {
-            setUser({
-              ...user,
-              ownerImage: result.info.secure_url,
-            });
-          }
-        } else if (error) {
-          setErrorMessage(`Upload failed of ${result.info.original_filename}`);
-        }
-      }
-    );
-    widget.open();
+  const geocoderOnSelectLogic = (location: any) => {
+    if (location.properties.city) {
+      setUser((prevUser) => ({
+        ...prevUser,
+        location: {
+          city: location.properties.city,
+          country: location.properties.country,
+          county: location.properties.county,
+          state: location.properties.state,
+          postcode: location.properties.postcode,
+          countryCode: location.properties.countryCode,
+          lon: location.properties.lon,
+          lat: location.properties.lat,
+          stateCode: location.properties.statecode,
+          formatted: location.properties.formatted,
+          addressLine1: location.properties.addressLine1,
+          addressLine2: location.properties.addressLine2,
+        },
+      }));
+    } else {
+      setUser((prevUser) => ({
+        ...prevUser,
+        location: {} as LocationType,
+      }));
+    }
   };
 
-  useEffect(() => {
-    if (
-      !initialized.current &&
-      process.env.REACT_APP_GEOAPIFY_KEY &&
-      geocoderContainer.current &&
-      user.location.formatted
-    ) {
-      const placeholderText = user.location.formatted;
-      const autocomplete = new GeocoderAutocomplete(
-        geocoderContainer.current,
-        process.env.REACT_APP_GEOAPIFY_KEY,
-        {
-          placeholder: placeholderText || 'enter location',
-          skipDetails: false,
-          skipIcons: true,
-        }
-      );
-      autocomplete.on('select', (location) => {
-        if (location.properties.city) {
-          setUser((prevUser) => ({
-            ...prevUser,
-            location: {
-              city: location.properties.city,
-              country: location.properties.country,
-              county: location.properties.county,
-              state: location.properties.state,
-              postcode: location.properties.postcode,
-              countryCode: location.properties.countryCode,
-              lon: location.properties.lon,
-              lat: location.properties.lat,
-              stateCode: location.properties.statecode,
-              formatted: location.properties.formatted,
-              addressLine1: location.properties.addressLine1,
-              addressLine2: location.properties.addressLine2,
-            },
-          }));
-        } else {
-          setUser((prevUser) => ({
-            ...prevUser,
-            location: {} as LocationType,
-          }));
-        }
+  const succesCloudinaryCallback = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    result: any
+  ) => {
+    if (event.target.id === 'dogImages') {
+      setUser({
+        ...user,
+        dog: {
+          ...user.dog!,
+          images: [...user.dog!.images!, result.info.secure_url],
+        },
       });
-      initialized.current = true;
     }
-  }, [user.location]);
+    if (event.target.id === 'ownerImage') {
+      setUser({
+        ...user,
+        ownerImage: result.info.secure_url,
+      });
+    }
+  };
+
+  const errorCloudinaryCallback = (result: any) => {
+    setErrorMessage(`Upload failed of ${result.info.original_filename}`);
+  };
 
   function handleInputChanges(
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -189,7 +175,13 @@ export default function ProfileForm() {
   return (
     <form className='profile-form' onSubmit={handleSubmit}>
       <button
-        onClick={showCloudinaryWidget}
+        onClick={(event) =>
+          showCloudinaryWidget(
+            event,
+            succesCloudinaryCallback,
+            errorCloudinaryCallback
+          )
+        }
         id='dogImages'
         className='--fixed-width'
       >
@@ -197,7 +189,13 @@ export default function ProfileForm() {
       </button>
 
       <button
-        onClick={showCloudinaryWidget}
+        onClick={(event) =>
+          showCloudinaryWidget(
+            event,
+            succesCloudinaryCallback,
+            errorCloudinaryCallback
+          )
+        }
         id='ownerImage'
         className='--fixed-width'
       >
@@ -330,7 +328,7 @@ export default function ProfileForm() {
           name='energy'
           id='energyLevel'
           onChange={handleInputChanges}
-          value={user.dog?.energyLevel ? user.dog?.energyLevel : ''}
+          value={user?.dog?.energyLevel ? user?.dog?.energyLevel : ''}
         >
           <option value='' disabled hidden>
             Please select...
