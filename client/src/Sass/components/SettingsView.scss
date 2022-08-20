@@ -1,40 +1,33 @@
 @use '../abstracts' as *;
 
 .settingsView {
-  overflow: auto;
+  overflow-y: auto;
+  overflow: hidden;
   font-family: $body-font;
   font-size: $p-size;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 0;
 }
 
 .settingsViewUser {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-items: flex-start;
-
-  & p {
-    padding-inline: 10px;
-  }
+  align-content: center;
 }
 
 .settingsViewUserBackground {
   width: 96vw;
   border-radius: 10px;
-  padding-block: 15px;
+
   margin-block: 5px;
   background-color: $background-light-grey;
 }
-// .settingsViewUser {
-//   width: 100vw;
-//   display: flex;
-//   flex-direction: row;
-//   justify-items: flex-start;
 
-//   & p {
-//     padding-inline: 10px;
-//   }
-// }
+.settingsViewBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

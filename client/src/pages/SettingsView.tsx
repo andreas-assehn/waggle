@@ -25,25 +25,26 @@ function SettingsView() {
   return (
     <div className="settingsView">
       <div className="settingsViewUserBackground">
-        <div className="settingsViewUser">
-          {userAuth && <p>Logged in as {userAuth.name}</p>}
-        </div>
+        <div className="settingsViewUser"></div>
+        {userAuth && <h1>Logged in as {userAuth.name}</h1>}
       </div>
       <MatchPreferences />
-      <button
-        onClick={() => {
-          handleSignOut(), navigate('/');
-        }}
-      >
-        Sign Out
-      </button>
-      <button
-        onClick={() => {
-          navigate('/editProfile');
-        }}
-      >
-        Edit profile
-      </button>
+      <div className="settingsViewBtns">
+        <button
+          onClick={() => {
+            handleSignOut(), navigate('/');
+          }}
+        >
+          Sign Out
+        </button>
+        <button
+          onClick={() => {
+            navigate('/editProfile');
+          }}
+        >
+          Edit profile
+        </button>
+      </div>
     </div>
   );
 }
