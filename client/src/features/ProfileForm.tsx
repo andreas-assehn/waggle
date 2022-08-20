@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
-import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 import '../Css/features/EditProfileForm.css';
 import '../Css/components/geocoderInput.css';
