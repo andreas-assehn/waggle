@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import DeleteModal from '../components/DeleteModal';
+import MessageCard from '../components/MessageCard';
 import YourMatches from '../components/YourMatches';
 
 function ChatDashboard() {
@@ -25,6 +26,7 @@ function ChatDashboard() {
     <>
       <div className="chatDashboard">
         <YourMatches user={userAuth} matchedUsers={matchedUsers} />
+        <MessageCard user={matchedUsers[0]} handleOpenModal={handleOpenModal} />
         <DeleteModal
           setOpenModal={setOpenModal}
           message={deleteConfirmMsg}
