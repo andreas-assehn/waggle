@@ -22,9 +22,25 @@
     border-radius: 10px;
   }
 
-  &__owner-container {
+  &__headline {
     display: flex;
+    justify-content: space-between;
   }
+
+  &__headline-text {
+    &__dog {
+      margin: 10px 5px 0;
+    }
+  }
+
+  &__owner-details {
+    display: flex;
+    margin: 0;
+    &__text {
+      margin: 0 5px;
+    }
+  }
+
   &__owner-image {
     width: 15vw;
     height: 15vw;

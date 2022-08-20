@@ -19,8 +19,19 @@
   display: block;
   border-radius: 10px;
 }
-.card__owner-container {
+.card__headline {
   display: flex;
+  justify-content: space-between;
+}
+.card__headline-text__dog {
+  margin: 10px 5px 0;
+}
+.card__owner-details {
+  display: flex;
+  margin: 0;
+}
+.card__owner-details__text {
+  margin: 0 5px;
 }
 .card__owner-image {
   width: 15vw;

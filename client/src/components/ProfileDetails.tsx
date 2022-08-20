@@ -13,7 +13,7 @@ function ProfileDetails({
   details?: boolean;
 }) {
   const [openModal, setOpenModal] = useState(false);
-  const [showDetails, setShowDetails] = useState(details);
+  const [showDetails, setShowDetails] = useState(true);
   const navigate = useNavigate();
   const url = useLocation().pathname;
 
@@ -30,14 +30,13 @@ function ProfileDetails({
   const handleEditProfile = () => {
     navigate('/editProfile');
   };
-
   return (
     <>
       {user ? (
-        <div className="card">
+        <div className='card'>
           <div>
             <img
-              className="card__profile-image"
+              className='card__profile-image'
               src={
                 user && user.dog && user.dog.images ? user.dog.images[0] : ''
               }
@@ -49,19 +48,28 @@ function ProfileDetails({
             setOpenModal={setOpenModal}
             openModal={openModal}
           />
-          <div className="card__details-container">
-            <h3>
-              {user.dog?.name} {user.dog?.age && <>- {user.dog?.age} </>}-{' '}
-              {user.dog?.gender}
-            </h3>
-            {/* TODO show distance */}
-            <div className="card__owner-container">
-              <img className="card__owner-image" src={user.ownerImage} />
-              <p>{user.name}</p>
+          <div className='card__details-container'>
+            <div className='card__headline'>
+              <div className='card__headline-text'>
+                <h3 className='card__headline-text__dog'>
+                  {user.dog?.name} {user.dog?.age && <>- {user.dog?.age} </>}-{' '}
+                  {user.dog?.gender}
+                </h3>
+                <div className='card__owner-details'>
+                  <h4 className='card__owner-details__text'>{user.name}</h4>
+                  <h4 className='card__owner-details__text'>
+                    {user.distance! <= 250
+                      ? 'Within 250m'
+                      : `${(user.distance! / 1000).toFixed(1)}km`}
+                  </h4>
+                </div>
+              </div>
+
+              <img className='card__owner-image' src={user.ownerImage} />
             </div>
             <p>{user.dog?.briefDescription}</p>
             {showDetails && (
-              <div className="card__key-facts">
+              <div className='card__key-facts'>
                 <p>
                   Size: {user.dog?.size} <br />
                   Gender: {user.dog?.gender} <br />
@@ -105,20 +113,20 @@ function ProfileDetails({
             {url === '/profile' ? (
               <button
                 onClick={handleEditProfile}
-                className="card__details-button"
+                className='card__details-button'
               >
                 Edit profile
               </button>
             ) : (
               <button
                 onClick={handleToggleDetails}
-                className="card__details-button"
+                className='card__details-button'
               >
                 {showDetails ? 'see less' : 'see more'}
               </button>
             )}
           </div>
-          <div className="navbar-padding"></div>
+          <div className='navbar-padding'></div>
         </div>
       ) : (
         <p>Loading...</p>
