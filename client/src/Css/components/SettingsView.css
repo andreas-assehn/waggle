@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.settingsView {
+  overflow-y: auto;
+  overflow: hidden;
+  font-family: "Nunito", sans-serif;
+  font-size: 4.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.settingsViewUser {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.settingsViewUserBackground {
+  width: 96vw;
+  border-radius: 10px;
+  margin-block: 5px;
+  background-color: #bfbfbf;
+}
+
+.settingsViewBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
