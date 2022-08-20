@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/ProfileDetails.css';
 import PictureModal from './PictureModal';
 import Scale from './Scale';
 
-function ProfileDetails({ user }: { user: User | null }) {
+function ProfileDetails({
+  user,
+  details = false,
+}: {
+  user: User | null;
+  details?: boolean;
+}) {
   const [openModal, setOpenModal] = useState(false);
-  const [showDetails, setShowDetails] = useState(true); //TODO revert back to false as default
+  const [showDetails, setShowDetails] = useState(details);
+  const navigate = useNavigate();
+  const url = useLocation().pathname;
 
   const handleOpenModal = () => {
     console.log('handleOpenModal');
@@ -16,6 +25,10 @@ function ProfileDetails({ user }: { user: User | null }) {
   const handleToggleDetails = () => {
     console.log('handleToggleDetails');
     setShowDetails(!showDetails);
+  };
+
+  const handleEditProfile = () => {
+    navigate('/editProfile');
   };
 
   return (
@@ -87,12 +100,21 @@ function ProfileDetails({ user }: { user: User | null }) {
               </div>
             )}
             {showDetails && <p>{user.dog?.description}</p>}
-            <button
-              onClick={handleToggleDetails}
-              className="card__details-button"
-            >
-              {showDetails ? 'see less' : 'see more'}
-            </button>
+            {url === '/profile' ? (
+              <button
+                onClick={handleEditProfile}
+                className="card__details-button"
+              >
+                Edit profile
+              </button>
+            ) : (
+              <button
+                onClick={handleToggleDetails}
+                className="card__details-button"
+              >
+                {showDetails ? 'see less' : 'see more'}
+              </button>
+            )}
           </div>
           <div className="navbar-padding"></div>
         </div>

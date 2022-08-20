@@ -7,6 +7,7 @@
   border-radius: 10px;
   background-size: cover;
   background-position: center;
+  margin-bottom: 20px;
 }
 .card__profile-image {
   width: 95vw;
@@ -31,6 +32,7 @@
 }
 .card__details-container {
   padding: 0 1.9em;
+  margin-block-end: 20px;
 }
 .card__details-button {
   display: block;

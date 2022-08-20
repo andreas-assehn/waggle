@@ -8,7 +8,7 @@ export default function UserProfile() {
 
   return (
     <>
-      <ProfileDetails user={userAuth} />
+      <ProfileDetails user={userAuth} details={true} />
     </>
   );
 }
