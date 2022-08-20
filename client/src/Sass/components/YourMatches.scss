@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.your-matches {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: $body-font;
+  font-size: $p-size;
+  & p {
+    padding-left: 10px;
+  }
+}
+
+.your-matches__bubbles {
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  padding-inline-start: 5px;
+
+  & .your-matches__profile {
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+}
+.your-matches__bubble {
+  display: flex;
+  margin-inline: 6px;
+}
+
+.your-matches__bubbles::-webkit-scrollbar {
+  display: none;
+}
+
+.your-matches__background {
+  background-color: $background-light-grey;
+  width: 96vw;
+  height: 20vh;
+  border-radius: 10px;
+  margin-block: 5px;
+}
