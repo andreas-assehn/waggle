@@ -4,7 +4,7 @@ import { MutableRefObject } from 'react';
 export const geoapifyInput = (
   initialized: MutableRefObject<boolean>,
   geocoderContainer: MutableRefObject<null>,
-  location: any,
+  locationArg: any,
   geocoderOnSelectLogic: any
 ) => {
   if (
@@ -16,7 +16,7 @@ export const geoapifyInput = (
       geocoderContainer.current,
       process.env.REACT_APP_GEOAPIFY_KEY,
       {
-        placeholder: location?.formatted || 'enter location',
+        placeholder: locationArg?.formatted || 'enter location...',
         skipDetails: false,
         skipIcons: true,
       }

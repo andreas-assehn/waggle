@@ -1,12 +1,10 @@
 import React from 'react';
 import EventForm from '../features/EventForm';
 
-function AddEventForm() {
+export default function EditEventForm() {
   return (
     <>
       <EventForm />
     </>
   );
 }
-
-export default AddEventForm;
