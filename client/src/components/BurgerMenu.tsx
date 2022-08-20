@@ -46,6 +46,7 @@ function BurgerMenu() {
           >
             <div className="titleCloseBtn">
               <button
+                className="--round"
                 onClick={() => {
                   setShowModal(false);
                 }}

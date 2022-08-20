@@ -17,11 +17,11 @@ function PictureModal({
   const images = user?.dog?.images;
 
   return (
-    <div className='modalBackground'>
-      <div className='pictureModalContainer'>
-        <div className='titleCloseBtn'>
+    <div className="modalBackground">
+      <div className="pictureModalContainer">
+        <div className="titleCloseBtn">
           <button
-            className='titleCloseBtn__btn'
+            className="titleCloseBtn__btn --round"
             onClick={() => {
               setOpenModal(false);
             }}
@@ -29,8 +29,8 @@ function PictureModal({
             X
           </button>
         </div>
-        <div className='pictureModal'>
-          <Carousel className='carousel'>
+        <div className="pictureModal">
+          <Carousel className="carousel">
             {images &&
               images.map((image, index) => (
                 <div key={index}>
