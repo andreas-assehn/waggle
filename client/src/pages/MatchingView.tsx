@@ -1,71 +1,42 @@
-// import TinderCard from 'brian-react-tinder-card';
-import React from 'react';
-import { Swiped } from '../../../globalUtils/Types';
+import React, { useState } from 'react';
+import { Swiped, User } from '../../../globalUtils/Types';
+import { motion } from 'framer-motion';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
-import ProfileDetails from '../components/ProfileDetails';
-import apiUserService from '../utils/services/apiUserService';
 
-import '../Css/components/MatchingView.css';
+import SwipeCard from '../components/SwipeCard';
 
 function MatchingView() {
-  // const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-  // const { unSwipedUsers } = useAppSelector(
-  //   (state: RootState) => state.unSwipedUsers
-  // );
-
-  // if (!userAuth && !unSwipedUsers) return <div>Loading...</div>;
-  // const updateUser = async (swipedData: Swiped, swipe: string) => {
-  //   apiUserService
-  //     .updateUserSwipes(swipedData, swipe)
-  //     .catch((error) => console.log(error));
-  // };
-
-  // const swiped = (direction: string, swipedUserId: string) => {
-  //   if (direction === 'right') {
-  //     const swipedData: Swiped = {
-  //       _id: userAuth!._id!,
-  //       swipedUserId: swipedUserId,
-  //     };
-  //     updateUser(swipedData, 'Yes');
-  //   } else if (direction === 'left') {
-  //     const swipedData: Swiped = {
-  //       _id: userAuth!._id!,
-  //       swipedUserId: swipedUserId,
-  //     };
-  //     updateUser(swipedData, 'No');
-  //   }
-  // };
-
-  return (
-    <div>
-      Sorry no new Dogs in your area. Expand distance or wait for new dogs
-    </div>
+  const { unSwipedUsers } = useAppSelector(
+    (state: RootState) => state.unSwipedUsers
   );
-  // userAuth && unSwipedUsers && unSwipedUsers.length ? (
-  //   <>
-  //     <div className='dashboard'>
-  //       <div className='swipe-container'>
-  //         <div className='card-container'>
-  //           {unSwipedUsers.map((user) => (
-  //             <TinderCard
-  //               className='swipe'
-  //               key={user.userId}
-  //               onSwipe={(dir) => swiped(dir, user.userId)}
-  //             >
-  //               <ProfileDetails user={user} />
-  //             </TinderCard>
-  //           ))}
-  //           <div className='swipe-info'></div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </>
-  // ) : (
-  // <div>
-  //   Sorry no new Dogs in your area. Expand distance or wait for new dogs
-  // </div>
-  // );
+
+  console.log(unSwipedUsers);
+
+  return unSwipedUsers ? (
+    <>
+      <ul
+        style={{
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          maxWidth: '100vw',
+          overflow: 'hidden',
+          height: '100vh',
+          margin: 0,
+          marginBlock: 0,
+          padding: 0,
+        }}
+      >
+        {unSwipedUsers.map((user) => (
+          <SwipeCard user={user} key={user.userId} />
+        ))}
+      </ul>
+    </>
+  ) : (
+    <div>Loading...</div>
+  );
 }
 
 export default MatchingView;

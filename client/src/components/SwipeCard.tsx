@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User } from '../../../globalUtils/Types';
+import { User, Swiped } from '../../../globalUtils/Types';
 import '../Css/components/ProfileDetails.css';
 import PictureModal from './PictureModal';
 import Scale from './Scale';
@@ -13,21 +13,65 @@ import {
 import { useDispatch } from 'react-redux';
 import { shiftUnSwipedUsers } from '../app/unSwipedUsersSlice';
 import ProfileDetails from './ProfileDetails';
+import apiUserService from '../utils/services/apiUserService';
+import { useAppSelector } from '../app/hooks';
+import { RootState } from '../app/store';
 
 function SwipeCard({ user }: { user: User }) {
+  const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const [openModal, setOpenModal] = useState(false);
-  const [showDetails, setShowDetails] = useState(true); //TODO revert back to false as default
+  const [showDetails, setShowDetails] = useState(false);
 
   const dispatch = useDispatch();
-
-  const handleOpenModal = () => {
-    console.log('handleOpenModal');
-    setOpenModal(true);
+  const updateUser = async (swipedData: Swiped, swipe: string) => {
+    apiUserService
+      .updateUserSwipes(swipedData, swipe)
+      .catch((error) => console.log(error));
   };
 
-  const handleToggleDetails = () => {
-    console.log('handleToggleDetails');
-    setShowDetails(!showDetails);
+  // const swiped = (direction: string, swipedUserId: string) => {
+  //   if (direction === 'right') {
+  //     const swipedData: Swiped = {
+  //       _id: userAuth!._id!,
+  //       swipedUserId: swipedUserId,
+  //     };
+  //     updateUser(swipedData, 'Yes');
+  //   } else if (direction === 'left') {
+  //     const swipedData: Swiped = {
+  //       _id: userAuth!._id!,
+  //       swipedUserId: swipedUserId,
+  //     };
+  //     updateUser(swipedData, 'No');
+  //   }
+  // };
+
+  const onSwipe = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: any,
+    swipedUserId: string
+  ) => {
+    console.log(info.point.x);
+    if (info.point.x > -400 && info.point.x < 400) {
+      return;
+    } else if (info.point.x < -400) {
+      console.log('swiped left');
+      animControls.start({ x: '-200vw' });
+      const swipedData: Swiped = {
+        _id: userAuth!._id!,
+        swipedUserId: swipedUserId,
+      };
+      updateUser(swipedData, 'No');
+    } else if (info.point.x > 400) {
+      console.log('swiped right');
+      animControls.start({ x: '200vw' });
+      const swipedData: Swiped = {
+        _id: userAuth!._id!,
+        swipedUserId: swipedUserId,
+      };
+      updateUser(swipedData, 'Yes');
+    } else {
+      return;
+    }
   };
 
   const animControls = useAnimation();
@@ -51,17 +95,7 @@ function SwipeCard({ user }: { user: User }) {
         right: 0,
         left: 0,
       }}
-      onDragEnd={(event, info) => {
-        console.log(info.point.x);
-        if (info.point.x > -400 && info.point.x < 400) {
-          return;
-          // return animControls.start({ x: 0 });
-        } else {
-          console.log('Off Screen!');
-          animControls.start({ x: info.point.x < 0 ? '-200vw' : '200vw' });
-          // dispatch(shiftUnSwipedUsers());
-        }
-      }}
+      onDragEnd={(event, info) => onSwipe(event, info, user.userId)}
     >
       <ProfileDetails user={user} />
     </motion.li>
