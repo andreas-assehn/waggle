@@ -1,7 +1,7 @@
 import React from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/YourMatches.css';
-import { users } from '../assets/dataUser';
+import { Link } from 'react-router-dom';
 
 export default function YourMatches({
   user,
@@ -10,27 +10,34 @@ export default function YourMatches({
   user: User | null;
   matchedUsers: User[] | null;
 }) {
-  const mockMatchedUsers = users.filter(
-    (mockUser) => mockUser.userId !== user?.userId
-  );
-  // console.log(mockMatchedUsers);
+  if (!user) return <p>Loading...</p>;
 
   return (
     <div className="your-matches">
-      {user && mockMatchedUsers ? (
+      {user && matchedUsers ? (
         <div className="your-matches__background">
           <div>
             <div className="your-matches__text">
-              <p>Your matches ({mockMatchedUsers.length})</p>
+              <h1>Your matches ({matchedUsers.length})</h1>
             </div>
             <div className="your-matches__bubbles">
-              {mockMatchedUsers.length ? (
-                mockMatchedUsers.map((matchedUser) =>
-                  matchedUser.dog.images!.map((image) => (
-                    <div key={image}>
-                      <img src={image} />
+              {matchedUsers.length ? (
+                matchedUsers &&
+                matchedUsers.map((mockUser) =>
+                  mockUser.dog && mockUser.dog.images ? (
+                    <div className="your-matches__bubble" key={mockUser.userId}>
+                      {/* Link needs to go to correct user profile, probably using url params */}
+                      <Link to={'/matchingViewDetail'}>
+                        <img
+                          className="your-matches__profile"
+                          src={mockUser.dog.images[0]}
+                          alt="profile"
+                        />
+                      </Link>
                     </div>
-                  ))
+                  ) : (
+                    ''
+                  )
                 )
               ) : (
                 <p>No matches yet</p>
