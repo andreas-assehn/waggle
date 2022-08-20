@@ -30,8 +30,6 @@ function ProfileDetails({
   const handleEditProfile = () => {
     navigate('/editProfile');
   };
-
-  console.log(user);
   return (
     <>
       {user ? (
@@ -51,15 +49,23 @@ function ProfileDetails({
             openModal={openModal}
           />
           <div className='card__details-container'>
-            <h3>
-              {user.dog?.name} {user.dog?.age && <>- {user.dog?.age} </>}-{' '}
-              {user.dog?.gender}
-            </h3>
-            <h2>{user.distance}km</h2>
-            {/* TODO show distance */}
-            <div className='card__owner-container'>
+            <div className='card__headline'>
+              <div className='card__headline-text'>
+                <h3 className='card__headline-text__dog'>
+                  {user.dog?.name} {user.dog?.age && <>- {user.dog?.age} </>}-{' '}
+                  {user.dog?.gender}
+                </h3>
+                <div className='card__owner-details'>
+                  <h4 className='card__owner-details__text'>{user.name}</h4>
+                  <h4 className='card__owner-details__text'>
+                    {user.distance! <= 250
+                      ? 'Within 250m'
+                      : `${(user.distance! / 1000).toFixed(1)}km`}
+                  </h4>
+                </div>
+              </div>
+
               <img className='card__owner-image' src={user.ownerImage} />
-              <p>{user.name}</p>
             </div>
             <p>{user.dog?.briefDescription}</p>
             {showDetails && (
