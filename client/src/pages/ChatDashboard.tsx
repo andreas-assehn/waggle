@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
-import MatchModal from '../components/MatchModal';
+import DeleteModal from '../components/DeleteModal';
+import YourMatches from '../components/YourMatches';
 
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);
-  const { userAuth } = useSelector((state: RootState) => state.userAuth);
+  const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
+  const { matchedUsers } = useAppSelector(
+    (state: RootState) => state.matchedUsers
+  );
+  const deleteConfirmMsg =
+    'Are you sure you want to delete all messages from <user>? This action is irreversible.';
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -17,14 +23,15 @@ function ChatDashboard() {
 
   return (
     <>
-      <div>ChatDashboard</div>
-      <button onClick={handleOpenModal}>Open MatchModal</button>
-      <MatchModal
-        user={userAuth}
-        setOpenModal={setOpenModal}
-        handleModalConfirm={handleModalConfirm}
-        openModal={openModal}
-      />
+      <div className="chatDashboard">
+        <YourMatches user={userAuth} matchedUsers={matchedUsers} />
+        <DeleteModal
+          setOpenModal={setOpenModal}
+          message={deleteConfirmMsg}
+          handleModalConfirm={handleModalConfirm}
+          openModal={openModal}
+        />
+      </div>
     </>
   );
 }
