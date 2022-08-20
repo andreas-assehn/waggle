@@ -9,6 +9,7 @@
   border-radius: 10px;
   background-size: cover;
   background-position: center;
+  margin-bottom: 20px;
 
   &__profile-image {
     width: 95vw;
@@ -35,6 +36,7 @@
 
   &__details-container {
     padding: 0 1.9em;
+    margin-block-end: 20px;
   }
 
   &__details-button {

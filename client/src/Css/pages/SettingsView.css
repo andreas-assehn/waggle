@@ -29,3 +29,12 @@
   flex-direction: column;
   align-items: center;
 }
+.settingsViewBtns button {
+  margin: 10px;
+  width: 130px;
+}
+
+.settingsView__profileBtns {
+  display: flex;
+  flex-direction: row;
+}
