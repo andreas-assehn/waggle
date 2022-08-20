@@ -11,7 +11,6 @@ import {
   useAnimation,
 } from 'framer-motion';
 import { useDispatch } from 'react-redux';
-import { shiftUnSwipedUsers } from '../app/unSwipedUsersSlice';
 import ProfileDetails from './ProfileDetails';
 import apiUserService from '../utils/services/apiUserService';
 import { useAppSelector } from '../app/hooks';
@@ -28,22 +27,6 @@ function SwipeCard({ user }: { user: User }) {
       .updateUserSwipes(swipedData, swipe)
       .catch((error) => console.log(error));
   };
-
-  // const swiped = (direction: string, swipedUserId: string) => {
-  //   if (direction === 'right') {
-  //     const swipedData: Swiped = {
-  //       _id: userAuth!._id!,
-  //       swipedUserId: swipedUserId,
-  //     };
-  //     updateUser(swipedData, 'Yes');
-  //   } else if (direction === 'left') {
-  //     const swipedData: Swiped = {
-  //       _id: userAuth!._id!,
-  //       swipedUserId: swipedUserId,
-  //     };
-  //     updateUser(swipedData, 'No');
-  //   }
-  // };
 
   const onSwipe = (
     event: MouseEvent | TouchEvent | PointerEvent,

@@ -3,8 +3,8 @@ import { Swiped, User } from '../../../globalUtils/Types';
 import { motion } from 'framer-motion';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
-
 import SwipeCard from '../components/SwipeCard';
+import '../Css/pages/MatchingView.css';
 
 function MatchingView() {
   const { unSwipedUsers } = useAppSelector(

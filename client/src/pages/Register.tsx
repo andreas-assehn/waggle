@@ -20,6 +20,12 @@ function Register() {
 
   const [formData, setFormData] = useState(initialFormState);
 
+  // Checkbox logic
+  const [checked, setChecked] = useState(false);
+  const handleCheckbox = () => {
+    setChecked(!checked);
+  };
+
   const [error, setError] = useState('');
 
   const dispatch = useDispatch();
@@ -45,6 +51,10 @@ function Register() {
 
     if (password.length < 6) {
       return setError('Password must be 6 characters long');
+    }
+
+    if (checked === false) {
+      return setError('Accept cookies to register');
     }
 
     await methods
@@ -107,21 +117,21 @@ function Register() {
   // };
 
   return (
-    <div className='register'>
-      <h2 className='register__title'>Register</h2>
+    <div className="register">
+      <h2 className="register__title">Register</h2>
 
       {/* {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
 
       <button onClick={handleSignOut}>Sign Out</button> */}
 
-      <form onSubmit={handleSubmit} className='register__form'>
+      <form onSubmit={handleSubmit} className="register__form">
         <fieldset>
-          <label htmlFor='name'>Name</label>
+          <label htmlFor="name">Name</label>
           <input
-            type='text'
-            id='name'
-            name='name'
-            autoComplete='off'
+            type="text"
+            id="name"
+            name="name"
+            autoComplete="off"
             value={name}
             onChange={handleOnChange}
             required
@@ -129,23 +139,23 @@ function Register() {
         </fieldset>
 
         <fieldset>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor="email">Email</label>
           <input
-            type='email'
-            id='email'
-            name='email'
-            autoComplete='off'
+            type="email"
+            id="email"
+            name="email"
+            autoComplete="off"
             value={email}
             onChange={handleOnChange}
             required
           />
         </fieldset>
         <fieldset>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor="password">Password</label>
           <input
-            type='password'
-            id='password'
-            name='password'
+            type="password"
+            id="password"
+            name="password"
             value={password}
             onChange={handleOnChange}
             required
@@ -153,28 +163,50 @@ function Register() {
         </fieldset>
 
         <fieldset>
-          <label htmlFor='confirmPassword'>Confirm Password</label>
+          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
-            type='password'
-            id='confirmPassword'
-            name='confirmPassword'
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
             value={confirmPassword}
             onChange={handleOnChange}
             required
           />
         </fieldset>
 
-        <button type='submit' className='--fixed-width'>
+        <div className="cookieCheck">
+          <div className="textBox">
+            <p>
+              This app uses cookies to provide a better user experience. By
+              choosing to accept, you consent to ALL cookies necessary to
+              provide an optimal user experience.
+            </p>
+          </div>
+          <div className="checkBox">
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleCheckbox}
+              id="box"
+            />
+
+            <div className="accept">
+              <span>Accept</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" className="--fixed-width">
           Register
         </button>
       </form>
-      <button onClick={handleSignInWithGoogle} className='--fixed-width'>
+      <button onClick={handleSignInWithGoogle} className="--fixed-width">
         Sign In with Google
       </button>
       <p>{error}</p>
       <p>
         Already registered?
-        <Link to='/login' className='register__link'>
+        <Link to="/login" className="register__link">
           Login
         </Link>
       </p>
