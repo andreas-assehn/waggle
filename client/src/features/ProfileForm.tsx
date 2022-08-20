@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
-import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 import '../Css/features/EditProfileForm.css';
 import '../Css/components/geocoderInput.css';
@@ -9,8 +8,12 @@ import { LocationType } from '../utils/types/location';
 import { useSelector } from 'react-redux';
 import apiUserService from '../utils/services/apiUserService';
 import { useNavigate } from 'react-router-dom';
+import { showCloudinaryWidget } from '../utils/helperFunctions/cloudinaryWidget';
+import { geoapifyInput } from '../utils/helperFunctions/geoapifyInput';
 
 export default function ProfileForm() {
+  const currentUser = useSelector((state: any) => state.userAuth);
+
   const [user, setUser] = useState({
     _id: '',
     location: {},
@@ -26,92 +29,131 @@ export default function ProfileForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
-  const currentUser = useSelector((state: any) => state.userAuth);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (currentUser.userAuth) {
-      setUser({ ...user, _id: currentUser.userAuth._id });
+      const savedValues = [
+        currentUser.userAuth.dog.name,
+        currentUser.userAuth.dog.breed,
+        currentUser.userAuth.dog.age,
+        currentUser.userAuth.dog.size,
+        currentUser.userAuth.dog.gender,
+        currentUser.userAuth.dog.energyLevel,
+        currentUser.userAuth.dog.dogFriendliness,
+        currentUser.userAuth.dog.humanFriendliness,
+        currentUser.userAuth.dog.description,
+        currentUser.userAuth.dog.briefDescription,
+        currentUser.userAuth.dog.likes,
+        currentUser.userAuth.dog.dislikes,
+        currentUser.userAuth.dog.images,
+      ];
+      const keys = [
+        'name',
+        'breed',
+        'age',
+        'size',
+        'gender',
+        'energyLevel',
+        'dogFriendliness',
+        'humanFriendliness',
+        'description',
+        'briefDescription',
+        'likes',
+        'dislikes',
+        'images',
+      ];
+      setUser(() => {
+        let newValue = { ...user, _id: currentUser.userAuth._id };
+        savedValues.forEach((value, i) => {
+          if (value && (value.length || typeof value === 'number')) {
+            newValue = {
+              ...newValue,
+              dog: { ...newValue.dog!, [keys[i]]: value },
+            };
+          }
+        });
+        if (currentUser.userAuth.ownerImage) {
+          newValue = {
+            ...newValue,
+            ownerImage: currentUser.userAuth.ownerImage,
+          };
+        }
+        if (
+          currentUser &&
+          currentUser.userAuth &&
+          currentUser.userAuth.location &&
+          currentUser.userAuth.location.city
+        ) {
+          newValue = {
+            ...newValue,
+            location: currentUser.userAuth.location,
+          };
+        }
+
+        geoapifyInput(
+          initialized,
+          geocoderContainer,
+          newValue.location,
+          geocoderOnSelectLogic
+        );
+
+        return newValue;
+      });
     }
   }, [currentUser]);
 
-  //image upload
-  const showCloudinaryWidget = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    const widget = window.cloudinary.createUploadWidget(
-      {
-        cloudName: process.env.REACT_APP_CLOUDINARY_URL,
-        uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
-      },
-      (error: any, result: any) => {
-        if (!error && result && result.event === 'success') {
-          if (event.target.id === 'dogImages') {
-            setUser({
-              ...user,
-              dog: {
-                ...user.dog!,
-                images: [...user.dog!.images!, result.info.secure_url],
-              },
-            });
-          }
-          if (event.target.id === 'ownerImage') {
-            setUser({
-              ...user,
-              ownerImage: result.info.secure_url,
-            });
-          }
-        } else if (error) {
-          setErrorMessage(`Upload failed of ${result.info.original_filename}`);
-        }
-      }
-    );
-    widget.open();
+  const geocoderOnSelectLogic = (location: any) => {
+    if (location.properties.city) {
+      setUser((prevUser) => ({
+        ...prevUser,
+        location: {
+          city: location.properties.city,
+          country: location.properties.country,
+          county: location.properties.county,
+          state: location.properties.state,
+          postcode: location.properties.postcode,
+          countryCode: location.properties.countryCode,
+          lon: location.properties.lon,
+          lat: location.properties.lat,
+          stateCode: location.properties.statecode,
+          formatted: location.properties.formatted,
+          addressLine1: location.properties.addressLine1,
+          addressLine2: location.properties.addressLine2,
+        },
+      }));
+    } else {
+      setUser((prevUser) => ({
+        ...prevUser,
+        location: {} as LocationType,
+      }));
+    }
   };
 
-  useEffect(() => {
-    if (
-      !initialized.current &&
-      process.env.REACT_APP_GEOAPIFY_KEY &&
-      geocoderContainer.current
-    ) {
-      const autocomplete = new GeocoderAutocomplete(
-        geocoderContainer.current,
-        process.env.REACT_APP_GEOAPIFY_KEY,
-        {
-          placeholder: 'Area/location...',
-          skipDetails: false,
-          skipIcons: true,
-        }
-      );
-      autocomplete.on('select', (location) => {
-        if (location.properties.city) {
-          setUser((prevUser) => ({
-            ...prevUser,
-            location: {
-              city: location.properties.city,
-              country: location.properties.country,
-              county: location.properties.county,
-              state: location.properties.state,
-              postcode: location.properties.postcode,
-              countryCode: location.properties.countryCode,
-              lon: location.properties.lon,
-              lat: location.properties.lat,
-              stateCode: location.properties.statecode,
-              formatted: location.properties.formatted,
-              addressLine1: location.properties.addressLine1,
-              addressLine2: location.properties.addressLine2,
-            },
-          }));
-        } else {
-          setUser((prevUser) => ({
-            ...prevUser,
-            location: {} as LocationType,
-          }));
-        }
+  const succesCloudinaryCallback = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    result: any
+  ) => {
+    if (event.target.id === 'dogImages') {
+      setUser({
+        ...user,
+        dog: {
+          ...user.dog!,
+          images: [...user.dog!.images!, result.info.secure_url],
+        },
       });
-      initialized.current = true;
     }
-  }, []);
+    if (event.target.id === 'ownerImage') {
+      setUser({
+        ...user,
+        ownerImage: result.info.secure_url,
+      });
+    }
+  };
+
+  const errorCloudinaryCallback = (result: any) => {
+    setErrorMessage(`Upload failed of ${result.info.original_filename}`);
+  };
 
   function handleInputChanges(
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -132,7 +174,13 @@ export default function ProfileForm() {
   return (
     <form className='profile-form' onSubmit={handleSubmit}>
       <button
-        onClick={showCloudinaryWidget}
+        onClick={(event) =>
+          showCloudinaryWidget(
+            event,
+            succesCloudinaryCallback,
+            errorCloudinaryCallback
+          )
+        }
         id='dogImages'
         className='--fixed-width'
       >
@@ -140,7 +188,13 @@ export default function ProfileForm() {
       </button>
 
       <button
-        onClick={showCloudinaryWidget}
+        onClick={(event) =>
+          showCloudinaryWidget(
+            event,
+            succesCloudinaryCallback,
+            errorCloudinaryCallback
+          )
+        }
         id='ownerImage'
         className='--fixed-width'
       >
@@ -156,6 +210,7 @@ export default function ProfileForm() {
           placeholder="Dog's name..."
           id='name'
           onChange={handleInputChanges}
+          value={user.dog!.name}
           required
         />
       </div>
@@ -169,6 +224,7 @@ export default function ProfileForm() {
           placeholder="Dog's Age..."
           id='age'
           onChange={handleInputChanges}
+          value={user.dog!.age}
         />
       </div>
 
@@ -184,6 +240,7 @@ export default function ProfileForm() {
           placeholder='Tagline...'
           id='briefDescription'
           onChange={handleInputChanges}
+          value={user.dog!.briefDescription}
         />
       </div>
 
@@ -196,6 +253,7 @@ export default function ProfileForm() {
           placeholder='Bio...'
           id='description'
           onChange={handleInputChanges}
+          value={user.dog!.description}
         />
       </div>
 
@@ -221,8 +279,13 @@ export default function ProfileForm() {
         >
           Size
         </label>
-        <select name='size' id='size' onChange={handleInputChanges}>
-          <option value='' disabled selected>
+        <select
+          name='size'
+          id='size'
+          onChange={handleInputChanges}
+          value={user.dog?.size ? user.dog?.size : ''}
+        >
+          <option value='' disabled hidden>
             Please select...
           </option>
           <option value='Large'>Large ({'>'}25kg)</option>
@@ -238,8 +301,13 @@ export default function ProfileForm() {
         >
           Gender
         </label>
-        <select name='gender' id='gender' onChange={handleInputChanges}>
-          <option value='' disabled selected>
+        <select
+          name='gender'
+          id='gender'
+          onChange={handleInputChanges}
+          value={user.dog?.gender ? user.dog?.gender : ''}
+        >
+          <option value='' disabled hidden>
             Please select...
           </option>
           <option value='Male'>Male</option>
@@ -255,15 +323,20 @@ export default function ProfileForm() {
         >
           Energy
         </label>
-        <select name='energy' id='energyLevel' onChange={handleInputChanges}>
-          <option value='' disabled selected>
+        <select
+          name='energy'
+          id='energyLevel'
+          onChange={handleInputChanges}
+          value={user?.dog?.energyLevel ? user?.dog?.energyLevel : ''}
+        >
+          <option value='' disabled hidden>
             Please select...
           </option>
-          <option value='4'>Very high</option>
-          <option value='3'>High</option>
-          <option value='2'>Moderate</option>
-          <option value='1'>Low</option>
-          <option value='0'>Very Low</option>
+          <option value={5}>Very high</option>
+          <option value={4}>High</option>
+          <option value={3}>Moderate</option>
+          <option value={2}>Low</option>
+          <option value={1}>Very Low</option>
         </select>
       </div>
 
@@ -278,15 +351,16 @@ export default function ProfileForm() {
           name='human-friendly'
           id='humanFriendliness'
           onChange={handleInputChanges}
+          value={user.dog?.humanFriendliness ? user.dog?.humanFriendliness : ''}
         >
-          <option value='' disabled selected>
+          <option value='' disabled hidden>
             Please select...
           </option>
-          <option value='4'>Very high</option>
-          <option value='3'>High</option>
-          <option value='2'>Moderate</option>
-          <option value='1'>Low</option>
-          <option value='0'>Very Low</option>
+          <option value={5}>Very high</option>
+          <option value={4}>High</option>
+          <option value={3}>Moderate</option>
+          <option value={2}>Low</option>
+          <option value={1}>Very Low</option>
         </select>
       </div>
 
@@ -301,15 +375,16 @@ export default function ProfileForm() {
           name='dog-friendly'
           id='dogFriendliness'
           onChange={handleInputChanges}
+          value={user.dog?.dogFriendliness ? user.dog?.dogFriendliness : ''}
         >
-          <option value='' disabled selected>
+          <option value='' disabled hidden>
             Please select...
           </option>
-          <option value='4'>Very high</option>
-          <option value='3'>High</option>
-          <option value='2'>Moderate</option>
-          <option value='1'>Low</option>
-          <option value='0'>Very Low</option>
+          <option value={5}>Very high</option>
+          <option value={4}>High</option>
+          <option value={3}>Moderate</option>
+          <option value={2}>Low</option>
+          <option value={1}>Very Low</option>
         </select>
       </div>
 
@@ -322,6 +397,7 @@ export default function ProfileForm() {
           placeholder='Breed...'
           id='breed'
           onChange={handleInputChanges}
+          value={user.dog!.breed}
         />
       </div>
 
@@ -334,6 +410,7 @@ export default function ProfileForm() {
           placeholder='Likes...'
           id='likes'
           onChange={handleInputChanges}
+          value={user.dog!.likes?.join(', ')}
         />
       </div>
 
@@ -346,6 +423,7 @@ export default function ProfileForm() {
           placeholder='Dislikes...'
           id='dislikes'
           onChange={handleInputChanges}
+          value={user.dog!.dislikes?.join(', ')}
         />
       </div>
 
