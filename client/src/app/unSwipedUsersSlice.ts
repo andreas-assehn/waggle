@@ -17,10 +17,19 @@ const unSwipedUsers = createSlice({
       state.unSwipedUsers = [];
       return state;
     },
+    shiftUnSwipedUsers: (state) => {
+      state.unSwipedUsers = state.unSwipedUsers.slice(1);
+      console.log('calling shift unswiped users');
+      console.log(state.unSwipedUsers);
+      return state;
+    },
   },
 });
 
-export const { setUnSwipedUsersState, clearUnSwipedUsersState } =
-  unSwipedUsers.actions;
+export const {
+  setUnSwipedUsersState,
+  clearUnSwipedUsersState,
+  shiftUnSwipedUsers,
+} = unSwipedUsers.actions;
 
 export default unSwipedUsers.reducer;

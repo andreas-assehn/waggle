@@ -105,7 +105,6 @@ function App() {
         <Route path='/loginRegister' element={<LoginRegister />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/matchingView' element={<MatchingView />} />
-        <Route path='/matchingViewDetail' element={<MatchingViewDetail />} />
         <Route path='/chatDashboard' element={<ChatDashboard />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/eventsDashboard' element={<EventsDashboard />} />
