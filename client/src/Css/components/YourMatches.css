@@ -1,1 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.your-matches {
+  font-family: "Nunito", sans-serif;
+  font-size: 4.5vw;
+}
 
+.your-matches__background {
+  background-color: rgba(0, 0, 0, 0.452);
+  height: 20vh;
+}

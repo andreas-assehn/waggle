@@ -1,2 +1,16 @@
+@use '../abstracts' as *;
+
 .your-matches {
+  font-family: $body-font;
+  font-size: $p-size;
 }
+
+.your-matches__background {
+  background-color: $translucent-black;
+  height: 20vh;
+}
+
+// .your-matches-background {
+//   background-color: $translucent-black;
+//   height: 50vh;
+// }
