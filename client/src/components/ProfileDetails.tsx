@@ -38,7 +38,9 @@ function ProfileDetails({
           <div>
             <img
               className="card__profile-image"
-              src={user.dog!.images![0]}
+              src={
+                user && user.dog && user.dog.images ? user.dog.images[0] : ''
+              }
               onClick={handleOpenModal}
             />
           </div>
