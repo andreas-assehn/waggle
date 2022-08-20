@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import { useNavigate } from 'react-router-dom';
 import MatchPreferences from '../components/MatchPreferences';
-import '../Css/components/SettingsView.css';
+import '../Css/pages/SettingsView.css';
 function SettingsView() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
@@ -30,19 +30,29 @@ function SettingsView() {
       </div>
       <MatchPreferences />
       <div className="settingsViewBtns">
+        <div className="settingsView__profileBtns">
+          <button
+            onClick={() => {
+              navigate('/editProfile');
+            }}
+          >
+            Edit profile
+          </button>
+          <button
+            onClick={() => {
+              navigate('/profile');
+            }}
+          >
+            View profile
+          </button>
+        </div>
         <button
+          className="--pop"
           onClick={() => {
             handleSignOut(), navigate('/');
           }}
         >
           Sign Out
-        </button>
-        <button
-          onClick={() => {
-            navigate('/editProfile');
-          }}
-        >
-          Edit profile
         </button>
       </div>
     </div>

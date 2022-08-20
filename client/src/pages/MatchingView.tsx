@@ -6,7 +6,7 @@ import { RootState } from '../app/store';
 import ProfileDetails from '../components/ProfileDetails';
 import apiUserService from '../utils/services/apiUserService';
 
-import '../Css/components/MatchingView.css';
+import '../Css/pages/MatchingView.css';
 
 function MatchingView() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -39,19 +39,19 @@ function MatchingView() {
 
   return userAuth && unSwipedUsers && unSwipedUsers.length ? (
     <>
-      <div className='dashboard'>
-        <div className='swipe-container'>
-          <div className='card-container'>
+      <div className="dashboard">
+        <div className="swipe-container">
+          <div className="card-container">
             {unSwipedUsers.map((user) => (
               <TinderCard
-                className='swipe'
+                className="swipe"
                 key={user.userId}
                 onSwipe={(dir) => swiped(dir, user.userId)}
               >
                 <ProfileDetails user={user} />
               </TinderCard>
             ))}
-            <div className='swipe-info'></div>
+            <div className="swipe-info"></div>
           </div>
         </div>
       </div>
