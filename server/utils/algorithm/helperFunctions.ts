@@ -41,7 +41,12 @@ export function usersInArea(user: User, users: User[]) {
   const filteredUsers = users.filter((otherUser) => {
     const distanceBetweenUsers = getDistanceFromLatLonInKm(user, otherUser);
     if (distanceBetweenUsers <= user.preferences!.maxDistance) {
-      otherUser['distance'] = distanceBetweenUsers;
+      const distanceBetweenUsersInMeters = distanceBetweenUsers * 1000;
+      if (distanceBetweenUsersInMeters < 250) {
+        otherUser['distance'] = 250;
+      } else {
+        otherUser['distance'] = Number(distanceBetweenUsersInMeters.toFixed());
+      }
       return otherUser;
     }
   });
