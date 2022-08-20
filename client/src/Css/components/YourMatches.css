@@ -1,10 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .your-matches {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   font-family: "Nunito", sans-serif;
   font-size: 4.5vw;
+}
+.your-matches p {
+  padding-left: 10px;
 }
 
 .your-matches__background {
   background-color: #bfbfbf;
+  width: 96vw;
   height: 20vh;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-block: 15px;
+  margin-block: 5px;
 }
