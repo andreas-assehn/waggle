@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 90vh;
+
+  &__text {
+    text-align: center;
+    margin: 0;
+    position: relative;
+    top: 17vh;
+  }
+
+  &__animation {
+    transform: rotate(90deg) scale(0.4);
+    margin: 0;
+  }
+}

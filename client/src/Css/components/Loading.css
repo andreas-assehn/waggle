@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 90vh;
+}
+.loading__text {
+  text-align: center;
+  margin: 0;
+  position: relative;
+  top: 17vh;
+}
+.loading__animation {
+  transform: rotate(90deg) scale(0.4);
+  margin: 0;
+}

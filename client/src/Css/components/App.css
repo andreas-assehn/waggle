@@ -1,33 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap');
-button,
-input[type='submit'],
-select[type='submit'] {
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+h1 {
+  font-family: "Satisfy", cursive;
+  font-size: 8.6vw;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 6vw;
+  margin: 10px 0;
+}
+
+h3 {
+  font-size: 5vw;
+}
+
+h3 {
+  font-size: 4.7vw;
+}
+
+p {
+  font-family: "Nunito", sans-serif;
+  font-size: 4.5vw;
+  font-weight: 500;
+}
+
+button, input[type=submit], select[type=submit] {
   background-color: #3bbee8;
   border: none;
   border-radius: 20px;
   padding: 4px 15px;
   margin: 0.5vh 1vw;
   border: 2px #3bbee8 solid;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #ffffff;
   font-size: 4.5vw;
   width: fit-content;
 }
-button.--disabled,
-input.--disabled[type='submit'],
-select.--disabled[type='submit'] {
+button.--disabled, input.--disabled[type=submit], select.--disabled[type=submit] {
   border: 2px #bfbfbf solid;
   background-color: #bfbfbf;
 }
-button.--pop,
-input.--pop[type='submit'],
-select.--pop[type='submit'] {
+button.--pop, input.--pop[type=submit], select.--pop[type=submit] {
   background-color: #ff2c55;
   border: 2px #ff2c55 solid;
 }
-button.--round,
-input.--round[type='submit'],
-select.--round[type='submit'] {
+button.--round, input.--round[type=submit], select.--round[type=submit] {
   display: flex;
   justify-content: center;
   width: 35px;
@@ -36,57 +61,44 @@ select.--round[type='submit'] {
   padding: 0;
   font-size: 5.5vw;
 }
-button.--fixed-width,
-input.--fixed-width[type='submit'],
-select.--fixed-width[type='submit'] {
+button.--fixed-width, input.--fixed-width[type=submit], select.--fixed-width[type=submit] {
   width: 60vw;
 }
-button.--transparent,
-input.--transparent[type='submit'],
-select.--transparent[type='submit'] {
+button.--transparent, input.--transparent[type=submit], select.--transparent[type=submit] {
   background-color: transparent;
   border: none;
 }
-button:active,
-input[type='submit']:active,
-select[type='submit']:active {
+button:active, input[type=submit]:active, select[type=submit]:active {
   background-color: transparent;
   border: 2px #3bbee8 solid;
 }
-button:active.--disabled,
-input[type='submit']:active.--disabled,
-select[type='submit']:active.--disabled {
+button:active.--disabled, input[type=submit]:active.--disabled, select[type=submit]:active.--disabled {
   border: 2px #bfbfbf solid;
 }
-button:active.--pop,
-input[type='submit']:active.--pop,
-select[type='submit']:active.--pop {
+button:active.--pop, input[type=submit]:active.--pop, select[type=submit]:active.--pop {
   border: 2px #ff2c55 solid;
 }
-button:active.--transparent,
-input[type='submit']:active.--transparent,
-select[type='submit']:active.--transparent {
+button:active.--transparent, input[type=submit]:active.--transparent, select[type=submit]:active.--transparent {
   background-color: rgba(255, 255, 255, 0.3);
   border: none;
 }
 
-input,
-select {
+input, select {
   background-color: #bfbfbf;
   border: none;
   border-radius: 15px;
   padding: 5px 10px;
   font-size: 4.5vw;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
   color: #373737;
   margin: 0.3vh 1.5vw;
   width: 60vw;
 }
-input.--white,
-select.--white {
+input.--white, select.--white {
   background-color: #fff;
 }
-input::placeholder,
-select::placeholder {
+input::placeholder, select::placeholder {
   color: #373737;
 }
 
@@ -95,5 +107,5 @@ select::placeholder {
 }
 
 .header-padding {
-  height: 75px;
+  height: 85px;
 }
