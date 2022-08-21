@@ -3,6 +3,7 @@ import { LocationType, Event } from '../../../globalUtils/Types';
 import { geoapifyInput } from '../utils/helperFunctions/geoapifyInput';
 import { RootState } from '../app/store';
 import { useAppSelector } from '../app/hooks';
+import Loading from '../components/Loading';
 
 export default function EventForm() {
   const [event, setEvent] = useState({
@@ -11,6 +12,7 @@ export default function EventForm() {
     description: '',
     createdBy: '',
   } as Event);
+  // const [isLoading, setIsLoading] = useState(true);
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
@@ -30,6 +32,7 @@ export default function EventForm() {
         return newValue;
       });
     }
+    // setIsLoading(false);
   }, [userAuth]);
 
   const geocoderOnSelectLogic = (location: any) => {
@@ -69,10 +72,8 @@ export default function EventForm() {
   }
 
   //TODO cloudinary
-  //TODO geoapify
   //TODO allow for editing form
-  //TODO loading state
-  return (
+  return userAuth && allEvents ? (
     <>
       <h2>Enter event details</h2>
       <form>
@@ -118,5 +119,7 @@ export default function EventForm() {
         />
       </form>
     </>
+  ) : (
+    <Loading />
   );
 }
