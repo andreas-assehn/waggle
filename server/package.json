@@ -5,7 +5,8 @@
     "express": "^4.18.1",
     "firebase-admin": "^11.0.1",
     "mongodb": "^4.8.1",
-    "mongoose": "^6.5.2"
+    "mongoose": "^6.5.2",
+    "socket.io": "^4.5.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -23,5 +24,9 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "seed": "ts-node seeds.ts"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.6",
+    "utf-8-validate": "^5.0.9"
   }
 }
