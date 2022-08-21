@@ -18,8 +18,7 @@ h2 {
   font-size: $header-large-size;
   margin: 10px 0;
 }
-
-h3 {
+s h3 {
   font-size: $header-medium-size;
 }
 h3 {
@@ -30,6 +29,12 @@ p {
   font-family: $body-font;
   font-size: $p-size;
   font-weight: 500;
+
+  &.--error-message {
+    text-align: center;
+    background-color: $pop-color;
+    color: $text-white;
+  }
 }
 
 button {

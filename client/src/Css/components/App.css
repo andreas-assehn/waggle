@@ -18,7 +18,7 @@ h2 {
   margin: 10px 0;
 }
 
-h3 {
+s h3 {
   font-size: 5vw;
 }
 
@@ -30,6 +30,11 @@ p {
   font-family: "Nunito", sans-serif;
   font-size: 4.5vw;
   font-weight: 500;
+}
+p.--error-message {
+  text-align: center;
+  background-color: #ff2c55;
+  color: #ffffff;
 }
 
 button, input[type=submit], select[type=submit] {

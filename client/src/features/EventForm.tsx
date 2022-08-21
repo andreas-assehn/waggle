@@ -4,7 +4,10 @@ import { geoapifyInput } from '../utils/helperFunctions/geoapifyInput';
 import { RootState } from '../app/store';
 import { useAppSelector } from '../app/hooks';
 import Loading from '../components/Loading';
-import { showCloudinaryWidget } from '../utils/helperFunctions/cloudinaryWidget';
+import {
+  showCloudinaryWidget,
+  CloudinaryResult,
+} from '../utils/helperFunctions/cloudinaryWidget';
 
 export default function EventForm() {
   const [event, setEvent] = useState({
@@ -63,14 +66,17 @@ export default function EventForm() {
     }
   };
 
-  const cloudinarySuccessCallback = (_: any, result: any) => {
+  const cloudinarySuccessCallback = (
+    _: React.MouseEvent<HTMLButtonElement>,
+    result: CloudinaryResult
+  ) => {
     setEvent(() => ({
       ...event,
       images: [...event.images!, result.info.secure_url],
     }));
   };
-  const cloudinaryErrorCallback = (result: any) => {
-    setErrorMessage(`Upload failed of ${result.info.original_filename}`);
+  const cloudinaryErrorCallback = (filename: string) => {
+    setErrorMessage(`Upload failed of ${filename}`);
   };
 
   function handleInputChanges(
@@ -150,6 +156,7 @@ export default function EventForm() {
               : ''
           }
         />
+        {errorMessage && <p className='--error-message'>{errorMessage}</p>}
       </form>
     </>
   ) : (
