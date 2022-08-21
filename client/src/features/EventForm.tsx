@@ -4,6 +4,7 @@ import { geoapifyInput } from '../utils/helperFunctions/geoapifyInput';
 import { RootState } from '../app/store';
 import { useAppSelector } from '../app/hooks';
 import Loading from '../components/Loading';
+import { showCloudinaryWidget } from '../utils/helperFunctions/cloudinaryWidget';
 
 export default function EventForm() {
   const [event, setEvent] = useState({
@@ -11,8 +12,9 @@ export default function EventForm() {
     location: {} as LocationType,
     description: '',
     createdBy: '',
+    images: [],
   } as Event);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
@@ -32,7 +34,6 @@ export default function EventForm() {
         return newValue;
       });
     }
-    // setIsLoading(false);
   }, [userAuth]);
 
   const geocoderOnSelectLogic = (location: any) => {
@@ -62,6 +63,16 @@ export default function EventForm() {
     }
   };
 
+  const cloudinarySuccessCallback = (_: any, result: any) => {
+    setEvent(() => ({
+      ...event,
+      images: [...event.images!, result.info.secure_url],
+    }));
+  };
+  const cloudinaryErrorCallback = (result: any) => {
+    setErrorMessage(`Upload failed of ${result.info.original_filename}`);
+  };
+
   function handleInputChanges(
     clickEvent: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) {
@@ -71,13 +82,24 @@ export default function EventForm() {
     });
   }
 
-  //TODO cloudinary
+  //TODO put request
   //TODO allow for editing form
+  //TODO render error message
   return userAuth && allEvents ? (
     <>
       <h2>Enter event details</h2>
       <form>
-        <button>Upload event image</button>
+        <button
+          onClick={(event) =>
+            showCloudinaryWidget(
+              event,
+              cloudinarySuccessCallback,
+              cloudinaryErrorCallback
+            )
+          }
+        >
+          Upload event image
+        </button>
 
         <div
           className='autocomplete-container'
@@ -86,13 +108,24 @@ export default function EventForm() {
           ref={geocoderContainer}
         ></div>
 
-        <input type='datetime-local' id='dateTime' required />
-        <input type='text' placeholder='Tagline' id='briefDescription' />
+        <input
+          type='datetime-local'
+          id='dateTime'
+          required
+          onChange={handleInputChanges}
+        />
+        <input
+          type='text'
+          placeholder='Tagline'
+          id='briefDescription'
+          onChange={handleInputChanges}
+        />
         <input
           type='text'
           placeholder='Event description'
           id='description'
           required
+          onChange={handleInputChanges}
         />
 
         <input
