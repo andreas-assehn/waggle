@@ -1,7 +1,4 @@
-export type CloudinaryResult = {
-  event: string;
-  info: { original_filename: string; secure_url: string };
-};
+import { CloudinaryResult } from '../types/general';
 
 export const showCloudinaryWidget = (
   event: React.MouseEvent<HTMLButtonElement>,

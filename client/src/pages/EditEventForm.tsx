@@ -4,7 +4,7 @@ import EventForm from '../features/EventForm';
 export default function EditEventForm() {
   return (
     <>
-      <EventForm />
+      <EventForm formType='edit' />
     </>
   );
 }

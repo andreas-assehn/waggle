@@ -108,7 +108,7 @@ function App() {
         <Route path='/chatDashboard' element={<ChatDashboard />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/eventsDashboard' element={<EventsDashboard />} />
-        <Route path='/eventDetails' element={<EventDetails />} />
+        <Route path='/eventDetails/:id' element={<EventDetails />} />
         <Route path='/addEventForm' element={<AddEventForm />} />
         <Route path='/editEvent/:id' element={<EditEventForm />} />
         <Route path='/settingsView' element={<SettingsView />} />

@@ -4,7 +4,7 @@ import EventForm from '../features/EventForm';
 function AddEventForm() {
   return (
     <>
-      <EventForm />
+      <EventForm formType='add' />
     </>
   );
 }

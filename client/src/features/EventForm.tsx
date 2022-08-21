@@ -4,12 +4,14 @@ import { geoapifyInput } from '../utils/helperFunctions/geoapifyInput';
 import { RootState } from '../app/store';
 import { useAppSelector } from '../app/hooks';
 import Loading from '../components/Loading';
-import {
-  showCloudinaryWidget,
-  CloudinaryResult,
-} from '../utils/helperFunctions/cloudinaryWidget';
+import { showCloudinaryWidget } from '../utils/helperFunctions/cloudinaryWidget';
+import { CloudinaryResult } from '../utils/types/general';
+import apiEventService from '../utils/services/apiEventsService';
+import { useNavigate } from 'react-router-dom';
 
-export default function EventForm() {
+type Props = { formType: 'add' | 'edit' };
+
+export default function EventForm({ formType }: Props) {
   const [event, setEvent] = useState({
     dateTime: '' as unknown as Date,
     location: {} as LocationType,
@@ -22,6 +24,7 @@ export default function EventForm() {
   const initialized = useRef(false);
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (allEvents && userAuth) {
@@ -79,22 +82,45 @@ export default function EventForm() {
     setErrorMessage(`Upload failed of ${filename}`);
   };
 
-  function handleInputChanges(
+  const handleInputChanges = (
     clickEvent: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) {
+  ) => {
     setEvent({
       ...event,
       [clickEvent.target.id]: clickEvent.currentTarget.value,
     });
-  }
+  };
 
-  //TODO put request
+  const handleSubmit = async (
+    submitEvent: React.FormEvent<HTMLFormElement>
+  ) => {
+    submitEvent.preventDefault();
+    if (formType === 'add') {
+      const newEvent: Event | { error: unknown } =
+        await apiEventService.addEvent(event);
+      if ('_id' in newEvent) {
+        navigate(`/eventDetail/${newEvent._id}`);
+      } else {
+        setErrorMessage('Failed to save your event');
+      }
+    } else {
+      const updatedEvent: Event | { error: unknown } =
+        await apiEventService.updateEvent(event);
+      if ('_id' in updatedEvent) {
+        navigate(`/eventDetail/${updatedEvent._id}`);
+      } else {
+        setErrorMessage('Failed to update your event');
+      }
+    }
+  };
+
+  //TODO post & put request
   //TODO allow for editing form
-  //TODO render error message
+  //TODO navigate to event
   return userAuth && allEvents ? (
     <>
       <h2>Enter event details</h2>
-      <form>
+      <form className='event-form' onSubmit={handleSubmit}>
         <button
           onClick={(event) =>
             showCloudinaryWidget(
