@@ -109,3 +109,8 @@ export type OtherUsers = {
   ownerImage: string;
   distance: number;
 };
+
+export type LocationState = {
+  matchId: string;
+  roomId: string;
+};

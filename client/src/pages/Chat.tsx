@@ -4,14 +4,34 @@ import { useAppSelector } from '../app/hooks';
 import sendIcon from '../assets/send-2.svg';
 import { io } from 'socket.io-client';
 import { users } from '../mockData/chatTestData';
+import { useLocation } from 'react-router-dom';
+import { LocationState } from '../../../globalUtils/Types';
+import apiChatService from '../utils/services/apiChatService';
 
 const socket = io('http://localhost:4000');
 
-function Chat({ matchId, roomId }: { matchId: string; roomId: string }) {
+function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-  const [room, setRoom] = useState('123');
+  const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');
-  const [messageReceived, setMessageReceived] = useState([] as string[]);
+  const [chatMessages, setChatMessages] = useState([] as string[]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (userAuth) {
+      const { matchId, roomId } = location.state as LocationState;
+      // console.log({ matchId, roomId });
+      setRoom(roomId);
+      apiChatService
+        .getChatRoom(roomId)
+        .then((chats) => {
+          console.log(chats);
+          // setChatMessages(chats)
+        })
+        .catch((error) => console.log(error));
+    }
+  }, []);
 
   useEffect(() => {
     socket.emit('join_room', room);
@@ -20,36 +40,36 @@ function Chat({ matchId, roomId }: { matchId: string; roomId: string }) {
   const sendMessage = (event: any) => {
     event.preventDefault();
     socket.emit('send_message', { message, room, userId: userAuth?.userId });
-    setMessageReceived((prev) => [...prev, message]);
+    setChatMessages((prev) => [...prev, message]);
     setMessage('');
   };
 
   useEffect(() => {
     socket.on('receive_message', (data) => {
       console.log({ data });
-      setMessageReceived((prev) => [...prev, data.message]);
+      setChatMessages((prev) => [...prev, data.message]);
     });
   }, [socket]);
 
   return userAuth ? (
     <>
       <div>Chat</div>
-      <div className="chat-body"></div>
+      <div className='chat-body'></div>
       <h1> Message:</h1>
-      {messageReceived.map((msg, i) => (
+      {chatMessages.map((msg, i) => (
         <p key={i}>{msg}</p>
       ))}
-      <form onSubmit={(event) => sendMessage(event)} className="chat-footer">
+      <form onSubmit={(event) => sendMessage(event)} className='chat-footer'>
         <input
-          type="text"
-          placeholder="Message..."
+          type='text'
+          placeholder='Message...'
           value={message}
           onChange={(event) => {
             event.preventDefault();
             setMessage(event.target.value);
           }}
         />
-        <button type="submit">
+        <button type='submit'>
           <img src={sendIcon} />
         </button>
       </form>

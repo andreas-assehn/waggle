@@ -31,7 +31,6 @@ export const getOwnChats = async (req: Request, res: Response) => {
     const currentUser = await User.findOne({ userId });
     const chats = await Chat.find();
     const filteredChats = matchedChats(currentUser!, chats);
-    console.log(filteredChats);
     res.status(200).send(filteredChats);
   } catch (e) {
     if (typeof e === 'string') {
@@ -42,5 +41,22 @@ export const getOwnChats = async (req: Request, res: Response) => {
     res
       .status(500)
       .send('chatController: could not fetch your chats in the database');
+  }
+};
+
+export const getRoomChat = async (req: Request, res: Response) => {
+  const roomId = req.params.roomId;
+  try {
+    const chatRoom = await Chat.findOne({ roomId });
+    res.status(200).send(chatRoom);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send('chatController: could not fetch your chat room from the database');
   }
 };

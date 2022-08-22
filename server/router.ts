@@ -24,7 +24,11 @@ import {
   modifyEvent,
   deleteEvent,
 } from './controllers/eventController';
-import { createChat, getOwnChats } from './controllers/chatController';
+import {
+  createChat,
+  getOwnChats,
+  getRoomChat,
+} from './controllers/chatController';
 import authMiddleware from './middleware/auth';
 
 router.get('/users', getUsers);
@@ -52,5 +56,6 @@ router.delete('/events/:eventId/:userId', deleteEvent);
 
 router.post('/chats', createChat);
 router.get('/chats/userChats/:userId', getOwnChats);
+router.get('/chats/room/:roomId', getRoomChat);
 
 export default router;

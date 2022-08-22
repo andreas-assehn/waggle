@@ -33,6 +33,21 @@ const getMatchedChats = async (id: string) => {
   }
 };
 
-const apiChatService = { createChat, getMatchedChats };
+const getChatRoom = async (id: string) => {
+  const options: RequestInit = {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(`${BASE_URL}/chats/room/${id}`, options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const apiChatService = { createChat, getMatchedChats, getChatRoom };
 
 export default apiChatService;

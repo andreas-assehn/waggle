@@ -45,21 +45,23 @@ function ChatDashboard() {
   };
 
   return (
-    <div className="chatDashboard">
+    <div className='chatDashboard'>
       <YourMatches user={userAuth} matchedUsers={matchedUsers} />
       {matchedUsers && matchedUsers.length ? (
         matchedUserChats?.map((chat) => (
-          <MessageCard
-            key={chat.roomId}
-            matchId={chat.matchId}
-            lastMessage={'Say hi! dasd ad as dmadmsao osdp  dsa opa'}
-            readStatus={false}
-            timeStamp={'23:59'}
-            handleOpenModal={handleOpenModal}
-          />
+          <div key={chat.roomId}>
+            <MessageCard
+              matchId={chat.matchId}
+              roomId={chat.roomId}
+              lastMessage={'Say hi! dasd ad as dmadmsao osdp  dsa opa'}
+              readStatus={false}
+              timeStamp={'23:59'}
+              handleOpenModal={handleOpenModal}
+            />
+          </div>
         ))
       ) : (
-        <p className="chatDashboard__no-messages">You have no messages</p>
+        <p className='chatDashboard__no-messages'>You have no messages</p>
       )}
       <DeleteModal
         setOpenModal={setOpenModal}
