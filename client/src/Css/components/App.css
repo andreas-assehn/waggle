@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 button, input[type=submit], select[type=submit] {
-  background-color: #3bbee8;
+  background-color: #0078ff;
   border: none;
   border-radius: 20px;
   padding: 4px 15px;
   margin: 0.5vh 1vw;
-  border: 2px #3bbee8 solid;
+  border: 2px #0078ff solid;
   font-family: "Nunito", sans-serif;
   color: #ffffff;
   font-size: 4.5vw;
@@ -37,7 +37,7 @@ button.--transparent, input.--transparent[type=submit], select.--transparent[typ
 }
 button:active, input[type=submit]:active, select[type=submit]:active {
   background-color: transparent;
-  border: 2px #3bbee8 solid;
+  border: 2px #0078ff solid;
 }
 button:active.--disabled, input[type=submit]:active.--disabled, select[type=submit]:active.--disabled {
   border: 2px #bfbfbf solid;
