@@ -178,3 +178,32 @@ export const getUnSwipedUsers = async (req: Request, res: Response) => {
       .send('userController: getUsers could not query users from database');
   }
 };
+
+export const changeUserPreferences = async (req: Request, res: Response) => {
+  const userId = req.params.userId;
+  try {
+    const modifiedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        preferences: req.body,
+      },
+      {
+        new: true,
+      }
+    );
+    if (modifiedUser?.preferences) {
+      return res.status(200).send(modifiedUser.preferences);
+    }
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send(
+        `userController: changeUserPreferences could not modify preferences with id ${userId}`
+      );
+  }
+};
