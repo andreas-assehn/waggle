@@ -34,8 +34,9 @@ function SettingsView() {
       </div>
       <MatchPreferences />
       <div className="settingsViewBtns">
-        <div className="settingsView__profileBtns">
+        <div className="settingsView-profileBtns">
           <button
+            className="settingsView__button"
             onClick={() => {
               navigate('/editProfile');
             }}
@@ -43,6 +44,7 @@ function SettingsView() {
             Edit profile
           </button>
           <button
+            className="settingsView__button"
             onClick={() => {
               navigate('/profile');
             }}
