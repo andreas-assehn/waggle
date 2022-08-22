@@ -1,8 +1,14 @@
 @use '../abstracts' as *;
 
 h1 {
-  font-family: $title-font;
-  font-size: $title-size;
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: $header-large-size;
+  &.headerBar__title {
+    font-family: $title-font;
+    font-size: $title-size;
+    text-align: center;
+  }
 }
 
 h2,
@@ -18,7 +24,7 @@ h2 {
   font-size: $header-large-size;
   margin: 10px 0;
 }
-s h3 {
+h3 {
   font-size: $header-medium-size;
 }
 h3 {
