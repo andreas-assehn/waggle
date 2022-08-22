@@ -18,6 +18,7 @@ const getAllEvents = async () => {
 const addEvent: (event: Event) => Promise<Event | { error: unknown }> = async (
   event: Event
 ) => {
+  console.log(event);
   const options: RequestInit = {
     method: 'POST',
     body: JSON.stringify(event),
@@ -26,10 +27,7 @@ const addEvent: (event: Event) => Promise<Event | { error: unknown }> = async (
     },
   };
   try {
-    const response = await fetch(
-      `${BASE_URL}/events/${event.createdBy}`,
-      options
-    );
+    const response = await fetch(`${BASE_URL}/events`, options);
     const eventAdded = (await response.json()) as Event;
     return eventAdded;
   } catch (error) {

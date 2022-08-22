@@ -107,6 +107,7 @@ export default function EventForm({ formType }: Props) {
       const updatedEvent: Event | { error: unknown } =
         await apiEventService.updateEvent(event);
       if ('_id' in updatedEvent) {
+        setErrorMessage('');
         navigate(`/eventDetail/${updatedEvent._id}`);
       } else {
         setErrorMessage('Failed to update your event');
@@ -114,7 +115,7 @@ export default function EventForm({ formType }: Props) {
     }
   };
 
-  //TODO post & put request
+  //TODO test post & put request working
   //TODO allow for editing form
   //TODO navigate to event
   return userAuth && allEvents ? (
