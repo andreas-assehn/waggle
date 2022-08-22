@@ -21,7 +21,7 @@ function HeaderBar() {
       <div className='headerBar'>
         <div className='headerBar-container'>
           {showBackButton ? <BackButton /> : <></>}
-          <h1>{pageTitle(url)}</h1>
+          <h1 className='headerBar__title'>{pageTitle(url)}</h1>
           <BurgerMenu />
         </div>
       </div>
