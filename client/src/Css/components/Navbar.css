@@ -11,18 +11,33 @@
   align-items: center;
   justify-content: space-around;
   background-color: #292929;
-  height: 7vh;
+  height: 8vh;
 }
 
-.current {
+.navbar__icon-background {
+  padding-inline: 15px;
+  padding-block: 6px;
+  border-radius: 20px;
+  max-height: 34px;
+  box-sizing: border-box;
+}
+
+.--current {
   background-color: #ff2c55;
 }
 
 .nav-btn {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 5.6vh;
-  height: 5.6vh;
-  border-radius: 2.8vh;
+  text-decoration: none;
+  cursor: none;
+  color: #ffffff;
+}
+.nav-btn p {
+  font-size: small;
+  margin: 0;
+  padding: 0;
+  padding-block-start: 5px;
 }

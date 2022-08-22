@@ -11,6 +11,10 @@
   margin: 0;
 }
 
+.settingsViewUser__text {
+  margin-inline-start: 10px;
+}
+
 .settingsViewUser {
   width: 100vw;
   display: flex;
@@ -32,10 +36,10 @@
 
   & button {
     margin: 10px;
-    width: 130px;
+    width: 140px;
   }
 }
-.settingsView__profileBtns {
+.settingsView-profileBtns {
   display: flex;
   flex-direction: row;
 }
