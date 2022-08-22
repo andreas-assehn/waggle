@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.your-matches {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 4.5vw;
+}
+.your-matches p {
+  padding-left: 10px;
+}
+
+.your-matches__bubbles {
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  padding-inline-start: 5px;
+}
+.your-matches__bubbles .your-matches__profile {
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.your-matches__bubble {
+  display: flex;
+  margin-inline: 6px;
+}
+
+.your-matches__bubbles::-webkit-scrollbar {
+  display: none;
+}
+
+.your-matches__background {
+  background-color: #bfbfbf;
+  width: 96vw;
+  height: 20vh;
+  border-radius: 10px;
+  margin-block: 5px;
+}

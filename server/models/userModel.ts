@@ -7,17 +7,17 @@ const UserSchema = new mongoose.Schema<User>({
   email: { type: String, required: true },
   location: {
     type: {
-      city: { type: String, required: true },
+      city: String,
       county: String,
       state: String,
       postcode: String,
-      country: { type: String, required: true },
-      countryCode: { type: String, required: true },
+      country: String,
+      countryCode: String,
       lon: { type: Number, required: true },
       lat: { type: Number, required: true },
       stateCode: String,
       formatted: { type: String, required: true },
-      addressLine1: { type: String, required: true },
+      addressLine1: String,
       addressLine2: String,
     },
     required: false,
@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema<User>({
     type: String,
     required: true,
     default:
-      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
+      'https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-user-icon-isolated-on-abstract-background-png-image_1875037.jpg',
   },
   dog: {
     type: {
@@ -52,9 +52,7 @@ const UserSchema = new mongoose.Schema<User>({
       images: {
         type: [String],
         required: false,
-        default: [
-          'https://cdn.pixabay.com/photo/2017/03/25/14/26/animals-2173635_960_720.jpg',
-        ],
+        default: [],
       },
     },
     required: false,

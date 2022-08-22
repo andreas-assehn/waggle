@@ -36,7 +36,7 @@ function MatchModal({
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <button
-            className="titleCloseBtn__btn"
+            className="titleCloseBtn__btn --round"
             onClick={() => {
               setOpenModal(false);
             }}

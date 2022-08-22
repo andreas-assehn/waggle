@@ -8,12 +8,15 @@ function PictureModal({
   user,
   setOpenModal,
   openModal,
+  setModalActive,
 }: {
   user: User | null;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
   openModal: boolean;
 }) {
   if (!openModal) return null;
+
   const images = user?.dog?.images;
 
   return (
@@ -21,12 +24,13 @@ function PictureModal({
       <div className='pictureModalContainer'>
         <div className='titleCloseBtn'>
           <button
-            className='titleCloseBtn__btn'
+            className='titleCloseBtn__btn --round'
             onClick={() => {
               setOpenModal(false);
+              setModalActive(false);
             }}
           >
-            X
+            &times;
           </button>
         </div>
         <div className='pictureModal'>

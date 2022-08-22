@@ -1,8 +1,24 @@
 @use '../abstracts' as *;
 
-.swipe {
-  position: absolute;
+ul {
+  // position: relative;
+  // position: absolute;
+  // box-sizing: border-box;
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // max-width: 100vw;
+  //   overflow: hidden;
+  // max-height: 100vh;
+  //   margin: 0;
+  //   margin-block: 0;
+  //   padding: 0;
+  // overflow-y: hidden;
 }
+
+// .swipe {
+//   position: absolute;
+// }
 
 // .swipe-container {
 //   width: 70%;
@@ -13,7 +29,7 @@
 //   height: 100vh;
 // }
 
-.card-container {
-  width: 100vw;
-  // max-width: 260px;
-}
+// .card-container {
+//   width: 100vw;
+//   // max-width: 260px;
+// }
