@@ -15,29 +15,19 @@ const io = new Server(httpServer, {
 
 io.on('connection', (socket) => {
   console.log(socket.id);
-});
 
-io.use((socket, next) => {
-  const userName = socket.handshake.auth.userName;
-  // socket.userName = userName;
-  next();
-});
+  socket.on('join_room', (data) => {
+    socket.join(data);
+    console.log(`User with ID: ${socket.id} joined room: ${data}`);
+  });
 
-io.on('connection', (socket) => {
-  const users = [];
-  for (let [id, socket] of io.of('/').sockets) {
-    users.push({
-      userID: id,
-      // username: socket.userName,
-    });
-  }
-  socket.emit('users', users);
+  socket.on('send_message', (data) => {
+    console.log(data);
+    socket.to(data.room).emit('receive_message', data);
+  });
 
-  socket.on('private message', ({ content, to }) => {
-    socket.to(to).emit('private message', {
-      content,
-      from: socket.id,
-    });
+  socket.on('disconnect', () => {
+    console.log('User Disconnected', socket.id);
   });
 });
 
@@ -55,3 +45,26 @@ app.use(router);
     console.log('⚡️[server]: Server could not connect to database!');
   }
 })();
+
+// socket.on('private message', ({ content, to }) => {
+//   socket.to(to).emit('private message', {
+//     content,
+//     from: socket.id,
+//   });
+// });
+
+// io.use((socket, next) => {
+//   const userName = socket.handshake.auth.userName;
+//   // socket.userName = userName;
+//   next();
+// });
+
+// io.on('connection', (socket) => {
+//   const users = [];
+//   for (let [id, socket] of io.of('/').sockets) {
+//     users.push({
+//       userID: id,
+//       // username: socket.userName,
+//     });
+//   }
+//   socket.emit('users', users);

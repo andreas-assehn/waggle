@@ -81,6 +81,8 @@ export function sortWaggles(user: User, users: User[]) {
 
 export function matchedWaggles(user: User, users: User[]) {
   if (user.matches?.length) {
-    return users.filter((eachUser) => user.matches?.includes(eachUser.userId));
+    return users.filter((eachUser) =>
+      user.matches?.forEach((match) => match.matchId === eachUser.userId)
+    );
   } else return {};
 }

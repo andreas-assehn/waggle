@@ -75,19 +75,30 @@ export const addUserSwipeNo = async (req: Request, res: Response) => {
 export const addUserSwipeYes = async (req: Request, res: Response) => {
   const urlId = req.params.userId;
   try {
+    console.log('Start of SwipeYes Controller');
     const modifiedUser = await User.findById(urlId);
     modifiedUser?.swipeYes?.push(req.body.swipedUserId);
-    const updatedUser = await modifiedUser?.save();
 
+    const updatedUser = await modifiedUser?.save();
     const swipedUser = await User.findOne({ userId: req.body.swipedUserId });
+
     if (swipedUser?.swipeYes?.includes(updatedUser?.userId!)) {
-      swipedUser.matches?.push(updatedUser?.userId!);
-      updatedUser?.matches?.push(req.body.swipedUserId);
+      const roomId =
+        swipedUser?.userId.slice(0, 10) + updatedUser?.userId.slice(0, 10);
+
+      console.log('JALLA JALLA:', { roomId });
+
+      // swipedUser.matches?.push(updatedUser?.userId!);
+      swipedUser?.matches?.push({ matchId: updatedUser?.userId!, roomId });
+
+      updatedUser?.matches?.push({ matchId: req.body.swipedUserId, roomId });
+
       const currentUser = await updatedUser?.save();
       const updatedOtherUser = await swipedUser?.save();
-      return res.status(200).send(currentUser);
+
+      return res.status(200).send({ currentUser, matched: true });
     }
-    return res.status(200).send(updatedUser);
+    return res.status(200).send({ currentUser: updatedUser, matched: false });
   } catch (e) {
     if (typeof e === 'string') {
       console.log(e);

@@ -47,7 +47,7 @@ export type User = {
   darkMode?: boolean;
   swipeYes?: string[];
   swipeNo?: string[];
-  matches?: string[];
+  matches?: ChatMatch[];
   dog?: Dog;
   preferences?: UserPreferences;
   ownerImage?: string;
@@ -57,6 +57,15 @@ export type User = {
 export type Matches = {
   userId: string;
   matchIds: string[];
+};
+// export type Matches = {
+//   matchId: string;
+//   roomId: string;
+// };
+
+export type ChatMatch = {
+  matchId: string;
+  roomId: string;
 };
 
 export type Attendee = {
