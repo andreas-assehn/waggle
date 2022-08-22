@@ -8,3 +8,8 @@ declare global {
     id: string;
   }
 }
+
+export type CloudinaryResult = {
+  event: string;
+  info: { original_filename: string; secure_url: string };
+};

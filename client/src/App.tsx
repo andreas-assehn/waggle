@@ -4,17 +4,17 @@ import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import SplashScreen from './pages/SplashScreen';
 import MatchingView from './pages/MatchingView';
-import MatchingViewDetail from './pages/MatchingViewDetail';
 import ChatDashboard from './pages/ChatDashboard';
 import Chat from './pages/Chat';
 import EventsDashboard from './pages/EventsDashboard';
 import EventDetails from './pages/EventDetails';
 import AddEventForm from './pages/AddEventForm';
+import EditEventForm from './pages/EditEventForm';
 import SettingsView from './pages/SettingsView';
 import EditProfile from './pages/EditProfile';
 import UserProfile from './pages/UserProfile';
 import { auth, methods } from './utils/auth/firebase';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -108,8 +108,9 @@ function App() {
         <Route path='/chatDashboard' element={<ChatDashboard />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/eventsDashboard' element={<EventsDashboard />} />
-        <Route path='/eventDetails' element={<EventDetails />} />
+        <Route path='/eventDetails/:eventId' element={<EventDetails />} />
         <Route path='/addEventForm' element={<AddEventForm />} />
+        <Route path='/editEvent/:eventId' element={<EditEventForm />} />
         <Route path='/settingsView' element={<SettingsView />} />
         <Route path='/editProfile' element={<EditProfile />} />
         <Route path='/profile' element={<UserProfile />} />

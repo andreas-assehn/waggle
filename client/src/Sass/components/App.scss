@@ -1,5 +1,42 @@
 @use '../abstracts' as *;
 
+h1 {
+  font-family: $title-font;
+  font-size: $title-size;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: $header-large-size;
+  margin: 10px 0;
+}
+s h3 {
+  font-size: $header-medium-size;
+}
+h3 {
+  font-size: $header-small-size;
+}
+
+p {
+  font-family: $body-font;
+  font-size: $p-size;
+  font-weight: 500;
+
+  &.--error-message {
+    text-align: center;
+    background-color: $pop-color;
+    color: $text-white;
+  }
+}
+
 button {
   background-color: $button-blue;
   border: none;
@@ -63,6 +100,8 @@ input {
   border-radius: 15px;
   padding: 5px 10px;
   font-size: $p-size;
+  font-family: $body-font;
+  font-weight: 500;
   color: $text-dark-grey;
   margin: 0.3vh 1.5vw;
   width: 60vw;

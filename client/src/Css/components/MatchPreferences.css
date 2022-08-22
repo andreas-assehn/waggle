@@ -25,11 +25,6 @@
   justify-content: center;
 }
 
-h1 {
-  font-size: larger;
-  padding-inline: 15px;
-}
-
 .customSlider {
   /* max width of your slider */
   max-width: 300px;

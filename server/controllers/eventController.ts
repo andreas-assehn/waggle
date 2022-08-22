@@ -17,6 +17,7 @@ export const getEvents = async (req: Request, res: Response) => {
   }
 };
 export const setEvent = async (req: Request, res: Response) => {
+  console.log('body', req.body);
   try {
     const newEvent = await Event.create(req.body);
     res.status(200).send(newEvent);
@@ -34,9 +35,8 @@ export const setEvent = async (req: Request, res: Response) => {
   }
 };
 export const modifyEvent = async (req: Request, res: Response) => {
-  const urlId = req.params.userId;
   try {
-    const modifiedEvent = await Event.findByIdAndUpdate(urlId, req.body);
+    const modifiedEvent = await Event.findByIdAndUpdate(req.body._id, req.body);
     res.status(200).send(modifiedEvent);
   } catch (e) {
     if (typeof e === 'string') {
@@ -47,7 +47,7 @@ export const modifyEvent = async (req: Request, res: Response) => {
     res
       .status(500)
       .send(
-        `eventController: modifyEvent could not modify event with id ${urlId}`
+        `eventController: modifyEvent could not modify event with id ${req.body._id}`
       );
   }
 };

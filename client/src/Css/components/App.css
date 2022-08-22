@@ -1,4 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+h1 {
+  font-family: "Satisfy", cursive;
+  font-size: 8.6vw;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 6vw;
+  margin: 10px 0;
+}
+
+s h3 {
+  font-size: 5vw;
+}
+
+h3 {
+  font-size: 4.7vw;
+}
+
+p {
+  font-family: "Nunito", sans-serif;
+  font-size: 4.5vw;
+  font-weight: 500;
+}
+p.--error-message {
+  text-align: center;
+  background-color: #ff2c55;
+  color: #ffffff;
+}
+
 button, input[type=submit], select[type=submit] {
   background-color: #0078ff;
   border: none;
@@ -56,6 +94,8 @@ input, select {
   border-radius: 15px;
   padding: 5px 10px;
   font-size: 4.5vw;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
   color: #373737;
   margin: 0.3vh 1.5vw;
   width: 60vw;
