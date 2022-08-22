@@ -18,7 +18,7 @@ export const showCloudinaryWidget = (
       if (!error && result && result.event === 'success') {
         successCallback(event, result);
       } else if (error) {
-        errorCallback(result.info.original_filename);
+        errorCallback('image');
       }
     }
   );

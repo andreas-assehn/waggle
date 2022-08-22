@@ -8,6 +8,7 @@ h1.headerBar__title {
   font-family: "Satisfy", cursive;
   font-size: 8.6vw;
   text-align: center;
+  margin-left: 5px;
 }
 
 h2,
@@ -36,6 +37,10 @@ p {
   font-family: "Nunito", sans-serif;
   font-size: 4.5vw;
   font-weight: 500;
+}
+p.--small {
+  font-size: 3.7vw;
+  margin: 0;
 }
 p.--error-message {
   text-align: center;

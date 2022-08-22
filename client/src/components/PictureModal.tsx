@@ -12,7 +12,7 @@ function PictureModal({
 }: {
   user: User | null;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalActive?: React.Dispatch<React.SetStateAction<boolean>>;
   openModal: boolean;
 }) {
   if (!openModal) return null;
@@ -27,7 +27,9 @@ function PictureModal({
             className='titleCloseBtn__btn --round'
             onClick={() => {
               setOpenModal(false);
-              setModalActive(false);
+              if (setModalActive) {
+                setModalActive(false);
+              }
             }}
           >
             &times;
