@@ -7,14 +7,14 @@ import Scale from './Scale';
 
 function ProfileDetails({
   user,
-  details = false,
+  details = true,
 }: {
   user: User | null;
   details?: boolean;
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [modalActive, setModalActive] = useState(false);
-  const [showDetails, setShowDetails] = useState(true);
+  const [showDetails, setShowDetails] = useState(details);
   const navigate = useNavigate();
   const url = useLocation().pathname;
 

@@ -1,7 +1,7 @@
 export const pageTitle = (path: string) => {
   if (path === '/dashboard') return 'Waggle';
   if (path === '/matchingView') return 'Waggles';
-  if (path === '/matchingViewDetail') return 'Waggles';
+  if (path.includes('/matchingViewDetail')) return 'Waggles';
   if (path === '/chatDashboard') return 'Matches';
   if (path === '/chat') return 'Fix this!'; // Get user from somewhere!
   if (path === '/eventsDashboard') return 'Events';
@@ -15,7 +15,7 @@ export const pageTitle = (path: string) => {
 };
 
 export const pagesWithBackButton = (path: string) => {
-  if (path === '/matchingViewDetail') return true;
+  if (path.includes('/matchingViewDetail')) return true;
   if (path === '/chat') return true;
   if (path === '/eventDetails') return true;
   if (path === '/addEventForm') return true;

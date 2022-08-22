@@ -34,6 +34,7 @@ import {
   clearMatchedUsersState,
   setMatchedUsersState,
 } from './app/matchedUsersSlice';
+import MatchingViewDetail from './pages/MatchingViewDetail';
 
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -103,6 +104,10 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/loginRegister' element={<LoginRegister />} />
         <Route path='/matchingView' element={<MatchingView />} />
+        <Route
+          path='/matchingViewDetail/:userId'
+          element={<MatchingViewDetail />}
+        />
         <Route path='/chatDashboard' element={<ChatDashboard />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/eventsDashboard' element={<EventsDashboard />} />
