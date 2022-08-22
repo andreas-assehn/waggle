@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import matches from '../assets/navbar-matches.svg';
 import dashboard from '../assets/navbar-dashboard.svg';
@@ -9,26 +9,19 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 
 function Navbar() {
-  const [notProtected, setNotProtected] = useState(false);
   const isLoggedIn = useSelector((state: RootState) => state.userAuth);
   const url = useLocation().pathname;
-
-  useEffect(() => {
-    if (
-      url !== '/' &&
-      url !== '/login' &&
-      url !== '/register' &&
-      url !== '/loginRegister'
-    ) {
-      setNotProtected(true);
-    }
-  });
+  const notProtected =
+    url !== '/' &&
+    url !== '/login' &&
+    url !== '/register' &&
+    url !== '/loginRegister';
 
   return isLoggedIn && notProtected ? (
     <>
-      <div className='navbar-padding' />
-      <div className='navbar'>
-        <div className='btn-container'>
+      <div className="navbar-padding" />
+      <div className="navbar">
+        <div className="btn-container">
           <Link
             className={url === '/matchingView' ? 'nav-btn current' : 'nav-btn'}
             to={'/matchingView'}
