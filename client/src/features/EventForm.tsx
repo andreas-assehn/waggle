@@ -129,7 +129,7 @@ export default function EventForm({ formType }: Props) {
       const newEvent: Event | { error: unknown } =
         await apiEventService.addEvent(event);
       if ('_id' in newEvent) {
-        navigate(`/eventDetail/${newEvent._id}`);
+        navigate(`/eventDetails/${newEvent._id}`);
       } else {
         setErrorMessage('Failed to save your event');
       }
@@ -138,7 +138,7 @@ export default function EventForm({ formType }: Props) {
         await apiEventService.updateEvent(event);
       if ('_id' in updatedEvent) {
         setErrorMessage('');
-        navigate(`/eventDetail/${updatedEvent._id}`);
+        navigate(`/eventDetails/${updatedEvent._id}`);
       } else {
         setErrorMessage('Failed to update your event');
       }
@@ -149,24 +149,23 @@ export default function EventForm({ formType }: Props) {
     <>
       <h2>Enter event details</h2>
       <form className='event-form' onSubmit={handleSubmit}>
-        <button
-          onClick={(event) =>
-            showCloudinaryWidget(
-              event,
-              cloudinarySuccessCallback,
-              cloudinaryErrorCallback
-            )
-          }
-        >
-          Upload event image
-        </button>
+        <input
+          type='text'
+          placeholder='Event name'
+          id='briefDescription'
+          onChange={handleInputChanges}
+          value={event.briefDescription}
+          required
+        />
 
-        <div
-          className='autocomplete-container'
-          id='autocomplete'
-          style={{ position: 'relative' }}
-          ref={geocoderContainer}
-        ></div>
+        <input
+          type='text'
+          placeholder='Event description'
+          id='description'
+          required
+          onChange={handleInputChanges}
+          value={event.description}
+        />
 
         <input
           type='datetime-local'
@@ -179,21 +178,26 @@ export default function EventForm({ formType }: Props) {
               : event.dateTime.toString()
           }
         />
-        <input
-          type='text'
-          placeholder='Tagline'
-          id='briefDescription'
-          onChange={handleInputChanges}
-          value={event.briefDescription}
-        />
-        <input
-          type='text'
-          placeholder='Event description'
-          id='description'
-          required
-          onChange={handleInputChanges}
-          value={event.description}
-        />
+
+        <div
+          className='autocomplete-container'
+          id='autocomplete'
+          style={{ position: 'relative' }}
+          ref={geocoderContainer}
+        ></div>
+
+        <button
+          onClick={(event) =>
+            showCloudinaryWidget(
+              event,
+              cloudinarySuccessCallback,
+              cloudinaryErrorCallback
+            )
+          }
+        >
+          Upload event image
+        </button>
+        <br />
 
         <input
           type='submit'
@@ -203,7 +207,8 @@ export default function EventForm({ formType }: Props) {
               event.createdBy &&
               event.dateTime &&
               event.location.city &&
-              event.description
+              event.description &&
+              event.briefDescription
             )
           }
           className={
@@ -211,7 +216,8 @@ export default function EventForm({ formType }: Props) {
               event.createdBy &&
               event.dateTime &&
               event.location.city &&
-              event.description
+              event.description &&
+              event.briefDescription
             )
               ? '--disabled'
               : ''
