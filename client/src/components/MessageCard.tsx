@@ -4,47 +4,59 @@ import '../Css/components/MessageCard.css';
 import read from '../assets/message-read.svg';
 import unread from '../assets/message-unread.svg';
 import tripledot from '../assets/message-tripledot.svg';
+import { Link } from 'react-router-dom';
 
 export default function MessageCard({
-  user,
-  lastMessage = 'Say hi! dasd ad as dmadmsao osdp  dsa opa',
+  matchedUser,
+  lastMessage = 'No messages yet',
   readStatus = true,
-  timeStamp = '23:59',
+  timeStamp = 'HH:SS',
   handleOpenModal,
 }: {
-  user?: User | null;
-  lastMessage?: string;
+  matchedUser: User | null;
+  lastMessage: string;
   readStatus?: boolean;
-  timeStamp?: string;
-  handleOpenModal?: () => void;
+  timeStamp: string;
+  handleOpenModal: (user: User) => void;
 }) {
-  if (!user) return <p>Loading...</p>;
+  if (!matchedUser) return <p>Loading...</p>;
   return (
     <div className="message-card">
       <div className="message-card__background">
         <div className="message-card__content">
-          <div className="message-card__picture-container">
-            <img
-              className="message-card__picture"
-              src={user.dog && user.dog.images ? user.dog.images[0] : ''}
-            />
-          </div>
-          <div className="message-card__text">
-            <p>
-              {user.dog ? user.dog.name : ''} ({user.name})
-            </p>
-            <p>
-              {lastMessage.length > 19
-                ? `${lastMessage.slice(0, 18)}...`
-                : lastMessage}
-            </p>
-          </div>
+          {/* TO-DO: Need to pass param here to view the right chat  */}
+          <Link className="message-card__link" to={'/chat'}>
+            <div className="message-card__picture-container">
+              <img
+                className="message-card__picture"
+                src={
+                  matchedUser.dog && matchedUser.dog.images
+                    ? matchedUser.dog.images[0]
+                    : ''
+                }
+              />
+            </div>
+            <div className="message-card__text">
+              <p>
+                {matchedUser.dog ? matchedUser.dog.name : ''} (
+                {matchedUser.name})
+              </p>
+              <p>
+                {lastMessage.length > 19
+                  ? `${lastMessage.slice(0, 18)}...`
+                  : lastMessage}
+              </p>
+            </div>
+          </Link>
           <div className="message-card__additional-info">
             <p>{timeStamp}</p>
             <div className="message-card__icons">
-              <img src={readStatus ? read : unread} />
+              <img
+                className="message-card__read-unread"
+                src={readStatus ? read : unread}
+              />
               <button
-                onClick={handleOpenModal}
+                onClick={() => handleOpenModal(matchedUser)}
                 className="message-card__tripledot --transparent"
               >
                 <img src={tripledot} />
