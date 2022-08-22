@@ -11,6 +11,7 @@ import apiUserService from '../utils/services/apiUserService';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import DogCard from './DogCard';
+import apiChatService from '../utils/services/apiChatService';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -18,9 +19,15 @@ function SwipeCard({ user }: { user: User }) {
   const [modalActive, setModalActive] = useState(false);
 
   const updateUser = async (swipedData: Swiped, swipe: string) => {
-    apiUserService
+    const res = await apiUserService
       .updateUserSwipes(swipedData, swipe)
       .catch((error) => console.log(error));
+    console.log({ res });
+    if (res.roomId) {
+      await apiChatService
+        .createChat({ roomId: res.roomId, message: [] })
+        .catch((error) => console.log(error));
+    }
   };
 
   const onSwipe = (

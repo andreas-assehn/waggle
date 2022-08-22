@@ -24,6 +24,7 @@ import {
   modifyEvent,
   deleteEvent,
 } from './controllers/eventController';
+import { createChat, getOwnChats } from './controllers/chatController';
 import authMiddleware from './middleware/auth';
 
 router.get('/users', getUsers);
@@ -48,5 +49,8 @@ router.put('/events/:eventId', modifyEvent);
 router.delete('/events/:eventId/:userId', deleteEvent);
 
 // TO-DO: Chat/Websockets
+
+router.post('/chats', createChat);
+router.get('/chats/userChats/:userId', getOwnChats);
 
 export default router;

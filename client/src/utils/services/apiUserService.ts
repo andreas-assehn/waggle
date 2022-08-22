@@ -49,8 +49,8 @@ const updateUserSwipes = async (data: Swiped, swipe: string) => {
       `${BASE_URL}/users/swipe${swipe}/${data._id}`,
       options
     );
-
-    return await response.json();
+    const res = await response.json();
+    return res;
   } catch (error) {
     console.error(error);
   }
@@ -65,7 +65,8 @@ const getUser = async (id: string) => {
   };
   try {
     const response = await fetch(`${BASE_URL}/users/${id}`, options);
-    return await response.json();
+    const res = await response.json();
+    return res as User;
   } catch (error) {
     console.error(error);
   }

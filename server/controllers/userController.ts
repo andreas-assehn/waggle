@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import User from '../models/userModel';
 import { sortWaggles, matchedWaggles } from '../utils/algorithm/algorithm';
+import { createChat } from './chatController';
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -75,7 +76,6 @@ export const addUserSwipeNo = async (req: Request, res: Response) => {
 export const addUserSwipeYes = async (req: Request, res: Response) => {
   const urlId = req.params.userId;
   try {
-    console.log('Start of SwipeYes Controller');
     const modifiedUser = await User.findById(urlId);
     modifiedUser?.swipeYes?.push(req.body.swipedUserId);
 
@@ -86,8 +86,6 @@ export const addUserSwipeYes = async (req: Request, res: Response) => {
       const roomId =
         swipedUser?.userId.slice(0, 10) + updatedUser?.userId.slice(0, 10);
 
-      console.log('JALLA JALLA:', { roomId });
-
       // swipedUser.matches?.push(updatedUser?.userId!);
       swipedUser?.matches?.push({ matchId: updatedUser?.userId!, roomId });
 
@@ -96,7 +94,7 @@ export const addUserSwipeYes = async (req: Request, res: Response) => {
       const currentUser = await updatedUser?.save();
       const updatedOtherUser = await swipedUser?.save();
 
-      return res.status(200).send({ currentUser, matched: true });
+      return res.status(200).send({ currentUser, matched: true, roomId });
     }
     return res.status(200).send({ currentUser: updatedUser, matched: false });
   } catch (e) {

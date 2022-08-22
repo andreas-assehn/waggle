@@ -68,6 +68,17 @@ export type ChatMatch = {
   roomId: string;
 };
 
+export type Chat = {
+  roomId: string;
+  messages: Message[];
+};
+
+export type Message = {
+  message: string;
+  userId: string;
+  timestamp: string;
+};
+
 export type Attendee = {
   userId: string;
   creator: boolean;

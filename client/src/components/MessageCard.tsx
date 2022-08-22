@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/MessageCard.css';
 import read from '../assets/message-read.svg';
 import unread from '../assets/message-unread.svg';
 import tripledot from '../assets/message-tripledot.svg';
 import { Link } from 'react-router-dom';
+import apiUserService from '../utils/services/apiUserService';
 
 export default function MessageCard({
-  matchedUser,
+  matchId,
   lastMessage = 'No messages yet',
   readStatus = true,
   timeStamp = 'HH:SS',
   handleOpenModal,
 }: {
-  matchedUser: User | null;
-  lastMessage: string;
+  matchId: string;
+  lastMessage?: string;
   readStatus?: boolean;
-  timeStamp: string;
+  timeStamp?: string;
   handleOpenModal: (user: User) => void;
 }) {
-  if (!matchedUser) return <p>Loading...</p>;
-  return (
+  const [matchedUser, setMatchedUser] = useState<User | null>(null);
+
+  const getMatchedUser = async (matchId: string) => {
+    return await apiUserService.getUser(matchId);
+  };
+  useEffect(() => {
+    getMatchedUser(matchId).then((data) => setMatchedUser(() => data as User));
+  }, [matchId]);
+
+  return matchedUser ? (
     <div className="message-card">
       <div className="message-card__background">
         <div className="message-card__content">
@@ -66,5 +75,7 @@ export default function MessageCard({
         </div>
       </div>
     </div>
+  ) : (
+    <div>Loading...</div>
   );
 }
