@@ -7,6 +7,7 @@ export const pageTitle = (path: string) => {
   if (path === '/eventsDashboard') return 'Events';
   if (path === '/eventDetails') return 'Events';
   if (path === '/addEventForm') return 'Add Event';
+  if (path === '/editEvent') return 'Edit Event';
   if (path === '/settingsView') return 'Settings';
   if (path === '/editProfile') return 'Edit Profile';
   if (path === '/profile') return 'Your Profile';

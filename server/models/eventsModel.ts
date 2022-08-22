@@ -27,7 +27,7 @@ const EventsSchema = new mongoose.Schema<Event>({
   attendees: {
     type: [
       {
-        userId: { type: Number, required: true },
+        userId: { type: String, required: true },
         creator: { type: Boolean, required: true },
       },
     ],

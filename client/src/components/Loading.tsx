@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'lottie-react';
-import pawPrints from '../assets/paws.json';
+import pawPrints from '../assets/paws-fast.json';
 import '../Css/components/Loading.css';
 
 export default function Loading() {
