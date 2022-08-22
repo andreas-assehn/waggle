@@ -1,4 +1,4 @@
-import { Swiped, User } from '../../../../globalUtils/Types';
+import { Swiped, User, UserPreferences } from '../../../../globalUtils/Types';
 import { EditUserProfile } from '../types/user';
 
 const BASE_URL = 'http://localhost:4000';
@@ -116,6 +116,46 @@ const getMatchedUsers = async (id: string) => {
   }
 };
 
+const getUserPreferences = async (user: User | null) => {
+  const options: RequestInit = {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(
+      `${BASE_URL}/users/preferences/${user!._id}`,
+      options
+    );
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const updateUserPreferences = async (
+  user: User | null,
+  preferences: UserPreferences
+) => {
+  const options: RequestInit = {
+    method: 'PUT',
+    body: JSON.stringify(preferences),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(
+      `${BASE_URL}/users/preferences/${user!._id}`,
+      options
+    );
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const apiUserService = {
   register,
   updateUser,
@@ -124,5 +164,7 @@ const apiUserService = {
   getAllUsers,
   getUnSwipedUsers,
   getMatchedUsers,
+  updateUserPreferences,
+  getUserPreferences,
 };
 export default apiUserService;
