@@ -102,3 +102,12 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.detailsModalContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0.5em;
+  margin: 5vw;
+  border-radius: 10px;
+  background-color: #ffffff;
+}

@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { User, Swiped } from '../../../globalUtils/Types';
-import '../Css/components/ProfileDetails.css';
-import PictureModal from './PictureModal';
-import Scale from './Scale';
-
 import {
   motion,
   useMotionValue,
@@ -11,17 +7,16 @@ import {
   useAnimation,
 } from 'framer-motion';
 import { useDispatch } from 'react-redux';
-import ProfileDetails from './ProfileDetails';
 import apiUserService from '../utils/services/apiUserService';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
+import DogCard from './DogCard';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-  const [openModal, setOpenModal] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
 
-  const dispatch = useDispatch();
+  const [modalActive, setModalActive] = useState(false);
+
   const updateUser = async (swipedData: Swiped, swipe: string) => {
     apiUserService
       .updateUserSwipes(swipedData, swipe)
@@ -33,11 +28,9 @@ function SwipeCard({ user }: { user: User }) {
     info: any,
     swipedUserId: string
   ) => {
-    console.log(info.point.x);
     if (info.point.x > -400 && info.point.x < 400) {
       return;
     } else if (info.point.x < -400) {
-      console.log('swiped left');
       animControls.start({ x: '-200vw' });
       const swipedData: Swiped = {
         _id: userAuth!._id!,
@@ -45,7 +38,6 @@ function SwipeCard({ user }: { user: User }) {
       };
       updateUser(swipedData, 'No');
     } else if (info.point.x > 400) {
-      console.log('swiped right');
       animControls.start({ x: '200vw' });
       const swipedData: Swiped = {
         _id: userAuth!._id!,
@@ -59,29 +51,42 @@ function SwipeCard({ user }: { user: User }) {
 
   const animControls = useAnimation();
 
+  const x = useMotionValue(0);
+  const xInput = [-100, 0, 100];
+  const background = useTransform(x, xInput, [
+    'linear-gradient(180deg, ##ff2c90 0%, #ff0000  100%)',
+    'linear-gradient(180deg, #ffffff 0%, #bfbfbf 100%)',
+    'linear-gradient(180deg, rgb(230, 255, 0) 0%, rgb(3, 209, 0) 100%)',
+  ]);
+
   return (
-    <motion.li
+    <motion.div
       key={user.userId}
       style={{
         position: 'absolute',
         maxWidth: '100vw',
         width: '100vw',
-        height: '100vh',
-        borderRadius: '8px',
+        height: '92vh',
+        borderRadius: '10px',
         transformOrigin: 'center right',
         listStyle: 'none',
+        x,
+        background,
       }}
       animate={animControls}
-      drag='x'
-      // drag={openModal ? false : 'x'}
+      drag={modalActive ? false : 'x'}
       dragConstraints={{
         right: 0,
         left: 0,
       }}
       onDragEnd={(event, info) => onSwipe(event, info, user.userId)}
     >
-      <ProfileDetails user={user} />
-    </motion.li>
+      <DogCard
+        user={user}
+        modalActive={modalActive}
+        setModalActive={setModalActive}
+      />
+    </motion.div>
   );
 }
 

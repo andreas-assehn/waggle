@@ -13,6 +13,7 @@ function ProfileDetails({
   details?: boolean;
 }) {
   const [openModal, setOpenModal] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
   const navigate = useNavigate();
   const url = useLocation().pathname;
@@ -47,6 +48,7 @@ function ProfileDetails({
             user={user}
             setOpenModal={setOpenModal}
             openModal={openModal}
+            setModalActive={setModalActive}
           />
           <div className='card__details-container'>
             <div className='card__headline'>
