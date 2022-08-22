@@ -45,7 +45,7 @@ function MatchPreferences() {
   return (
     <div className="matchPreferencesBackground">
       <div className="matchPreferencesTitle">
-        <h1>Match preferences</h1>
+        <h2 className="matchPreferencesTitle__title">Match preferences</h2>
       </div>
       <div className="matchPreferencesText">
         <span>Max distance: {distanceInKm} km </span>

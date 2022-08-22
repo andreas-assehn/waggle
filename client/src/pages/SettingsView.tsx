@@ -26,7 +26,11 @@ function SettingsView() {
     <div className="settingsView">
       <div className="settingsViewUserBackground">
         <div className="settingsViewUser"></div>
-        {userAuth && <h1>Logged in as {userAuth.name}</h1>}
+        {userAuth && (
+          <h2 className="settingsViewUser__text">
+            Logged in as {userAuth.name}
+          </h2>
+        )}
       </div>
       <MatchPreferences />
       <div className="settingsViewBtns">
