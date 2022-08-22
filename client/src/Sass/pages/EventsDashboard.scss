@@ -12,4 +12,14 @@
   &__add-events-padding {
     height: 35px;
   }
+  &__attending {
+    background-color: $pop-color;
+    margin: 1vh 1vw;
+    padding: 0.5vh 0.5vw;
+    border-radius: 6px;
+    &__title {
+      margin: 0 1.5vw;
+      color: $text-white;
+    }
+  }
 }
