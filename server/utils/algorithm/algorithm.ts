@@ -81,6 +81,9 @@ export function sortWaggles(user: User, users: User[]) {
 
 export function matchedWaggles(user: User, users: User[]) {
   if (user.matches?.length) {
+    const userMatches = user.matches.map((match) => match.matchId);
+    console.log({ userMatches });
+
     return users.filter((eachUser) =>
       user.matches?.forEach((match) => match.matchId === eachUser.userId)
     );
@@ -89,8 +92,10 @@ export function matchedWaggles(user: User, users: User[]) {
 
 export function matchedChats(user: User, chats: Chat[]) {
   if (user.matches?.length) {
-    return chats.filter((eachChat) =>
+    console.log({ user: user.matches, chats });
+    const filteredChats = chats.filter((eachChat) =>
       user.matches?.forEach((chat) => chat.roomId === eachChat.roomId)
     );
+    console.log({ filteredChats });
   } else return {};
 }
