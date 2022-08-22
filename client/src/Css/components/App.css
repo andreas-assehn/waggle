@@ -68,9 +68,9 @@ input::placeholder, select::placeholder {
 }
 
 .navbar-padding {
-  height: 50px;
+  height: 7vh;
 }
 
 .header-padding {
-  height: 75px;
+  height: 11vh;
 }
