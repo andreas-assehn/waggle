@@ -8,29 +8,33 @@ function PictureModal({
   user,
   setOpenModal,
   openModal,
+  setModalActive,
 }: {
   user: User | null;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
   openModal: boolean;
 }) {
   if (!openModal) return null;
+
   const images = user?.dog?.images;
 
   return (
-    <div className="modalBackground">
-      <div className="pictureModalContainer">
-        <div className="titleCloseBtn">
+    <div className='modalBackground'>
+      <div className='pictureModalContainer'>
+        <div className='titleCloseBtn'>
           <button
-            className="titleCloseBtn__btn --round"
+            className='titleCloseBtn__btn --round'
             onClick={() => {
               setOpenModal(false);
+              setModalActive(false);
             }}
           >
-            X
+            &times;
           </button>
         </div>
-        <div className="pictureModal">
-          <Carousel className="carousel">
+        <div className='pictureModal'>
+          <Carousel className='carousel'>
             {images &&
               images.map((image, index) => (
                 <div key={index}>
