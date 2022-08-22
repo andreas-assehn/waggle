@@ -5,7 +5,11 @@ import { RootState } from '../app/store';
 import DeleteModal from '../components/DeleteModal';
 import MessageCard from '../components/MessageCard';
 import YourMatches from '../components/YourMatches';
+<<<<<<< HEAD
 import '../Css/pages/ChatDashboard.css';
+=======
+import { users } from '../mockData/chatTestData';
+>>>>>>> c83c94a (chat)
 
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);

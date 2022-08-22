@@ -19,7 +19,7 @@ io.on('connection', (socket) => {
 
 io.use((socket, next) => {
   const userName = socket.handshake.auth.userName;
-  socket.userName = userName;
+  // socket.userName = userName;
   next();
 });
 
@@ -28,10 +28,17 @@ io.on('connection', (socket) => {
   for (let [id, socket] of io.of('/').sockets) {
     users.push({
       userID: id,
-      username: socket.userName,
+      // username: socket.userName,
     });
   }
   socket.emit('users', users);
+
+  socket.on('private message', ({ content, to }) => {
+    socket.to(to).emit('private message', {
+      content,
+      from: socket.id,
+    });
+  });
 });
 
 app.use(cors(corsOptions));
