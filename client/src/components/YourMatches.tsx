@@ -18,7 +18,10 @@ export default function YourMatches({
         <div className="your-matches__background">
           <div>
             <div className="your-matches__text">
-              <h1>Your matches ({matchedUsers.length})</h1>
+              <h1>
+                Your matches
+                {matchedUsers.length ? ` (${matchedUsers.length})` : ''}
+              </h1>
             </div>
             <div className="your-matches__bubbles">
               {matchedUsers.length ? (
