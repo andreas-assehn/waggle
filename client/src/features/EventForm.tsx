@@ -7,7 +7,8 @@ import Loading from '../components/Loading';
 import { showCloudinaryWidget } from '../utils/helperFunctions/cloudinaryWidget';
 import { CloudinaryResult } from '../utils/types/general';
 import apiEventService from '../utils/services/apiEventsService';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { findCurrentEvent } from '../utils/helperFunctions/findCurrenEvent';
 
 type Props = { formType: 'add' | 'edit' };
 
@@ -25,22 +26,34 @@ export default function EventForm({ formType }: Props) {
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const navigate = useNavigate();
+  const { eventId } = useParams();
 
   useEffect(() => {
     if (allEvents && userAuth) {
       setEvent(() => {
-        const newValue = { ...event, createdBy: userAuth._id! };
+        let newValue = { ...event, createdBy: userAuth._id! };
 
-        geoapifyInput(
-          initialized,
-          geocoderContainer,
-          undefined,
-          geocoderOnSelectLogic
-        ); //TODO update undefined to location using navigation params of editEventForm
+        if (formType === 'edit' && allEvents.length) {
+          const currentEvent = findCurrentEvent(allEvents, eventId!);
+          newValue = { ...event, ...currentEvent! };
+          geoapifyInput(
+            initialized,
+            geocoderContainer,
+            newValue.location,
+            geocoderOnSelectLogic
+          );
+        } else if (formType === 'add') {
+          geoapifyInput(
+            initialized,
+            geocoderContainer,
+            undefined,
+            geocoderOnSelectLogic
+          );
+        }
         return newValue;
       });
     }
-  }, [userAuth]);
+  }, [userAuth, allEvents]);
 
   const geocoderOnSelectLogic = (location: any) => {
     if (location.properties.city) {
@@ -115,9 +128,8 @@ export default function EventForm({ formType }: Props) {
     }
   };
 
-  //TODO test post & put request working
+  //TODO test put request working
   //TODO allow for editing form
-  //TODO navigate to event
   return userAuth && allEvents ? (
     <>
       <h2>Enter event details</h2>
