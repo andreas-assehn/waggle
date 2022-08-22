@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.events-dashboard__add-events {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 7vh;
+  width: 100%;
+}
+.events-dashboard__add-events-padding {
+  height: 35px;
+}

@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.events-dashboard {
+  &__add-events {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 7vh;
+    width: 100%;
+  }
+  &__add-events-padding {
+    height: 35px;
+  }
+}
