@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
-<<<<<<< Updated upstream
 h1 {
   font-family: "Satisfy", cursive;
   font-size: 8.6vw;
@@ -38,8 +37,6 @@ p.--error-message {
   color: #ffffff;
 }
 
-=======
->>>>>>> Stashed changes
 button, input[type=submit], select[type=submit] {
   background-color: #3bbee8;
   border: none;
