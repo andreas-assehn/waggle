@@ -42,7 +42,7 @@ router.delete('/matches/:userId', deleteMatch);
 
 router.get('/events', getEvents);
 router.post('/events', setEvent);
-router.put('/events/:eventId/:userId', modifyEvent);
+router.put('/events/:eventId', modifyEvent);
 router.delete('/events/:eventId/:userId', deleteEvent);
 
 // TO-DO: Chat/Websockets

@@ -1,11 +1,12 @@
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import { MutableRefObject } from 'react';
+import { LocationType } from '../../../../globalUtils/Types';
 
 export const geoapifyInput = (
   initialized: MutableRefObject<boolean>,
   geocoderContainer: MutableRefObject<null>,
-  locationArg: any,
-  geocoderOnSelectLogic: any
+  locationArg: LocationType | undefined,
+  geocoderOnSelectLogic: (location: any) => void
 ) => {
   if (
     !initialized.current &&

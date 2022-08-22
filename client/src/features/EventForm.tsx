@@ -35,7 +35,24 @@ export default function EventForm({ formType }: Props) {
 
         if (formType === 'edit' && allEvents.length) {
           const currentEvent = findCurrentEvent(allEvents, eventId!);
-          newValue = { ...event, ...currentEvent! };
+          const savedValues = [
+            currentEvent?.dateTime,
+            currentEvent?.description,
+            currentEvent?.briefDescription,
+            currentEvent?._id,
+          ];
+          const keys = ['dateTime', 'description', 'briefDescription', '_id'];
+          savedValues.forEach((value, i) => {
+            if (value) {
+              newValue = { ...newValue, [keys[i]]: value };
+            }
+          });
+          if (currentEvent?.location.formatted) {
+            newValue = { ...newValue, location: currentEvent.location };
+          }
+          if (currentEvent?.images?.length) {
+            newValue = { ...newValue, images: currentEvent?.images };
+          }
           geoapifyInput(
             initialized,
             geocoderContainer,
@@ -128,8 +145,6 @@ export default function EventForm({ formType }: Props) {
     }
   };
 
-  //TODO test put request working
-  //TODO allow for editing form
   return userAuth && allEvents ? (
     <>
       <h2>Enter event details</h2>
@@ -158,12 +173,18 @@ export default function EventForm({ formType }: Props) {
           id='dateTime'
           required
           onChange={handleInputChanges}
+          value={
+            event.dateTime.toString().slice(-1) === 'Z'
+              ? event.dateTime.toString().slice(0, -1)
+              : event.dateTime.toString()
+          }
         />
         <input
           type='text'
           placeholder='Tagline'
           id='briefDescription'
           onChange={handleInputChanges}
+          value={event.briefDescription}
         />
         <input
           type='text'
@@ -171,6 +192,7 @@ export default function EventForm({ formType }: Props) {
           id='description'
           required
           onChange={handleInputChanges}
+          value={event.description}
         />
 
         <input

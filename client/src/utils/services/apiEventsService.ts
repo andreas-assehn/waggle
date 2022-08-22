@@ -26,7 +26,6 @@ const addEvent: (event: Event) => Promise<Event | { error: unknown }> = async (
     },
   };
   try {
-    console.log(event);
     const response = await fetch(`${BASE_URL}/events`, options);
     const eventAdded = (await response.json()) as Event;
     return eventAdded;
@@ -45,11 +44,9 @@ const updateEvent: (
     },
   };
   try {
-    const response = await fetch(
-      `${BASE_URL}/events/${event._id}/${event.createdBy}`,
-      options
-    );
+    const response = await fetch(`${BASE_URL}/events/${event._id}`, options);
     const eventUpdated = (await response.json()) as Event;
+    console.log('event upsdated api service', eventUpdated);
     return eventUpdated;
   } catch (error) {
     return { error };
