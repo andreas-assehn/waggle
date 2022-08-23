@@ -8,7 +8,7 @@ import {
   twoParameterMatches,
   threeParameterMatches,
 } from './helperFunctions';
-import { Dog, User } from '../../../globalUtils/Types';
+import { Dog, User, Chat } from '../../../globalUtils/Types';
 
 // Main algorithm
 export function sortWaggles(user: User, users: User[]) {
@@ -81,6 +81,25 @@ export function sortWaggles(user: User, users: User[]) {
 
 export function matchedWaggles(user: User, users: User[]) {
   if (user.matches?.length) {
-    return users.filter((eachUser) => user.matches?.includes(eachUser.userId));
+    const userMatches = user.matches.map((match) => match.matchId);
+    return users
+      .filter((eachUser) => userMatches?.includes(eachUser.userId))
+      .map((user) => ({
+        _id: user._id,
+        userId: user.userId,
+        name: user.name,
+        verified: user.verified,
+        dog: user.dog,
+        ownerImage: user.ownerImage,
+        distance: user.distance,
+      }));
+  } else return {};
+}
+
+export function matchedChats(user: User, chats: Chat[]) {
+  console.log(user, chats);
+  if (user.matches?.length) {
+    const userChats = user.matches.map((match) => match.roomId);
+    return chats.filter((eachChat) => userChats?.includes(eachChat.roomId));
   } else return {};
 }
