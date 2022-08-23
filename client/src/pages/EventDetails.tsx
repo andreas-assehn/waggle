@@ -88,7 +88,6 @@ function EventDetails() {
         onClick={handleOpenModal}
         className='event-details__images'
       />
-      {/* TODO render multiple images to swipe through */}
       <PictureModal
         event={thisEvent}
         setOpenModal={setOpenModal}
