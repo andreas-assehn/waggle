@@ -25,7 +25,6 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
       apiChatService
         .getChatRoom(roomId)
         .then((chats) => {
-          console.log(chats);
           setChatMessages(chats.messages);
         })
         .catch((error) => console.log(error));
@@ -38,14 +37,13 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
 
   useEffect(() => {
     socket.on('receive_message', (data) => {
-      console.log({ data });
       setChatMessages((prev) => [...prev, data.sentMessage]);
     });
   }, [socket]);
 
   if (!userAuth) return <div>Loading...</div>;
 
-  const sendMessage = (event: any) => {
+  const sendMessage = async (event: any) => {
     event.preventDefault();
     const sentMessage: Message = {
       message,
@@ -58,7 +56,12 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
       userId: userAuth?.userId,
     });
     setChatMessages((prev) => [...prev, sentMessage]);
-    // add sent message to database
+    try {
+      await apiChatService.sendMessageToChatRoom(sentMessage, room);
+    } catch (error) {
+      console.log(error);
+    }
+
     setMessage('');
   };
 
