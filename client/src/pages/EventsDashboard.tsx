@@ -43,12 +43,14 @@ function EventsDashboard() {
     <Loading />
   ) : allEvents.length ? (
     <div className='events-dashboard'>
-      <div className='events-dashboard__attending'>
-        <h2 className='events-dashboard__attending__title'>Attending</h2>
-        {attendingEvents.map((eventData: Event) => (
-          <EventCard key={eventData._id} event={eventData} />
-        ))}
-      </div>
+      {attendingEvents.length ? (
+        <div className='events-dashboard__attending'>
+          <h2 className='events-dashboard__attending__title'>Attending</h2>
+          {attendingEvents.map((eventData: Event) => (
+            <EventCard key={eventData._id} event={eventData} />
+          ))}
+        </div>
+      ) : null}
       <div className='events-dashboard__not-attending'>
         {nonAttendingEvents.map((eventData: Event) => (
           <EventCard key={eventData._id} event={eventData} />
