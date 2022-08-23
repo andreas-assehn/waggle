@@ -4,12 +4,14 @@ import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import DeleteModal from '../components/DeleteModal';
 import MessageCard from '../components/MessageCard';
+import MessageCardModal from '../components/MessageCardModal';
 import YourMatches from '../components/YourMatches';
 import '../Css/pages/ChatDashboard.css';
 import apiChatService from '../utils/services/apiChatService';
 
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);
+  const [openMessageCardModal, setOpenMessageCardModal] = useState(false);
   const [messagesToDelete, setMessagesToDelete] = useState({});
   const [deleteConfirmMsg, setDeleteConfirmMsg] = useState('');
   const [allChats, setAllChats] = useState([] as Chat[]);
@@ -34,7 +36,8 @@ function ChatDashboard() {
       `Are you sure you want to delete all messages from ${user.name}? This action is irreversible.`
     );
     setMessagesToDelete(user);
-    setOpenModal(true);
+    // setOpenModal(true);
+    setOpenMessageCardModal(true);
   };
 
   const handleModalConfirm = () => {
@@ -61,6 +64,11 @@ function ChatDashboard() {
       ) : (
         <p className='chatDashboard__no-messages'>You have no messages</p>
       )}
+      <MessageCardModal
+        setOpenModal={setOpenMessageCardModal}
+        handleModalConfirm={handleModalConfirm}
+        openModal={openMessageCardModal}
+      />
       <DeleteModal
         setOpenModal={setOpenModal}
         message={deleteConfirmMsg}
