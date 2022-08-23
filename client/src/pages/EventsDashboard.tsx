@@ -18,7 +18,7 @@ function EventsDashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (allEvents.length && userAuth?.userId) {
+    if (allEvents?.length && userAuth?.userId) {
       setAttendingEvents(
         allEvents.filter((eventObj: Event) => {
           return !!eventObj.attendees!.filter((attendee: Attendee) => {
@@ -35,13 +35,13 @@ function EventsDashboard() {
       );
       setIsLoading(false);
     } else if (userAuth?.userId) {
-      setIsLoading(false);
+      setTimeout(() => setIsLoading(false), 3000);
     }
-  }, [allEvents, userAuth]);
+  }, [userAuth, allEvents]);
 
   return isLoading ? (
     <Loading />
-  ) : allEvents.length ? (
+  ) : allEvents?.length ? (
     <div className='events-dashboard'>
       {attendingEvents.length ? (
         <div className='events-dashboard__attending'>

@@ -22,7 +22,7 @@ function EventDetails() {
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const { eventId } = useParams();
-  const thisEvent = findCurrentEvent(allEvents, eventId!);
+  const thisEvent = findCurrentEvent(allEvents!, eventId!);
   const dispatch = useDispatch();
 
   const handleOpenModal = () => {
