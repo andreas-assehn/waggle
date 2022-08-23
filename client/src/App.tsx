@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './Sass/components/App.scss';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
 import SplashScreen from './pages/SplashScreen';
 import MatchingView from './pages/MatchingView';
 import ChatDashboard from './pages/ChatDashboard';
@@ -103,7 +102,6 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/loginRegister' element={<LoginRegister />} />
-        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/matchingView' element={<MatchingView />} />
         <Route path='/chatDashboard' element={<ChatDashboard />} />
         <Route path='/chat' element={<Chat />} />

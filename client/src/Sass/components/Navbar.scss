@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-$size: 7vh;
+$size: 8vh;
 
 .navbar {
   position: fixed;
@@ -16,15 +16,31 @@ $size: 7vh;
   background-color: $main-dark-grey;
   height: $size;
 }
-.current {
+
+.navbar__icon-background {
+  padding-inline: 15px;
+  padding-block: 6px;
+  border-radius: 20px;
+  max-height: 34px;
+  box-sizing: border-box;
+}
+
+.--current {
   background-color: $pop-color;
 }
+
 .nav-btn {
-  $circle: $size * 0.8;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: $circle;
-  height: $circle;
-  border-radius: $circle * 0.5;
+  text-decoration: none;
+  cursor: none;
+  color: $text-white;
+  & p {
+    font-size: small;
+    margin: 0;
+    padding: 0;
+    padding-block-start: 5px;
+  }
 }

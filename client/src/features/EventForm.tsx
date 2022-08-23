@@ -31,7 +31,7 @@ export default function EventForm({ formType }: Props) {
   useEffect(() => {
     if (allEvents && userAuth) {
       setEvent(() => {
-        let newValue = { ...event, createdBy: userAuth._id! };
+        let newValue = { ...event, createdBy: userAuth.userId! };
 
         if (formType === 'edit' && allEvents.length) {
           const currentEvent = findCurrentEvent(allEvents, eventId!);

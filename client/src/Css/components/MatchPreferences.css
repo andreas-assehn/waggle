@@ -24,6 +24,14 @@
   flex-direction: row;
   justify-content: center;
 }
+.matchPreferencesTitle h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 6vw;
+}
+
+.matchPreferencesTitle__title {
+  margin-inline: 0;
+}
 
 .customSlider {
   /* max width of your slider */

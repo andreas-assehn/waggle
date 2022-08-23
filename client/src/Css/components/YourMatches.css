@@ -9,6 +9,9 @@
 .your-matches p {
   padding-left: 10px;
 }
+.your-matches h2 {
+  padding-left: 10px;
+}
 
 .your-matches__bubbles {
   overflow: auto;
