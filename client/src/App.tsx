@@ -87,7 +87,7 @@ function App() {
   useEffect(() => {
     if (userAuth) {
       apiEventService
-        .getAllEvents()
+        .getAllEvents(userAuth.userId)
         .then((allEvents) => dispatch(setAllEventsState(allEvents)))
         .catch((err) => console.error(err));
     } else {

@@ -33,6 +33,7 @@ const EventsSchema = new mongoose.Schema<Event>({
     ],
     required: false,
   },
+  distance: { type: Number, required: false },
 });
 
 const EventsModel = mongoose.model('Events', EventsSchema);
