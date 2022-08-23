@@ -22,7 +22,6 @@ function SwipeCard({ user }: { user: User }) {
     const res = await apiUserService
       .updateUserSwipes(swipedData, swipe)
       .catch((error) => console.log(error));
-    console.log({ res });
     if (res.roomId) {
       await apiChatService
         .createChat({ roomId: res.roomId, message: [] })
@@ -45,7 +44,7 @@ function SwipeCard({ user }: { user: User }) {
       };
       updateUser(swipedData, 'No');
     } else if (info.point.x > 400) {
-      animControls.start({ x: '200vw' });
+      animControls.start({ x: '-200vw' });
       const swipedData: Swiped = {
         _id: userAuth!._id!,
         swipedUserId: swipedUserId,

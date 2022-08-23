@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { RootState } from '../app/store';
 import { useAppSelector } from '../app/hooks';
-import sendIcon from '../assets/send-2.svg';
+import sendIcon from '../assets/send.svg';
 import { io } from 'socket.io-client';
-import { users } from '../mockData/chatTestData';
-import { useLocation } from 'react-router-dom';
-import { LocationState, Message } from '../../../globalUtils/Types';
+import { useLocation, useParams } from 'react-router-dom';
+import { Message, LocationState } from '../../../globalUtils/Types';
 import apiChatService from '../utils/services/apiChatService';
+import '../Css/pages/Chat.css';
+import ReceivedChat from '../components/ReceivedChat';
+import SentChat from '../components/SentChat';
+import apiUserService from '../utils/services/apiUserService';
+import { useDispatch } from 'react-redux';
+import { setNameState } from '../app/chatNameSlice';
 
 const socket = io('http://localhost:4000');
 
-function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
+function Chat() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
+  const { chatName } = useAppSelector((state: RootState) => state.chatName);
+
   const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');
   const [chatMessages, setChatMessages] = useState([] as Message[]);
 
+  const { roomId } = useParams();
   const location = useLocation();
 
+  const dispatch = useDispatch();
+  const { matchId } = location.state as LocationState;
+
   useEffect(() => {
-    if (userAuth) {
-      const { matchId, roomId } = location.state as LocationState;
+    if (userAuth && roomId) {
       setRoom(roomId);
       apiChatService
         .getChatRoom(roomId)
@@ -28,8 +38,15 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
           setChatMessages(chats.messages);
         })
         .catch((error) => console.log(error));
+
+      const targetName = async (matchId: string) => {
+        const res = await apiUserService.getUser(matchId);
+        dispatch(setNameState(res?.name));
+        return res;
+      };
+      targetName(matchId);
     }
-  }, []);
+  }, [userAuth]);
 
   useEffect(() => {
     socket.emit('join_room', room);
@@ -67,14 +84,19 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
 
   return userAuth ? (
     <>
-      <div>Chat</div>
-      <div className='chat-body'></div>
-      <h1> Message:</h1>
-      {chatMessages.map((msg, i) => (
-        <p key={i}>{msg.message}</p>
-      ))}
+      <div className='chat-body'>
+        {chatMessages.map((msg, i) =>
+          userAuth.userId === msg.userId ? (
+            <SentChat key={i} message={msg} />
+          ) : (
+            <ReceivedChat key={i} message={msg} />
+          )
+        )}
+        <div className='chat-body__padding'></div>
+      </div>
       <form onSubmit={(event) => sendMessage(event)} className='chat-footer'>
         <input
+          className='chat-footer__input'
           type='text'
           placeholder='Message...'
           value={message}
@@ -83,8 +105,8 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
             setMessage(event.target.value);
           }}
         />
-        <button type='submit'>
-          <img src={sendIcon} />
+        <button className='chat-footer__button --transparent' type='submit'>
+          <img className='chat-footer__send-icon' src={sendIcon} />
         </button>
       </form>
     </>
@@ -94,13 +116,3 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
 }
 
 export default Chat;
-
-// socket.onAny((event, ...args) => {
-//   console.log(event, args);
-// });
-
-// console.log(userAuth);
-
-// const userName = userAuth;
-// socket.auth = { userName };
-// socket.connect();

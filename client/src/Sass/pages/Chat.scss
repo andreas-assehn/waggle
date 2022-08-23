@@ -1,0 +1,83 @@
+@use '../abstracts' as *;
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  max-height: 74vh;
+  overflow-y: auto;
+  &__padding {
+    height: 24vh;
+  }
+}
+
+.chat-footer {
+  background-color: $background-white;
+  // box-shadow: 0 -5px 5px $background-white;
+  position: fixed;
+  bottom: 7.5vh;
+  width: 100vw;
+  display: flex;
+  padding: 0.5rem 0;
+  height: 6vh;
+  justify-content: center;
+
+  &__input {
+    width: 85vw;
+  }
+  &__button {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    &:active {
+      background-color: aqua;
+    }
+  }
+  &__send-icon {
+    width: 9vw;
+    height: 9vw;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.received {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  background-color: aqua;
+  width: auto;
+  max-width: 60vw;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  border-radius: 10px 10px 10px 0;
+  &__timestamp {
+    font-size: $p-small-size;
+    margin: 0 1rem;
+  }
+  &__message {
+    margin: 0;
+  }
+}
+
+.sent {
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  background-color: rosybrown;
+  width: auto;
+  max-width: 60vw;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  border-radius: 10px 10px 0 10px;
+  &__timestamp {
+    font-size: $p-small-size;
+    margin: 0 1rem;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+  &__message {
+    margin: 0;
+  }
+}
