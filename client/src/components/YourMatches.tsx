@@ -13,28 +13,30 @@ export default function YourMatches({
   if (!user) return <p>Loading...</p>;
 
   return (
-    <div className="your-matches">
+    <div className='your-matches'>
       {user && matchedUsers ? (
-        <div className="your-matches__background">
+        <div className='your-matches__background'>
           <div>
-            <div className="your-matches__text">
+            <div className='your-matches__text'>
               <h2>
                 Your matches
                 {matchedUsers.length ? ` (${matchedUsers.length})` : ''}
               </h2>
             </div>
-            <div className="your-matches__bubbles">
+            <div className='your-matches__bubbles'>
               {matchedUsers.length ? (
                 matchedUsers &&
-                matchedUsers.map((mockUser) =>
-                  mockUser.dog && mockUser.dog.images ? (
-                    <div className="your-matches__bubble" key={mockUser.userId}>
-                      {/* Link needs to go to correct user profile, probably using url params */}
-                      <Link to={'/matchingViewDetail'}>
+                matchedUsers.map((matchedUser) =>
+                  matchedUser.dog && matchedUser.dog.images ? (
+                    <div
+                      className='your-matches__bubble'
+                      key={matchedUser.userId}
+                    >
+                      <Link to={`/matchingViewDetail/${matchedUser.userId}`}>
                         <img
-                          className="your-matches__profile"
-                          src={mockUser.dog.images[0]}
-                          alt="profile"
+                          className='your-matches__profile'
+                          src={matchedUser.dog.images[0]}
+                          alt='profile'
                         />
                       </Link>
                     </div>

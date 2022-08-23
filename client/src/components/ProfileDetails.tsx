@@ -7,14 +7,14 @@ import Scale from './Scale';
 
 function ProfileDetails({
   user,
-  details = false,
+  details = true,
 }: {
   user: User | null;
   details?: boolean;
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [modalActive, setModalActive] = useState(false);
-  const [showDetails, setShowDetails] = useState(true);
+  const [showDetails, setShowDetails] = useState(details);
   const navigate = useNavigate();
   const url = useLocation().pathname;
 
@@ -60,8 +60,8 @@ function ProfileDetails({
                 <div className='card__owner-details'>
                   <h4 className='card__owner-details__text'>{user.name}</h4>
                   <h4 className='card__owner-details__text'>
-                    {user.distance! <= 250
-                      ? 'Within 250m'
+                    {!user.distance || user.distance <= 999
+                      ? '< 1km'
                       : `${(user.distance! / 1000).toFixed(1)}km`}
                   </h4>
                 </div>
