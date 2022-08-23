@@ -60,8 +60,8 @@ function ProfileDetails({
                 <div className='card__owner-details'>
                   <h4 className='card__owner-details__text'>{user.name}</h4>
                   <h4 className='card__owner-details__text'>
-                    {user.distance! <= 250
-                      ? 'Within 250m'
+                    {!user.distance || user.distance <= 999
+                      ? '< 1km'
                       : `${(user.distance! / 1000).toFixed(1)}km`}
                   </h4>
                 </div>
