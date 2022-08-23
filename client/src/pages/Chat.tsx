@@ -38,7 +38,8 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
 
   useEffect(() => {
     socket.on('receive_message', (data) => {
-      setChatMessages((prev) => [...prev, data.message]);
+      console.log({ data });
+      setChatMessages((prev) => [...prev, data.sentMessage]);
     });
   }, [socket]);
 
@@ -49,9 +50,13 @@ function Chat({ matchId, roomId }: { matchId?: string; roomId?: string }) {
     const sentMessage: Message = {
       message,
       userId: userAuth.userId!,
-      timestamp: `${new Date(Date.now())}`,
+      timestamp: `${new Date(Date.now()).toISOString()}`,
     };
-    socket.emit('send_message', { message, room, userId: userAuth?.userId });
+    socket.emit('send_message', {
+      sentMessage,
+      room,
+      userId: userAuth?.userId,
+    });
     setChatMessages((prev) => [...prev, sentMessage]);
     // add sent message to database
     setMessage('');

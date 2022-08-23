@@ -63,7 +63,7 @@ export const getRoomChat = async (req: Request, res: Response) => {
 
 export const addChatMessage = async (req: Request, res: Response) => {
   const roomId = req.params.roomId;
-  console.log(req.body);
+  console.log({ req: req.body });
   try {
     const chatRoom = await Chat.find({ roomId });
     console.log({ chatRoom });
