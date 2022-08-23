@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
   font-family: "Nunito", sans-serif;
-  font-size: 4.5vw;
+  font-size: 1rem;
   color: #ffffff;
 }
 .message-card p {

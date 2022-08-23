@@ -109,7 +109,7 @@ function App() {
           element={<MatchingViewDetail />}
         />
         <Route path='/chatDashboard' element={<ChatDashboard />} />
-        <Route path='/chat' element={<Chat />} />
+        <Route path='/chat/:roomId' element={<Chat />} />
         <Route path='/eventsDashboard' element={<EventsDashboard />} />
         <Route path='/eventDetails/:eventId' element={<EventDetails />} />
         <Route path='/addEventForm' element={<AddEventForm />} />

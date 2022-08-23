@@ -25,7 +25,7 @@ function ChatDashboard() {
         .then((chats) => setAllChats(chats))
         .catch((error) => console.log(error));
     }
-  }, []);
+  }, [userAuth]);
 
   const matchedUserChats = userAuth?.matches;
 
