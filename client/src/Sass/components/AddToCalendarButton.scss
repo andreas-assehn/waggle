@@ -8,9 +8,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    &-item {
-    }
   }
   &-text {
     width: 5vw;
@@ -31,7 +28,7 @@
     }
   }
   &-click {
-    margin-top: -50px;
+    margin-top: -8vh;
     max-height: 110px;
     position: absolute;
     z-index: 0;

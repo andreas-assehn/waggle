@@ -27,7 +27,7 @@
   object-fit: cover;
 }
 .atcb-click {
-  margin-top: -50px;
+  margin-top: -8vh;
   max-height: 110px;
   position: absolute;
   z-index: 0;
