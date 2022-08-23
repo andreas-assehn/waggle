@@ -60,3 +60,26 @@ export const getRoomChat = async (req: Request, res: Response) => {
       .send('chatController: could not fetch your chat room from the database');
   }
 };
+
+export const addChatMessage = async (req: Request, res: Response) => {
+  const roomId = req.params.roomId;
+  console.log(req.body);
+  try {
+    const chatRoom = await Chat.find({ roomId });
+    console.log({ chatRoom });
+    // chatRoom.messages.push(req.body)
+    // const updatedUser = await modifiedUser?.save(); // modifiedUser?.swipeNo?.push(req.body.swipedUserId);
+    res.status(200).send(chatRoom);
+  } catch (e) {
+    if (typeof e === 'string') {
+      console.log(e);
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    res
+      .status(500)
+      .send(
+        `userController: modifyUser could not modify user with id ${roomId}`
+      );
+  }
+};

@@ -28,6 +28,7 @@ import {
   createChat,
   getOwnChats,
   getRoomChat,
+  addChatMessage,
 } from './controllers/chatController';
 import authMiddleware from './middleware/auth';
 
@@ -57,5 +58,6 @@ router.delete('/events/:eventId/:userId', deleteEvent);
 router.post('/chats', createChat);
 router.get('/chats/userChats/:userId', getOwnChats);
 router.get('/chats/room/:roomId', getRoomChat);
+router.put('/chats/room/:roomId', addChatMessage);
 
 export default router;

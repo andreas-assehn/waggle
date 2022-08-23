@@ -27,8 +27,6 @@ function ChatDashboard() {
     }
   }, []);
 
-  console.log({ allChats });
-
   const matchedUserChats = userAuth?.matches;
 
   const handleOpenModal = (user: User) => {
