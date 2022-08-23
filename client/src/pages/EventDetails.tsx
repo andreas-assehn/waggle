@@ -12,11 +12,19 @@ function EventDetails() {
   const { eventId } = useParams();
   const thisEvent = findCurrentEvent(allEvents, eventId!);
 
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
   console.log('this event', thisEvent);
 
   return (
     <div className='event-details'>
-      <img src={thisEvent?.images![0] || LogoIcon} alt='' />
+      <img
+        src={thisEvent?.images?.length ? thisEvent?.images![0] : LogoIcon}
+        alt='Event image'
+        onClick={handleOpenModal}
+      />
       <PictureModal
         event={thisEvent}
         setOpenModal={setOpenModal}
