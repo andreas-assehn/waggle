@@ -74,7 +74,9 @@ function EventDetails() {
     };
     setAttendees(attendeesArray);
     await apiEventService.updateEvent(eventUpdate);
-    const updatedEventsData = await apiEventService.getAllEvents();
+    const updatedEventsData = await apiEventService.getAllEvents(
+      userAuth!._id!
+    );
     dispatch(setAllEventsState(updatedEventsData));
   };
 
