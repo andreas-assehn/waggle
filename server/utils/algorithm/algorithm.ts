@@ -97,7 +97,6 @@ export function matchedWaggles(user: User, users: User[]) {
 }
 
 export function matchedChats(user: User, chats: Chat[]) {
-  console.log(user, chats);
   if (user.matches?.length) {
     const userChats = user.matches.map((match) => match.roomId);
     return chats.filter((eachChat) => userChats?.includes(eachChat.roomId));
