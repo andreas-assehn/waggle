@@ -23,3 +23,12 @@
     }
   }
 }
+
+.error-message {
+  width: 70vw;
+  display: block;
+  margin: 30vh auto;
+  &__text {
+    text-align: center;
+  }
+}

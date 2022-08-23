@@ -12,12 +12,13 @@ import { useNavigate } from 'react-router-dom';
 function EventsDashboard() {
   const { userAuth } = useSelector((state: RootState) => state.userAuth);
   const { allEvents } = useAppSelector((state: RootState) => state.allEvents);
+  const [isLoading, setIsLoading] = useState(true);
   const [attendingEvents, setAttendingEvents] = useState([] as Event[]);
   const [nonAttendingEvents, setNonAttendingEvents] = useState([] as Event[]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (allEvents.length && userAuth!.userId) {
+    if (allEvents.length && userAuth?.userId) {
       setAttendingEvents(
         allEvents.filter((eventObj: Event) => {
           return !!eventObj.attendees!.filter((attendee: Attendee) => {
@@ -32,34 +33,44 @@ function EventsDashboard() {
           ).length;
         })
       );
+      setIsLoading(false);
+    } else if (userAuth?.userId) {
+      setIsLoading(false);
     }
   }, [allEvents, userAuth]);
 
-  return allEvents && allEvents.length ? (
-    <div className="events-dashboard">
-      <div className="events-dashboard__attending">
-        <h2 className="events-dashboard__attending__title">Attending</h2>
+  return isLoading ? (
+    <Loading />
+  ) : allEvents.length ? (
+    <div className='events-dashboard'>
+      <div className='events-dashboard__attending'>
+        <h2 className='events-dashboard__attending__title'>Attending</h2>
         {attendingEvents.map((eventData: Event) => (
           <EventCard key={eventData._id} event={eventData} />
         ))}
       </div>
-      <div className="events-dashboard__not-attending">
+      <div className='events-dashboard__not-attending'>
         {nonAttendingEvents.map((eventData: Event) => (
           <EventCard key={eventData._id} event={eventData} />
         ))}
       </div>
-      <div className="events-dashboard__add-events">
+      <div className='events-dashboard__add-events'>
         <button
-          className="--round --pop"
+          className='--round --pop'
           onClick={() => navigate('/addEventForm')}
         >
           +
         </button>
       </div>
-      <div className="events-dashboard__add-events-padding"></div>
+      <div className='events-dashboard__add-events-padding'></div>
     </div>
   ) : (
-    <Loading />
+    <div className='error-message'>
+      <h3 className='error-message__text'>No events in your area</h3>
+      <p className='error-message__text'>
+        Consider extending your distance preferences if you want to see events.
+      </p>
+    </div>
   );
 }
 
