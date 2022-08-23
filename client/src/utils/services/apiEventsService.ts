@@ -2,14 +2,14 @@ import { Event, EventUpdates } from '../../../../globalUtils/Types';
 
 const BASE_URL = 'http://localhost:4000';
 
-const getAllEvents = async () => {
+const getAllEvents = async (id: string) => {
   const options: RequestInit = {
     method: 'GET',
     headers: {
       'Content-type': 'application/json',
     },
   };
-  return await fetch(`${BASE_URL}/events`, options)
+  return await fetch(`${BASE_URL}/events/${id}`, options)
     .then((response) => response.json())
     .then((eventsData) => eventsData)
     .catch((err) => console.error(err));

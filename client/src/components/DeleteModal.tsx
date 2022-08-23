@@ -30,25 +30,27 @@ function DeleteModal({
   // // whatever your function wants to do on confirm
   // }
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
-        <div className="modalBody">
-          <p className="modalBody__msg">{message}</p>
+    <div className='modalBackground'>
+      <div className='modalContainer'>
+        <div className='modalBody'>
+          <p className='modalBody__msg'>{message}</p>
         </div>
-        <div className="modalFooter">
+        <div className='modalFooter'>
           <button
-            className="modalFooter__yesBtn --pop"
+            name='yes'
+            className='modalFooter__yesBtn --pop'
             onClick={handleModalConfirm}
-            id="modalConfirmBtn"
+            id='modalConfirmBtn'
           >
             Yes
           </button>
           <button
-            className="modalFooter__noBtn"
+            name='no'
+            className='modalFooter__noBtn'
             onClick={() => {
               setOpenModal(false);
             }}
-            id="modalCancelBtn"
+            id='modalCancelBtn'
           >
             No
           </button>

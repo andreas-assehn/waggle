@@ -5,7 +5,6 @@ import { matchedChats } from '../utils/algorithm/algorithm';
 
 export const createChat = async (req: Request, res: Response) => {
   try {
-    console.log(req.body.roomId);
     const newChatRoom = await Chat.create({
       roomId: req.body.roomId,
       message: [],
@@ -63,13 +62,11 @@ export const getRoomChat = async (req: Request, res: Response) => {
 
 export const addChatMessage = async (req: Request, res: Response) => {
   const roomId = req.params.roomId;
-  console.log({ req: req.body });
   try {
     const chatRoom = await Chat.find({ roomId });
-    console.log({ chatRoom });
-    // chatRoom.messages.push(req.body)
-    // const updatedUser = await modifiedUser?.save(); // modifiedUser?.swipeNo?.push(req.body.swipedUserId);
-    res.status(200).send(chatRoom);
+    chatRoom[0].messages.push(req.body);
+    const updatedChatRoom = await chatRoom[0].save();
+    res.status(200).send(updatedChatRoom);
   } catch (e) {
     if (typeof e === 'string') {
       console.log(e);

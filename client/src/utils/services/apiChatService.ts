@@ -1,3 +1,5 @@
+import { Message } from '../../../../globalUtils/Types';
+
 const BASE_URL = 'http://localhost:4000';
 
 const createChat = async (data: any) => {
@@ -26,7 +28,7 @@ const getMatchedChats = async (id: string) => {
     },
   };
   try {
-    const response = await fetch(`${BASE_URL}/users/userChats/${id}`, options);
+    const response = await fetch(`${BASE_URL}/chats/userChats/${id}`, options);
     return await response.json();
   } catch (error) {
     console.error(error);
@@ -48,6 +50,29 @@ const getChatRoom = async (id: string) => {
   }
 };
 
-const apiChatService = { createChat, getMatchedChats, getChatRoom };
+const sendMessageToChatRoom = async (message: Message, roomId: string) => {
+  console.log({ message, roomId });
+  const options: RequestInit = {
+    method: 'PUT',
+    body: JSON.stringify(message),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(`${BASE_URL}/chats/room/${roomId}`, options);
+    const res = await response.json();
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const apiChatService = {
+  createChat,
+  getMatchedChats,
+  getChatRoom,
+  sendMessageToChatRoom,
+};
 
 export default apiChatService;
