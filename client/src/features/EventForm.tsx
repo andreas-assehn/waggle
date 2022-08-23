@@ -31,7 +31,9 @@ export default function EventForm({ formType }: Props) {
   useEffect(() => {
     if (allEvents && userAuth) {
       setEvent(() => {
-        let newValue = { ...event, createdBy: userAuth.userId! };
+        let newValue = {
+          ...event,
+        };
 
         if (formType === 'edit' && allEvents.length) {
           const currentEvent = findCurrentEvent(allEvents, eventId!);
@@ -40,8 +42,15 @@ export default function EventForm({ formType }: Props) {
             currentEvent?.description,
             currentEvent?.briefDescription,
             currentEvent?._id,
+            currentEvent?.createdBy,
           ];
-          const keys = ['dateTime', 'description', 'briefDescription', '_id'];
+          const keys = [
+            'dateTime',
+            'description',
+            'briefDescription',
+            '_id',
+            'createdBy',
+          ];
           savedValues.forEach((value, i) => {
             if (value) {
               newValue = { ...newValue, [keys[i]]: value };
@@ -53,6 +62,10 @@ export default function EventForm({ formType }: Props) {
           if (currentEvent?.images?.length) {
             newValue = { ...newValue, images: currentEvent?.images };
           }
+          if (currentEvent?.attendees?.length) {
+            newValue = { ...newValue, attendees: currentEvent?.attendees };
+          }
+
           geoapifyInput(
             initialized,
             geocoderContainer,
@@ -60,6 +73,12 @@ export default function EventForm({ formType }: Props) {
             geocoderOnSelectLogic
           );
         } else if (formType === 'add') {
+          newValue = {
+            ...newValue,
+            createdBy: userAuth.userId!,
+            attendees: [{ userId: userAuth.userId!, creator: true }],
+          };
+
           geoapifyInput(
             initialized,
             geocoderContainer,

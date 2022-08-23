@@ -19,6 +19,7 @@ h5,
 h6 {
   font-family: $header-font;
   font-weight: 500;
+  margin: 4px 0;
 }
 
 h2 {
@@ -28,7 +29,7 @@ h2 {
 h3 {
   font-size: $header-medium-size;
 }
-h3 {
+h4 {
   font-size: $header-small-size;
 }
 
@@ -36,6 +37,7 @@ p {
   font-family: $body-font;
   font-size: $p-size;
   font-weight: 500;
+  margin: 4px 0;
 
   &.--small {
     font-size: $p-small-size;
@@ -93,11 +95,15 @@ button {
   &:active {
     background-color: transparent;
     border: 2px $button-blue solid;
+    color: $button-blue;
     &.--disabled {
       border: 2px $button-disabled solid;
+      background-color: $button-disabled;
+      color: $text-white;
     }
     &.--pop {
       border: 2px $pop-color solid;
+      color: $pop-color;
     }
     &.--transparent {
       background-color: rgba(255, 255, 255, 0.3);
