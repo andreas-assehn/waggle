@@ -1,4 +1,4 @@
-import { Dog, User } from '../../../globalUtils/Types';
+import { Dog, User, Event } from '../../../globalUtils/Types';
 
 // Filters out users who do not have a dog
 export function usersWithDog(user: User, users: User[]) {
@@ -36,7 +36,7 @@ export function usersNotSwiped(user: User, users: User[]) {
   return filteredUsers;
 }
 
-// Filters out users that does not match your distance preference
+// Filters out users that does not match users distance preference
 export function usersInArea(user: User, users: User[]) {
   const filteredUsers = users.filter((otherUser) => {
     const distanceBetweenUsers = getDistanceFromLatLonInKm(user, otherUser);
@@ -53,8 +53,25 @@ export function usersInArea(user: User, users: User[]) {
   return filteredUsers;
 }
 
+// Filter out events that does not match users distance preference
+export function eventsInArea(user: User, events: Event[]) {
+  const filteredEvents = events.filter((event) => {
+    const distanceToEvent = getDistanceFromLatLonInKm(user, event);
+    if (distanceToEvent <= user.preferences!.maxDistance) {
+      const distanceToEventInMeters = distanceToEvent * 1000;
+      if (distanceToEventInMeters < 250) {
+        event['distance'] = 250;
+      } else {
+        event['distance'] = Number(distanceToEventInMeters.toFixed());
+      }
+      return event;
+    }
+  });
+  return filteredEvents;
+}
+
 // Calculates distance in km from one user to another
-export function getDistanceFromLatLonInKm(user: User, otherUser: User) {
+export function getDistanceFromLatLonInKm(user: User, otherUser: User | Event) {
   const radiusOfEarth = 6371;
   const degreesLatitude = degreesToRadian(
     otherUser.location!.lat - user.location!.lat

@@ -1,10 +1,15 @@
 import { Request, Response } from 'express';
 import Event from '../models/eventsModel';
+import User from '../models/userModel';
+import { eventsInArea } from '../utils/algorithm/helperFunctions';
 
 export const getEvents = async (req: Request, res: Response) => {
+  const userId = req.params.userId;
   try {
-    const events = await Event.find();
-    res.status(200).send(events);
+    const currentUser = await User.findOne({ userId });
+    const allEvents = await Event.find();
+    const filteredEvents = eventsInArea(currentUser!, allEvents);
+    res.status(200).send(filteredEvents);
   } catch (e) {
     if (typeof e === 'string') {
       console.log(e);
