@@ -39,8 +39,8 @@ function DogCard({
         <img
           className='dogcard__profile-image'
           src={
-            user && user.dog && user.dog.images
-              ? user.dog.images[0]
+            user && user.dog && user.dog.images!.length
+              ? user.dog.images![0]
               : defaultDogPic
           }
           onClick={handleOpenModal}
