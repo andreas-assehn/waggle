@@ -9,6 +9,7 @@ import { events } from './utils/mock-data/dataEvent';
 import userModel from './models/userModel';
 import eventsModel from './models/eventsModel';
 import matchesModel from './models/matchesModel';
+import chatModel from './models/chatModel';
 
 // Deletes the contents of the database
 // Seeds it with mock data
@@ -18,6 +19,7 @@ const seedDb = async () => {
     await userModel.deleteMany({});
     await eventsModel.deleteMany({});
     await matchesModel.deleteMany({});
+    await chatModel.deleteMany({});
     await userModel.insertMany(users);
     await eventsModel.insertMany(events);
     await matchesModel.insertMany(matches);

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import User from '../models/userModel';
 import { sortWaggles, matchedWaggles } from '../utils/algorithm/algorithm';
+import { createChat } from './chatController';
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -77,17 +78,25 @@ export const addUserSwipeYes = async (req: Request, res: Response) => {
   try {
     const modifiedUser = await User.findById(urlId);
     modifiedUser?.swipeYes?.push(req.body.swipedUserId);
-    const updatedUser = await modifiedUser?.save();
 
+    const updatedUser = await modifiedUser?.save();
     const swipedUser = await User.findOne({ userId: req.body.swipedUserId });
+
     if (swipedUser?.swipeYes?.includes(updatedUser?.userId!)) {
-      swipedUser.matches?.push(updatedUser?.userId!);
-      updatedUser?.matches?.push(req.body.swipedUserId);
+      const roomId =
+        swipedUser?.userId.slice(0, 10) + updatedUser?.userId.slice(0, 10);
+
+      // swipedUser.matches?.push(updatedUser?.userId!);
+      swipedUser?.matches?.push({ matchId: updatedUser?.userId!, roomId });
+
+      updatedUser?.matches?.push({ matchId: req.body.swipedUserId, roomId });
+
       const currentUser = await updatedUser?.save();
       const updatedOtherUser = await swipedUser?.save();
-      return res.status(200).send(currentUser);
+
+      return res.status(200).send({ currentUser, matched: true, roomId });
     }
-    return res.status(200).send(updatedUser);
+    return res.status(200).send({ currentUser: updatedUser, matched: false });
   } catch (e) {
     if (typeof e === 'string') {
       console.log(e);

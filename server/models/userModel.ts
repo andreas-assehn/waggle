@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-import { User } from '../../globalUtils/Types';
+import { User, ChatMatch } from '../../globalUtils/Types';
+import MatchesModel from './matchesModel';
 
 const UserSchema = new mongoose.Schema<User>({
   userId: { type: String, required: true },
@@ -28,7 +29,12 @@ const UserSchema = new mongoose.Schema<User>({
   darkMode: { type: Boolean, required: true, default: false },
   swipeYes: { type: [String], required: true, default: [] },
   swipeNo: { type: [String], required: true, default: [] },
-  matches: { type: [String], required: true, default: [] },
+  matches: [
+    {
+      matchId: { type: String, required: false },
+      roomId: { type: String, required: false },
+    },
+  ],
   ownerImage: {
     type: String,
     required: true,
