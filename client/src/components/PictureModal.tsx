@@ -18,7 +18,6 @@ function PictureModal({
   event?: Event;
 }) {
   const images = user?.dog?.images || event?.images;
-  console.log('images', images);
   if (!openModal) return null;
 
   return (

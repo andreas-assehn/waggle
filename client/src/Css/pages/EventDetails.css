@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.event-details__images {
+  width: 100vw;
+}
+.event-details__details-container {
+  padding: 0 3vw;
+}
+.event-details__details-container__headlines {
+  background-color: #bfbfbf;
+  border-radius: 6px;
+  padding: 0 1.5vw 5px;
+}
+.event-details__details-container__headlines__attending {
+  width: 100%;
+  text-align: center;
+  background-color: #ff2c55;
+  color: #ffffff;
+  border-radius: 6px;
+}
+.event-details__details-container__headlines__not-attending {
+  width: 100%;
+  text-align: center;
+  background-color: #292929;
+  color: #ffffff;
+  border-radius: 6px;
+}
+.event-details__button-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}

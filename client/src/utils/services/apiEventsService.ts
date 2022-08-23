@@ -1,4 +1,4 @@
-import { Event } from '../../../../globalUtils/Types';
+import { Event, EventUpdates } from '../../../../globalUtils/Types';
 
 const BASE_URL = 'http://localhost:4000';
 
@@ -34,8 +34,10 @@ const addEvent: (event: Event) => Promise<Event | { error: unknown }> = async (
   }
 };
 const updateEvent: (
-  event: Event
-) => Promise<Event | { error: unknown }> = async (event: Event) => {
+  event: Event | EventUpdates
+) => Promise<Event | { error: unknown }> = async (
+  event: Event | EventUpdates
+) => {
   const options: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(event),
@@ -46,7 +48,6 @@ const updateEvent: (
   try {
     const response = await fetch(`${BASE_URL}/events/${event._id}`, options);
     const eventUpdated = (await response.json()) as Event;
-    console.log('event upsdated api service', eventUpdated);
     return eventUpdated;
   } catch (error) {
     return { error };
