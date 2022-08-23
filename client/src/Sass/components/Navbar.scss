@@ -15,6 +15,7 @@ $size: 8vh;
   justify-content: space-around;
   background-color: $main-dark-grey;
   height: $size;
+  min-height: 60px;
 }
 
 .navbar__icon-background {
