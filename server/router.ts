@@ -48,7 +48,7 @@ router.post('/matches/:userId:', setMatch);
 router.put('/matches/:userId', modifyMatch);
 router.delete('/matches/:userId', deleteMatch);
 
-router.get('/events', getEvents);
+router.get('/events/:userId', getEvents);
 router.post('/events', setEvent);
 router.put('/events/:eventId', modifyEvent);
 router.delete('/events/:eventId/:userId', deleteEvent);

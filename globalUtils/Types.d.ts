@@ -93,6 +93,7 @@ export type Event = {
   description: string;
   images?: string[];
   attendees?: Attendee[];
+  distance?: number;
 };
 
 export type Swiped = {

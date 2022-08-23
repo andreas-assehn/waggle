@@ -21,7 +21,6 @@ function EventsDashboard() {
       setAttendingEvents(
         allEvents.filter((eventObj: Event) => {
           return !!eventObj.attendees!.filter((attendee: Attendee) => {
-            console.log(userAuth!.userId, attendee.userId);
             return attendee.userId === userAuth!.userId;
           }).length;
         })
@@ -37,27 +36,27 @@ function EventsDashboard() {
   }, [allEvents, userAuth]);
 
   return allEvents && allEvents.length ? (
-    <div className='events-dashboard'>
-      <div className='events-dashboard__attending'>
-        <h2 className='events-dashboard__attending__title'>Attending</h2>
+    <div className="events-dashboard">
+      <div className="events-dashboard__attending">
+        <h2 className="events-dashboard__attending__title">Attending</h2>
         {attendingEvents.map((eventData: Event) => (
           <EventCard key={eventData._id} event={eventData} />
         ))}
       </div>
-      <div className='events-dashboard__not-attending'>
+      <div className="events-dashboard__not-attending">
         {nonAttendingEvents.map((eventData: Event) => (
           <EventCard key={eventData._id} event={eventData} />
         ))}
       </div>
-      <div className='events-dashboard__add-events'>
+      <div className="events-dashboard__add-events">
         <button
-          className='--round --pop'
+          className="--round --pop"
           onClick={() => navigate('/addEventForm')}
         >
           +
         </button>
       </div>
-      <div className='events-dashboard__add-events-padding'></div>
+      <div className="events-dashboard__add-events-padding"></div>
     </div>
   ) : (
     <Loading />
