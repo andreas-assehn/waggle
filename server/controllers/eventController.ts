@@ -22,7 +22,6 @@ export const getEvents = async (req: Request, res: Response) => {
   }
 };
 export const setEvent = async (req: Request, res: Response) => {
-  console.log('body', req.body);
   try {
     const newEvent = await Event.create(req.body);
     res.status(200).send(newEvent);

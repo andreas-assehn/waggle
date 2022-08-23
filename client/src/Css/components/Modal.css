@@ -49,6 +49,10 @@
   align-items: center;
 }
 
+.--narrow {
+  width: 40%;
+}
+
 .modalTitle {
   font-family: "Satisfy", cursive;
 }
