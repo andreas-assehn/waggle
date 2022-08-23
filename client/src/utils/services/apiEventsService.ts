@@ -54,5 +54,23 @@ const updateEvent: (
   }
 };
 
-const apiEventService = { getAllEvents, addEvent, updateEvent };
+const deleteEvent = async (event: Event) => {
+  const eventId = { _id: event._id };
+  const options: RequestInit = {
+    method: 'DELETE',
+    body: JSON.stringify(eventId),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(`${BASE_URL}/events`, options);
+    const eventDeleted = await response.json();
+    return eventDeleted;
+  } catch (error) {
+    return { error };
+  }
+};
+
+const apiEventService = { getAllEvents, addEvent, updateEvent, deleteEvent };
 export default apiEventService;
