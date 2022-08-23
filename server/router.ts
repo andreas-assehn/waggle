@@ -51,7 +51,7 @@ router.delete('/matches/:userId', deleteMatch);
 router.get('/events/:userId', getEvents);
 router.post('/events', setEvent);
 router.put('/events/:eventId', modifyEvent);
-router.delete('/events/:eventId/:userId', deleteEvent);
+router.delete('/events/:eventId', deleteEvent);
 
 // TO-DO: Chat/Websockets
 

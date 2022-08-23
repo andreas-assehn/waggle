@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.atcb {
+  width: 50vw;
+}
+.atcb-list {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.atcb-text {
+  width: 5vw;
+  font-size: 0.8rem;
+  display: none;
+}
+.atcb-icon {
+  width: 10vw;
+}
+.atcb-icon svg {
+  width: 8vw;
+  height: 8vw;
+  object-fit: cover;
+}
+.atcb-icon-close {
+  width: 4vw;
+  max-height: 4vw;
+  object-fit: cover;
+}
+.atcb-click {
+  margin-top: -8vh;
+  max-height: 110px;
+  position: absolute;
+  z-index: 0;
+}

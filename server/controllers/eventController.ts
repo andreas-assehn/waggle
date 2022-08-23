@@ -41,6 +41,7 @@ export const setEvent = async (req: Request, res: Response) => {
 export const modifyEvent = async (req: Request, res: Response) => {
   try {
     const modifiedEvent = await Event.findByIdAndUpdate(req.body._id, req.body);
+    console.log(modifiedEvent);
     res.status(200).send(modifiedEvent);
   } catch (e) {
     if (typeof e === 'string') {
@@ -51,14 +52,13 @@ export const modifyEvent = async (req: Request, res: Response) => {
     res
       .status(500)
       .send(
-        `eventController: modifyEvent could not modify event with id ${req.body._id}`
+        `eventController: modifyEvent could not modify event with id ${req.body._id.$oid}`
       );
   }
 };
 export const deleteEvent = async (req: Request, res: Response) => {
-  const urlId = req.params.userId;
   try {
-    const deletedEvent = await Event.findByIdAndDelete(urlId);
+    const deletedEvent = await Event.findByIdAndDelete(req.body);
     res.status(200).send(deletedEvent);
   } catch (e) {
     if (typeof e === 'string') {
@@ -69,7 +69,7 @@ export const deleteEvent = async (req: Request, res: Response) => {
     res
       .status(500)
       .send(
-        `eventController: deleteEvent could not delete event with id ${urlId}`
+        `eventController: deleteEvent could not delete event with id ${req.body}`
       );
   }
 };

@@ -438,7 +438,7 @@ export default function ProfileForm() {
         disabled={
           !(
             user.dog!.name &&
-            user.location.city &&
+            user.location.formatted &&
             user.dog!.size &&
             user.dog!.gender &&
             user.dog!.energyLevel
@@ -447,7 +447,7 @@ export default function ProfileForm() {
         className={
           !(
             user.dog!.name &&
-            user.location.city &&
+            user.location.formatted &&
             user.dog!.size &&
             user.dog!.gender &&
             user.dog!.energyLevel

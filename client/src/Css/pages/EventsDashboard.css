@@ -20,3 +20,12 @@
   margin: 0 1.5vw;
   color: #ffffff;
 }
+
+.error-message {
+  width: 70vw;
+  display: block;
+  margin: 30vh auto;
+}
+.error-message__text {
+  text-align: center;
+}

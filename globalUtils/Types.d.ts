@@ -95,6 +95,16 @@ export type Event = {
   attendees?: Attendee[];
   distance?: number;
 };
+export type EventUpdates = {
+  _id?: string;
+  createdBy?: string;
+  dateTime?: Date;
+  location?: LocationType;
+  briefDescription?: string;
+  description?: string;
+  images?: string[];
+  attendees?: Attendee[];
+};
 
 export type Swiped = {
   _id: string;

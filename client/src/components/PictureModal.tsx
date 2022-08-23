@@ -2,22 +2,23 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import '../Css/components/Modal.css';
 import { Carousel } from 'react-responsive-carousel';
-import { User } from '../../../globalUtils/Types';
+import { User, Event } from '../../../globalUtils/Types';
 
 function PictureModal({
   user,
   setOpenModal,
   openModal,
   setModalActive,
+  event,
 }: {
-  user: User | null;
+  user?: User | null;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   setModalActive?: React.Dispatch<React.SetStateAction<boolean>>;
   openModal: boolean;
+  event?: Event;
 }) {
+  const images = user?.dog?.images || event?.images;
   if (!openModal) return null;
-
-  const images = user?.dog?.images;
 
   return (
     <div className='modalBackground'>

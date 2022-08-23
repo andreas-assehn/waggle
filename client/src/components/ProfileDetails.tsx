@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/ProfileDetails.css';
+import defaultDogPic from '../assets/default-dog-pic.jpg';
 import PictureModal from './PictureModal';
 import Scale from './Scale';
 
@@ -38,9 +39,7 @@ function ProfileDetails({
           <div>
             <img
               className='card__profile-image'
-              src={
-                user && user.dog && user.dog.images ? user.dog.images[0] : ''
-              }
+              src={user?.dog?.images![0] ? user.dog.images[0] : defaultDogPic}
               onClick={handleOpenModal}
             />
           </div>
