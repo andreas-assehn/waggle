@@ -20,7 +20,7 @@
   padding: 1em 0.5em;
   margin: auto 5vw;
   border-radius: 0 0 10px 10px;
-  background-color: rgba(255, 255, 255, 0.8039215686);
+  background-color: #fff;
 }
 .dogcard__headline {
   display: flex;
@@ -69,7 +69,7 @@
   align-items: center;
   height: 15vw;
   width: 25vw;
-  background-color: #dbd5b5;
+  background-color: #bfbfbf;
   border-radius: 10px;
 }
 .dogcard__key-facts__key-detail p {
@@ -84,7 +84,7 @@
   justify-content: space-evenly;
   background-color: #ff2c55;
   margin: 0.5rem auto 0;
-  color: white;
+  color: #ffffff;
   border-radius: 3rem;
 }
 .dogcard__details-button {

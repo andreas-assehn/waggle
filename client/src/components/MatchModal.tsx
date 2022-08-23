@@ -1,67 +1,71 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { User } from '../../../globalUtils/Types';
+import { useAppSelector } from '../app/hooks';
+import { clearModalRoomState } from '../app/matchModalRoomSlice';
+import { RootState } from '../app/store';
 import '../Css/components/Modal.css';
 
 function MatchModal({
   user,
-  setOpenModal,
-  handleModalConfirm,
-  openModal,
+  setMatchModal,
+  matchModal,
+  setModalActive,
 }: {
   user: User | null;
-  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-  handleModalConfirm: React.MouseEventHandler<HTMLButtonElement>;
-  openModal: boolean;
+  setMatchModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  matchModal: boolean;
 }) {
-  if (!openModal) return null;
+  // if (!matchModal) return <></>;
   // eslint-disable-next-line quotes
   const title = "It's a match!";
 
-  // To use this modal, copy the following useState into the page you are calling the modal from:
-  // const [openModal, setOpenModal] = useState(false)
+  const dispatch = useDispatch();
+  const { matchModalRoom } = useAppSelector(
+    (state: RootState) => state.matchModalRoom
+  );
+  const navigate = useNavigate();
+  const handleModalConfirm = () => {
+    navigate('/chatDashboard');
+    dispatch(clearModalRoomState());
+    setMatchModal(false);
+    setModalActive(false);
+  };
 
-  // Then create a function/click event to open the modal:
-  // const handleOpenModal = ()=>{
-  // setOpenModal(true)
-  // }
-
-  // the cancel and close button are already set to close the modal
-
-  // create a function for handleModalConfirm:
-  // const handleModalConfirm = ()=>{
-  // // whatever your function wants to do on confirm
-  // }
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
-        <div className="titleCloseBtn">
+    <div className='modalBackground'>
+      <div className='modalContainer'>
+        <div className='titleCloseBtn'>
           <button
-            className="titleCloseBtn__btn --round"
+            className='titleCloseBtn__btn --round'
             onClick={() => {
-              setOpenModal(false);
+              setMatchModal(false);
+              setModalActive(false);
             }}
           >
-            X
+            &times;
           </button>
         </div>
-        <div className="modalTitle">
+        <div className='modalTitle'>
           <p>{title}</p>
         </div>
-        <div className="modalBody">
+        <div className='modalBody'>
           <img
-            className="modalBody__img"
+            className='modalBody__img'
             src={user!.dog!.images![0]}
-            alt="dog profile"
+            alt='dog profile'
           ></img>
-          <p className="modalBody__msg">
+          <p className='modalBody__msg'>
             {user!.dog!.name!}, {user!.dog!.age!}
           </p>
         </div>
-        <div className="modalFooter">
+        <div className='modalFooter'>
           <button
-            className="modalFooter__yesBtn --pop"
+            className='modalFooter__yesBtn --pop'
             onClick={handleModalConfirm}
-            id="matchModalBtn"
+            id='matchModalBtn'
           >
             Say hi!
           </button>
