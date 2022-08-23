@@ -5,6 +5,9 @@
   width: 100%;
   z-index: 1;
 }
+.headerBar__title {
+  align-self: center;
+}
 
 .headerBar-container {
   display: flex;

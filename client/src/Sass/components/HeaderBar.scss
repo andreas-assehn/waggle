@@ -7,6 +7,10 @@ $size: 11vh;
   top: 0;
   width: 100%;
   z-index: 1;
+
+  &__title {
+    align-self: center;
+  }
 }
 
 .headerBar-container {

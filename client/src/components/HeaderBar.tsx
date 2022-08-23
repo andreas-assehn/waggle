@@ -5,8 +5,12 @@ import BackButton from './BackButton';
 import BurgerMenu from './BurgerMenu';
 import { pageTitle } from '../utils/helperFunctions/headerBar';
 import { pagesWithBackButton } from '../utils/helperFunctions/headerBar';
+import { useAppSelector } from '../app/hooks';
+import { RootState } from '../app/store';
 
-function HeaderBar() {
+function HeaderBar({ name }: { name?: string }) {
+  const { chatName } = useAppSelector((state: RootState) => state.chatName);
+
   const url = useLocation().pathname;
 
   let showHeaderBar = true;
@@ -21,7 +25,9 @@ function HeaderBar() {
       <div className='headerBar'>
         <div className='headerBar-container'>
           {showBackButton ? <BackButton /> : <></>}
-          <h1 className='headerBar__title'>{pageTitle(url)}</h1>
+          <h1 className='headerBar__title'>
+            {pageTitle(url) === 'Chat' ? chatName : pageTitle(url)}
+          </h1>
           <BurgerMenu />
         </div>
       </div>
