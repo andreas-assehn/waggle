@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
+  margin: 0 15px;
 }
 
 .settingsViewUser__text {
@@ -22,9 +22,9 @@
 }
 
 .settingsViewUserBackground {
-  width: 96vw;
+  width: 100%;
   border-radius: 10px;
-  margin-block: 5px;
+  margin: 15px 0 5px;
   background-color: #bfbfbf;
 }
 
@@ -36,6 +36,9 @@
 .settingsViewBtns button {
   margin: 10px;
   width: 140px;
+}
+.settingsViewBtns__sign-out {
+  margin-top: 3px !important;
 }
 
 .settingsView-profileBtns {
