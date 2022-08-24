@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Chat, ChatMatch, User } from '../../../globalUtils/Types';
+import { Chat, ChatMatch } from '../../../globalUtils/Types';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { setMatchedUsersState } from '../app/matchedUsersSlice';
 import { RootState } from '../app/store';
@@ -11,7 +11,6 @@ import YourMatches from '../components/YourMatches';
 import '../Css/pages/ChatDashboard.css';
 import apiChatService from '../utils/services/apiChatService';
 import apiUserService from '../utils/services/apiUserService';
-import { EditUserProfile } from '../utils/types/user';
 
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);
@@ -39,24 +38,12 @@ function ChatDashboard() {
 
   const handleOpenModal = (chat: ChatMatch) => {
     if (!chatContext.matchId) setChatContext(chat);
-    if (
-      currentModal === 'matchDeleteModal' ||
-      currentModal === 'chatDeleteModal'
-    )
-      setCurrentModal('cardModal');
+    if (currentModal === 'matchDeleteModal') setCurrentModal('cardModal');
     setOpenModal(true);
   };
 
   const handleModalConfirm = (e: any) => {
-    if (e.target.name === 'delete') {
-      setDeleteConfirmMsg(
-        `Are you sure you want to delete all messages from ${
-          allUsers.find((user) => user.userId === chatContext.matchId)?.dog
-            ?.name
-        }? This action is irreversible.`
-      );
-      setCurrentModal('chatDeleteModal');
-    } else if (e.target.name === 'unmatch') {
+    if (e.target.name === 'unmatch') {
       setDeleteConfirmMsg(
         `Are you sure you want to unmatch with ${
           allUsers.find((user) => user.userId === chatContext.matchId)?.dog
@@ -65,17 +52,14 @@ function ChatDashboard() {
       );
       setCurrentModal('matchDeleteModal');
     } else if (e.target.name === 'yes') {
-      console.log('yes or no');
-
-      // TO-DO: unmatch with user stored in chatContext
-      console.log(userAuth);
-      console.log(unmatchUser(userAuth, chatContext));
+      unmatchUser(userAuth, chatContext);
       setCurrentModal('cardModal');
       setOpenModal(false);
     }
   };
 
   const unmatchUser = async (user: any, userToUnmatch: any) => {
+    if (!user) return;
     try {
       const updatedMatches = user.matches.filter(
         (match: any) => match.matchId !== userToUnmatch.matchId
@@ -122,13 +106,6 @@ function ChatDashboard() {
       {currentModal === 'cardModal' ? (
         <MessageCardModal
           setOpenModal={setOpenModal}
-          handleModalConfirm={handleModalConfirm}
-          openModal={openModal}
-        />
-      ) : currentModal === 'matchDeleteModal' ? (
-        <DeleteModal
-          setOpenModal={setOpenModal}
-          message={deleteConfirmMsg}
           handleModalConfirm={handleModalConfirm}
           openModal={openModal}
         />
