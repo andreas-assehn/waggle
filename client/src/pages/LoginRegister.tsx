@@ -4,6 +4,7 @@ import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import SplashGraphics from '../components/SplashGraphics';
 import '../Css/pages/LoginRegister.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function LoginRegister() {
   const navigate = useNavigate();
@@ -14,14 +15,21 @@ function LoginRegister() {
   return (
     <>
       <SplashGraphics />
-      <div className='link-container'>
-        <Link to='/login'>
-          <button className='link-container__button'>Login</button>
-        </Link>
-        <Link to='/register'>
-          <button className='link-container__button '>Register</button>
-        </Link>
-      </div>
+      <AnimatePresence>
+        <motion.div
+          className='link-container'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Link to='/login'>
+            <button className='link-container__button'>Login</button>
+          </Link>
+          <Link to='/register'>
+            <button className='link-container__button '>Register</button>
+          </Link>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }
