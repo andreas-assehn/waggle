@@ -7,12 +7,16 @@
   overflow-y: scroll;
   overflow-x: unset;
 }
+.profile-form .geoapify-autocomplete-input {
+  margin-block: 1vh;
+}
 .profile-form__input-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   margin: 2px 0;
+  margin-block: 1vh;
 }
 .profile-form__input-row__label {
   margin: 0 1.5vw;
@@ -22,6 +26,9 @@
 .profile-form__input-row__input {
   width: 60vw;
   box-sizing: border-box;
+}
+.profile-form__input-row__button {
+  margin-block: 5vh;
 }
 
 .edit-form-title {

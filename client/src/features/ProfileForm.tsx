@@ -192,7 +192,7 @@ export default function ProfileForm() {
           )
         }
         id='dogImages'
-        className='--fixed-width'
+        className='profile-form__button --fixed-width'
       >
         Upload dog image(s)
       </button>
@@ -455,29 +455,31 @@ export default function ProfileForm() {
         </div>
       )}
 
-      <input
-        type='submit'
-        disabled={
-          !(
-            user.dog!.name &&
-            user.location.formatted &&
-            user.dog!.size &&
-            user.dog!.gender &&
-            user.dog!.energyLevel
-          )
-        }
-        className={
-          !(
-            user.dog!.name &&
-            user.location.formatted &&
-            user.dog!.size &&
-            user.dog!.gender &&
-            user.dog!.energyLevel
-          )
-            ? '--disabled'
-            : ''
-        }
-      />
+      <div className='profile-form__input-row'>
+        <input
+          type='submit'
+          disabled={
+            !(
+              user.dog!.name &&
+              user.location.formatted &&
+              user.dog!.size &&
+              user.dog!.gender &&
+              user.dog!.energyLevel
+            )
+          }
+          className={
+            !(
+              user.dog!.name &&
+              user.location.formatted &&
+              user.dog!.size &&
+              user.dog!.gender &&
+              user.dog!.energyLevel
+            )
+              ? 'profile-form__button --disabled'
+              : 'profile-form__button '
+          }
+        />
+      </div>
     </form>
   );
 }

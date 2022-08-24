@@ -8,12 +8,17 @@
   overflow-y: scroll;
   overflow-x: unset;
 
+  & .geoapify-autocomplete-input {
+    margin-block: 1vh;
+  }
+
   &__input-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     margin: 2px 0;
+    margin-block: 1vh;
 
     &__label {
       margin: 0 1.5vw;
@@ -24,6 +29,10 @@
     &__input {
       width: 60vw;
       box-sizing: border-box;
+    }
+
+    &__button {
+      margin-block: 5vh;
     }
   }
 }
