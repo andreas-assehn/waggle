@@ -2,11 +2,14 @@
 .headerBar {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1;
 }
 .headerBar__title {
   align-self: center;
+}
+.headerBar__spacing {
+  width: 16vw;
 }
 
 .headerBar-container {

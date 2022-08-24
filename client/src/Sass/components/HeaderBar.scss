@@ -5,11 +5,15 @@ $size: 11vh;
 .headerBar {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1;
 
   &__title {
     align-self: center;
+  }
+
+  &__spacing {
+    width: 16vw;
   }
 }
 

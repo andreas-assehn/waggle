@@ -17,9 +17,17 @@ const userAuthSlice = createSlice({
       state.userAuth = null;
       return state;
     },
+    updateSwipes: (state, action) => {
+      state.userAuth = {
+        ...state.userAuth!,
+        swipeYes: action.payload.swipeYes,
+        swipeNo: action.payload.swipeNo,
+      };
+      return state;
+    },
   },
 });
 
-export const { login, logout } = userAuthSlice.actions;
+export const { login, logout, updateSwipes } = userAuthSlice.actions;
 
 export default userAuthSlice.reducer;

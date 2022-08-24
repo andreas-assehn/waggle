@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
 h1 {
   font-family: "Nunito", sans-serif;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 h1.headerBar__title {
   font-family: "Satisfy", cursive;
@@ -22,12 +27,12 @@ h6 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin: 10px 0;
 }
 
 h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 h4 {
@@ -71,6 +76,10 @@ button.--pop, input.--pop[type=submit], select.--pop[type=submit] {
   background-color: #e46472;
   border: 2px #e46472 solid;
 }
+button.--dark, input.--dark[type=submit], select.--dark[type=submit] {
+  background-color: #313742;
+  border: 2px #313742 solid;
+}
 button.--round, input.--round[type=submit], select.--round[type=submit] {
   display: flex;
   justify-content: center;
@@ -100,6 +109,10 @@ button:active.--disabled, input[type=submit]:active.--disabled, select[type=subm
 button:active.--pop, input[type=submit]:active.--pop, select[type=submit]:active.--pop {
   border: 2px #e46472 solid;
   color: #e46472;
+}
+button:active.--dark, input[type=submit]:active.--dark, select[type=submit]:active.--dark {
+  border: 2px #313742 solid;
+  color: #313742;
 }
 button:active.--transparent, input[type=submit]:active.--transparent, select[type=submit]:active.--transparent {
   background-color: rgba(255, 255, 255, 0.3);

@@ -19,7 +19,7 @@ function LoginRegister() {
           <button className='link-container__button'>Login</button>
         </Link>
         <Link to='/register'>
-          <button className='link-container__button'>Register</button>
+          <button className='link-container__button '>Register</button>
         </Link>
       </div>
     </>

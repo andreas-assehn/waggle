@@ -18,7 +18,7 @@ const unSwipedUsers = createSlice({
       return state;
     },
     shiftUnSwipedUsers: (state) => {
-      state.unSwipedUsers = state.unSwipedUsers.slice(1);
+      state.unSwipedUsers = state.unSwipedUsers.slice(0, -1);
       return state;
     },
   },

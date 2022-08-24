@@ -23,9 +23,7 @@ function MatchModal({
   const title = "It's a match!";
 
   const dispatch = useDispatch();
-  const { matchModalRoom } = useAppSelector(
-    (state: RootState) => state.matchModalRoom
-  );
+
   const navigate = useNavigate();
   const handleModalConfirm = () => {
     navigate('/chatDashboard');
