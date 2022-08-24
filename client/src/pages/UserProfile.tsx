@@ -1,145 +1,112 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import '../Css/pages/UserProfile.css';
-import defaultDogPic from '../assets/default-dog-pic.jpg';
 import PictureModal from '../components/PictureModal';
 import Scale from '../components/Scale';
+import '../Css/components/DogCard.css';
+import thumbsUp from '../assets/thumbs-up.svg';
+import thumbsDown from '../assets/thumbs-down.svg';
+import defaultDogPic from '../assets/default-dog-pic.jpg';
+import DetailsModal from '../components/DetailsModal';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 
 export default function UserProfile() {
-  const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const [openModal, setOpenModal] = useState(false);
-  const [modalActive, setModalActive] = useState(false);
-  const [showDetails, setShowDetails] = useState(true);
-  const navigate = useNavigate();
-  const url = useLocation().pathname;
+  const [openDescriptionModal, setOpenDescriptionModal] = useState(false);
+  const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
 
   const handleOpenModal = () => {
-    console.log('handleOpenModal');
     setOpenModal(true);
   };
 
-  const handleToggleDetails = () => {
-    console.log('handleToggleDetails');
-    setShowDetails(!showDetails);
+  const handleOpenDescriptionModal = () => {
+    setOpenDescriptionModal(true);
   };
 
-  const handleEditProfile = () => {
-    navigate('/editProfile');
-  };
-  return (
-    <>
-      {userAuth ? (
-        <div className='user-profile'>
-          <div>
-            <img
-              className='user-profile__profile-image'
-              src={
-                userAuth?.dog?.images![0]
-                  ? userAuth.dog.images[0]
-                  : defaultDogPic
-              }
-              onClick={handleOpenModal}
-            />
-          </div>
-          <PictureModal
-            user={userAuth}
-            setOpenModal={setOpenModal}
-            openModal={openModal}
-            setModalActive={setModalActive}
-          />
-          <div className='user-profile__details-container'>
-            <div className='user-profile__headline'>
-              <div className='user-profile__headline-text'>
-                <h3 className='user-profile__headline-text__dog'>
-                  {userAuth.dog?.name}{' '}
-                  {userAuth.dog?.age && <>- {userAuth.dog?.age} </>}-{' '}
-                  {userAuth.dog?.gender}
-                </h3>
-                <div className='user-profile__owner-details'>
-                  <h4 className='user-profile__owner-details__text'>
-                    {userAuth.name}
-                  </h4>
-                  <h4 className='user-profile__owner-details__text'>
-                    {!userAuth.distance || userAuth.distance <= 999
-                      ? '< 1km'
-                      : `${(userAuth.distance! / 1000).toFixed(1)}km`}
-                  </h4>
-                </div>
-              </div>
-
-              <img
-                className='user-profile__owner-image'
-                src={userAuth.ownerImage}
-              />
+  return userAuth ? (
+    <div className='dogcard'>
+      <div>
+        <img
+          className='dogcard__profile-image'
+          src={
+            userAuth?.dog?.images?.length
+              ? userAuth.dog.images[0]
+              : defaultDogPic
+          }
+          onClick={handleOpenModal}
+        />
+        <PictureModal
+          user={userAuth}
+          setOpenModal={setOpenModal}
+          openModal={openModal}
+        />
+      </div>
+      <div>
+        <div className='dogcard__details-container'>
+          <div className='dogcard__headline'>
+            <div className='dogcard__headline-text'>
+              <h2 className='dogcard__headline-text__dog'>
+                {userAuth.dog?.name}
+                {userAuth.dog?.age && <>, {userAuth.dog?.age}</>}
+              </h2>
             </div>
-            <p>{userAuth.dog?.briefDescription}</p>
-            {showDetails && (
-              <div className='user-profile__key-facts'>
+            <div className='dogcard__owner-details'>
+              <div className='dogcard__owner-details__text'>
+                <p>{userAuth.name}</p>
                 <p>
-                  Size: {userAuth.dog?.size} <br />
-                  Gender: {userAuth.dog?.gender} <br />
-                  {userAuth.dog?.energyLevel && (
-                    <>
-                      Energy: <Scale scaleValue={userAuth.dog?.energyLevel} />
-                      <br />
-                    </>
-                  )}
-                  {userAuth.dog?.humanFriendliness && (
-                    <>
-                      Human friendliness:{' '}
-                      <Scale scaleValue={userAuth.dog?.humanFriendliness} />{' '}
-                      <br />
-                    </>
-                  )}
-                  {userAuth.dog?.dogFriendliness && (
-                    <>
-                      Dog friendliness:{' '}
-                      <Scale scaleValue={userAuth.dog?.dogFriendliness} />{' '}
-                      <br />
-                    </>
-                  )}
-                  {userAuth.dog?.breed && (
-                    <>
-                      Breed: {userAuth.dog?.breed} <br />
-                    </>
-                  )}
-                  {userAuth.dog?.likes?.length !== 0 && (
-                    <>
-                      likes: {userAuth.dog?.likes?.join(', ')} <br />
-                    </>
-                  )}
-                  {userAuth.dog?.dislikes?.length !== 0 && (
-                    <>
-                      dislikes: {userAuth.dog?.dislikes?.join(', ')} <br />
-                    </>
-                  )}
+                  {!userAuth.distance || userAuth.distance <= 250
+                    ? 'under 250m'
+                    : `${(userAuth.distance / 1000).toFixed(1)}km`}
                 </p>
               </div>
-            )}
-            {showDetails && <p>{userAuth.dog?.description}</p>}
-            {url === '/profile' ? (
-              <button
-                onClick={handleEditProfile}
-                className='user-profile__details-button'
-              >
-                Edit profile
-              </button>
-            ) : (
-              <button
-                onClick={handleToggleDetails}
-                className='user-profile__details-button'
-              >
-                {showDetails ? 'see less' : 'see more'}
-              </button>
-            )}
+              <img className='dogcard__owner-image' src={userAuth.ownerImage} />
+            </div>
           </div>
-          <div className='navbar-padding'></div>
+
+          <div className='dogcard__key-facts'>
+            {userAuth.dog?.energyLevel && (
+              <div className='dogcard__key-facts__key-detail'>
+                <p className='dogcard__key-facts__key-detail__p'>Energy</p>
+                <Scale scaleValue={userAuth.dog?.energyLevel} />
+              </div>
+            )}
+            {userAuth.dog?.humanFriendliness && (
+              <div className='dogcard__key-facts__key-detail'>
+                <p>Human &hearts;</p>
+                <Scale scaleValue={userAuth.dog?.humanFriendliness} />
+              </div>
+            )}
+            {userAuth.dog?.dogFriendliness && (
+              <div className='dogcard__key-facts__key-detail'>
+                <p>Dog &hearts;</p>
+                <Scale scaleValue={userAuth.dog?.dogFriendliness} />
+              </div>
+            )}
+
+            <div className='dogcard__key-facts__key-detail'>
+              <p>Size</p> <p className='pop-color'>{userAuth.dog?.size}</p>
+            </div>
+            <div className='dogcard__key-facts__key-detail'>
+              <p>Gender</p> <p className='pop-color'>{userAuth.dog?.gender}</p>
+            </div>
+            <button
+              className='dogcard__key-facts__key-detail pop-color-button'
+              onClick={handleOpenDescriptionModal}
+            >
+              <p className='pop-color'>More Details...</p>
+            </button>
+            <DetailsModal
+              user={userAuth}
+              openDescriptionModal={openDescriptionModal}
+              setOpenDescriptionModal={setOpenDescriptionModal}
+            />
+          </div>
+          <p className='dogcard__brief-description'>
+            {userAuth.dog?.briefDescription}
+          </p>
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </>
+      </div>
+    </div>
+  ) : (
+    <p>Loading...</p>
   );
 }
