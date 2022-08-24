@@ -3,8 +3,9 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
-import { users, matches } from './utils/mock-data/dataUser';
-import { events } from './utils/mock-data/dataEvent';
+// import { users, matches } from './utils/mock-data/dataUser';
+// import { events } from './utils/mock-data/dataEvent';
+import { users, matches, events, chats } from './utils/mock-data/videoData';
 
 import userModel from './models/userModel';
 import eventsModel from './models/eventsModel';
@@ -23,6 +24,7 @@ const seedDb = async () => {
     await userModel.insertMany(users);
     await eventsModel.insertMany(events);
     await matchesModel.insertMany(matches);
+    await chatModel.insertMany(chats);
     console.log('Database successfully seeded!');
     mongoose.connection.close();
   } catch (e) {
