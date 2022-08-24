@@ -33,6 +33,11 @@ export default function EventCard({ event }: Props) {
             className='event-card__image'
           />
         )}
+        <p>
+          {event.distance! <= 250
+            ? 'under 250m'
+            : `${(event.distance! / 1000).toFixed(1)}km`}
+        </p>
         <button className='event-card__more-info' onClick={goToDetails}>
           Details
         </button>
