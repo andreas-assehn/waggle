@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  box-sizing: border-box;
+
+  &__input {
+    width: 85vw;
+    margin: 2px auto;
+  }
+}

@@ -11,6 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { findCurrentEvent } from '../utils/helperFunctions/findCurrenEvent';
 import { useDispatch } from 'react-redux';
 import { setAllEventsState } from '../app/allEventsSlice';
+import '../Css/features/EventForm.css';
 
 type Props = { formType: 'add' | 'edit' };
 
@@ -176,6 +177,7 @@ export default function EventForm({ formType }: Props) {
       <h2>Enter event details</h2>
       <form className='event-form' onSubmit={handleSubmit}>
         <input
+          className='event-form__input'
           type='text'
           placeholder='Event name'
           id='briefDescription'
@@ -185,6 +187,7 @@ export default function EventForm({ formType }: Props) {
         />
 
         <input
+          className='event-form__input'
           type='text'
           placeholder='Event description'
           id='description'
@@ -194,6 +197,7 @@ export default function EventForm({ formType }: Props) {
         />
 
         <input
+          className='event-form__input'
           type='datetime-local'
           id='dateTime'
           required
