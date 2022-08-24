@@ -5,9 +5,15 @@
 
   &-list {
     width: 100vw;
+    height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 0;
+    position: fixed;
+    bottom: $navbar-height;
+    background-color: $background-white;
+    box-shadow: 0 -4px 4px $background-white;
   }
   &-text {
     width: 5vw;
@@ -30,7 +36,5 @@
   &-click {
     margin-top: -8vh;
     max-height: 110px;
-    position: absolute;
-    z-index: 0;
   }
 }

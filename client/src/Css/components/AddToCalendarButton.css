@@ -4,9 +4,15 @@
 }
 .atcb-list {
   width: 100vw;
+  height: 60px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 0;
+  position: fixed;
+  bottom: 8vh;
+  background-color: #fff;
+  box-shadow: 0 -4px 4px #fff;
 }
 .atcb-text {
   width: 5vw;
@@ -29,6 +35,4 @@
 .atcb-click {
   margin-top: -8vh;
   max-height: 110px;
-  position: absolute;
-  z-index: 0;
 }
