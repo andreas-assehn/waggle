@@ -6,6 +6,7 @@ import unread from '../assets/message-unread.svg';
 import tripledot from '../assets/message-tripledot.svg';
 import { Link } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
+import defaultDogPic from '../assets/default-dog-pic.jpg';
 
 export default function MessageCard({
   matchId,
@@ -44,11 +45,7 @@ export default function MessageCard({
             <div className='message-card__picture-container'>
               <img
                 className='message-card__picture'
-                src={
-                  matchedUser.dog && matchedUser.dog.images
-                    ? matchedUser.dog.images[0]
-                    : ''
-                }
+                src={matchedUser?.dog?.images![0] || defaultDogPic}
               />
             </div>
             <div className='message-card__text'>

@@ -2,6 +2,7 @@ import React from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/YourMatches.css';
 import { Link } from 'react-router-dom';
+import defaultDogPic from '../assets/default-dog-pic.jpg';
 
 export default function YourMatches({
   user,
@@ -35,7 +36,7 @@ export default function YourMatches({
                       <Link to={`/matchingViewDetail/${matchedUser.userId}`}>
                         <img
                           className='your-matches__profile'
-                          src={matchedUser.dog.images[0]}
+                          src={matchedUser?.dog?.images[0] || defaultDogPic}
                           alt='profile'
                         />
                       </Link>
@@ -45,7 +46,7 @@ export default function YourMatches({
                   )
                 )
               ) : (
-                <p>No matches yet</p>
+                <p className='your-matches__no-matches'>No matches yet</p>
               )}
             </div>
           </div>

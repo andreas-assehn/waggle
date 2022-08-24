@@ -6,11 +6,15 @@
   justify-content: center;
   font-family: $body-font;
   font-size: $p-size;
+  margin: $page-margin $page-margin 0 $page-margin;
   & p {
     padding-left: 10px;
   }
   & h2 {
     padding-left: 10px;
+  }
+  &__no-matches {
+    margin: 0 0 15px;
   }
 }
 
@@ -29,7 +33,7 @@
 }
 .your-matches__bubble {
   display: flex;
-  margin-inline: 6px;
+  margin: 0 6px 10px;
 }
 
 .your-matches__bubbles::-webkit-scrollbar {
@@ -37,10 +41,9 @@
 }
 
 .your-matches__background {
-  background-color: $pop-color;
+  background-color: $button-blue;
   color: $text-white;
-  width: 96vw;
-  height: 20vh;
+  width: 100%;
   border-radius: 10px;
   margin-block: 5px;
 }
