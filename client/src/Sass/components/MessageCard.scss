@@ -6,7 +6,7 @@
   justify-content: center;
   font-family: $body-font;
   font-size: $p-size;
-  color: $text-white;
+  color: $text-dark-grey;
   margin: 0 $page-margin;
   & p {
     margin-block: 0;
@@ -20,7 +20,9 @@
 }
 
 .message-card__background {
-  background-color: $button-blue;
+  // background-color: $button-blue;
+  background-color: $background-white;
+  box-shadow: 0 0 8px $box-shadow-grey;
   width: 100%;
   border-radius: 10px;
   margin-block: 5px;
@@ -72,6 +74,6 @@
 .message-card__link {
   display: flex;
   flex-direction: row;
-  color: $text-white;
+  color: $text-dark-grey;
   text-decoration: none;
 }
