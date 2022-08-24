@@ -46,17 +46,17 @@ p.--small {
 }
 p.--error-message {
   text-align: center;
-  background-color: #ff2c55;
+  background-color: #e46472;
   color: #ffffff;
 }
 
 button, input[type=submit], select[type=submit] {
-  background-color: #0078ff;
+  background-color: #009b9b;
   border: none;
   border-radius: 20px;
   padding: 4px 15px;
   margin: 0.5vh 1vw;
-  border: 2px #0078ff solid;
+  border: 2px #009b9b solid;
   font-family: "Nunito", sans-serif;
   color: #ffffff;
   font-size: 4.5vw;
@@ -67,8 +67,8 @@ button.--disabled, input.--disabled[type=submit], select.--disabled[type=submit]
   background-color: #bfbfbf;
 }
 button.--pop, input.--pop[type=submit], select.--pop[type=submit] {
-  background-color: #ff2c55;
-  border: 2px #ff2c55 solid;
+  background-color: #e46472;
+  border: 2px #e46472 solid;
 }
 button.--round, input.--round[type=submit], select.--round[type=submit] {
   display: flex;
@@ -88,8 +88,8 @@ button.--transparent, input.--transparent[type=submit], select.--transparent[typ
 }
 button:active, input[type=submit]:active, select[type=submit]:active {
   background-color: transparent;
-  border: 2px #0078ff solid;
-  color: #0078ff;
+  border: 2px #009b9b solid;
+  color: #009b9b;
 }
 button:active.--disabled, input[type=submit]:active.--disabled, select[type=submit]:active.--disabled {
   border: 2px #bfbfbf solid;
@@ -97,8 +97,8 @@ button:active.--disabled, input[type=submit]:active.--disabled, select[type=subm
   color: #ffffff;
 }
 button:active.--pop, input[type=submit]:active.--pop, select[type=submit]:active.--pop {
-  border: 2px #ff2c55 solid;
-  color: #ff2c55;
+  border: 2px #e46472 solid;
+  color: #e46472;
 }
 button:active.--transparent, input[type=submit]:active.--transparent, select[type=submit]:active.--transparent {
   background-color: rgba(255, 255, 255, 0.3);
@@ -113,7 +113,7 @@ input, select {
   font-size: 1rem;
   font-family: "Nunito", sans-serif;
   font-weight: 500;
-  color: #373737;
+  color: #313742;
   margin: 0.3vh 1.5vw;
   width: 60vw;
 }
@@ -121,7 +121,7 @@ input.--white, select.--white {
   background-color: #fff;
 }
 input::placeholder, select::placeholder {
-  color: #373737;
+  color: #313742;
 }
 
 .navbar-padding {

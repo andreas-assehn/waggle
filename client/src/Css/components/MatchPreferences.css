@@ -47,18 +47,18 @@
   /* thickness of the track */
   height: 4px;
   /* default color of your track */
-  background: #373737;
+  background: #313742;
 }
 
 .customSlider-track.customSlider-track-0 {
   /* color of the track before the thumb */
-  background: #0078ff;
+  background: #009b9b;
 }
 
 .customSlider-thumb {
   cursor: pointer;
   /*color for the thumb */
-  background: #ff2c55;
+  background: #e46472;
   /* shape of the thumb: circle */
   width: 20px;
   height: 20px;

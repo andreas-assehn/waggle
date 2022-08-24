@@ -20,15 +20,22 @@ function ChatDashboard() {
   const { matchedUsers } = useAppSelector(
     (state: RootState) => state.matchedUsers
   );
+  // const [matchedUserChats, setMatchedUserChats] = useState(userAuth?.matches);
 
   useEffect(() => {
+    console.log('chat dash 25');
     if (userAuth) {
+      console.log('chat dash 27');
       apiChatService
         .getMatchedChats(userAuth.userId)
         .then((chats) => setAllChats(chats))
         .catch((error) => console.log(error));
     }
-  }, [userAuth]);
+  }, []);
+
+  // useEffect(() => {
+  //   setMatchedUserChats(userAuth?.matches);
+  // }, []);
 
   const matchedUserChats = userAuth?.matches;
 
@@ -69,7 +76,7 @@ function ChatDashboard() {
   return (
     <div className='chatDashboard'>
       <YourMatches user={userAuth} matchedUsers={matchedUsers} />
-      {matchedUsers && matchedUsers.length ? (
+      {matchedUserChats && matchedUserChats.length ? (
         matchedUserChats?.map((chat) => (
           <div key={chat.roomId}>
             <MessageCard

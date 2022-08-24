@@ -2,7 +2,6 @@
 
 .dogcard {
   position: relative;
-  // background-color: #ffffff;
   width: 100vw;
   height: 90vh;
   background-size: cover;
@@ -23,7 +22,7 @@
     padding: 1em 0.5em;
     margin: auto 5vw;
     border-radius: 0 0 10px 10px;
-    background-color: #ffffffcd;
+    background-color: $background-white;
   }
 
   &__headline {
@@ -78,8 +77,11 @@
       align-items: center;
       height: 15vw;
       width: 25vw;
-      background-color: #dbd5b5;
+      background-color: $button-blue;
+      // background-color: $background-light-grey;
       border-radius: 10px;
+      color: $text-white;
+      // color: $pop-color;
 
       & p {
         margin: 0;
@@ -95,9 +97,10 @@
     display: flex;
     width: 80vw;
     justify-content: space-evenly;
-    background-color: $pop-color;
+    background-color: $green-pop;
+    // background-color: $pop-color;
     margin: 0.5rem auto 0;
-    color: white;
+    color: $text-white;
     border-radius: 3rem;
   }
 
@@ -107,12 +110,14 @@
   }
 }
 .pop-color {
-  color: $pop-color;
+  color: $text-white;
 }
 .pop-color-button {
-  color: $pop-color;
+  color: $background-light-grey;
+  // color: $pop-color;
   font-size: 1rem;
   border: none;
   margin: 0;
-  background-color: $text-dark-grey;
+  background-color: $button-blue;
+  // background-color: $background-light-grey;
 }

@@ -20,7 +20,7 @@
   padding: 1em 0.5em;
   margin: auto 5vw;
   border-radius: 0 0 10px 10px;
-  background-color: rgba(255, 255, 255, 0.8039215686);
+  background-color: #fff;
 }
 .dogcard__headline {
   display: flex;
@@ -69,8 +69,9 @@
   align-items: center;
   height: 15vw;
   width: 25vw;
-  background-color: #dbd5b5;
+  background-color: #009b9b;
   border-radius: 10px;
+  color: #ffffff;
 }
 .dogcard__key-facts__key-detail p {
   margin: 0;
@@ -82,9 +83,9 @@
   display: flex;
   width: 80vw;
   justify-content: space-evenly;
-  background-color: #ff2c55;
+  background-color: #e46472;
   margin: 0.5rem auto 0;
-  color: white;
+  color: #ffffff;
   border-radius: 3rem;
 }
 .dogcard__details-button {
@@ -93,13 +94,13 @@
 }
 
 .pop-color {
-  color: #ff2c55;
+  color: #ffffff;
 }
 
 .pop-color-button {
-  color: #ff2c55;
+  color: #bfbfbf;
   font-size: 1rem;
   border: none;
   margin: 0;
-  background-color: #373737;
+  background-color: #009b9b;
 }

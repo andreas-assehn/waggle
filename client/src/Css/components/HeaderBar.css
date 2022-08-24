@@ -12,7 +12,7 @@
 .headerBar-container {
   display: flex;
   justify-content: space-between;
-  background-color: #292929;
+  background-color: #313742;
   color: #fff;
   height: 11vh;
 }

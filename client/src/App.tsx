@@ -60,7 +60,7 @@ function App() {
     } else {
       dispatch(clearUnSwipedUsersState());
     }
-  }, [userAuth]);
+  }, [userAuth?.userId]);
 
   useEffect(() => {
     if (userAuth) {
@@ -71,7 +71,7 @@ function App() {
     } else {
       dispatch(clearMatchedUsersState());
     }
-  }, [userAuth]);
+  }, [userAuth?.userId]);
 
   useEffect(() => {
     if (userAuth) {
@@ -82,7 +82,7 @@ function App() {
     } else {
       dispatch(clearAllUsersState());
     }
-  }, [userAuth]);
+  }, [userAuth?.userId]);
 
   useEffect(() => {
     if (userAuth) {
