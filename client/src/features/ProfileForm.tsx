@@ -216,6 +216,7 @@ export default function ProfileForm() {
           Name
         </label>
         <input
+          className='profile-form__input-row__input'
           type='text'
           placeholder="Dog's name..."
           id='name'
@@ -230,6 +231,7 @@ export default function ProfileForm() {
           Age
         </label>
         <input
+          className='profile-form__input-row__input'
           type='number'
           placeholder="Dog's Age..."
           id='age'
@@ -246,6 +248,7 @@ export default function ProfileForm() {
           Tagline
         </label>
         <input
+          className='profile-form__input-row__input'
           type='text'
           placeholder='Tagline...'
           id='briefDescription'
@@ -259,6 +262,7 @@ export default function ProfileForm() {
           Bio
         </label>
         <input
+          className='profile-form__input-row__input'
           type='text'
           placeholder='Bio...'
           id='description'
@@ -290,6 +294,7 @@ export default function ProfileForm() {
           Size
         </label>
         <select
+          className='profile-form__input-row__input'
           name='size'
           id='size'
           onChange={handleInputChanges}
@@ -312,6 +317,7 @@ export default function ProfileForm() {
           Gender
         </label>
         <select
+          className='profile-form__input-row__input'
           name='gender'
           id='gender'
           onChange={handleInputChanges}
@@ -334,6 +340,7 @@ export default function ProfileForm() {
           Energy
         </label>
         <select
+          className='profile-form__input-row__input'
           name='energy'
           id='energyLevel'
           onChange={handleInputChanges}
@@ -358,6 +365,7 @@ export default function ProfileForm() {
           Human friendliness
         </label>
         <select
+          className='profile-form__input-row__input'
           name='human-friendly'
           id='humanFriendliness'
           onChange={handleInputChanges}
@@ -382,6 +390,7 @@ export default function ProfileForm() {
           Dog friendliness
         </label>
         <select
+          className='profile-form__input-row__input'
           name='dog-friendly'
           id='dogFriendliness'
           onChange={handleInputChanges}
@@ -403,6 +412,7 @@ export default function ProfileForm() {
           Breed
         </label>
         <input
+          className='profile-form__input-row__input'
           type='text'
           placeholder='Breed...'
           id='breed'
@@ -416,6 +426,7 @@ export default function ProfileForm() {
           Likes
         </label>
         <input
+          className='profile-form__input-row__input'
           type='text'
           placeholder='Likes...'
           id='likes'
@@ -429,6 +440,7 @@ export default function ProfileForm() {
           Dislikes
         </label>
         <input
+          className='profile-form__input-row__input'
           type='text'
           placeholder='Dislikes...'
           id='dislikes'

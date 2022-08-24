@@ -1,9 +1,10 @@
 @use '../abstracts' as *;
 
 .autocomplete-container {
-  width: 60vw;
   display: inline-block;
-  margin: 0 1.5vw;
+  margin: 0;
+  box-sizing: border-box;
+  width: 61.55vw;
 }
 
 .geoapify-autocomplete-input {
