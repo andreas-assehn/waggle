@@ -22,6 +22,7 @@ function DogCard({
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [openDescriptionModal, setOpenDescriptionModal] = useState(false);
+  const [showSwipebar, setShowSwipeBar] = useState(false);
 
   const handleOpenModal = () => {
     setOpenModal(true);
