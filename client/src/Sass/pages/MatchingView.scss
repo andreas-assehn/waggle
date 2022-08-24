@@ -1,35 +1,22 @@
 @use '../abstracts' as *;
 
 ul {
-  // position: relative;
-  // position: absolute;
-  // box-sizing: border-box;
   display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // max-width: 100vw;
-  //   overflow: hidden;
-  // max-height: 100vh;
-  //   margin: 0;
-  //   margin-block: 0;
-  //   padding: 0;
-  // overflow-y: hidden;
 }
 
-// .swipe {
-//   position: absolute;
-// }
+.no-matches {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  flex-wrap: wrap;
+  margin: 30vh auto;
+  text-align: center;
 
-// .swipe-container {
-//   width: 70%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-// }
-
-// .card-container {
-//   width: 100vw;
-//   // max-width: 260px;
-// }
+  &__title {
+    font-family: $title-font;
+    align-self: center;
+    flex-wrap: wrap;
+  }
+}

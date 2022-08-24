@@ -10,9 +10,9 @@ import apiUserService from '../utils/services/apiUserService';
 export default function MessageCard({
   matchId,
   roomId,
-  lastMessage = 'No messages yet',
-  readStatus = true,
-  timeStamp = 'HH:SS',
+  lastMessage,
+  readStatus,
+  timeStamp,
   handleOpenModal,
 }: {
   matchId: string;

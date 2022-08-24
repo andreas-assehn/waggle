@@ -93,9 +93,7 @@ function ChatDashboard() {
             <MessageCard
               matchId={chat.matchId}
               roomId={chat.roomId}
-              lastMessage={'Say hi! dasd ad as dmadmsao osdp  dsa opa'}
               readStatus={false}
-              timeStamp={'23:59'}
               handleOpenModal={() => handleOpenModal(chat)}
             />
           </div>
