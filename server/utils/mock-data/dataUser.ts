@@ -308,7 +308,7 @@ export const users = [
     },
     preferences: {
       size: ['Small', 'Medium', 'Large'],
-      maxDistance: 0.75,
+      maxDistance: 0.5,
       gender: 'Both',
       energyLevel: [2, 3, 4],
     },
@@ -342,8 +342,24 @@ export const users = [
       'https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-user-icon-isolated-on-abstract-background-png-image_1875037.jpg',
     dog: {
       name: 'Emma',
+      breed: 'Mix',
+      age: 2,
       size: 'Medium',
       gender: 'Female',
+      energyLevel: 3,
+      dogFriendliness: 3,
+      humanFriendliness: 4,
+      description:
+        'If you enjoy catching frisbees in the park, we are meant for eachother!',
+      briefDescription: 'Frisbee lover!',
+      likes: ['frisbee', 'horses', 'outdoors'],
+      dislikes: ['cars', 'bicycles', 'fireworks'],
+    },
+    preferences: {
+      size: ['Small', 'Medium'],
+      maxDistance: 4,
+      gender: 'Male',
+      energyLevel: [2, 3, 4],
     },
   },
   {
@@ -374,6 +390,7 @@ export const users = [
       'https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-user-icon-isolated-on-abstract-background-png-image_1875037.jpg',
     dog: {
       name: 'Berty',
+      breed: 'Beagle',
       age: 3,
       size: 'Medium',
       gender: 'Male',
@@ -426,6 +443,7 @@ export const users = [
       'https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-user-icon-isolated-on-abstract-background-png-image_1875037.jpg',
     dog: {
       name: 'Maya',
+      breed: 'Pyreness',
       age: 6,
       size: 'Medium',
       gender: 'Female',
