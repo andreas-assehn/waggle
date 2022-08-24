@@ -10,10 +10,12 @@ import apiUserService from '../utils/services/apiUserService';
 import { useNavigate } from 'react-router-dom';
 import { showCloudinaryWidget } from '../utils/helperFunctions/cloudinaryWidget';
 import { geoapifyInput } from '../utils/helperFunctions/geoapifyInput';
+import { useDispatch } from 'react-redux';
+import { login } from '../app/userAuthSlice';
+import { setAllEventsState } from '../app/allEventsSlice';
 
 export default function ProfileForm() {
   const currentUser = useSelector((state: any) => state.userAuth);
-
   const [user, setUser] = useState({
     _id: '',
     location: {},
@@ -30,6 +32,7 @@ export default function ProfileForm() {
   const geocoderContainer = useRef(null);
   const initialized = useRef(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (currentUser.userAuth) {
@@ -168,6 +171,13 @@ export default function ProfileForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     await apiUserService.updateUser(user);
+
+    const updatedCurrentUser = await apiUserService.getUser(
+      currentUser.userAuth.userId
+    );
+    const updatedAllUsers = await apiUserService.getAllUsers();
+    dispatch(setAllEventsState(updatedAllUsers));
+    dispatch(login(updatedCurrentUser));
     navigate('/profile');
   }
 

@@ -36,7 +36,8 @@
 }
 
 .your-matches__background {
-  background-color: #bfbfbf;
+  background-color: #e46472;
+  color: #ffffff;
   width: 96vw;
   height: 20vh;
   border-radius: 10px;

@@ -66,6 +66,7 @@ button {
   &.--disabled {
     border: 2px $button-disabled solid;
     background-color: $button-disabled;
+    pointer-events: none;
   }
 
   &.--pop {
@@ -122,7 +123,7 @@ input {
   font-weight: 500;
   color: $text-dark-grey;
   margin: 0.3vh 1.5vw;
-  width: 60vw;
+  width: 50vw;
 
   &.--white {
     background-color: $background-white;

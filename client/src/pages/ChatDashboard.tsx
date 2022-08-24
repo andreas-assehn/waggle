@@ -25,7 +25,6 @@ function ChatDashboard() {
     (state: RootState) => state.matchedUsers
   );
   const dispatch = useAppDispatch();
-  // const [matchedUserChats, setMatchedUserChats] = useState(userAuth?.matches);
 
   useEffect(() => {
     if (userAuth) {
@@ -35,10 +34,6 @@ function ChatDashboard() {
         .catch((error) => console.log(error));
     }
   }, []);
-
-  // useEffect(() => {
-  //   setMatchedUserChats(userAuth?.matches);
-  // }, []);
 
   const matchedUserChats = userAuth?.matches;
 
