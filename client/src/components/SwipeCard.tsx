@@ -55,7 +55,7 @@ function SwipeCard({ user }: { user: User }) {
       };
       updateUser(swipedData, 'No');
     } else if (info.point.x > 400) {
-      animControls.start({ x: '-200vw' });
+      animControls.start({ x: '200vw' });
       const swipedData: Swiped = {
         _id: userAuth!._id!,
         swipedUserId: swipedUserId,

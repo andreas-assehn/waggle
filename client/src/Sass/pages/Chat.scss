@@ -46,7 +46,8 @@
   display: flex;
   align-self: flex-start;
   justify-content: flex-start;
-  background-color: aqua;
+  background-color: $pop-color;
+  color: $text-white;
   width: auto;
   max-width: 60vw;
   padding: 0.75rem;
@@ -65,7 +66,8 @@
   display: flex;
   align-self: flex-end;
   justify-content: flex-end;
-  background-color: rosybrown;
+  background-color: $button-blue;
+  color: $text-white;
   width: auto;
   max-width: 60vw;
   padding: 0.75rem;

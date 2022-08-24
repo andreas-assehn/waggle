@@ -53,23 +53,14 @@ export default function MessageCard({
             </div>
             <div className='message-card__text'>
               <p>
-                {matchedUser.dog ? matchedUser.dog.name : ''} (
-                {matchedUser.name})
-              </p>
-              <p>
-                {lastMessage.length > 19
-                  ? `${lastMessage.slice(0, 18)}...`
-                  : lastMessage}
+                {matchedUser.name}
+                {matchedUser.dog ? `, (${matchedUser.dog.name})` : ''}
               </p>
             </div>
           </Link>
           <div className='message-card__additional-info'>
             <p>{timeStamp}</p>
             <div className='message-card__icons'>
-              <img
-                className='message-card__read-unread'
-                src={readStatus ? read : unread}
-              />
               <button
                 onClick={() => handleOpenModal(matchedUser)}
                 className='message-card__tripledot --transparent'
