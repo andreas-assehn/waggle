@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../Css/components/ProfileDetails.css';
+import '../Css/pages/UserProfile.css';
 import defaultDogPic from '../assets/default-dog-pic.jpg';
 import PictureModal from '../components/PictureModal';
 import Scale from '../components/Scale';

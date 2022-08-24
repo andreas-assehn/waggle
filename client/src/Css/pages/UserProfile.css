@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.card {
+  position: relative;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+.card__profile-image {
+  width: 95vw;
+  height: 80vw;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  margin: 5vw auto;
+  display: block;
+  border-radius: 10px;
+}
+.card__headline {
+  display: flex;
+  justify-content: space-between;
+}
+.card__headline-text__dog {
+  margin: 10px 5px 0;
+}
+.card__owner-details {
+  display: flex;
+  margin: 0;
+}
+.card__owner-details__text {
+  margin: 0 5px;
+}
+.card__owner-image {
+  width: 15vw;
+  height: 15vw;
+  object-fit: cover;
+  border-radius: 8vw;
+  display: inline-block;
+  margin-right: 3vw;
+}
+.card__details-container {
+  padding: 0 1.9em;
+  margin-block-end: 20px;
+}
+.card__details-button {
+  display: block;
+  margin: 0 auto;
+}
