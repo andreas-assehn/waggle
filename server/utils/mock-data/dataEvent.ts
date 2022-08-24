@@ -15,10 +15,9 @@ export const events = [
       addressLine1: 'London',
       addressLine2: 'HA3 9JS, United Kingdom',
     },
-    briefDescription:
-      'Meet up to socialize for German Shepards and their masters',
+    briefDescription: 'German Shepard Club',
     description:
-      'Fusce placerat facilisis fermentum. Vestibulum interdum justo eu dolor mollis pretium. Duis et purus risus. Sed sodales fermentum dignissim. Etiam magna nibh, luctus vel luctus a, gravida pretium orci. Nullam congue interdum libero, a auctor tortor vehicula a. Aenean sagittis rhoncus iaculis. In in volutpat tellus, a eleifend neque. Nunc non dui sem. Vestibulum et purus id velit laoreet hendrerit. Nam cursus odio urna, quis posuere lorem volutpat eget. In scelerisque sed orci vitae hendrerit.',
+      'Want to join the London German Shepard Club? We are having an event in London where we will be talking about this fantastic breed. Bring your dog to socialize with the GS community.',
     images: [
       'https://cdn.londonandpartners.com/-/media/images/london/visit/things-to-do/place/greenwich-park-640x360.jpg?mw=640&hash=154B00A4E4191E1AC7AFA1AB4BE03733503CFD24',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST5JYDEaDJ2scMsqzTxMtgtpJ1PjnoD7g4dTMJBUCm4kZCSDpAfmIu2ftJohZCdxrmjQU&usqp=CAU',
@@ -46,9 +45,9 @@ export const events = [
       addressLine1: "Lincoln's Inn Fields",
       addressLine2: 'London, WC2A 3TP, United Kingdom',
     },
-    briefDescription: 'Bring your pup to meet up and socialize with other pups',
+    briefDescription: 'Pup meet-up!',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada efficitur elit, molestie pellentesque augue sollicitudin a. Curabitur volutpat aliquet sapien, vitae vulputate neque venenatis eget. Aenean feugiat tincidunt nunc quis faucibus. Donec sed nulla aliquam, tincidunt felis sed, blandit felis. Fusce tincidunt sapien turpis, at luctus purus pretium ac. Donec condimentum nisl eget pharetra pretium. Donec ac quam mauris. Quisque ullamcorper erat et nisi vulputate dapibus. Nulla facilisi. Aliquam ligula purus, pulvinar ut tortor non, bibendum mollis libero. Vestibulum porta elit risus, in sodales nisi commodo eu. Morbi fermentum, mauris sed lobortis fringilla, felis tortor mattis tellus, sit amet iaculis est libero eget lacus. Aenean iaculis commodo leo, eu interdum dui.',
+      'If you got a pup. Meet up! Various activities are arranged: agility course, dog treat taste-off, talks on dog grooming and equipment. If you want to arrange an acitivity yourself go to www.watford-pup-meet-up.co.uk',
     images: [
       'https://www.cesarsway.com/wp-content/uploads/2019/09/AdobeStock_195276899.jpeg',
       'https://newtheory.com/wp-content/uploads/2015/02/puppies-hangin.jpg',
@@ -71,10 +70,9 @@ export const events = [
       addressLine1: 'Whetstone Park',
       addressLine2: 'London, WC2, United Kingdom',
     },
-    briefDescription:
-      'Integer in nisi blandit diam egestas posuere a pellentesque mauris',
+    briefDescription: 'Big breeds and barbeque',
     description:
-      'Nam molestie sagittis mi, ac eleifend metus. Donec vehicula vulputate porta. Maecenas eget porttitor elit, non tempor urna. Ut maximus purus auctor magna iaculis dignissim. Phasellus pulvinar volutpat nunc vitae tincidunt. Nullam mattis gravida dui eget malesuada. Maecenas bibendum auctor feugiat. Donec consectetur est dolor, eu porta diam malesuada ac. Phasellus a ex urna. Sed tempus urna vitae rhoncus tincidunt. Aenean fringilla gravida mi, eget vulputate felis dapibus id.',
+      'Do you like big dogs? Do you like barbeque? Why not join us in Whetstone park for a treat that both you and your dog will enjoy. Bring some meats or a salad, chairs will be arranged.',
     images: [
       'https://upload.wikimedia.org/wikipedia/commons/e/e7/Bluebells_%2834146232732%29.jpg',
     ],
@@ -97,10 +95,9 @@ export const events = [
       addressLine1: 'The Green Park',
       addressLine2: 'Belgravia, Westminster, London, ENG, United Kingdom',
     },
-    briefDescription:
-      'Sed aliquet, neque ac facilisis interdum, lacus lorem tempus nunc, a bibendum neque urna nec lorem.',
+    briefDescription: 'Agility for beginners',
     description:
-      'Fusce placerat facilisis fermentum. Vestibulum interdum justo eu dolor mollis pretium. Duis et purus risus. Sed sodales fermentum dignissim. Etiam magna nibh, luctus vel luctus a, gravida pretium orci. Nullam congue interdum libero, a auctor tortor vehicula a. Aenean sagittis rhoncus iaculis. In in volutpat tellus, a eleifend neque. Nunc non dui sem. Vestibulum et purus id velit laoreet hendrerit. Nam cursus odio urna, quis posuere lorem volutpat eget. In scelerisque sed orci vitae hendrerit.',
+      'Want to get started on agility for dogs? Sarah McGillan is now coming to Westminster to introduce you and your dog to agility. Sarah has won several national and international agility competitions, and has experience with a wide range of dog breeds. You will not look back!',
     images: [
       'https://www.forestryengland.uk/sites/default/files/styles/list_image_large_2x/public/media/1014578.jpg?itok=4UPCbXCB',
     ],
@@ -126,9 +123,8 @@ export const events = [
       addressLine1: 'Kensington Gardens',
       addressLine2: 'South Kensington, London, ENG, United Kingdom',
     },
-    briefDescription: 'Nunc at sem varius, bibendum diam nec, tempus magna.',
-    description:
-      'Suspendisse euismod nunc sed erat scelerisque, nec pulvinar enim tempor. Pellentesque luctus imperdiet lobortis. Cras volutpat eget lorem feugiat aliquet. Curabitur id cursus turpis, ullamcorper accumsan ante. Nulla cursus nisi vel eleifend maximus. Quisque scelerisque quam ut finibus lacinia. Maecenas venenatis massa quis velit ultricies interdum. Quisque a lectus odio.',
+    briefDescription: 'Frisbee shindig',
+    description: "Let's throw some frisbees! All dogs are welcome.",
     images: [
       'https://www.owatroldirect.co.uk/wp-content/uploads/2018/11/river-3365287-e1542125037242.jpg',
       'https://www.drifters.co.uk/wp-content/uploads/2020/01/Golcar-Huddersfield-Narrow-Canal-1-1.jpg',
