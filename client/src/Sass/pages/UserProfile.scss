@@ -91,14 +91,9 @@
     font-style: italic;
   }
 
-  &__swipe-bar {
+  &__edit-button {
     display: flex;
-    width: 80vw;
-    justify-content: space-evenly;
-    background-color: $green-pop;
-    margin: 0.5rem auto 0;
-    color: $text-white;
-    border-radius: 3rem;
+    justify-content: center;
   }
 
   &__details-button {

@@ -183,33 +183,35 @@ export default function ProfileForm() {
 
   return (
     <form className='profile-form' onSubmit={handleSubmit}>
-      <button
-        onClick={(event) =>
-          showCloudinaryWidget(
-            event,
-            succesCloudinaryCallback,
-            errorCloudinaryCallback
-          )
-        }
-        id='dogImages'
-        className='--fixed-width'
-      >
-        Upload dog image(s)
-      </button>
+      <div className='profile-form__button'>
+        <button
+          onClick={(event) =>
+            showCloudinaryWidget(
+              event,
+              succesCloudinaryCallback,
+              errorCloudinaryCallback
+            )
+          }
+          id='dogImages'
+          className='profile-form__button --fixed-width'
+        >
+          Upload dog image(s)
+        </button>
 
-      <button
-        onClick={(event) =>
-          showCloudinaryWidget(
-            event,
-            succesCloudinaryCallback,
-            errorCloudinaryCallback
-          )
-        }
-        id='ownerImage'
-        className='--fixed-width'
-      >
-        Upload an image of you
-      </button>
+        <button
+          onClick={(event) =>
+            showCloudinaryWidget(
+              event,
+              succesCloudinaryCallback,
+              errorCloudinaryCallback
+            )
+          }
+          id='ownerImage'
+          className='--fixed-width'
+        >
+          Upload an image of you
+        </button>
+      </div>
 
       <div className='profile-form__input-row'>
         <label htmlFor='dog-name' className='profile-form__input-row__label'>
@@ -455,29 +457,31 @@ export default function ProfileForm() {
         </div>
       )}
 
-      <input
-        type='submit'
-        disabled={
-          !(
-            user.dog!.name &&
-            user.location.formatted &&
-            user.dog!.size &&
-            user.dog!.gender &&
-            user.dog!.energyLevel
-          )
-        }
-        className={
-          !(
-            user.dog!.name &&
-            user.location.formatted &&
-            user.dog!.size &&
-            user.dog!.gender &&
-            user.dog!.energyLevel
-          )
-            ? '--disabled'
-            : ''
-        }
-      />
+      <div className='profile-form__button'>
+        <input
+          type='submit'
+          disabled={
+            !(
+              user.dog!.name &&
+              user.location.formatted &&
+              user.dog!.size &&
+              user.dog!.gender &&
+              user.dog!.energyLevel
+            )
+          }
+          className={
+            !(
+              user.dog!.name &&
+              user.location.formatted &&
+              user.dog!.size &&
+              user.dog!.gender &&
+              user.dog!.energyLevel
+            )
+              ? ' --disabled'
+              : ' '
+          }
+        />
+      </div>
     </form>
   );
 }

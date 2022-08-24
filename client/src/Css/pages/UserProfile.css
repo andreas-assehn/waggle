@@ -79,14 +79,9 @@
 .user-profile__brief-description {
   font-style: italic;
 }
-.user-profile__swipe-bar {
+.user-profile__edit-button {
   display: flex;
-  width: 80vw;
-  justify-content: space-evenly;
-  background-color: #e46472;
-  margin: 0.5rem auto 0;
-  color: #ffffff;
-  border-radius: 3rem;
+  justify-content: center;
 }
 .user-profile__details-button {
   display: block;
