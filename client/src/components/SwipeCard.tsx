@@ -85,7 +85,7 @@ function SwipeCard({ user }: { user: User }) {
   const xInput = [-100, 0, 100];
   const background = useTransform(x, xInput, [
     'linear-gradient(180deg, ##ff2c90 0%, #ff0000  100%)',
-    '#fff',
+    'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
     'linear-gradient(180deg, rgb(230, 255, 0) 0%, rgb(3, 209, 0) 100%)',
   ]);
 

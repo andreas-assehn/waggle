@@ -15,7 +15,7 @@ function MatchingView() {
     (state: RootState) => state.unSwipedUsers
   );
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-  const [isLoading, setIsLoading] = useState(true);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,13 +24,10 @@ function MatchingView() {
         .getUnSwipedUsers(userAuth.userId)
         .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
         .catch((err) => console.error(err));
-      setIsLoading(false);
     }
-  }, [unSwipedUsers]);
+  }, []);
 
-  return isLoading ? (
-    <Loading />
-  ) : unSwipedUsers.length ? (
+  return unSwipedUsers.length ? (
     <div>
       {unSwipedUsers.map((user) => (
         <SwipeCard user={user} key={user.userId} />
