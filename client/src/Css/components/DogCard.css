@@ -69,8 +69,9 @@
   align-items: center;
   height: 15vw;
   width: 25vw;
-  background-color: #bfbfbf;
+  background-color: #009b9b;
   border-radius: 10px;
+  color: #ffffff;
 }
 .dogcard__key-facts__key-detail p {
   margin: 0;
@@ -82,7 +83,7 @@
   display: flex;
   width: 80vw;
   justify-content: space-evenly;
-  background-color: #ff2c55;
+  background-color: #e46472;
   margin: 0.5rem auto 0;
   color: #ffffff;
   border-radius: 3rem;
@@ -93,13 +94,13 @@
 }
 
 .pop-color {
-  color: #ff2c55;
+  color: #ffffff;
 }
 
 .pop-color-button {
-  color: #ff2c55;
+  color: #bfbfbf;
   font-size: 1rem;
   border: none;
   margin: 0;
-  background-color: #373737;
+  background-color: #009b9b;
 }
