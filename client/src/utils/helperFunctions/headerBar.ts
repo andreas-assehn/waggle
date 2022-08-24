@@ -16,7 +16,7 @@ export const pageTitle = (path: string) => {
 
 export const pagesWithBackButton = (path: string) => {
   if (path.includes('/matchingViewDetail')) return true;
-  if (path === '/chat') return true;
+  if (path.includes('/chat')) return true;
   if (path.includes('/eventDetails')) return true;
   if (path === '/addEventForm') return true;
   if (path === '/editProfile') return true;
