@@ -115,7 +115,7 @@ button:active.--transparent, input[type=submit]:active.--transparent, select[typ
 }
 
 input, select {
-  background-color: #bfbfbf;
+  background-color: #e2e2e2;
   border: none;
   border-radius: 15px;
   padding: 5px 10px;

@@ -17,7 +17,7 @@ function DetailsModal({
 }) {
   if (!openDescriptionModal) return null;
   return user ? (
-    <div className='modalBackground'>
+    <div className='modalBackground modalBackground--inverted'>
       <div className='detailsModalContainer'>
         <div className='detailsModalContainer__topline'>
           <h2 className='dogcard__headline-text__dog'>

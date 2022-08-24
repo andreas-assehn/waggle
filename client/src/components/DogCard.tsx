@@ -22,7 +22,6 @@ function DogCard({
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [openDescriptionModal, setOpenDescriptionModal] = useState(false);
-  const [showSwipebar, setShowSwipeBar] = useState(false);
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -57,7 +56,6 @@ function DogCard({
                 {user.dog?.name}
                 {user.dog?.age && <>, {user.dog?.age}</>}
               </h2>
-              {/* <p>{user.dog?.gender}</p> */}
             </div>
             <div className='dogcard__owner-details'>
               <div className='dogcard__owner-details__text'>
@@ -116,7 +114,7 @@ function DogCard({
           </p>
           <div className='dogcard__swipe-bar'>
             <img src={thumbsDown} />
-            <p> {'<<<<< Swipe >>>>>'} </p>
+            <p> {'<<< Swipe >>>'} </p>
             <img src={thumbsUp} />
           </div>
         </div>
