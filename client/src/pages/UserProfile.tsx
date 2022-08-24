@@ -31,10 +31,10 @@ export default function UserProfile() {
   return (
     <>
       {userAuth ? (
-        <div className='card'>
+        <div className='user-profile'>
           <div>
             <img
-              className='card__profile-image'
+              className='user-profile__profile-image'
               src={
                 userAuth?.dog?.images![0]
                   ? userAuth.dog.images[0]
@@ -49,17 +49,19 @@ export default function UserProfile() {
             openModal={openModal}
             setModalActive={setModalActive}
           />
-          <div className='card__details-container'>
-            <div className='card__headline'>
-              <div className='card__headline-text'>
-                <h3 className='card__headline-text__dog'>
+          <div className='user-profile__details-container'>
+            <div className='user-profile__headline'>
+              <div className='user-profile__headline-text'>
+                <h3 className='user-profile__headline-text__dog'>
                   {userAuth.dog?.name}{' '}
                   {userAuth.dog?.age && <>- {userAuth.dog?.age} </>}-{' '}
                   {userAuth.dog?.gender}
                 </h3>
-                <div className='card__owner-details'>
-                  <h4 className='card__owner-details__text'>{userAuth.name}</h4>
-                  <h4 className='card__owner-details__text'>
+                <div className='user-profile__owner-details'>
+                  <h4 className='user-profile__owner-details__text'>
+                    {userAuth.name}
+                  </h4>
+                  <h4 className='user-profile__owner-details__text'>
                     {!userAuth.distance || userAuth.distance <= 999
                       ? '< 1km'
                       : `${(userAuth.distance! / 1000).toFixed(1)}km`}
@@ -67,11 +69,14 @@ export default function UserProfile() {
                 </div>
               </div>
 
-              <img className='card__owner-image' src={userAuth.ownerImage} />
+              <img
+                className='user-profile__owner-image'
+                src={userAuth.ownerImage}
+              />
             </div>
             <p>{userAuth.dog?.briefDescription}</p>
             {showDetails && (
-              <div className='card__key-facts'>
+              <div className='user-profile__key-facts'>
                 <p>
                   Size: {userAuth.dog?.size} <br />
                   Gender: {userAuth.dog?.gender} <br />
@@ -117,14 +122,14 @@ export default function UserProfile() {
             {url === '/profile' ? (
               <button
                 onClick={handleEditProfile}
-                className='card__details-button'
+                className='user-profile__details-button'
               >
                 Edit profile
               </button>
             ) : (
               <button
                 onClick={handleToggleDetails}
-                className='card__details-button'
+                className='user-profile__details-button'
               >
                 {showDetails ? 'see less' : 'see more'}
               </button>

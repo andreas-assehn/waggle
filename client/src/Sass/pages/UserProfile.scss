@@ -1,8 +1,8 @@
 @use '../abstracts' as *;
 
-.card {
+.user-profile {
   position: relative;
-  background-color: #ffffff;
+  background-color: $background-white;
   width: 100vw;
 
   height: 100vh;
