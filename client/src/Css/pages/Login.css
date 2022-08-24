@@ -3,9 +3,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 6vw;
 }
 .login__title {
   font-family: "Satisfy", cursive;
+  margin-bottom: 2vh;
 }
 .login__form {
   display: flex;
@@ -20,8 +24,16 @@
   border: none;
 }
 .login__form label {
-  width: 25vw;
+  width: 20vw;
+  min-width: 70px;
 }
 .login__link {
   margin: 0 4px;
+}
+.login__redirect {
+  margin-top: 2vh;
+}
+.login fieldset #password,
+.login fieldset #password-label {
+  margin-bottom: 2vh;
 }
