@@ -2,3 +2,19 @@
 ul {
   display: flex;
 }
+
+.no-matches {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  flex-wrap: wrap;
+  margin: 30vh auto;
+  text-align: center;
+}
+.no-matches__title {
+  font-family: "Satisfy", cursive;
+  align-self: center;
+  flex-wrap: wrap;
+}
