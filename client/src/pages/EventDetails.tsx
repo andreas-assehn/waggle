@@ -24,6 +24,7 @@ function EventDetails() {
   const { eventId } = useParams();
   const thisEvent = findCurrentEvent(allEvents!, eventId!);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -74,13 +75,15 @@ function EventDetails() {
     };
     setAttendees(attendeesArray);
     await apiEventService.updateEvent(eventUpdate);
-    const updatedEventsData = await apiEventService.getAllEvents(
-      userAuth!.userId!
+    const updatedEventsData: Event[] = await apiEventService.getAllEvents(
+      userAuth!.userId
     );
     dispatch(setAllEventsState(updatedEventsData));
   };
 
-  // console.log(thisEvent!.dateTime.toString().split('T')[1].slice(0, -8));
+  const navigateToEditForm = () => {
+    navigate(`/editEvent/${thisEvent?._id}`);
+  };
 
   return thisEvent ? (
     <div className='event-details'>
@@ -115,10 +118,10 @@ function EventDetails() {
       <div className='event-details__button-wrapper'>
         {organizer ? (
           <button
-            className='event-details__attending-button --disabled'
-            disabled
+            className='event-details__attending-button'
+            onClick={navigateToEditForm}
           >
-            Attending (organizer)
+            Edit event
           </button>
         ) : attending ? (
           <button
@@ -135,6 +138,7 @@ function EventDetails() {
             Toggle Attending
           </button>
         )}
+
         <button
           className='event-details__calendar-button'
           onClick={() => {
