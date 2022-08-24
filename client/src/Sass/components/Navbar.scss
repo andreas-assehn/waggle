@@ -18,7 +18,7 @@
 }
 
 .navbar__icon-background {
-  padding-inline: 15px;
+  padding-inline: 6px;
   padding-block: 6px;
   border-radius: 20px;
   max-height: 34px;
@@ -40,7 +40,6 @@
   & p {
     font-size: small;
     margin: 0;
-    padding: 0;
-    padding-block-start: 5px;
+    padding-top: 2px;
   }
 }
