@@ -17,23 +17,28 @@ export default function EventCard({ event }: Props) {
   };
 
   return (
-    <div className='event-card'>
-      <div className='event-card__text'>
-        <h3 className='event-card__text__name'>{event.briefDescription}</h3>
-        <p className='--small'>
+    <div className="event-card">
+      <div className="event-card__text">
+        <h3 className="event-card__text__name">{event.briefDescription}</h3>
+        <p className="--small">
           {moment(eventDate).format('ddd MMM Do, h:mm a')}
         </p>
-        <p className='--small'>{event.location.formatted}</p>
+        <p className="--small">{event.location.formatted}</p>
       </div>
-      <div className='event-card__right'>
+      <div className="event-card__right">
+        <p>
+          {event.distance! <= 250
+            ? 'under 250m'
+            : `${(event.distance! / 1000).toFixed(1)}km`}
+        </p>
         {event.images![0] && (
           <img
             src={event.images![0]}
-            alt='event image'
-            className='event-card__image'
+            alt="event image"
+            className="event-card__image"
           />
         )}
-        <button className='event-card__more-info' onClick={goToDetails}>
+        <button className="event-card__more-info" onClick={goToDetails}>
           Details
         </button>
       </div>

@@ -29,3 +29,7 @@
   justify-content: space-around;
   margin-bottom: 20px;
 }
+.event-details__distance {
+  display: flex;
+  justify-content: center;
+}
