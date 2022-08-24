@@ -6,6 +6,7 @@
   justify-content: center;
   font-family: $body-font;
   font-size: $p-size;
+  margin: $page-margin $page-margin 0 $page-margin;
   & p {
     padding-left: 10px;
   }

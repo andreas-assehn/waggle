@@ -7,6 +7,7 @@
   font-family: $body-font;
   font-size: $p-size;
   color: $text-white;
+  margin: 0 $page-margin;
   & p {
     margin-block: 0;
     padding-left: 10px;
