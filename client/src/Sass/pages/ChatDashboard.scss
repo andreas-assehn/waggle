@@ -1,3 +1,9 @@
-.chatDashboard__no-messages {
-  margin-inline-start: 23px;
+@use '../abstracts' as *;
+
+.chatDashboard {
+  margin: $page-margin $page-margin 0;
+
+  &__no-messages {
+    margin: 10px 0 0 15px;
+  }
 }

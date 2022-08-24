@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.chatDashboard {
+  margin: 15px 15px 0;
+}
 .chatDashboard__no-messages {
-  margin-inline-start: 23px;
+  margin: 10px 0 0 15px;
 }

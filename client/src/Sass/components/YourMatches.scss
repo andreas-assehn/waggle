@@ -12,6 +12,9 @@
   & h2 {
     padding-left: 10px;
   }
+  &__no-matches {
+    margin: 0 0 15px;
+  }
 }
 
 .your-matches__bubbles {
@@ -29,7 +32,7 @@
 }
 .your-matches__bubble {
   display: flex;
-  margin-inline: 6px;
+  margin: 0 6px 10px;
 }
 
 .your-matches__bubbles::-webkit-scrollbar {
@@ -39,8 +42,7 @@
 .your-matches__background {
   background-color: $pop-color;
   color: $text-white;
-  width: 96vw;
-  height: 20vh;
+  width: 100%;
   border-radius: 10px;
   margin-block: 5px;
 }
