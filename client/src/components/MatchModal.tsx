@@ -18,7 +18,6 @@ function MatchModal({
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
   matchModal: boolean;
 }) {
-  // if (!matchModal) return <></>;
   // eslint-disable-next-line quotes
   const title = "It's a match!";
 
@@ -31,6 +30,8 @@ function MatchModal({
     setMatchModal(false);
     setModalActive(false);
   };
+
+  console.log('Im Open!');
 
   return (
     <div className='modalBackground'>

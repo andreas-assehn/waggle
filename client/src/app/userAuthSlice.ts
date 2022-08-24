@@ -22,6 +22,7 @@ const userAuthSlice = createSlice({
         ...state.userAuth!,
         swipeYes: action.payload.swipeYes,
         swipeNo: action.payload.swipeNo,
+        matches: action.payload.matches,
       };
       return state;
     },
