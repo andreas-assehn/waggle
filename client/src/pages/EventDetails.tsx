@@ -86,12 +86,12 @@ function EventDetails() {
   };
 
   return thisEvent ? (
-    <div className="event-details">
+    <div className='event-details'>
       <img
         src={thisEvent?.images?.length ? thisEvent?.images![0] : LogoIcon}
-        alt="Event image"
+        alt='Event image'
         onClick={handleOpenModal}
-        className="event-details__images"
+        className='event-details__images'
       />
       <PictureModal
         event={thisEvent}
@@ -99,11 +99,11 @@ function EventDetails() {
         openModal={openModal}
       />
 
-      <div className="event-details__details-container">
-        <div className="event-details__details-container__headlines">
+      <div className='event-details__details-container'>
+        <div className='event-details__details-container__headlines'>
           <h2>{thisEvent?.briefDescription}</h2>
           <h4>{thisEvent?.location.formatted}</h4>
-          <div className="event-details__distance">
+          <div className='event-details__distance'>
             <p>
               {thisEvent.distance! <= 250
                 ? 'under 250m'
@@ -122,24 +122,24 @@ function EventDetails() {
         </div>
         <p>{thisEvent?.description}</p>
       </div>
-      <div className="event-details__button-wrapper">
+      <div className='event-details__button-wrapper'>
         {organizer ? (
           <button
-            className="event-details__attending-button"
+            className='event-details__attending-button'
             onClick={navigateToEditForm}
           >
             Edit event
           </button>
         ) : attending ? (
           <button
-            className="event-details__attending-button"
+            className='event-details__attending-button'
             onClick={toggleAttending}
           >
             Toggle Attending
           </button>
         ) : (
           <button
-            className="event-details__attending-button"
+            className='event-details__attending-button'
             onClick={toggleAttending}
           >
             Toggle Attending
@@ -147,7 +147,7 @@ function EventDetails() {
         )}
 
         <button
-          className="event-details__calendar-button"
+          className='event-details__calendar-button'
           onClick={() => {
             atcb_action({
               name: thisEvent.description,
