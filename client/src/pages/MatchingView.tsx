@@ -25,10 +25,8 @@ function MatchingView() {
         .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
         .catch((err) => console.error(err));
       setIsLoading(false);
-    } else if (!userAuth) {
-      setTimeout(() => setIsLoading(false), 1500);
     }
-  }, []);
+  }, [unSwipedUsers]);
 
   return isLoading ? (
     <Loading />
