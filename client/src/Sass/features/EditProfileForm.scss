@@ -8,12 +8,31 @@
   overflow-y: scroll;
   overflow-x: unset;
 
+  & .geoapify-autocomplete-input {
+    margin-block: 1vh;
+  }
+
+  &.--centered {
+    display: flex;
+    align-content: center;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2vh;
+    margin-block-start: 1vh;
+  }
+
   &__input-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     margin: 2px 0;
+    margin-block: 1vh;
 
     &__label {
       margin: 0 1.5vw;
@@ -29,5 +48,8 @@
 }
 
 .edit-form-title {
-  margin: 0 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1vh;
 }

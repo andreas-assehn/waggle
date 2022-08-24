@@ -112,6 +112,9 @@ export default function UserProfile() {
           </div>
         </div>
       </div>
+      <div className='user-profile__edit-button'>
+        <button className='--pop'>Edit profile</button>
+      </div>
     </div>
   ) : (
     <Loading />
