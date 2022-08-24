@@ -3,12 +3,14 @@
   width: 100vw;
 }
 .event-details__details-container {
-  padding: 0 3vw;
+  padding: 0 15px;
 }
 .event-details__details-container__headlines {
-  background-color: #bfbfbf;
+  background-color: #0e344c;
   border-radius: 6px;
-  padding: 0 1.5vw 5px;
+  padding: 0 10px 5px;
+  margin: 15px 0 10px;
+  color: #ffffff;
 }
 .event-details__details-container__headlines__attending {
   width: 100%;
@@ -20,14 +22,21 @@
 .event-details__details-container__headlines__not-attending {
   width: 100%;
   text-align: center;
-  background-color: #313742;
-  color: #ffffff;
+  background-color: #bfbfbf;
+  color: #313742;
   border-radius: 6px;
+}
+.event-details__details-container__headlines h2 {
+  margin-bottom: 3px;
+}
+.event-details__location {
+  display: flex;
+  align-items: center;
 }
 .event-details__button-wrapper {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .event-details__distance {
   display: flex;

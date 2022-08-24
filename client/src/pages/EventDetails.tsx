@@ -102,13 +102,15 @@ function EventDetails() {
       <div className='event-details__details-container'>
         <div className='event-details__details-container__headlines'>
           <h2>{thisEvent?.briefDescription}</h2>
-          <h4>{thisEvent?.location.formatted}</h4>
-          <div className='event-details__distance'>
-            <p>
-              {thisEvent.distance! <= 250
-                ? 'under 250m'
-                : `${(thisEvent.distance! / 1000).toFixed(1)}km`}
-            </p>
+          <div className='event-details__location'>
+            <h4>{thisEvent?.location.formatted}</h4>
+            <div className='event-details__distance'>
+              <p>
+                {thisEvent.distance! <= 250
+                  ? 'under 250m'
+                  : `${(thisEvent.distance! / 1000).toFixed(1)}km`}
+              </p>
+            </div>
           </div>
           <h4
             className={
