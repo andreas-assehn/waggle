@@ -2,7 +2,7 @@
 .user-profile {
   position: relative;
   width: 100vw;
-  height: 90vh;
+  height: 81vh;
   background-size: cover;
   background-position: center;
 }
@@ -86,6 +86,7 @@
 .user-profile__edit-button {
   display: flex;
   justify-content: center;
+  margin: 8px 0;
 }
 .user-profile__details-button {
   display: block;
