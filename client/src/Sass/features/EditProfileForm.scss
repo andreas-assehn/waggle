@@ -12,6 +12,20 @@
     margin-block: 1vh;
   }
 
+  &.--centered {
+    display: flex;
+    align-content: center;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2vh;
+    margin-block-start: 1vh;
+  }
+
   &__input-row {
     display: flex;
     align-items: center;
@@ -30,13 +44,12 @@
       width: 60vw;
       box-sizing: border-box;
     }
-
-    &__button {
-      margin-block: 5vh;
-    }
   }
 }
 
 .edit-form-title {
-  margin: 0 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1vh;
 }
