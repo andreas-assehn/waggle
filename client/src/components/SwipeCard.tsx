@@ -18,9 +18,6 @@ import { login } from '../app/userAuthSlice';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-  const { matchModalRoom } = useAppSelector(
-    (state: RootState) => state.matchModalRoom
-  );
   const [matchModal, setMatchModal] = useState(false);
   const [modalActive, setModalActive] = useState(false);
 
