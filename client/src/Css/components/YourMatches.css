@@ -5,12 +5,16 @@
   justify-content: center;
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
+  margin: 15px 15px 0 15px;
 }
 .your-matches p {
   padding-left: 10px;
 }
 .your-matches h2 {
   padding-left: 10px;
+}
+.your-matches__no-matches {
+  margin: 0 0 15px;
 }
 
 .your-matches__bubbles {
@@ -28,7 +32,7 @@
 
 .your-matches__bubble {
   display: flex;
-  margin-inline: 6px;
+  margin: 0 6px 10px;
 }
 
 .your-matches__bubbles::-webkit-scrollbar {
@@ -36,10 +40,9 @@
 }
 
 .your-matches__background {
-  background-color: #e46472;
+  background-color: #009b9b;
   color: #ffffff;
-  width: 96vw;
-  height: 20vh;
+  width: 100%;
   border-radius: 10px;
   margin-block: 5px;
 }

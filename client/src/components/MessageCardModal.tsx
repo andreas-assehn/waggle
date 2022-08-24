@@ -21,7 +21,7 @@ function MessageCardModal({
               setOpenModal(false);
             }}
           >
-            X
+            &times;
           </button>
         </div>
         <div className='modalBody'>

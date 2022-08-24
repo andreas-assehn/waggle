@@ -31,7 +31,6 @@
   justify-content: flex-end;
   align-self: flex-end;
 }
-
 .modalCheckbox__form {
   display: flex;
   flex-direction: column;
@@ -109,10 +108,15 @@
 .detailsModalContainer {
   display: flex;
   flex-direction: column;
-  padding: 1em 0.5em;
+  padding: 1em 1em;
   margin: 5vw;
   border-radius: 10px;
   background-color: #fff;
+}
+.detailsModalContainer__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .pictureModal ul {

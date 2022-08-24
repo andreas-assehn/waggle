@@ -7,20 +7,23 @@
   background-size: cover;
   background-position: center;
 
+  &__container {
+    box-shadow: 0 0 8px $box-shadow-grey;
+    margin: $page-margin $page-margin 0;
+    border-radius: 10px;
+  }
   &__profile-image {
-    width: 90vw;
+    width: 100%;
     height: 80vw;
     max-width: 400px;
     max-height: 400px;
     object-fit: cover;
-    margin: 5vw 5vw 0 5vw;
     display: block;
     border-radius: 10px 10px 0 0;
   }
 
   &__details-container {
     padding: 1em 0.5em;
-    margin: auto 5vw;
     border-radius: 0 0 10px 10px;
     background-color: $background-white;
   }
@@ -33,7 +36,7 @@
 
   &__headline-text {
     &__dog {
-      margin: 0;
+      margin: 0 0 0 3vw;
     }
     & p {
       margin: 0;
@@ -89,6 +92,7 @@
 
   &__brief-description {
     font-style: italic;
+    margin: 8px 15px 0;
   }
 
   &__edit-button {
