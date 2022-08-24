@@ -20,20 +20,14 @@ import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import apiUserService from './utils/services/apiUserService';
 import { RootState } from './app/store';
-import { clearAllUsersState, setAllUsersState } from './app/allUsersSlice';
+import { setAllUsersState } from './app/allUsersSlice';
 import apiEventService from './utils/services/apiEventsService';
 import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 import { useAppSelector } from './app/hooks';
 import LoginRegister from './pages/LoginRegister';
 import HeaderBar from './components/HeaderBar';
-import {
-  clearUnSwipedUsersState,
-  setUnSwipedUsersState,
-} from './app/unSwipedUsersSlice';
-import {
-  clearMatchedUsersState,
-  setMatchedUsersState,
-} from './app/matchedUsersSlice';
+import { setUnSwipedUsersState } from './app/unSwipedUsersSlice';
+import { setMatchedUsersState } from './app/matchedUsersSlice';
 import MatchingViewDetail from './pages/MatchingViewDetail';
 
 function App() {
@@ -57,8 +51,6 @@ function App() {
         .getUnSwipedUsers(userAuth.userId)
         .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
         .catch((err) => console.error(err));
-    } else {
-      // dispatch(clearUnSwipedUsersState());
     }
   }, [userAuth?.userId]);
 
@@ -68,8 +60,6 @@ function App() {
         .getMatchedUsers(userAuth.userId)
         .then((allUsers) => dispatch(setMatchedUsersState(allUsers)))
         .catch((err) => console.error(err));
-    } else {
-      // dispatch(clearMatchedUsersState());
     }
   }, [userAuth]);
 
@@ -79,8 +69,6 @@ function App() {
         .getAllUsers()
         .then((allUsers) => dispatch(setAllUsersState(allUsers)))
         .catch((err) => console.error(err));
-    } else {
-      // dispatch(clearAllUsersState());
     }
   }, [userAuth?.userId]);
 
