@@ -18,24 +18,26 @@ function DetailsModal({
   if (!openDescriptionModal) return null;
   return user ? (
     <div className='modalBackground'>
-      <div className='titleCloseBtn'>
-        <button
-          className='titleCloseBtn__btn --round'
-          onClick={() => {
-            setOpenDescriptionModal(false);
-            setModalActive && setModalActive(false);
-          }}
-        >
-          &times;
-        </button>
-      </div>
       <div className='detailsModalContainer'>
+        <div className='detailsModalContainer__topline'>
+          <h2 className='dogcard__headline-text__dog'>
+            {user.dog?.name}
+            {user.dog?.age && <>, {user.dog?.age}</>}{' '}
+          </h2>
+          <div className='titleCloseBtn titleCloseBtn--details'>
+            <button
+              className='titleCloseBtn__btn --round'
+              onClick={() => {
+                setOpenDescriptionModal(false);
+                setModalActive && setModalActive(false);
+              }}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
         <div className='dogcard__headline'>
           <div className='dogcard__headline-text'>
-            <h2 className='dogcard__headline-text__dog'>
-              {user.dog?.name}
-              {user.dog?.age && <>, {user.dog?.age}</>}{' '}
-            </h2>
             <p>{user.dog?.gender}</p>
           </div>
           <div className='dogcard__owner-details'>
