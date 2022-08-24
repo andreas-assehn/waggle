@@ -9,6 +9,8 @@ import { CloudinaryResult } from '../utils/types/general';
 import apiEventService from '../utils/services/apiEventsService';
 import { useNavigate, useParams } from 'react-router-dom';
 import { findCurrentEvent } from '../utils/helperFunctions/findCurrenEvent';
+import { useDispatch } from 'react-redux';
+import { setAllEventsState } from '../app/allEventsSlice';
 
 type Props = { formType: 'add' | 'edit' };
 
@@ -27,6 +29,7 @@ export default function EventForm({ formType }: Props) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const navigate = useNavigate();
   const { eventId } = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (allEvents && userAuth) {
@@ -147,6 +150,10 @@ export default function EventForm({ formType }: Props) {
     if (formType === 'add') {
       const newEvent: Event | { error: unknown } =
         await apiEventService.addEvent(event);
+      const updatedEventsData: Event[] = await apiEventService.getAllEvents(
+        userAuth!.userId
+      );
+      dispatch(setAllEventsState(updatedEventsData));
       if ('_id' in newEvent) {
         navigate(`/eventDetails/${newEvent._id}`);
       } else {
