@@ -75,7 +75,9 @@ function Login() {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password' id='password-label'>
+            Password
+          </label>
           <input
             type='password'
             id='password'
@@ -94,7 +96,7 @@ function Login() {
         Sign In with Google
       </button>
       <p>{error}</p>
-      <p>
+      <p className='register__redirect'>
         Create an account
         <Link to='/register' className='login__link'>
           Register

@@ -2,12 +2,19 @@
 
 .register {
   @include login-register;
+  & fieldset {
+    & #confirmPassword,
+    #confirm-password-label {
+      margin-bottom: 2vh;
+    }
+  }
 }
 
 .cookieCheck {
   width: 92%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 2vh;
 }
 
 .textBox {

@@ -4,9 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 6vw;
 
   &__title {
     font-family: $title-font;
+    margin-bottom: 2vh;
   }
 
   &__form {
@@ -21,11 +25,16 @@
       border: none;
     }
     & label {
-      width: 25vw;
+      width: 20vw;
+      min-width: 70px;
     }
   }
 
   &__link {
     margin: 0 4px;
+  }
+
+  &__redirect {
+    margin-top: 2vh;
   }
 }
