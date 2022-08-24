@@ -78,6 +78,10 @@ button {
     background-color: $pop-color;
     border: 2px $pop-color solid;
   }
+  &.--dark {
+    background-color: $main-dark-grey;
+    border: 2px $main-dark-grey solid;
+  }
 
   &.--round {
     display: flex;
@@ -110,6 +114,10 @@ button {
     &.--pop {
       border: 2px $pop-color solid;
       color: $pop-color;
+    }
+    &.--dark {
+      border: 2px $main-dark-grey solid;
+      color: $main-dark-grey;
     }
     &.--transparent {
       background-color: rgba(255, 255, 255, 0.3);

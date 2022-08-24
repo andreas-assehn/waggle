@@ -23,20 +23,18 @@ function SettingsView() {
   };
 
   return (
-    <div className="settingsView">
-      <div className="settingsViewUserBackground">
-        <div className="settingsViewUser"></div>
+    <div className='settingsView'>
+      <div className='settingsViewUserBackground'>
+        <div className='settingsViewUser'></div>
         {userAuth && (
-          <h2 className="settingsViewUser__text">
-            Logged in as {userAuth.name}
-          </h2>
+          <h2 className='settingsViewUser__text'>Hello {userAuth.name}!</h2>
         )}
       </div>
       <MatchPreferences />
-      <div className="settingsViewBtns">
-        <div className="settingsView-profileBtns">
+      <div className='settingsViewBtns'>
+        <div className='settingsView-profileBtns'>
           <button
-            className="settingsView__button"
+            className='settingsView__button'
             onClick={() => {
               navigate('/editProfile');
             }}
@@ -44,7 +42,7 @@ function SettingsView() {
             Edit profile
           </button>
           <button
-            className="settingsView__button"
+            className='settingsView__button'
             onClick={() => {
               navigate('/profile');
             }}
@@ -53,7 +51,7 @@ function SettingsView() {
           </button>
         </div>
         <button
-          className="--pop"
+          className='--pop settingsViewBtns__sign-out'
           onClick={() => {
             handleSignOut(), navigate('/');
           }}

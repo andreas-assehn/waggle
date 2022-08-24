@@ -8,6 +8,9 @@
 .headerBar__title {
   align-self: center;
 }
+.headerBar__spacing {
+  width: 16vw;
+}
 
 .headerBar-container {
   display: flex;

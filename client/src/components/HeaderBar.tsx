@@ -24,7 +24,11 @@ function HeaderBar({ name }: { name?: string }) {
       <div className='header-padding' />
       <div className='headerBar'>
         <div className='headerBar-container'>
-          {showBackButton ? <BackButton /> : <></>}
+          {showBackButton ? (
+            <BackButton />
+          ) : (
+            <div className='headerBar__spacing'></div>
+          )}
           <h1 className='headerBar__title'>
             {pageTitle(url) === 'Chat' ? chatName : pageTitle(url)}
           </h1>
