@@ -174,7 +174,7 @@ export default function EventForm({ formType }: Props) {
 
   return userAuth && allEvents ? (
     <>
-      <h2>Enter event details</h2>
+      <h2 className='event-form__title'>Enter event details</h2>
       <form className='event-form' onSubmit={handleSubmit}>
         <input
           className='event-form__input'
@@ -210,13 +210,14 @@ export default function EventForm({ formType }: Props) {
         />
 
         <div
-          className='autocomplete-container'
+          className='event-form__autocomplete'
           id='autocomplete'
           style={{ position: 'relative' }}
           ref={geocoderContainer}
         ></div>
 
         <button
+          className='--fixed-width'
           onClick={(event) =>
             showCloudinaryWidget(
               event,
@@ -227,7 +228,6 @@ export default function EventForm({ formType }: Props) {
         >
           Upload event image
         </button>
-        <br />
 
         <input
           type='submit'
@@ -250,7 +250,7 @@ export default function EventForm({ formType }: Props) {
               event.briefDescription
             )
               ? '--disabled'
-              : ''
+              : '--pop'
           }
         />
         {errorMessage && <p className='--error-message'>{errorMessage}</p>}

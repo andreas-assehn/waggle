@@ -7,6 +7,7 @@ import DetailsModal from '../components/DetailsModal';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import Loading from '../components/Loading';
+import { Link } from 'react-router-dom';
 
 export default function UserProfile() {
   const [openModal, setOpenModal] = useState(false);
@@ -113,7 +114,9 @@ export default function UserProfile() {
         </div>
       </div>
       <div className='user-profile__edit-button'>
-        <button className='--pop'>Edit profile</button>
+        <Link to={'/editProfile'}>
+          <button className='--pop'>Edit profile</button>
+        </Link>
       </div>
     </div>
   ) : (
