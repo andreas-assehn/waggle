@@ -69,7 +69,6 @@ function SwipeCard({ user }: { user: User }) {
       };
       updateUser(swipedData, 'No');
       setViewCard(false);
-      // dispatch(shiftUnSwipedUsers());
     } else if (info.point.x > 400) {
       const swipedData: Swiped = {
         _id: userAuth!._id!,
@@ -77,7 +76,6 @@ function SwipeCard({ user }: { user: User }) {
       };
       updateUser(swipedData, 'Yes');
       setViewCard(false);
-      // dispatch(shiftUnSwipedUsers());
     } else {
       return;
     }
