@@ -1,30 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .user-profile {
   position: relative;
-  background-color: #fff;
   width: 100vw;
-  height: 100vh;
-  border-radius: 10px;
+  height: 90vh;
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px;
 }
 .user-profile__profile-image {
-  width: 95vw;
+  width: 90vw;
   height: 80vw;
   max-width: 400px;
   max-height: 400px;
   object-fit: cover;
-  margin: 5vw auto;
+  margin: 5vw 5vw 0 5vw;
   display: block;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
+}
+.user-profile__details-container {
+  padding: 1em 0.5em;
+  margin: auto 5vw;
+  border-radius: 0 0 10px 10px;
+  background-color: #fff;
 }
 .user-profile__headline {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 .user-profile__headline-text__dog {
-  margin: 10px 5px 0;
+  margin: 0;
+}
+.user-profile__headline-text p {
+  margin: 0;
 }
 .user-profile__owner-details {
   display: flex;
@@ -32,20 +39,68 @@
 }
 .user-profile__owner-details__text {
   margin: 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-profile__owner-details__text p {
+  margin: 0;
+  text-align: right;
 }
 .user-profile__owner-image {
-  width: 15vw;
-  height: 15vw;
+  width: 13vw;
+  height: 13vw;
   object-fit: cover;
   border-radius: 8vw;
   display: inline-block;
-  margin-right: 3vw;
 }
-.user-profile__details-container {
-  padding: 0 1.9em;
-  margin-block-end: 20px;
+.user-profile__key-facts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.user-profile__key-facts__key-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 15vw;
+  width: 25vw;
+  background-color: #009b9b;
+  border-radius: 10px;
+  color: #ffffff;
+}
+.user-profile__key-facts__key-detail p {
+  margin: 0;
+}
+.user-profile__brief-description {
+  font-style: italic;
+}
+.user-profile__swipe-bar {
+  display: flex;
+  width: 80vw;
+  justify-content: space-evenly;
+  background-color: #e46472;
+  margin: 0.5rem auto 0;
+  color: #ffffff;
+  border-radius: 3rem;
 }
 .user-profile__details-button {
   display: block;
   margin: 0 auto;
+}
+
+.pop-color {
+  color: #ffffff;
+}
+
+.pop-color-button {
+  color: #bfbfbf;
+  font-size: 1rem;
+  border: none;
+  margin: 0;
+  background-color: #009b9b;
 }

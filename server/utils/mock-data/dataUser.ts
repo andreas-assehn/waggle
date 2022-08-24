@@ -83,15 +83,15 @@ export const users = [
         'https://images.dog.ceo/breeds/maltese/n02085936_5488.jpg',
       ],
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
+        "I'm born and raised in Watford, enjoying my daily walks alongside River Colne. I mostly enjoy barking with other dogs and not at them",
       briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+        "I'm a happy maltese looking for a companion to walk and bark with.",
       likes: ['sniffs', 'horses', 'outdoors'],
       dislikes: ['cars', 'bicycles', 'fireworks'],
     },
     preferences: {
       size: ['Small', 'Medium'],
-      maxDistance: 3,
+      maxDistance: 4,
       gender: 'Male',
       energyLevel: [2, 3, 4],
     },
@@ -138,15 +138,14 @@ export const users = [
         'https://images.dog.ceo/breeds/husky/n02110185_10047.jpg',
       ],
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
-      briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+        'Been a sled dog from my early teenage years, roaming northern Norway. Currently I enjoy to trek the forests of nothern London, going for a occasional swim.',
+      briefDescription: 'A howling husky looking for company',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
     },
     preferences: {
       size: ['Medium', 'Small'],
-      maxDistance: 1,
+      maxDistance: 5,
       gender: 'Male',
       energyLevel: [2, 3, 4],
     },
@@ -193,15 +192,15 @@ export const users = [
         'https://images.dog.ceo/breeds/retriever-golden/nina.jpg',
       ],
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
+        'My owner have had me at her surfboard since 3 months of age, hence I love water. I go mountainbiking with her on the weekends and would love to have a companion join the fun.',
       briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+        'Calm friendly dog who enjoys to go surfing and biking.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
     },
     preferences: {
       size: ['Small', 'Medium', 'Large'],
-      maxDistance: 0.5,
+      maxDistance: 3,
       gender: 'Female',
       energyLevel: [2, 3, 4],
     },
@@ -248,9 +247,9 @@ export const users = [
         'https://images.dog.ceo/breeds/samoyed/n02111889_2650.jpg',
       ],
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
+        "If you are looking for a friend to tumble with, look no further. Walks, wrestles, even agility training. I have the full package. I'm too fluffy to let go!",
       briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+        'Fluffy friendly canine looking for a wrestling partner.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
     },
@@ -302,15 +301,14 @@ export const users = [
         'https://images.dog.ceo/breeds/germanshepherd/Hannah.jpg',
       ],
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
-      briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+        "I especially like going to the forest. I'm trained in finding eatable mushrooms, so your owner might want to skip dinner reservations.",
+      briefDescription: 'Forest loving dog up for anything outdoors.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
     },
     preferences: {
       size: ['Small', 'Medium', 'Large'],
-      maxDistance: 0.75,
+      maxDistance: 0.5,
       gender: 'Both',
       energyLevel: [2, 3, 4],
     },
@@ -344,8 +342,24 @@ export const users = [
       'https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-user-icon-isolated-on-abstract-background-png-image_1875037.jpg',
     dog: {
       name: 'Emma',
+      breed: 'Mix',
+      age: 2,
       size: 'Medium',
       gender: 'Female',
+      energyLevel: 3,
+      dogFriendliness: 3,
+      humanFriendliness: 4,
+      description:
+        'If you enjoy catching frisbees in the park, we are meant for eachother!',
+      briefDescription: 'Frisbee lover!',
+      likes: ['frisbee', 'horses', 'outdoors'],
+      dislikes: ['cars', 'bicycles', 'fireworks'],
+    },
+    preferences: {
+      size: ['Small', 'Medium'],
+      maxDistance: 4,
+      gender: 'Male',
+      energyLevel: [2, 3, 4],
     },
   },
   {
@@ -376,6 +390,7 @@ export const users = [
       'https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-user-icon-isolated-on-abstract-background-png-image_1875037.jpg',
     dog: {
       name: 'Berty',
+      breed: 'Beagle',
       age: 3,
       size: 'Medium',
       gender: 'Male',
@@ -388,9 +403,8 @@ export const users = [
         'https://images.dog.ceo/breeds/beagle/n02088364_14690.jpg',
       ],
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
-      briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+        "I grew up with a lot of dogs and since I got adopted I've missed being in a pack. I'll make friends with just about any dog.",
+      briefDescription: 'Seeking a group of like minded dogs.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
     },
@@ -429,6 +443,7 @@ export const users = [
       'https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-user-icon-isolated-on-abstract-background-png-image_1875037.jpg',
     dog: {
       name: 'Maya',
+      breed: 'Pyreness',
       age: 6,
       size: 'Medium',
       gender: 'Female',
@@ -441,9 +456,8 @@ export const users = [
         'https://images.dog.ceo/breeds/pyrenees/n02111500_7218.jpg',
       ],
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum mi, egestas eget ornare eu, blandit quis massa. In scelerisque blandit libero, a commodo lectus commodo sed. Proin ultricies justo vitae sapien ullamcorper, at ultrices turpis facilisis. Duis tempor accumsan quam, id pharetra est rhoncus egestas. ',
-      briefDescription:
-        'In tortor tortor, elementum eu lobortis nec, semper vitae nisl. In magna eros, suscipit ac libero a.',
+        'My name is Maya. I bark spanish but also english. Hit me up if you want to train your language skills!',
+      briefDescription: 'Habla espanõl? I am seeking an amigo/amiga.',
       likes: ['sniffs', 'horses', 'outdoors', 'hugs', 'pets'],
       dislikes: ['hot', 'cars', 'bicycles', 'fireworks'],
     },
