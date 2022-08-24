@@ -8,6 +8,7 @@ import '../Css/pages/MatchingView.css';
 import apiUserService from '../utils/services/apiUserService';
 import { setUnSwipedUsersState } from '../app/unSwipedUsersSlice';
 import { useDispatch } from 'react-redux';
+import Loading from '../components/Loading';
 
 function MatchingView() {
   const { unSwipedUsers } = useAppSelector(

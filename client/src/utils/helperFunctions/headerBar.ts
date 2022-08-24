@@ -20,5 +20,6 @@ export const pagesWithBackButton = (path: string) => {
   if (path.includes('/eventDetails')) return true;
   if (path === '/addEventForm') return true;
   if (path === '/editProfile') return true;
+  if (path === '/settingsView') return true;
   else return false;
 };
