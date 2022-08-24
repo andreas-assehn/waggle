@@ -30,7 +30,6 @@ function SwipeCard({ user }: { user: User }) {
     const res = await apiUserService
       .updateUserSwipes(swipedData, swipe)
       .catch((error) => console.log(error));
-    console.log({ res });
     dispatch(login(res.currentUser));
     if (res.roomId) {
       await apiChatService
