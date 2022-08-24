@@ -59,7 +59,7 @@ button, input[type=submit], select[type=submit] {
   border: 2px #009b9b solid;
   font-family: "Nunito", sans-serif;
   color: #ffffff;
-  font-size: 4.5vw;
+  font-size: 1rem;
   width: fit-content;
 }
 button.--disabled, input.--disabled[type=submit], select.--disabled[type=submit] {

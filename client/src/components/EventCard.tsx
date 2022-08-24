@@ -38,7 +38,7 @@ export default function EventCard({ event, attending }: Props) {
             className='event-card__image'
           />
         )}
-        <p>
+        <p className='--small'>
           {event.distance! <= 250
             ? 'under 250m'
             : `${(event.distance! / 1000).toFixed(1)}km`}

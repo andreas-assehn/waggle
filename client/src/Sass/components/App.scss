@@ -60,7 +60,7 @@ button {
   border: 2px $button-blue solid;
   font-family: $body-font;
   color: $text-white;
-  font-size: 4.5vw;
+  font-size: $p-size;
   width: fit-content;
 
   &.--disabled {
