@@ -14,20 +14,31 @@ import DogCard from './DogCard';
 import apiChatService from '../utils/services/apiChatService';
 import MatchModal from './MatchModal';
 import { setModalRoomState } from '../app/matchModalRoomSlice';
-import { login } from '../app/userAuthSlice';
+import { login, updateSwipes } from '../app/userAuthSlice';
+import {
+  setUnSwipedUsersState,
+  shiftUnSwipedUsers,
+} from '../app/unSwipedUsersSlice';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
   const [matchModal, setMatchModal] = useState(false);
   const [modalActive, setModalActive] = useState(false);
+  const [viewCard, setViewCard] = useState(true);
 
   const dispatch = useDispatch();
-
+  const animControls = useAnimation();
   const updateUser = async (swipedData: Swiped, swipe: string) => {
     const res = await apiUserService
       .updateUserSwipes(swipedData, swipe)
       .catch((error) => console.log(error));
-    dispatch(login(res.currentUser));
+    // dispatch(login(res.currentUser));
+    dispatch(
+      updateSwipes({
+        swipeYes: res.currentUser.swipeYes,
+        swipeNo: res.currentUser.swipeNo,
+      })
+    );
     if (res.roomId) {
       await apiChatService
         .createChat({ roomId: res.roomId, message: [] })
@@ -45,25 +56,27 @@ function SwipeCard({ user }: { user: User }) {
     if (info.point.x > -400 && info.point.x < 400) {
       return;
     } else if (info.point.x < -400) {
-      animControls.start({ x: '-200vw' });
+      // animControls.start({ x: '-200vw' });
       const swipedData: Swiped = {
         _id: userAuth!._id!,
         swipedUserId: swipedUserId,
       };
       updateUser(swipedData, 'No');
+      setViewCard(false);
+      dispatch(shiftUnSwipedUsers());
     } else if (info.point.x > 400) {
-      animControls.start({ x: '200vw' });
+      // animControls.start({ x: '200vw' });
       const swipedData: Swiped = {
         _id: userAuth!._id!,
         swipedUserId: swipedUserId,
       };
       updateUser(swipedData, 'Yes');
+      setViewCard(false);
+      dispatch(shiftUnSwipedUsers());
     } else {
       return;
     }
   };
-
-  const animControls = useAnimation();
 
   const x = useMotionValue(0);
   const xInput = [-100, 0, 100];
@@ -95,6 +108,7 @@ function SwipeCard({ user }: { user: User }) {
           listStyle: 'none',
           x,
           background,
+          display: `${viewCard ? 'block' : 'none'}`,
         }}
         animate={animControls}
         drag={modalActive ? false : 'x'}
