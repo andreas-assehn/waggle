@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import PictureModal from '../components/PictureModal';
 import Scale from '../components/Scale';
-import '../Css/components/DogCard.css';
-import thumbsUp from '../assets/thumbs-up.svg';
-import thumbsDown from '../assets/thumbs-down.svg';
+import '../Css/pages/UserProfile.css';
 import defaultDogPic from '../assets/default-dog-pic.jpg';
 import DetailsModal from '../components/DetailsModal';
 import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
+import Loading from '../components/Loading';
 
 export default function UserProfile() {
   const [openModal, setOpenModal] = useState(false);
@@ -23,10 +22,10 @@ export default function UserProfile() {
   };
 
   return userAuth ? (
-    <div className='dogcard'>
+    <div className='user-profile'>
       <div>
         <img
-          className='dogcard__profile-image'
+          className='user-profile__profile-image'
           src={
             userAuth?.dog?.images?.length
               ? userAuth.dog.images[0]
@@ -41,16 +40,16 @@ export default function UserProfile() {
         />
       </div>
       <div>
-        <div className='dogcard__details-container'>
-          <div className='dogcard__headline'>
-            <div className='dogcard__headline-text'>
-              <h2 className='dogcard__headline-text__dog'>
+        <div className='user-profile__details-container'>
+          <div className='user-profile__headline'>
+            <div className='user-profile__headline-text'>
+              <h2 className='user-profile__headline-text__dog'>
                 {userAuth.dog?.name}
                 {userAuth.dog?.age && <>, {userAuth.dog?.age}</>}
               </h2>
             </div>
-            <div className='dogcard__owner-details'>
-              <div className='dogcard__owner-details__text'>
+            <div className='user-profile__owner-details'>
+              <div className='user-profile__owner-details__text'>
                 <p>{userAuth.name}</p>
                 <p>
                   {!userAuth.distance || userAuth.distance <= 250
@@ -58,38 +57,41 @@ export default function UserProfile() {
                     : `${(userAuth.distance / 1000).toFixed(1)}km`}
                 </p>
               </div>
-              <img className='dogcard__owner-image' src={userAuth.ownerImage} />
+              <img
+                className='user-profile__owner-image'
+                src={userAuth.ownerImage}
+              />
             </div>
           </div>
 
-          <div className='dogcard__key-facts'>
+          <div className='user-profile__key-facts'>
             {userAuth.dog?.energyLevel && (
-              <div className='dogcard__key-facts__key-detail'>
-                <p className='dogcard__key-facts__key-detail__p'>Energy</p>
+              <div className='user-profile__key-facts__key-detail'>
+                <p className='user-profile__key-facts__key-detail__p'>Energy</p>
                 <Scale scaleValue={userAuth.dog?.energyLevel} />
               </div>
             )}
             {userAuth.dog?.humanFriendliness && (
-              <div className='dogcard__key-facts__key-detail'>
+              <div className='user-profile__key-facts__key-detail'>
                 <p>Human &hearts;</p>
                 <Scale scaleValue={userAuth.dog?.humanFriendliness} />
               </div>
             )}
             {userAuth.dog?.dogFriendliness && (
-              <div className='dogcard__key-facts__key-detail'>
+              <div className='user-profile__key-facts__key-detail'>
                 <p>Dog &hearts;</p>
                 <Scale scaleValue={userAuth.dog?.dogFriendliness} />
               </div>
             )}
 
-            <div className='dogcard__key-facts__key-detail'>
+            <div className='user-profile__key-facts__key-detail'>
               <p>Size</p> <p className='pop-color'>{userAuth.dog?.size}</p>
             </div>
-            <div className='dogcard__key-facts__key-detail'>
+            <div className='user-profile__key-facts__key-detail'>
               <p>Gender</p> <p className='pop-color'>{userAuth.dog?.gender}</p>
             </div>
             <button
-              className='dogcard__key-facts__key-detail pop-color-button'
+              className='user-profile__key-facts__key-detail pop-color-button'
               onClick={handleOpenDescriptionModal}
             >
               <p className='pop-color'>More Details...</p>
@@ -100,13 +102,13 @@ export default function UserProfile() {
               setOpenDescriptionModal={setOpenDescriptionModal}
             />
           </div>
-          <p className='dogcard__brief-description'>
+          <p className='user-profile__brief-description'>
             {userAuth.dog?.briefDescription}
           </p>
         </div>
       </div>
     </div>
   ) : (
-    <p>Loading...</p>
+    <Loading />
   );
 }

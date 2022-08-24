@@ -2,34 +2,41 @@
 
 .user-profile {
   position: relative;
-  background-color: $background-white;
   width: 100vw;
-
-  height: 100vh;
-  border-radius: 10px;
+  height: 90vh;
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px;
 
   &__profile-image {
-    width: 95vw;
+    width: 90vw;
     height: 80vw;
     max-width: 400px;
     max-height: 400px;
     object-fit: cover;
-    margin: 5vw auto;
+    margin: 5vw 5vw 0 5vw;
     display: block;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__details-container {
+    padding: 1em 0.5em;
+    margin: auto 5vw;
+    border-radius: 0 0 10px 10px;
+    background-color: $background-white;
   }
 
   &__headline {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
 
   &__headline-text {
     &__dog {
-      margin: 10px 5px 0;
+      margin: 0;
+    }
+    & p {
+      margin: 0;
     }
   }
 
@@ -38,25 +45,74 @@
     margin: 0;
     &__text {
       margin: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      & p {
+        margin: 0;
+        text-align: right;
+      }
     }
   }
 
   &__owner-image {
-    width: 15vw;
-    height: 15vw;
+    width: 13vw;
+    height: 13vw;
     object-fit: cover;
     border-radius: 8vw;
     display: inline-block;
-    margin-right: 3vw;
+  }
+  &__key-facts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+
+    &__key-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 15vw;
+      width: 25vw;
+      background-color: $button-blue;
+      border-radius: 10px;
+      color: $text-white;
+
+      & p {
+        margin: 0;
+      }
+    }
   }
 
-  &__details-container {
-    padding: 0 1.9em;
-    margin-block-end: 20px;
+  &__brief-description {
+    font-style: italic;
+  }
+
+  &__swipe-bar {
+    display: flex;
+    width: 80vw;
+    justify-content: space-evenly;
+    background-color: $green-pop;
+    margin: 0.5rem auto 0;
+    color: $text-white;
+    border-radius: 3rem;
   }
 
   &__details-button {
     display: block;
     margin: 0 auto;
   }
+}
+.pop-color {
+  color: $text-white;
+}
+.pop-color-button {
+  color: $background-light-grey;
+  font-size: 1rem;
+  border: none;
+  margin: 0;
+  background-color: $button-blue;
 }
