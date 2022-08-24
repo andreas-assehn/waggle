@@ -5,6 +5,7 @@ import allEventsReducer from './allEventsSlice';
 import unSwipedUsersReducer from './unSwipedUsersSlice';
 import matchedUsersReducer from './matchedUsersSlice';
 import chatNameReducer from './chatNameSlice';
+import matchModalRoomReducer from './matchModalRoomSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     unSwipedUsers: unSwipedUsersReducer,
     matchedUsers: matchedUsersReducer,
     chatName: chatNameReducer,
+    matchModalRoom: matchModalRoomReducer,
   },
 });
 

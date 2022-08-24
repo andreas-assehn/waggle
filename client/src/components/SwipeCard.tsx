@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { User, Swiped } from '../../../globalUtils/Types';
 import {
   motion,
@@ -12,20 +12,32 @@ import { useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import DogCard from './DogCard';
 import apiChatService from '../utils/services/apiChatService';
+import MatchModal from './MatchModal';
+import { setModalRoomState } from '../app/matchModalRoomSlice';
+import { login } from '../app/userAuthSlice';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-
+  const { matchModalRoom } = useAppSelector(
+    (state: RootState) => state.matchModalRoom
+  );
+  const [matchModal, setMatchModal] = useState(false);
   const [modalActive, setModalActive] = useState(false);
+
+  const dispatch = useDispatch();
 
   const updateUser = async (swipedData: Swiped, swipe: string) => {
     const res = await apiUserService
       .updateUserSwipes(swipedData, swipe)
       .catch((error) => console.log(error));
+    console.log({ res });
+    dispatch(login(res.currentUser));
     if (res.roomId) {
       await apiChatService
         .createChat({ roomId: res.roomId, message: [] })
         .catch((error) => console.log(error));
+      setMatchModal(true);
+      setModalActive(true);
     }
   };
 
@@ -66,33 +78,43 @@ function SwipeCard({ user }: { user: User }) {
   ]);
 
   return (
-    <motion.div
-      key={user.userId}
-      style={{
-        position: 'absolute',
-        maxWidth: '100vw',
-        width: '100vw',
-        height: '92vh',
-        borderRadius: '10px',
-        transformOrigin: 'center right',
-        listStyle: 'none',
-        x,
-        background,
-      }}
-      animate={animControls}
-      drag={modalActive ? false : 'x'}
-      dragConstraints={{
-        right: 0,
-        left: 0,
-      }}
-      onDragEnd={(event, info) => onSwipe(event, info, user.userId)}
-    >
-      <DogCard
-        user={user}
-        modalActive={modalActive}
-        setModalActive={setModalActive}
-      />
-    </motion.div>
+    <>
+      {matchModal && (
+        <MatchModal
+          user={user}
+          setMatchModal={setMatchModal}
+          matchModal={matchModal}
+          setModalActive={setModalActive}
+        />
+      )}
+      <motion.div
+        key={user.userId}
+        style={{
+          position: 'absolute',
+          maxWidth: '100vw',
+          width: '100vw',
+          height: '92vh',
+          borderRadius: '10px',
+          transformOrigin: 'center right',
+          listStyle: 'none',
+          x,
+          background,
+        }}
+        animate={animControls}
+        drag={modalActive ? false : 'x'}
+        dragConstraints={{
+          right: 0,
+          left: 0,
+        }}
+        onDragEnd={(event, info) => onSwipe(event, info, user.userId)}
+      >
+        <DogCard
+          user={user}
+          modalActive={modalActive}
+          setModalActive={setModalActive}
+        />
+      </motion.div>
+    </>
   );
 }
 
