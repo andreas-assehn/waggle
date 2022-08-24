@@ -26,14 +26,17 @@ function MatchingView() {
     }
   }, []);
 
-  return unSwipedUsers ? (
+  return unSwipedUsers.length ? (
     <div>
       {unSwipedUsers.map((user) => (
         <SwipeCard user={user} key={user.userId} />
       ))}
     </div>
   ) : (
-    <div>Loading...</div>
+    <div className='no-matches'>
+      <h2 className='no-matches__title'>Sorry! No more waggles</h2>
+      <p>Please update your preferences to see new users.</p>
+    </div>
   );
 }
 

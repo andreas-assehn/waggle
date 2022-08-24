@@ -11,9 +11,9 @@ import defaultDogPic from '../assets/default-dog-pic.jpg';
 export default function MessageCard({
   matchId,
   roomId,
-  lastMessage = 'No messages yet',
-  readStatus = true,
-  timeStamp = 'HH:SS',
+  lastMessage,
+  readStatus,
+  timeStamp,
   handleOpenModal,
 }: {
   matchId: string;
