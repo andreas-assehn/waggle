@@ -10,8 +10,11 @@
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  background-color: $translucent-black;
+  background-color: $translucent-white;
   z-index: 1;
+  &--inverted {
+    background-color: $translucent-black;
+  }
 }
 
 .modalContainer {

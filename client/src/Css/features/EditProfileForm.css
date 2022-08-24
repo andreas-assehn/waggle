@@ -7,9 +7,6 @@
   overflow-y: scroll;
   overflow-x: unset;
 }
-.profile-form .geoapify-autocomplete-input {
-  margin-block: 1vh;
-}
 .profile-form.--centered {
   display: flex;
   align-content: center;
@@ -19,7 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-block: 2vh;
+  margin-block: 12px;
   margin-block-start: 1vh;
 }
 .profile-form__input-row {
@@ -27,8 +24,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin: 2px 0;
-  margin-block: 1vh;
+  margin: 8px 0;
 }
 .profile-form__input-row__label {
   margin: 0 1.5vw;

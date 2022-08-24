@@ -15,12 +15,14 @@
   margin: 5vw 5vw 0 5vw;
   display: block;
   border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 8px #797979;
 }
 .dogcard__details-container {
   padding: 1em 0.5em;
   margin: auto 5vw;
   border-radius: 0 0 10px 10px;
   background-color: #fff;
+  box-shadow: 0 0 8px #797979;
 }
 .dogcard__headline {
   display: flex;
@@ -28,7 +30,7 @@
   justify-content: space-between;
 }
 .dogcard__headline-text__dog {
-  margin: 0;
+  margin: 0 12px;
 }
 .dogcard__headline-text p {
   margin: 0;
@@ -78,14 +80,15 @@
 }
 .dogcard__brief-description {
   font-style: italic;
+  margin: 7px 0 4px 12px;
 }
 .dogcard__swipe-bar {
   display: flex;
   width: 80vw;
   justify-content: space-evenly;
-  background-color: #e46472;
+  background-color: #fff;
   margin: 0.5rem auto 0;
-  color: #ffffff;
+  color: #313742;
   border-radius: 3rem;
 }
 .dogcard__details-button {
@@ -98,7 +101,7 @@
 }
 
 .pop-color-button {
-  color: #bfbfbf;
+  color: #e2e2e2;
   font-size: 1rem;
   border: none;
   margin: 0;
