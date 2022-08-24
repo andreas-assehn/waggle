@@ -6,7 +6,7 @@ h1 {
 }
 h1.headerBar__title {
   font-family: "Satisfy", cursive;
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-align: center;
   margin-left: 5px;
 }
@@ -134,9 +134,9 @@ input::placeholder, select::placeholder {
 }
 
 .navbar-padding {
-  height: 7vh;
+  height: 8vh;
 }
 
 .header-padding {
-  height: 11vh;
+  height: 9vh;
 }

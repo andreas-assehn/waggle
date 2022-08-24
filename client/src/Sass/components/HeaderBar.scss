@@ -1,7 +1,5 @@
 @use '../abstracts' as *;
 
-$size: 11vh;
-
 .headerBar {
   position: fixed;
   top: 0;
@@ -22,9 +20,9 @@ $size: 11vh;
   justify-content: space-between;
   background-color: $main-dark-grey;
   color: $background-white;
-  height: $size;
+  height: $header-height;
 }
 
 .headerBar-btn {
-  height: $size * 0.7;
+  height: 8vh * 0.7;
 }

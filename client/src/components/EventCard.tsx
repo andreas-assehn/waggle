@@ -6,9 +6,10 @@ import { useNavigate } from 'react-router-dom';
 
 type Props = {
   event: Event;
+  attending: boolean;
 };
 
-export default function EventCard({ event }: Props) {
+export default function EventCard({ event, attending }: Props) {
   const navigate = useNavigate();
   const eventDate = event.dateTime.toString();
 
@@ -17,7 +18,11 @@ export default function EventCard({ event }: Props) {
   };
 
   return (
-    <div className='event-card'>
+    <div
+      className={
+        attending ? 'event-card ' : 'event-card event-card--not-attending'
+      }
+    >
       <div className='event-card__text'>
         <h3 className='event-card__text__name'>{event.briefDescription}</h3>
         <p className='--small'>
