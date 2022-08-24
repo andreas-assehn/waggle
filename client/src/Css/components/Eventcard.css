@@ -4,9 +4,12 @@
   align-items: center;
   padding: 1vw 2vw;
   margin: 2vw;
-  background-color: #bfbfbf;
+  background-color: #fff;
   border-radius: 6px;
   color: #313742;
+}
+.event-card--not-attending {
+  box-shadow: 0 0 8px #797979;
 }
 .event-card__text__name {
   margin: 0 0 2px;
@@ -21,6 +24,7 @@
   height: 20vw;
   border-radius: 6px;
   object-fit: cover;
+  margin: 0.5vh 1vw;
 }
 .event-card__more-info {
   width: 20vw;

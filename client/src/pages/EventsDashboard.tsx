@@ -45,15 +45,15 @@ function EventsDashboard() {
     <div className='events-dashboard'>
       {attendingEvents.length ? (
         <div className='events-dashboard__attending'>
-          <h2 className='events-dashboard__attending__title'>Attending</h2>
+          <h3 className='events-dashboard__attending__title'>Attending</h3>
           {attendingEvents.map((eventData: Event) => (
-            <EventCard key={eventData._id} event={eventData} />
+            <EventCard key={eventData._id} event={eventData} attending={true} />
           ))}
         </div>
       ) : null}
       <div className='events-dashboard__not-attending'>
         {nonAttendingEvents.map((eventData: Event) => (
-          <EventCard key={eventData._id} event={eventData} />
+          <EventCard key={eventData._id} event={eventData} attending={false} />
         ))}
       </div>
       <div className='events-dashboard__add-events'>
