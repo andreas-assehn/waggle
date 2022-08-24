@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Chat, ChatMatch } from '../../../globalUtils/Types';
-import { useAppSelector } from '../app/hooks';
+import { Chat, ChatMatch, User } from '../../../globalUtils/Types';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { setMatchedUsersState } from '../app/matchedUsersSlice';
 import { RootState } from '../app/store';
+import { login } from '../app/userAuthSlice';
 import DeleteModal from '../components/DeleteModal';
 import MessageCard from '../components/MessageCard';
 import MessageCardModal from '../components/MessageCardModal';
 import YourMatches from '../components/YourMatches';
 import '../Css/pages/ChatDashboard.css';
 import apiChatService from '../utils/services/apiChatService';
+import apiUserService from '../utils/services/apiUserService';
+import { EditUserProfile } from '../utils/types/user';
 
 function ChatDashboard() {
   const [openModal, setOpenModal] = useState(false);
@@ -20,12 +24,11 @@ function ChatDashboard() {
   const { matchedUsers } = useAppSelector(
     (state: RootState) => state.matchedUsers
   );
+  const dispatch = useAppDispatch();
   // const [matchedUserChats, setMatchedUserChats] = useState(userAuth?.matches);
 
   useEffect(() => {
-    console.log('chat dash 25');
     if (userAuth) {
-      console.log('chat dash 27');
       apiChatService
         .getMatchedChats(userAuth.userId)
         .then((chats) => setAllChats(chats))
@@ -50,7 +53,6 @@ function ChatDashboard() {
   };
 
   const handleModalConfirm = (e: any) => {
-    // TO-DO: delete chat/unmatch with user stored in chatContext
     if (e.target.name === 'delete') {
       setDeleteConfirmMsg(
         `Are you sure you want to delete all messages from ${
@@ -67,9 +69,39 @@ function ChatDashboard() {
         }?`
       );
       setCurrentModal('matchDeleteModal');
-    } else if (e.target.name === 'yes' || e.target.name === 'no') {
+    } else if (e.target.name === 'yes') {
+      console.log('yes or no');
+
+      // TO-DO: unmatch with user stored in chatContext
+      console.log(userAuth);
+      console.log(unmatchUser(userAuth, chatContext));
       setCurrentModal('cardModal');
       setOpenModal(false);
+    }
+  };
+
+  const unmatchUser = async (user: any, userToUnmatch: any) => {
+    try {
+      const updatedMatches = user.matches.filter(
+        (match: any) => match.matchId !== userToUnmatch.matchId
+      );
+      const updatedSwipeYes = user.swipeYes.filter(
+        (id: string) => id !== userToUnmatch.matchId
+      );
+      const updatedSwipeNo = [...user.swipeNo, userToUnmatch.matchId];
+      const updatedUser = {
+        ...user,
+        matches: updatedMatches,
+        swipeYes: updatedSwipeYes,
+        swipeNo: updatedSwipeNo,
+      };
+      await apiUserService.updateUser(updatedUser);
+      dispatch(login(updatedUser));
+      const matchedUsers = await apiUserService.getMatchedUsers(user.userId);
+      dispatch(setMatchedUsersState(matchedUsers));
+      return updatedUser;
+    } catch (e) {
+      console.log(e);
     }
   };
 
