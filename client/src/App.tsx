@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Sass/components/App.scss';
+import './Css/components/App.css';
 import { Routes, Route } from 'react-router-dom';
 import SplashScreen from './pages/SplashScreen';
 import MatchingView from './pages/MatchingView';
@@ -58,7 +58,7 @@ function App() {
         .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
         .catch((err) => console.error(err));
     } else {
-      dispatch(clearUnSwipedUsersState());
+      // dispatch(clearUnSwipedUsersState());
     }
   }, [userAuth?.userId]);
 
@@ -69,7 +69,7 @@ function App() {
         .then((allUsers) => dispatch(setMatchedUsersState(allUsers)))
         .catch((err) => console.error(err));
     } else {
-      dispatch(clearMatchedUsersState());
+      // dispatch(clearMatchedUsersState());
     }
   }, [userAuth?.userId]);
 
@@ -80,7 +80,7 @@ function App() {
         .then((allUsers) => dispatch(setAllUsersState(allUsers)))
         .catch((err) => console.error(err));
     } else {
-      dispatch(clearAllUsersState());
+      // dispatch(clearAllUsersState());
     }
   }, [userAuth?.userId]);
 

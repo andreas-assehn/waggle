@@ -8,7 +8,8 @@
   align-items: center;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: $translucent-black;
   z-index: 1;
 }
@@ -70,7 +71,7 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: $background-white;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -113,5 +114,11 @@
   padding: 1em 0.5em;
   margin: 5vw;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: $background-white;
+}
+
+.pictureModal {
+  & ul {
+    display: block;
+  }
 }
