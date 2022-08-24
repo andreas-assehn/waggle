@@ -12,7 +12,7 @@ function DetailsModal({
 }: {
   user: User | null;
   setOpenDescriptionModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalActive?: React.Dispatch<React.SetStateAction<boolean>>;
   openDescriptionModal: boolean;
 }) {
   if (!openDescriptionModal) return null;
@@ -23,7 +23,7 @@ function DetailsModal({
           className='titleCloseBtn__btn --round'
           onClick={() => {
             setOpenDescriptionModal(false);
-            setModalActive(false);
+            setModalActive && setModalActive(false);
           }}
         >
           &times;
@@ -42,9 +42,9 @@ function DetailsModal({
             <div className='dogcard__owner-details__text'>
               <p>{user.name}</p>
               <p>
-                {user.distance! <= 250
+                {!user.distance || user.distance <= 250
                   ? 'under 250m'
-                  : `${(user.distance! / 1000).toFixed(1)}km`}
+                  : `${(user.distance / 1000).toFixed(1)}km`}
               </p>
             </div>
             <img className='dogcard__owner-image' src={user.ownerImage} />
