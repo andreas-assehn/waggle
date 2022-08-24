@@ -3,7 +3,7 @@ import { Message } from '../../../../globalUtils/Types';
 const BASE_URL = 'http://localhost:4000';
 
 const createChat = async (data: any) => {
-  console.log(data);
+  console.log({ data });
   const options: RequestInit = {
     method: 'POST',
     body: JSON.stringify(data),

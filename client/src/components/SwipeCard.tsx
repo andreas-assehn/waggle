@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { User, Swiped } from '../../../globalUtils/Types';
 import {
   motion,
@@ -13,7 +13,7 @@ import { RootState } from '../app/store';
 import DogCard from './DogCard';
 import apiChatService from '../utils/services/apiChatService';
 import MatchModal from './MatchModal';
-import { updateSwipes } from '../app/userAuthSlice';
+import { login, updateSwipes } from '../app/userAuthSlice';
 import { shiftUnSwipedUsers } from '../app/unSwipedUsersSlice';
 
 function SwipeCard({ user }: { user: User }) {
@@ -24,6 +24,11 @@ function SwipeCard({ user }: { user: User }) {
 
   const dispatch = useDispatch();
   const animControls = useAnimation();
+
+  useEffect(() => {
+    console.log('match Modal changed', matchModal);
+  }, [matchModal]);
+
   const updateUser = async (swipedData: Swiped, swipe: string) => {
     const res = await apiUserService
       .updateUserSwipes(swipedData, swipe)
@@ -32,14 +37,21 @@ function SwipeCard({ user }: { user: User }) {
       updateSwipes({
         swipeYes: res.currentUser.swipeYes,
         swipeNo: res.currentUser.swipeNo,
+        matches: res.currentUser.matches,
       })
     );
+    res.roomId &&
+      setMatchModal(() => {
+        return true;
+      });
+    res.roomId &&
+      setModalActive(() => {
+        return true;
+      });
     if (res.roomId) {
       await apiChatService
         .createChat({ roomId: res.roomId, message: [] })
         .catch((error) => console.log(error));
-      setMatchModal(true);
-      setModalActive(true);
     }
   };
 
@@ -57,7 +69,6 @@ function SwipeCard({ user }: { user: User }) {
       };
       updateUser(swipedData, 'No');
       setViewCard(false);
-      dispatch(shiftUnSwipedUsers());
     } else if (info.point.x > 400) {
       const swipedData: Swiped = {
         _id: userAuth!._id!,
@@ -65,7 +76,6 @@ function SwipeCard({ user }: { user: User }) {
       };
       updateUser(swipedData, 'Yes');
       setViewCard(false);
-      dispatch(shiftUnSwipedUsers());
     } else {
       return;
     }

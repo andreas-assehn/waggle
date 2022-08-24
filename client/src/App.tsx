@@ -71,7 +71,7 @@ function App() {
     } else {
       // dispatch(clearMatchedUsersState());
     }
-  }, [userAuth?.userId]);
+  }, [userAuth]);
 
   useEffect(() => {
     if (userAuth) {
