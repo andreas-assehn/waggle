@@ -43,7 +43,8 @@
   display: flex;
   align-self: flex-start;
   justify-content: flex-start;
-  background-color: aqua;
+  background-color: #e46472;
+  color: #ffffff;
   width: auto;
   max-width: 60vw;
   padding: 0.75rem;
@@ -62,7 +63,8 @@
   display: flex;
   align-self: flex-end;
   justify-content: flex-end;
-  background-color: rosybrown;
+  background-color: #009b9b;
+  color: #ffffff;
   width: auto;
   max-width: 60vw;
   padding: 0.75rem;

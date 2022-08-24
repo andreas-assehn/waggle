@@ -20,22 +20,15 @@ function ChatDashboard() {
   const { matchedUsers } = useAppSelector(
     (state: RootState) => state.matchedUsers
   );
-  // const [matchedUserChats, setMatchedUserChats] = useState(userAuth?.matches);
 
   useEffect(() => {
-    console.log('chat dash 25');
     if (userAuth) {
-      console.log('chat dash 27');
       apiChatService
         .getMatchedChats(userAuth.userId)
         .then((chats) => setAllChats(chats))
         .catch((error) => console.log(error));
     }
   }, []);
-
-  // useEffect(() => {
-  //   setMatchedUserChats(userAuth?.matches);
-  // }, []);
 
   const matchedUserChats = userAuth?.matches;
 
