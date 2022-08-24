@@ -70,6 +70,7 @@ button, input[type=submit], select[type=submit] {
 button.--disabled, input.--disabled[type=submit], select.--disabled[type=submit] {
   border: 2px #bfbfbf solid;
   background-color: #bfbfbf;
+  pointer-events: none;
 }
 button.--pop, input.--pop[type=submit], select.--pop[type=submit] {
   background-color: #e46472;
@@ -120,7 +121,7 @@ input, select {
   font-weight: 500;
   color: #313742;
   margin: 0.3vh 1.5vw;
-  width: 60vw;
+  width: 50vw;
 }
 input.--white, select.--white {
   background-color: #fff;

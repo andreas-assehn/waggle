@@ -27,17 +27,10 @@ function MessageCardModal({
         <div className='modalBody'>
           <button
             name='unmatch'
-            className='modalFooter__unmatch-button'
+            className='modalFooter__unmatch-button --pop'
             onClick={handleModalConfirm}
           >
             Unmatch
-          </button>
-          <button
-            name='delete'
-            className='modalFooter__delete-button --pop'
-            onClick={handleModalConfirm}
-          >
-            Delete
           </button>
         </div>
       </div>

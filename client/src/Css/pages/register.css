@@ -3,9 +3,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 6vw;
 }
 .register__title {
   font-family: "Satisfy", cursive;
+  margin-bottom: 2vh;
 }
 .register__form {
   display: flex;
@@ -20,16 +24,25 @@
   border: none;
 }
 .register__form label {
-  width: 25vw;
+  width: 20vw;
+  min-width: 70px;
 }
 .register__link {
   margin: 0 4px;
+}
+.register__redirect {
+  margin-top: 2vh;
+}
+.register fieldset #confirmPassword,
+.register fieldset #confirm-password-label {
+  margin-bottom: 2vh;
 }
 
 .cookieCheck {
   width: 92%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 2vh;
 }
 
 .textBox {
