@@ -19,6 +19,13 @@
   },
   "homepage": "https://github.com/andreas-assehn/waggle#readme",
   "devDependencies": {
-    "cypress": "^10.4.0"
-  }
+    "cypress": "^10.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "webpack": "^5.74.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }
