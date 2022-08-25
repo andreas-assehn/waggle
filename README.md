@@ -4,6 +4,13 @@
 
 Waggle is a matching app to find playmates for your dog. Search from users in your area and filter based on distance. Once you match with another user you can chat with them and organize a meet or maybe attend an event? Events are also shown by distance and you can create you own.
 
+## Contributors
+
+- Andreas Asséhn - _[Andreas Github Profile](https://github.com/andreas-assehn)_
+- Freya Caudwell - _[Freya Github Profile](https://github.com/fcaud)_
+- Keval Patel - _[Keval Github Profile](https://github.com/Keval-P21)_
+- Kevin Ott - _[Kevin Github Profile](https://github.com/kelott)_
+
 ## Features
 
 - Create an account for yourself and upload all your pets details
