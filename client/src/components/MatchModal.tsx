@@ -31,8 +31,6 @@ function MatchModal({
     setModalActive(false);
   };
 
-  console.log('Im Open!');
-
   return (
     <div className='modalBackground'>
       <div className='modalContainer'>

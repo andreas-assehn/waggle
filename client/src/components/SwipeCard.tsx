@@ -25,10 +25,6 @@ function SwipeCard({ user }: { user: User }) {
   const dispatch = useDispatch();
   const animControls = useAnimation();
 
-  useEffect(() => {
-    console.log('match Modal changed', matchModal);
-  }, [matchModal]);
-
   const updateUser = async (swipedData: Swiped, swipe: string) => {
     const res = await apiUserService
       .updateUserSwipes(swipedData, swipe)
