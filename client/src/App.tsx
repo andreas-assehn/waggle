@@ -20,7 +20,6 @@ import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import apiUserService from './utils/services/apiUserService';
 import { RootState } from './app/store';
-import { setAllUsersState } from './app/allUsersSlice';
 import apiEventService from './utils/services/apiEventsService';
 import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 import { useAppSelector } from './app/hooks';
@@ -28,7 +27,6 @@ import LoginRegister from './pages/LoginRegister';
 import HeaderBar from './components/HeaderBar';
 import { setUnSwipedUsersState } from './app/unSwipedUsersSlice';
 import { setMatchedUsersState } from './app/matchedUsersSlice';
-import MatchingViewDetail from './pages/MatchingViewDetail';
 
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -65,15 +63,6 @@ function App() {
 
   useEffect(() => {
     if (userAuth) {
-      apiUserService
-        .getAllUsers()
-        .then((allUsers) => dispatch(setAllUsersState(allUsers)))
-        .catch((err) => console.error(err));
-    }
-  }, [userAuth?.userId]);
-
-  useEffect(() => {
-    if (userAuth) {
       apiEventService
         .getAllEvents(userAuth.userId)
         .then((allEvents) => dispatch(setAllEventsState(allEvents)))
@@ -92,10 +81,6 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/loginRegister' element={<LoginRegister />} />
         <Route path='/matchingView' element={<MatchingView />} />
-        <Route
-          path='/matchingViewDetail/:userId'
-          element={<MatchingViewDetail />}
-        />
         <Route path='/chatDashboard' element={<ChatDashboard />} />
         <Route path='/chat/:roomId' element={<Chat />} />
         <Route path='/eventsDashboard' element={<EventsDashboard />} />
