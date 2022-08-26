@@ -1,7 +1,7 @@
 # Waggle
 
 <p align='center'>
-  <img src='./Docs/read-me-images/read-me-logo-1.png' />
+  <img src='./readme-images/read-me-logo-1.png' />
 </p>
 
 Waggle is a mobile view matching app to find playmates for your dog. Search from users in your area and filter based on distance. Once you match with another user you can chat with them and organize a meet or maybe attend an event? Events are also shown by distance and you can create you own.
@@ -9,8 +9,8 @@ Waggle is a mobile view matching app to find playmates for your dog. Search from
 ## Screenshots
 
 <p align='center'>
-  <img src='./Docs/read-me-images/screenshot-readme.png' />
-  <img src='./Docs/read-me-images/screenshot-readme-1.png' />
+  <img src='./readme-images/screenshot-readme.png' />
+  <img src='./readme-images/screenshot-readme-1.png' />
 </p>
 
 ## Features
@@ -99,7 +99,7 @@ npm start
 
 ## Developers
 
-- Andreas Asséhn - _[Github](https://github.com/andreas-assehn)_ - [LinkedIn](https://www.linkedin.com/in/andreas-assehn/)
-- Freya Caudwell - _[Freya Github Profile](https://github.com/fcaud)_ - [LinkedIn](https://www.linkedin.com/in/freya-caudwell/)
-- Keval Patel - _[Keval Github Profile](https://github.com/Keval-P21)_ - [LinkedIn](www.linkedin.com/in/keval-r-patel)
-- Kevin Ott - _[Kevin Github Profile](https://github.com/kelott)_ - [LinkedIn](www.linkedin.com/in/kevin-ott-se)
+- Andreas Asséhn - [Github](https://github.com/andreas-assehn) - [LinkedIn](https://www.linkedin.com/in/andreas-assehn/)
+- Freya Caudwell - [Github](https://github.com/fcaud) - [LinkedIn](https://www.linkedin.com/in/freya-caudwell/)
+- Keval Patel - [Github](https://github.com/Keval-P21) - [LinkedIn](www.linkedin.com/in/keval-r-patel)
+- Kevin Ott - [Github](https://github.com/kelott) - [LinkedIn](www.linkedin.com/in/kevin-ott-se)
