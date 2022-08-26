@@ -7,7 +7,6 @@ import { login, logout } from './app/userAuthSlice';
 import Navbar from './components/Navbar';
 import apiUserService from './utils/services/apiUserService';
 import { RootState } from './app/store';
-import { setAllUsersState } from './app/allUsersSlice';
 import apiEventService from './utils/services/apiEventsService';
 import { clearAllEventsState, setAllEventsState } from './app/allEventsSlice';
 import { useAppSelector } from './app/hooks';
@@ -86,10 +85,6 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/loginRegister' element={<LoginRegister />} />
         <Route path='/matchingView' element={<MatchingView />} />
-        <Route
-          path='/matchingViewDetail/:userId'
-          element={<MatchingViewDetail />}
-        />
         <Route path='/chatDashboard' element={<ChatDashboard />} />
         <Route path='/chat/:roomId' element={<Chat />} />
         <Route path='/eventsDashboard' element={<EventsDashboard />} />
