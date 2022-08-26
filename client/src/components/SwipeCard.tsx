@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { User, Swiped } from '../../../globalUtils/Types';
 import {
   motion,
@@ -13,7 +13,7 @@ import { RootState } from '../app/store';
 import DogCard from './DogCard';
 import apiChatService from '../utils/services/apiChatService';
 import MatchModal from './MatchModal';
-import { login, updateSwipes } from '../app/userAuthSlice';
+import { updateSwipes } from '../app/userAuthSlice';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
