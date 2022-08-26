@@ -30,7 +30,6 @@ import {
   getRoomChat,
   addChatMessage,
 } from './controllers/chatController';
-import authMiddleware from './middleware/auth';
 
 router.get('/users', getUsers);
 router.get('/users/matched/:userId', getMatchedUsers);

@@ -2,9 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { User } from '../../../globalUtils/Types';
-import { useAppSelector } from '../app/hooks';
 import { clearModalRoomState } from '../app/matchModalRoomSlice';
-import { RootState } from '../app/store';
 import '../Css/components/Modal.css';
 
 function MatchModal({

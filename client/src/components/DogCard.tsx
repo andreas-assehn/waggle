@@ -7,9 +7,6 @@ import thumbsUp from '../assets/thumbs-up.svg';
 import thumbsDown from '../assets/thumbs-down.svg';
 import defaultDogPic from '../assets/default-dog-pic.jpg';
 import DetailsModal from './DetailsModal';
-import { useAppSelector } from '../app/hooks';
-import { RootState } from '../app/store';
-import { useDispatch } from 'react-redux';
 
 function DogCard({
   user,

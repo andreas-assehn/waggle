@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { User } from '../../../globalUtils/Types';
 import '../Css/components/MessageCard.css';
-import read from '../assets/message-read.svg';
-import unread from '../assets/message-unread.svg';
 import tripledot from '../assets/message-tripledot.svg';
 import { Link } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';

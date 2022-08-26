@@ -14,7 +14,6 @@ import DogCard from './DogCard';
 import apiChatService from '../utils/services/apiChatService';
 import MatchModal from './MatchModal';
 import { login, updateSwipes } from '../app/userAuthSlice';
-import { shiftUnSwipedUsers } from '../app/unSwipedUsersSlice';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);

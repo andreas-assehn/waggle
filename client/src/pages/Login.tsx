@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth, methods } from '../utils/auth/firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../app/userAuthSlice';
+import { login } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
 import { Link, useNavigate } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
