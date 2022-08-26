@@ -13,12 +13,6 @@ import {
   changeUserPreferences,
 } from './controllers/userController';
 import {
-  getMatches,
-  setMatch,
-  modifyMatch,
-  deleteMatch,
-} from './controllers/matchController';
-import {
   getEvents,
   setEvent,
   modifyEvent,
@@ -42,17 +36,10 @@ router.put('/users/swipeYes/:userId', addUserSwipeYes);
 router.delete('/users/:userId', deleteUser);
 router.put('/users/preferences/:userId', changeUserPreferences);
 
-router.get('/matches', getMatches);
-router.post('/matches/:userId:', setMatch);
-router.put('/matches/:userId', modifyMatch);
-router.delete('/matches/:userId', deleteMatch);
-
 router.get('/events/:userId', getEvents);
 router.post('/events', setEvent);
 router.put('/events/:eventId', modifyEvent);
 router.delete('/events/:eventId', deleteEvent);
-
-// TO-DO: Chat/Websockets
 
 router.post('/chats', createChat);
 router.get('/chats/userChats/:userId', getOwnChats);

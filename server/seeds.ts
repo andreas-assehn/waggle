@@ -5,11 +5,10 @@ import mongoose from 'mongoose';
 
 // import { users, matches } from './utils/mock-data/dataUser';
 // import { events } from './utils/mock-data/dataEvent';
-import { users, matches, events, chats } from './utils/mock-data/videoData';
+import { users, events, chats } from './utils/mock-data/videoData';
 
 import userModel from './models/userModel';
 import eventsModel from './models/eventsModel';
-import matchesModel from './models/matchesModel';
 import chatModel from './models/chatModel';
 
 // Deletes the contents of the database
@@ -19,11 +18,9 @@ const seedDb = async () => {
   try {
     await userModel.deleteMany({});
     await eventsModel.deleteMany({});
-    await matchesModel.deleteMany({});
     await chatModel.deleteMany({});
     await userModel.insertMany(users);
     await eventsModel.insertMany(events);
-    await matchesModel.insertMany(matches);
     await chatModel.insertMany(chats);
     console.log('Database successfully seeded!');
     mongoose.connection.close();
