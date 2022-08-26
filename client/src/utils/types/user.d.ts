@@ -1,4 +1,3 @@
-// import { LocationType } from './location';
 import { Dog, LocationType } from '../../../../globalUtils/Types';
 
 export type User = {
@@ -22,21 +21,6 @@ export type UserPreferences = {
   gender: string[];
   energyLevel: string[];
 };
-// export type Dog = {
-//   age?: number;
-//   images?: string[];
-//   name: string;
-//   breed?: string;
-//   size: string;
-//   gender: string;
-//   energyLevel: number;
-//   dogFriendliness?: number;
-//   humanFriendliness?: number;
-//   description?: string;
-//   briefDescription?: string;
-//   likes?: string[];
-//   dislikes?: string[];
-// };
 
 export type EditUserProfile = {
   _id?: string;

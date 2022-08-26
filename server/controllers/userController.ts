@@ -86,7 +86,6 @@ export const addUserSwipeYes = async (req: Request, res: Response) => {
       const roomId =
         swipedUser?.userId.slice(0, 10) + updatedUser?.userId.slice(0, 10);
 
-      // swipedUser.matches?.push(updatedUser?.userId!);
       swipedUser?.matches?.push({ matchId: updatedUser?.userId!, roomId });
 
       updatedUser?.matches?.push({ matchId: req.body.swipedUserId, roomId });
