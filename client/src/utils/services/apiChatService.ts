@@ -3,7 +3,6 @@ import { Message } from '../../../../globalUtils/Types';
 const BASE_URL = 'http://localhost:4000';
 
 const createChat = async (data: any) => {
-  console.log({ data });
   const options: RequestInit = {
     method: 'POST',
     body: JSON.stringify(data),
@@ -51,7 +50,6 @@ const getChatRoom = async (id: string) => {
 };
 
 const sendMessageToChatRoom = async (message: Message, roomId: string) => {
-  console.log({ message, roomId });
   const options: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(message),

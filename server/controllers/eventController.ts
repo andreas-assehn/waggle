@@ -41,7 +41,6 @@ export const setEvent = async (req: Request, res: Response) => {
 export const modifyEvent = async (req: Request, res: Response) => {
   try {
     const modifiedEvent = await Event.findByIdAndUpdate(req.body._id, req.body);
-    console.log(modifiedEvent);
     res.status(200).send(modifiedEvent);
   } catch (e) {
     if (typeof e === 'string') {

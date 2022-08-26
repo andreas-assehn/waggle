@@ -105,24 +105,9 @@ function Register() {
       });
   };
 
-  // const handleSignOut = async () => {
-  //   await methods
-  //     .signOut(auth)
-  //     .then(() => {
-  //       dispatch(logout());
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   return (
     <div className='register'>
       <h2 className='register__title'>Register</h2>
-
-      {/* {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
-
-      <button onClick={handleSignOut}>Sign Out</button> */}
 
       <form onSubmit={handleSubmit} className='register__form'>
         <fieldset>
