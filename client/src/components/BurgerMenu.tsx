@@ -15,8 +15,8 @@ function BurgerMenu() {
     setShowModal(!showModal);
   };
 
-  const handleSignOut = async () => {
-    await methods
+  const handleSignOut = () => {
+    methods
       .signOut(auth)
       .then(() => {
         dispatch(logout());
@@ -26,27 +26,17 @@ function BurgerMenu() {
       });
   };
 
-  // Add aria in the future! chrome vox to test blind user experience
   return (
     <>
-      <button onClick={handleShowModal} className="--transparent">
+      <button onClick={handleShowModal} className='--transparent'>
         <img src={burgerMenuIcon} />
       </button>
       {showModal ? (
-        <div className="modalBackground">
-          <div
-            className="modalContainer"
-            style={{
-              width: '40%',
-              padding: '2.5%',
-              position: 'absolute',
-              top: '8%',
-              right: '12%',
-            }}
-          >
-            <div className="titleCloseBtn">
+        <div className='modalBackground'>
+          <div className='modalContainer modalContainer--burger'>
+            <div className='titleCloseBtn'>
               <button
-                className="--round"
+                className='--round'
                 onClick={() => {
                   setShowModal(false);
                 }}
@@ -54,16 +44,17 @@ function BurgerMenu() {
                 &times;
               </button>
             </div>
-            <div className="modalBody">
+            <div className='modalBody'>
               <button
                 onClick={() => {
-                  navigate('/settingsView'), setShowModal(false);
+                  navigate('/settingsView');
+                  setShowModal(false);
                 }}
               >
                 Settings
               </button>
               <button
-                className="--pop"
+                className='--pop'
                 onClick={() => {
                   handleSignOut(), navigate('/');
                 }}

@@ -79,7 +79,6 @@ function Register() {
         if (res.error) {
           setError('User Create Error!');
         }
-        // access token is not yet sent to slice
         dispatch(login(res));
       })
       .catch((error) => {
@@ -97,7 +96,6 @@ function Register() {
           email: cred.user.email!,
         };
         const res = await apiUserService.register(user);
-        // access token is not yet sent to slice
         dispatch(login(res));
       })
       .catch((error) => {
@@ -105,24 +103,9 @@ function Register() {
       });
   };
 
-  // const handleSignOut = async () => {
-  //   await methods
-  //     .signOut(auth)
-  //     .then(() => {
-  //       dispatch(logout());
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   return (
     <div className='register'>
       <h2 className='register__title'>Register</h2>
-
-      {/* {userAuth ? <div>user logged in</div> : <div>user logged out</div>}
-
-      <button onClick={handleSignOut}>Sign Out</button> */}
 
       <form onSubmit={handleSubmit} className='register__form'>
         <fieldset>

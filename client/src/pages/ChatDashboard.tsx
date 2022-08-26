@@ -19,7 +19,6 @@ function ChatDashboard() {
   const [deleteConfirmMsg, setDeleteConfirmMsg] = useState('');
   const [allChats, setAllChats] = useState([] as Chat[]);
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-  const { allUsers } = useAppSelector((state: RootState) => state.allUsers);
   const { matchedUsers } = useAppSelector(
     (state: RootState) => state.matchedUsers
   );
@@ -46,7 +45,7 @@ function ChatDashboard() {
     if (e.target.name === 'unmatch') {
       setDeleteConfirmMsg(
         `Are you sure you want to unmatch with ${
-          allUsers.find((user) => user.userId === chatContext.matchId)?.dog
+          matchedUsers.find((user) => user.userId === chatContext.matchId)?.dog
             ?.name
         }?`
       );

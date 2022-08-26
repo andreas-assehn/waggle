@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth, methods } from '../utils/auth/firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../app/userAuthSlice';
+import { login } from '../app/userAuthSlice';
 import { RootState } from '../app/store';
 import { Link, useNavigate } from 'react-router-dom';
 import apiUserService from '../utils/services/apiUserService';
@@ -35,7 +35,6 @@ function Login() {
     await methods
       .signInWithEmailAndPassword(auth, email, password)
       .then(async (cred) => {
-        // access token is not yet sent to slice
         const res = await apiUserService.getUser(cred.user.uid);
         dispatch(login(res));
       })
@@ -48,7 +47,6 @@ function Login() {
     await methods
       .signInWithPopup(auth, methods.googleProvider)
       .then(async (cred) => {
-        // access token is not yet sent to slice
         const res = await apiUserService.getUser(cred.user.uid);
         dispatch(login(res));
       })

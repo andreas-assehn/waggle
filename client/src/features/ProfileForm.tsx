@@ -175,8 +175,6 @@ export default function ProfileForm() {
     const updatedCurrentUser = await apiUserService.getUser(
       currentUser.userAuth.userId
     );
-    const updatedAllUsers = await apiUserService.getAllUsers();
-    dispatch(setAllEventsState(updatedAllUsers));
     dispatch(login(updatedCurrentUser));
     navigate('/profile');
   }

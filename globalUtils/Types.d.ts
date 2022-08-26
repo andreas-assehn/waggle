@@ -58,10 +58,6 @@ export type Matches = {
   userId: string;
   matchIds: string[];
 };
-// export type Matches = {
-//   matchId: string;
-//   roomId: string;
-// };
 
 export type ChatMatch = {
   matchId: string;

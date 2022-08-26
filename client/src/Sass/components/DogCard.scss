@@ -80,10 +80,8 @@
       height: 15vw;
       width: 25vw;
       background-color: $button-blue;
-      // background-color: $background-light-grey;
       border-radius: 10px;
       color: $text-white;
-      // color: $pop-color;
 
       & p {
         margin: 0;
@@ -101,7 +99,6 @@
     width: 80vw;
     justify-content: space-evenly;
     background-color: $background-white;
-    // background-color: $pop-color;
     margin: 0.5rem auto 0;
     color: $text-dark-grey;
     border-radius: 3rem;
@@ -117,10 +114,8 @@
 }
 .pop-color-button {
   color: $background-light-grey;
-  // color: $pop-color;
   font-size: 1rem;
   border: none;
   margin: 0;
   background-color: $button-blue;
-  // background-color: $background-light-grey;
 }

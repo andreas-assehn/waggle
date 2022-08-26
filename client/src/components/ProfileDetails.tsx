@@ -20,12 +20,10 @@ function ProfileDetails({
   const url = useLocation().pathname;
 
   const handleOpenModal = () => {
-    console.log('handleOpenModal');
     setOpenModal(true);
   };
 
   const handleToggleDetails = () => {
-    console.log('handleToggleDetails');
     setShowDetails(!showDetails);
   };
 

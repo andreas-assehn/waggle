@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { User, Swiped } from '../../../globalUtils/Types';
 import {
   motion,
@@ -13,8 +13,7 @@ import { RootState } from '../app/store';
 import DogCard from './DogCard';
 import apiChatService from '../utils/services/apiChatService';
 import MatchModal from './MatchModal';
-import { login, updateSwipes } from '../app/userAuthSlice';
-import { shiftUnSwipedUsers } from '../app/unSwipedUsersSlice';
+import { updateSwipes } from '../app/userAuthSlice';
 
 function SwipeCard({ user }: { user: User }) {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -24,10 +23,6 @@ function SwipeCard({ user }: { user: User }) {
 
   const dispatch = useDispatch();
   const animControls = useAnimation();
-
-  useEffect(() => {
-    console.log('match Modal changed', matchModal);
-  }, [matchModal]);
 
   const updateUser = async (swipedData: Swiped, swipe: string) => {
     const res = await apiUserService
