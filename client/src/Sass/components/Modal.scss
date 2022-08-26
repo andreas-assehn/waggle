@@ -28,6 +28,13 @@
   justify-content: center;
   border-radius: 15px;
   padding: 20px;
+  &--burger {
+    width: 40%;
+    padding: 2.5%;
+    position: absolute;
+    top: 8%;
+    right: 12%;
+  }
 }
 
 .titleCloseBtn {

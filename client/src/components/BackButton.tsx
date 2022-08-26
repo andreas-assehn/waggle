@@ -6,11 +6,9 @@ function BackButton() {
   const navigate = useNavigate();
 
   return (
-    <>
-      <button className='--transparent'>
-        <img src={backButton} onClick={() => navigate(-1)} />
-      </button>
-    </>
+    <button className='--transparent'>
+      <img src={backButton} onClick={() => navigate(-1)} />
+    </button>
   );
 }
 
