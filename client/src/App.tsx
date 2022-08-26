@@ -1,22 +1,9 @@
 import React, { useEffect } from 'react';
 import './Css/components/App.css';
 import { Routes, Route } from 'react-router-dom';
-import SplashScreen from './pages/SplashScreen';
-import MatchingView from './pages/MatchingView';
-import ChatDashboard from './pages/ChatDashboard';
-import Chat from './pages/Chat';
-import EventsDashboard from './pages/EventsDashboard';
-import EventDetails from './pages/EventDetails';
-import AddEventForm from './pages/AddEventForm';
-import EditEventForm from './pages/EditEventForm';
-import SettingsView from './pages/SettingsView';
-import EditProfile from './pages/EditProfile';
-import UserProfile from './pages/UserProfile';
 import { auth, methods } from './utils/auth/firebase';
 import { useDispatch } from 'react-redux';
 import { login, logout } from './app/userAuthSlice';
-import Login from './pages/Login';
-import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import apiUserService from './utils/services/apiUserService';
 import { RootState } from './app/store';
@@ -27,6 +14,22 @@ import LoginRegister from './pages/LoginRegister';
 import HeaderBar from './components/HeaderBar';
 import { setUnSwipedUsersState } from './app/unSwipedUsersSlice';
 import { setMatchedUsersState } from './app/matchedUsersSlice';
+import {
+  SplashScreen,
+  MatchingView,
+  ChatDashboard,
+  Chat,
+  EventsDashboard,
+  EventDetails,
+  AddEventForm,
+  EditEventForm,
+  SettingsView,
+  EditProfile,
+  UserProfile,
+  Login,
+  Register,
+  MatchingViewDetail,
+} from './pages/index';
 
 function App() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
@@ -44,32 +47,33 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (userAuth) {
-      apiUserService
-        .getUnSwipedUsers(userAuth.userId)
-        .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
-        .catch((err) => console.error(err));
-    }
+    const setUnswippedUsers = () => {
+      if (userAuth) {
+        apiUserService
+          .getUnSwipedUsers(userAuth.userId)
+          .then((allUsers) => dispatch(setUnSwipedUsersState(allUsers)))
+          .catch((err) => console.error(err));
+      }
+    };
+    setUnswippedUsers();
   }, [userAuth?.userId]);
 
   useEffect(() => {
-    if (userAuth) {
-      apiUserService
-        .getMatchedUsers(userAuth.userId)
-        .then((allUsers) => dispatch(setMatchedUsersState(allUsers)))
-        .catch((err) => console.error(err));
-    }
-  }, [userAuth]);
-
-  useEffect(() => {
-    if (userAuth) {
-      apiEventService
-        .getAllEvents(userAuth.userId)
-        .then((allEvents) => dispatch(setAllEventsState(allEvents)))
-        .catch((err) => console.error(err));
-    } else {
-      dispatch(clearAllEventsState());
-    }
+    const setMatchedUsersAndEvents = () => {
+      if (userAuth) {
+        apiUserService
+          .getMatchedUsers(userAuth.userId)
+          .then((allUsers) => dispatch(setMatchedUsersState(allUsers)))
+          .catch((err) => console.error(err));
+        apiEventService
+          .getAllEvents(userAuth.userId)
+          .then((allEvents) => dispatch(setAllEventsState(allEvents)))
+          .catch((err) => console.error(err));
+      } else {
+        dispatch(clearAllEventsState());
+      }
+    };
+    setMatchedUsersAndEvents();
   }, [userAuth]);
 
   return (

@@ -34,7 +34,7 @@ export default function EventCard({ event, attending }: Props) {
         {event.images![0] && (
           <img
             src={event.images![0]}
-            alt='event image'
+            alt={`event image for ${event.briefDescription} added by organizer`}
             className='event-card__image'
           />
         )}
