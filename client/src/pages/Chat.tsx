@@ -17,7 +17,6 @@ const socket = io('http://localhost:4000');
 
 function Chat() {
   const { userAuth } = useAppSelector((state: RootState) => state.userAuth);
-  const { chatName } = useAppSelector((state: RootState) => state.chatName);
 
   const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');

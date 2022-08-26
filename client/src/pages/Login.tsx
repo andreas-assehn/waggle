@@ -35,7 +35,6 @@ function Login() {
     await methods
       .signInWithEmailAndPassword(auth, email, password)
       .then(async (cred) => {
-        // access token is not yet sent to slice
         const res = await apiUserService.getUser(cred.user.uid);
         dispatch(login(res));
       })
@@ -48,7 +47,6 @@ function Login() {
     await methods
       .signInWithPopup(auth, methods.googleProvider)
       .then(async (cred) => {
-        // access token is not yet sent to slice
         const res = await apiUserService.getUser(cred.user.uid);
         dispatch(login(res));
       })

@@ -3,8 +3,6 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
-// import { users, matches } from './utils/mock-data/dataUser';
-// import { events } from './utils/mock-data/dataEvent';
 import { users, events, chats } from './utils/mock-data/videoData';
 
 import userModel from './models/userModel';

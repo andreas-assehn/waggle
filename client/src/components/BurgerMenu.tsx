@@ -26,7 +26,6 @@ function BurgerMenu() {
       });
   };
 
-  // Add aria in the future! chrome vox to test blind user experience
   return (
     <>
       <button onClick={handleShowModal} className='--transparent'>

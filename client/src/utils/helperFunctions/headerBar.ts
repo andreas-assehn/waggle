@@ -3,7 +3,7 @@ export const pageTitle = (path: string) => {
   if (path === '/matchingView') return 'Waggles';
   if (path.includes('/matchingViewDetail')) return 'Waggles';
   if (path === '/chatDashboard') return 'Matches';
-  if (path.includes('/chat')) return 'Chat'; // Get user from somewhere!
+  if (path.includes('/chat')) return 'Chat';
   if (path === '/eventsDashboard') return 'Events';
   if (path.includes('/eventDetails')) return 'Events';
   if (path === '/addEventForm') return 'Add Event';
