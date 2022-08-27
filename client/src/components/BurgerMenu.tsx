@@ -4,7 +4,6 @@ import { auth, methods } from '../utils/auth/firebase';
 import { logout } from '../app/userAuthSlice';
 import { useDispatch } from 'react-redux';
 import burgerMenuIcon from '../assets/burgerMenu.svg';
-import '../Css/components/BurgerMenu.css';
 
 function BurgerMenu() {
   const navigate = useNavigate();

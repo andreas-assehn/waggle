@@ -28,7 +28,6 @@ import {
   UserProfile,
   Login,
   Register,
-  MatchingViewDetail,
 } from './pages/index';
 
 function App() {
