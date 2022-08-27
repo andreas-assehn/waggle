@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+.events-dashboard {
+  margin: $page-margin $page-margin 0;
+  &__add-events {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 8.5vh;
+    width: 95vw;
+  }
+  &__add-events-padding {
+    height: 45px;
+  }
+  &__attending {
+    background-color: $dark-blue-contrast;
+    margin: 1vh 1vw;
+    padding: 0.5vh 0.5vw;
+    border-radius: 6px;
+    &__title {
+      margin: 0 1.5vw;
+      color: $text-white;
+    }
+  }
+}
+
+.error-message {
+  width: 70vw;
+  display: block;
+  margin: 30vh auto;
+  &__text {
+    text-align: center;
+  }
+}

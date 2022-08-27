@@ -1,0 +1,40 @@
+@use '../abstracts/fonts' as *;
+
+@mixin login-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 6vw;
+
+  &__title {
+    font-family: $title-font;
+    margin-bottom: 2vh;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & fieldset {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      align-items: center;
+      border: none;
+    }
+    & label {
+      width: 20vw;
+      min-width: 70px;
+    }
+  }
+
+  &__link {
+    margin: 0 4px;
+  }
+
+  &__redirect {
+    margin-top: 2vh;
+  }
+}

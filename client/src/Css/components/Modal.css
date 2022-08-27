@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.modalBackground {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.452);
+  z-index: 1;
+}
+.modalBackground--inverted {
+  background-color: rgba(0, 0, 0, 0.452);
+}
+
+.modalContainer {
+  color: #ffffff;
+  background-color: #313742;
+  width: 70%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 20px;
+}
+.modalContainer--burger {
+  width: 40%;
+  padding: 2.5%;
+  position: absolute;
+  top: 8%;
+  right: 12%;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+.modalCheckbox__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalBody__img {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.--narrow {
+  width: 40%;
+}
+
+.modalTitle {
+  font-family: "Satisfy", cursive;
+}
+
+.modalBody__msg {
+  font-family: "Nunito", sans-serif;
+}
+
+.carousel.carousel-slider img {
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detailsModalContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em;
+  margin: 5vw;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.detailsModalContainer__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.pictureModal ul {
+  display: block;
+}

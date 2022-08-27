@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+.headerBar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+
+  &__title {
+    align-self: center;
+  }
+
+  &__spacing {
+    width: 16vw;
+  }
+}
+
+.headerBar-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: $main-dark-grey;
+  color: $background-white;
+  height: $header-height;
+}
+
+.headerBar-btn {
+  height: 8vh * 0.7;
+}

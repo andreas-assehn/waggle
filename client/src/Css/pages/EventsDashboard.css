@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.events-dashboard {
+  margin: 15px 15px 0;
+}
+.events-dashboard__add-events {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 8.5vh;
+  width: 95vw;
+}
+.events-dashboard__add-events-padding {
+  height: 45px;
+}
+.events-dashboard__attending {
+  background-color: #0e344c;
+  margin: 1vh 1vw;
+  padding: 0.5vh 0.5vw;
+  border-radius: 6px;
+}
+.events-dashboard__attending__title {
+  margin: 0 1.5vw;
+  color: #ffffff;
+}
+
+.error-message {
+  width: 70vw;
+  display: block;
+  margin: 30vh auto;
+}
+.error-message__text {
+  text-align: center;
+}

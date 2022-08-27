@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+ul {
+  display: flex;
+}
+
+.no-matches {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  flex-wrap: wrap;
+  margin: 30vh auto;
+  text-align: center;
+
+  &__title {
+    font-family: $title-font;
+    align-self: center;
+    flex-wrap: wrap;
+  }
+}

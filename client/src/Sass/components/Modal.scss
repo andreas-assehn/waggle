@@ -1,0 +1,141 @@
+@use '../abstracts' as *;
+
+.modalBackground {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $translucent-white;
+  z-index: 1;
+  &--inverted {
+    background-color: $translucent-black;
+  }
+}
+
+.modalContainer {
+  color: $text-white;
+  background-color: $main-dark-grey;
+  width: 70%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 20px;
+  &--burger {
+    width: 40%;
+    padding: 2.5%;
+    position: absolute;
+    top: 8%;
+    right: 12%;
+  }
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  &--details {
+  }
+}
+
+.modalCheckbox__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalBody__img {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.--narrow {
+  width: 40%;
+}
+
+.modalTitle {
+  font-family: $title-font;
+}
+
+.modalBody__msg {
+  font-family: $body-font;
+}
+
+.carousel.carousel-slider img {
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: $background-white;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detailsModalContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em;
+  margin: 5vw;
+  border-radius: 10px;
+  background-color: $background-white;
+  &__topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.pictureModal {
+  & ul {
+    display: block;
+  }
+}

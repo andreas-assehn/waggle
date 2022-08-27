@@ -1,0 +1,158 @@
+@use '../abstracts' as *;
+
+h1 {
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: $header-large-size;
+  &.headerBar__title {
+    font-family: $title-font;
+    font-size: $title-size;
+    text-align: center;
+    margin-left: 5px;
+  }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+h2 {
+  font-size: $header-large-size;
+  margin: 10px 0;
+}
+h3 {
+  font-size: $header-medium-size;
+}
+h4 {
+  font-size: $header-small-size;
+}
+
+p {
+  font-family: $body-font;
+  font-size: $p-size;
+  font-weight: 500;
+  margin: 4px 0;
+
+  &.--small {
+    font-size: $p-small-size;
+    margin: 0;
+  }
+
+  &.--error-message {
+    text-align: center;
+    background-color: $pop-color;
+    color: $text-white;
+  }
+}
+
+button {
+  background-color: $button-blue;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 15px;
+  margin: 0.5vh 1vw;
+  border: 2px $button-blue solid;
+  font-family: $body-font;
+  color: $text-white;
+  font-size: $p-size;
+  width: fit-content;
+
+  &.--disabled {
+    border: 2px $button-disabled solid;
+    background-color: $button-disabled;
+    pointer-events: none;
+  }
+
+  &.--pop {
+    background-color: $pop-color;
+    border: 2px $pop-color solid;
+  }
+  &.--dark {
+    background-color: $main-dark-grey;
+    border: 2px $main-dark-grey solid;
+  }
+
+  &.--round {
+    display: flex;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    padding: 0;
+    font-size: 5.5vw;
+  }
+
+  &.--fixed-width {
+    width: 60vw;
+  }
+
+  &.--transparent {
+    background-color: transparent;
+    border: none;
+  }
+
+  &:active {
+    background-color: transparent;
+    border: 2px $button-blue solid;
+    color: $button-blue;
+    &.--disabled {
+      border: 2px $button-disabled solid;
+      background-color: $button-disabled;
+      color: $text-white;
+    }
+    &.--pop {
+      border: 2px $pop-color solid;
+      color: $pop-color;
+    }
+    &.--dark {
+      border: 2px $main-dark-grey solid;
+      color: $main-dark-grey;
+    }
+    &.--transparent {
+      background-color: rgba(255, 255, 255, 0.3);
+      border: none;
+    }
+  }
+}
+
+input {
+  background-color: $background-light-grey;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: $p-size;
+  font-family: $body-font;
+  font-weight: 500;
+  color: $text-dark-grey;
+  margin: 0.3vh 1.5vw;
+  width: 50vw;
+
+  &.--white {
+    background-color: $background-white;
+  }
+
+  &[type='submit'] {
+    @extend button;
+  }
+
+  &::placeholder {
+    color: $text-dark-grey;
+  }
+}
+
+select {
+  @extend input;
+}
+
+.navbar-padding {
+  height: $navbar-height;
+}
+.header-padding {
+  height: $header-height;
+}

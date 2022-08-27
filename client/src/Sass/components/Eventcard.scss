@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+.event-card {
+  display: flex;
+  align-items: center;
+  padding: 1vw 2vw;
+  margin: 2vw;
+  background-color: $background-white;
+  border-radius: 6px;
+  color: $text-dark-grey;
+  &--not-attending {
+    box-shadow: 0 0 8px #797979;
+  }
+  &__text {
+    &__name {
+      margin: 0 0 2px;
+    }
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__image {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 6px;
+    object-fit: cover;
+    margin: 0.5vh 1vw;
+  }
+  &__more-info {
+    width: 20vw;
+    font-size: $p-small-size;
+  }
+}

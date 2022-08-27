@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  max-height: 74vh;
+  overflow-y: auto;
+}
+.chat-body__padding {
+  height: 24vh;
+}
+
+.chat-footer {
+  background-color: #fff;
+  position: fixed;
+  bottom: 7.5vh;
+  width: 100vw;
+  display: flex;
+  padding: 0.5rem 0;
+  height: 6vh;
+  justify-content: center;
+}
+.chat-footer__input {
+  width: 85vw;
+}
+.chat-footer__button {
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
+}
+.chat-footer__button:active {
+  background-color: aqua;
+}
+.chat-footer__send-icon {
+  width: 9vw;
+  height: 9vw;
+  margin: 0;
+  padding: 0;
+}
+
+.received {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  background-color: #e46472;
+  color: #ffffff;
+  width: auto;
+  max-width: 60vw;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  border-radius: 10px 10px 10px 0;
+}
+.received__timestamp {
+  font-size: 0.8rem;
+  margin: 0 1rem;
+}
+.received__message {
+  margin: 0;
+}
+
+.sent {
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  background-color: #009b9b;
+  color: #ffffff;
+  width: auto;
+  max-width: 60vw;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  border-radius: 10px 10px 0 10px;
+}
+.sent__timestamp {
+  font-size: 0.8rem;
+  margin: 0 1rem;
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+.sent__message {
+  margin: 0;
+}

@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+h1 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+h1.headerBar__title {
+  font-family: "Satisfy", cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 5px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin: 10px 0;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 4px 0;
+}
+p.--small {
+  font-size: 0.8rem;
+  margin: 0;
+}
+p.--error-message {
+  text-align: center;
+  background-color: #e46472;
+  color: #ffffff;
+}
+
+button, input[type=submit], select[type=submit] {
+  background-color: #009b9b;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 15px;
+  margin: 0.5vh 1vw;
+  border: 2px #009b9b solid;
+  font-family: "Nunito", sans-serif;
+  color: #ffffff;
+  font-size: 1rem;
+  width: fit-content;
+}
+button.--disabled, input.--disabled[type=submit], select.--disabled[type=submit] {
+  border: 2px #bfbfbf solid;
+  background-color: #bfbfbf;
+  pointer-events: none;
+}
+button.--pop, input.--pop[type=submit], select.--pop[type=submit] {
+  background-color: #e46472;
+  border: 2px #e46472 solid;
+}
+button.--dark, input.--dark[type=submit], select.--dark[type=submit] {
+  background-color: #313742;
+  border: 2px #313742 solid;
+}
+button.--round, input.--round[type=submit], select.--round[type=submit] {
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  padding: 0;
+  font-size: 5.5vw;
+}
+button.--fixed-width, input.--fixed-width[type=submit], select.--fixed-width[type=submit] {
+  width: 60vw;
+}
+button.--transparent, input.--transparent[type=submit], select.--transparent[type=submit] {
+  background-color: transparent;
+  border: none;
+}
+button:active, input[type=submit]:active, select[type=submit]:active {
+  background-color: transparent;
+  border: 2px #009b9b solid;
+  color: #009b9b;
+}
+button:active.--disabled, input[type=submit]:active.--disabled, select[type=submit]:active.--disabled {
+  border: 2px #bfbfbf solid;
+  background-color: #bfbfbf;
+  color: #ffffff;
+}
+button:active.--pop, input[type=submit]:active.--pop, select[type=submit]:active.--pop {
+  border: 2px #e46472 solid;
+  color: #e46472;
+}
+button:active.--dark, input[type=submit]:active.--dark, select[type=submit]:active.--dark {
+  border: 2px #313742 solid;
+  color: #313742;
+}
+button:active.--transparent, input[type=submit]:active.--transparent, select[type=submit]:active.--transparent {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+}
+
+input, select {
+  background-color: #e2e2e2;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  color: #313742;
+  margin: 0.3vh 1.5vw;
+  width: 50vw;
+}
+input.--white, select.--white {
+  background-color: #fff;
+}
+input::placeholder, select::placeholder {
+  color: #313742;
+}
+
+.navbar-padding {
+  height: 8vh;
+}
+
+.header-padding {
+  height: 9vh;
+}

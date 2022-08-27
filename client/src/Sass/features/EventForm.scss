@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  box-sizing: border-box;
+  margin-inline: 15px;
+
+  &__input {
+    width: 85vw;
+    margin-block: 1vh;
+  }
+
+  & .event-form__autocomplete {
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    width: auto;
+    margin: 1vh 0;
+  }
+}
+
+h2 {
+  &.event-form__title {
+    display: flex;
+    justify-content: center;
+    margin-block-start: 1vh;
+  }
+}

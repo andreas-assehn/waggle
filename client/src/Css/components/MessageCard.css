@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.message-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: #313742;
+  margin: 0 15px;
+}
+.message-card p {
+  margin-block: 0;
+  padding-left: 10px;
+}
+
+.message-card__tripledot {
+  margin: 0;
+  padding: 0;
+}
+
+.message-card__background {
+  background-color: #fff;
+  box-shadow: 0 0 8px #797979;
+  width: 100%;
+  border-radius: 10px;
+  margin-block: 5px;
+}
+
+.message-card__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-card__picture-container {
+  display: flex;
+  padding-inline-start: 10px;
+  padding-block: 10px;
+}
+
+.message-card__picture {
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.message-card__text {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  justify-content: center;
+}
+
+.message-card__additional-info {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 80px;
+  align-items: flex-end;
+}
+.message-card__additional-info p {
+  margin-inline-end: 8px;
+  font-size: small;
+}
+
+.message-card__read-unread {
+  height: 21px;
+}
+
+.message-card__link {
+  display: flex;
+  flex-direction: row;
+  color: #313742;
+  text-decoration: none;
+}

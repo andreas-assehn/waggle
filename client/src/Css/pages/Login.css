@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 6vw;
+}
+.login__title {
+  font-family: "Satisfy", cursive;
+  margin-bottom: 2vh;
+}
+.login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login__form fieldset {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  border: none;
+}
+.login__form label {
+  width: 20vw;
+  min-width: 70px;
+}
+.login__link {
+  margin: 0 4px;
+}
+.login__redirect {
+  margin-top: 2vh;
+}
+.login fieldset #password,
+.login fieldset #password-label {
+  margin-bottom: 2vh;
+}

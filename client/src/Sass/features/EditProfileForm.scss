@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px 10px 15px;
+  overflow-y: scroll;
+  overflow-x: unset;
+
+  &.--centered {
+    display: flex;
+    align-content: center;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block: 12px;
+    margin-block-start: 1vh;
+  }
+
+  &__input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 8px 0;
+
+    &__label {
+      margin: 0 1.5vw;
+      color: $text-dark-grey;
+      width: 20vw;
+    }
+
+    &__input {
+      width: 60vw;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.edit-form-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1vh;
+}

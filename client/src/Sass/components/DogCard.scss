@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+.dogcard {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+
+  &__profile-image {
+    width: 90vw;
+    height: 80vw;
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: cover;
+    margin: 5vw 5vw 0 5vw;
+    display: block;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 8px $box-shadow-grey;
+  }
+
+  &__details-container {
+    padding: 1em 0.5em;
+    margin: auto 5vw;
+    border-radius: 0 0 10px 10px;
+    background-color: $background-white;
+    box-shadow: 0 0 8px $box-shadow-grey;
+  }
+
+  &__headline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__headline-text {
+    &__dog {
+      margin: 0 12px;
+    }
+    & p {
+      margin: 0;
+    }
+  }
+
+  &__owner-details {
+    display: flex;
+    margin: 0;
+    &__text {
+      margin: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      & p {
+        margin: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  &__owner-image {
+    width: 13vw;
+    height: 13vw;
+    object-fit: cover;
+    border-radius: 8vw;
+    display: inline-block;
+  }
+  &__key-facts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+
+    &__key-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 15vw;
+      width: 25vw;
+      background-color: $button-blue;
+      border-radius: 10px;
+      color: $text-white;
+
+      & p {
+        margin: 0;
+      }
+    }
+  }
+
+  &__brief-description {
+    font-style: italic;
+    margin: 7px 0 4px 12px;
+  }
+
+  &__swipe-bar {
+    display: flex;
+    width: 80vw;
+    justify-content: space-evenly;
+    background-color: $background-white;
+    margin: 0.5rem auto 0;
+    color: $text-dark-grey;
+    border-radius: 3rem;
+  }
+
+  &__details-button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.pop-color {
+  color: $text-white;
+}
+.pop-color-button {
+  color: $background-light-grey;
+  font-size: 1rem;
+  border: none;
+  margin: 0;
+  background-color: $button-blue;
+}

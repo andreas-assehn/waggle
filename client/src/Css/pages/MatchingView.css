@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+ul {
+  display: flex;
+}
+
+.no-matches {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  flex-wrap: wrap;
+  margin: 30vh auto;
+  text-align: center;
+}
+.no-matches__title {
+  font-family: "Satisfy", cursive;
+  align-self: center;
+  flex-wrap: wrap;
+}

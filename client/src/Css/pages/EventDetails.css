@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.event-details__images {
+  width: 100vw;
+}
+.event-details__details-container {
+  padding: 0 15px;
+}
+.event-details__details-container__headlines {
+  background-color: #0e344c;
+  border-radius: 6px;
+  padding: 0 10px 5px;
+  margin: 15px 0 10px;
+  color: #ffffff;
+}
+.event-details__details-container__headlines__attending {
+  width: 100%;
+  text-align: center;
+  background-color: #e46472;
+  color: #ffffff;
+  border-radius: 6px;
+}
+.event-details__details-container__headlines__not-attending {
+  width: 100%;
+  text-align: center;
+  background-color: #e2e2e2;
+  color: #313742;
+  border-radius: 6px;
+}
+.event-details__details-container__headlines h2 {
+  margin-bottom: 3px;
+}
+.event-details__location {
+  display: flex;
+  align-items: center;
+}
+.event-details__button-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.event-details__distance {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px 10px 15px;
+  overflow-y: scroll;
+  overflow-x: unset;
+}
+.profile-form.--centered {
+  display: flex;
+  align-content: center;
+}
+.profile-form__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-block: 12px;
+  margin-block-start: 1vh;
+}
+.profile-form__input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 8px 0;
+}
+.profile-form__input-row__label {
+  margin: 0 1.5vw;
+  color: #313742;
+  width: 20vw;
+}
+.profile-form__input-row__input {
+  width: 60vw;
+  box-sizing: border-box;
+}
+
+.edit-form-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1vh;
+}

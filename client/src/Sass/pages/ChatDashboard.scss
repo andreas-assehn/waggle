@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+.chatDashboard {
+  &__no-messages {
+    margin: 10px 0 0 25px;
+  }
+}

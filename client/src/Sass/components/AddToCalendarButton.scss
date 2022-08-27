@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.atcb {
+  width: 50vw;
+
+  &-list {
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 0;
+    position: fixed;
+    bottom: $navbar-height;
+    background-color: $background-white;
+    box-shadow: 0 -4px 4px $background-white;
+  }
+  &-text {
+    width: 5vw;
+    font-size: $p-small-size;
+    display: none;
+  }
+  &-icon {
+    width: 10vw;
+    & svg {
+      width: 8vw;
+      height: 8vw;
+      object-fit: cover;
+    }
+    &-close {
+      width: 4vw;
+      max-height: 4vw;
+      object-fit: cover;
+    }
+  }
+  &-click {
+    margin-top: -8vh;
+    max-height: 110px;
+  }
+}

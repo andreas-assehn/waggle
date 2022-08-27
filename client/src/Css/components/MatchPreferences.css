@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.matchPreferencesBackground {
+  background-color: #e2e2e2;
+  width: 100%;
+  height: 24vh;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-block: 15px;
+  margin-block: 5px;
+}
+
+.matchPreferencesText {
+  padding-inline: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  padding-block: 5px;
+}
+
+.matchPreferencesTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.matchPreferencesTitle h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+}
+
+.matchPreferencesTitle__title {
+  margin-inline: 0;
+}
+
+.customSlider {
+  /* max width of your slider */
+  max-width: 300px;
+  min-width: 200px;
+  /* Optional: Only If you want to center your slider in the page */
+  margin: auto;
+}
+
+.customSlider-track {
+  /* Top value to align your track to the center of your thumb */
+  top: 8px;
+  /* thickness of the track */
+  height: 4px;
+  /* default color of your track */
+  background: #313742;
+}
+
+.customSlider-track.customSlider-track-0 {
+  /* color of the track before the thumb */
+  background: #009b9b;
+}
+
+.customSlider-thumb {
+  cursor: pointer;
+  /*color for the thumb */
+  background: #e46472;
+  /* shape of the thumb: circle */
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  /* remove default outline when selected */
+  outline: none;
+}
+
+.customSlider-thumb:hover {
+  box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.452);
+}

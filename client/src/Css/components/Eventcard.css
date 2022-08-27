@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.event-card {
+  display: flex;
+  align-items: center;
+  padding: 1vw 2vw;
+  margin: 2vw;
+  background-color: #fff;
+  border-radius: 6px;
+  color: #313742;
+}
+.event-card--not-attending {
+  box-shadow: 0 0 8px #797979;
+}
+.event-card__text__name {
+  margin: 0 0 2px;
+}
+.event-card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.event-card__image {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 6px;
+  object-fit: cover;
+  margin: 0.5vh 1vw;
+}
+.event-card__more-info {
+  width: 20vw;
+  font-size: 0.8rem;
+}

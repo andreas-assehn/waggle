@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.user-profile {
+  position: relative;
+  width: 100vw;
+  height: 81vh;
+  background-size: cover;
+  background-position: center;
+}
+.user-profile__profile-image {
+  box-shadow: 0 0 8px #797979;
+  width: 91.9vw;
+  height: 80vw;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px 10px 0 0;
+  margin: 15px 15px 0;
+}
+.user-profile__details-container {
+  margin: 0 15px;
+  box-shadow: 0 0 8px #797979;
+  padding: 1em 0.5em;
+  border-radius: 0 0 10px 10px;
+  background-color: #fff;
+}
+.user-profile__headline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.user-profile__headline-text__dog {
+  margin: 0 0 0 3vw;
+}
+.user-profile__headline-text p {
+  margin: 0;
+}
+.user-profile__owner-details {
+  display: flex;
+  margin: 0;
+}
+.user-profile__owner-details__text {
+  margin: 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-profile__owner-details__text p {
+  margin: 0;
+  text-align: right;
+}
+.user-profile__owner-image {
+  width: 13vw;
+  height: 13vw;
+  object-fit: cover;
+  border-radius: 8vw;
+  display: inline-block;
+}
+.user-profile__key-facts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.user-profile__key-facts__key-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 15vw;
+  width: 25vw;
+  background-color: #009b9b;
+  border-radius: 10px;
+  color: #ffffff;
+}
+.user-profile__key-facts__key-detail p {
+  margin: 0;
+}
+.user-profile__brief-description {
+  font-style: italic;
+  margin: 8px 15px 0;
+}
+.user-profile__edit-button {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+}
+.user-profile__details-button {
+  display: block;
+  margin: 0 auto;
+}
+
+.pop-color {
+  color: #ffffff;
+}
+
+.pop-color-button {
+  color: #e2e2e2;
+  font-size: 1rem;
+  border: none;
+  margin: 0;
+  background-color: #009b9b;
+}
