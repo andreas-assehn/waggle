@@ -11,7 +11,6 @@ import EditProfile from './EditProfile';
 import UserProfile from './UserProfile';
 import Login from './Login';
 import Register from './Register';
-import MatchingViewDetail from './MatchingViewDetail';
 
 export {
   SplashScreen,
@@ -27,5 +26,4 @@ export {
   UserProfile,
   Login,
   Register,
-  MatchingViewDetail,
 };
