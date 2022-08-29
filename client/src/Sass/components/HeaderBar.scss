@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.headerBar {
+.header-bar {
   position: fixed;
   top: 0;
   width: 100vw;
@@ -13,16 +13,12 @@
   &__spacing {
     width: 16vw;
   }
-}
 
-.headerBar-container {
-  display: flex;
-  justify-content: space-between;
-  background-color: $main-dark-grey;
-  color: $background-white;
-  height: $header-height;
-}
-
-.headerBar-btn {
-  height: 8vh * 0.7;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    background-color: $main-dark-grey;
+    color: $background-white;
+    height: $header-height;
+  }
 }

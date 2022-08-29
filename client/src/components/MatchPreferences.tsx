@@ -43,19 +43,19 @@ function MatchPreferences() {
   };
 
   return (
-    <div className='matchPreferencesBackground'>
-      <div className='matchPreferencesTitle'>
-        <h2 className='matchPreferencesTitle__title'>Match preferences</h2>
+    <div className='match-preferences'>
+      <div className='match-preferences__title'>
+        <h2>Match preferences</h2>
       </div>
-      <div className='matchPreferencesText'>
+      <div className='match-preferences__text'>
         <span>
           Max distance: {distanceInKm === 16 ? 15 + '+' : distanceInKm} km
         </span>
       </div>
       <ReactSlider
-        className='customSlider'
-        trackClassName='customSlider-track'
-        thumbClassName='customSlider-thumb'
+        className='custom-slider'
+        trackClassName='custom-slider__track'
+        thumbClassName='custom-slider__thumb'
         min={1}
         max={16}
         defaultValue={5}

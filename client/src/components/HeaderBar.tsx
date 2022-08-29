@@ -22,14 +22,14 @@ function HeaderBar({ name }: { name?: string }) {
   return showHeaderBar ? (
     <>
       <div className='header-padding' />
-      <div className='headerBar'>
-        <div className='headerBar-container'>
+      <div className='header-bar'>
+        <div className='header-bar__container'>
           {showBackButton ? (
             <BackButton />
           ) : (
-            <div className='headerBar__spacing'></div>
+            <div className='header-bar__spacing'></div>
           )}
-          <h1 className='headerBar__title'>
+          <h1 className='header-bar__title'>
             {pageTitle(url) === 'Chat' ? chatName : pageTitle(url)}
           </h1>
           <BurgerMenu />

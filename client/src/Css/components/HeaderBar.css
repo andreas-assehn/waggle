@@ -1,25 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
-.headerBar {
+.header-bar {
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 1;
 }
-.headerBar__title {
+.header-bar__title {
   align-self: center;
 }
-.headerBar__spacing {
+.header-bar__spacing {
   width: 16vw;
 }
-
-.headerBar-container {
+.header-bar__container {
   display: flex;
   justify-content: space-between;
   background-color: #313742;
   color: #fff;
   height: 9vh;
-}
-
-.headerBar-btn {
-  height: 5.6vh;
 }
