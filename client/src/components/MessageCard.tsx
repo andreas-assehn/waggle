@@ -34,7 +34,6 @@ export default function MessageCard({
     <div className='message-card'>
       <div className='message-card__background'>
         <div className='message-card__content'>
-          {/* TO-DO: Need to pass param here to view the right chat  */}
           <Link
             className='message-card__link'
             to={`/chat/${roomId}`}
