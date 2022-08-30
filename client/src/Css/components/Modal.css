@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
-.modalBackground {
+.modal {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -12,11 +12,10 @@
   background-color: rgba(255, 255, 255, 0.452);
   z-index: 1;
 }
-.modalBackground--inverted {
+.modal--inverted {
   background-color: rgba(0, 0, 0, 0.452);
 }
-
-.modalContainer {
+.modal__container {
   color: #ffffff;
   background-color: #313742;
   width: 70%;
@@ -28,47 +27,53 @@
   border-radius: 15px;
   padding: 20px;
 }
-.modalContainer--burger {
+.modal__container--burger {
   width: 40%;
   padding: 2.5%;
   position: absolute;
   top: 8%;
   right: 12%;
 }
-
-.titleCloseBtn {
+.modal__container--narrow {
+  width: 40%;
+}
+.modal__title-close-btn {
   display: flex;
   justify-content: flex-end;
   align-self: flex-end;
 }
-.modalCheckbox__form {
+.modal__body {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-
-.modalBody__img {
+.modal__body__img {
   height: 100px;
   width: 100px;
   border-radius: 15px;
   object-fit: cover;
 }
-
-.modalBody {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.modal__body__msg {
+  font-family: "Nunito", sans-serif;
 }
-
-.--narrow {
-  width: 40%;
-}
-
-.modalTitle {
+.modal__title {
   font-family: "Satisfy", cursive;
 }
-
-.modalBody__msg {
-  font-family: "Nunito", sans-serif;
+.modal__picture-carousel ul {
+  display: block;
+}
+.modal__details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em;
+  margin: 5vw;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.modal__details-container__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .carousel.carousel-slider img {
@@ -113,22 +118,4 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.detailsModalContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 1em 1em;
-  margin: 5vw;
-  border-radius: 10px;
-  background-color: #fff;
-}
-.detailsModalContainer__topline {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.pictureModal ul {
-  display: block;
 }

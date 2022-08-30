@@ -30,11 +30,11 @@ function MatchModal({
   };
 
   return (
-    <div className='modalBackground'>
-      <div className='modalContainer'>
-        <div className='titleCloseBtn'>
+    <div className='modal'>
+      <div className='modal__container'>
+        <div className='title-close-btn'>
           <button
-            className='titleCloseBtn__btn --round'
+            className='--round'
             onClick={() => {
               setMatchModal(false);
               setModalActive(false);
@@ -43,16 +43,16 @@ function MatchModal({
             &times;
           </button>
         </div>
-        <div className='modalTitle'>
+        <div className='modal__title'>
           <p>{title}</p>
         </div>
-        <div className='modalBody'>
+        <div className='modal__body'>
           <img
-            className='modalBody__img'
+            className='modal__body__img'
             src={user!.dog!.images![0]}
             alt='dog profile'
           ></img>
-          <p className='modalBody__msg'>
+          <p className='modal__body__msg'>
             {user!.dog!.name!}, {user!.dog!.age!}
           </p>
         </div>

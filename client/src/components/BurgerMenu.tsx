@@ -31,9 +31,9 @@ function BurgerMenu() {
         <img src={burgerMenuIcon} />
       </button>
       {showModal ? (
-        <div className='modalBackground'>
-          <div className='modalContainer modalContainer--burger'>
-            <div className='titleCloseBtn'>
+        <div className='modal'>
+          <div className='modal__container modal__container--burger'>
+            <div className='modal__title-close-btn'>
               <button
                 className='--round'
                 onClick={() => {
@@ -43,7 +43,7 @@ function BurgerMenu() {
                 &times;
               </button>
             </div>
-            <div className='modalBody'>
+            <div className='modal__body'>
               <button
                 onClick={() => {
                   navigate('/settingsView');

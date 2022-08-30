@@ -12,11 +12,11 @@ function MessageCardModal({
 }) {
   if (!openModal) return null;
   return (
-    <div className='modalBackground'>
-      <div className='modalContainer --narrow'>
-        <div className='titleCloseBtn'>
+    <div className='modal'>
+      <div className='modal__container modal__container--narrow'>
+        <div className='title-close-btn'>
           <button
-            className='titleCloseBtn__btn --round'
+            className='--round'
             onClick={() => {
               setOpenModal(false);
             }}
@@ -24,7 +24,7 @@ function MessageCardModal({
             &times;
           </button>
         </div>
-        <div className='modalBody'>
+        <div className='modal__body'>
           <button
             name='unmatch'
             className='modalFooter__unmatch-button --pop'

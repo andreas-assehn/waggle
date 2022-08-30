@@ -17,16 +17,16 @@ function DetailsModal({
 }) {
   if (!openDescriptionModal) return null;
   return user ? (
-    <div className='modalBackground modalBackground--inverted'>
+    <div className='modal modal--inverted'>
       <div className='detailsModalContainer'>
         <div className='detailsModalContainer__topline'>
           <h2 className='dogcard__headline-text__dog'>
             {user.dog?.name}
             {user.dog?.age && <>, {user.dog?.age}</>}{' '}
           </h2>
-          <div className='titleCloseBtn titleCloseBtn--details'>
+          <div className='title-close-btn'>
             <button
-              className='titleCloseBtn__btn --round'
+              className='--round'
               onClick={() => {
                 setOpenDescriptionModal(false);
                 setModalActive && setModalActive(false);

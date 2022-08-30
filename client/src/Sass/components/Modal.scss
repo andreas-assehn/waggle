@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.modalBackground {
+.modal {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -12,67 +12,81 @@
   height: 100vh;
   background-color: $translucent-white;
   z-index: 1;
+
   &--inverted {
     background-color: $translucent-black;
   }
-}
 
-.modalContainer {
-  color: $text-white;
-  background-color: $main-dark-grey;
-  width: 70%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15px;
-  padding: 20px;
-  &--burger {
-    width: 40%;
-    padding: 2.5%;
-    position: absolute;
-    top: 8%;
-    right: 12%;
+  &__container {
+    color: $text-white;
+    background-color: $main-dark-grey;
+    width: 70%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 20px;
+
+    &--burger {
+      width: 40%;
+      padding: 2.5%;
+      position: absolute;
+      top: 8%;
+      right: 12%;
+    }
+
+    &--narrow {
+      width: 40%;
+    }
   }
-}
 
-.titleCloseBtn {
-  display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
-  &--details {
+  &__title-close-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
   }
-}
 
-.modalCheckbox__form {
-  display: flex;
-  flex-direction: column;
-}
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.modalBody__img {
-  height: 100px;
-  width: 100px;
-  border-radius: 15px;
-  object-fit: cover;
-}
+    &__img {
+      height: 100px;
+      width: 100px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+    &__msg {
+      font-family: $body-font;
+    }
+  }
 
-.modalBody {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  &__title {
+    font-family: $title-font;
+  }
 
-.--narrow {
-  width: 40%;
-}
+  &__picture-carousel {
+    & ul {
+      display: block;
+    }
+  }
 
-.modalTitle {
-  font-family: $title-font;
-}
-
-.modalBody__msg {
-  font-family: $body-font;
+  &__details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1em;
+    margin: 5vw;
+    border-radius: 10px;
+    background-color: $background-white;
+    &__topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
 }
 
 .carousel.carousel-slider img {
@@ -118,24 +132,4 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.detailsModalContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 1em 1em;
-  margin: 5vw;
-  border-radius: 10px;
-  background-color: $background-white;
-  &__topline {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-}
-
-.pictureModal {
-  & ul {
-    display: block;
-  }
 }

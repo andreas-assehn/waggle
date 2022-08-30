@@ -14,10 +14,10 @@ function DeleteModal({
 }) {
   if (!openModal) return null;
   return (
-    <div className='modalBackground'>
-      <div className='modalContainer'>
-        <div className='modalBody'>
-          <p className='modalBody__msg'>{message}</p>
+    <div className='modal'>
+      <div className='modal__container'>
+        <div className='modal__body'>
+          <p className='modal__body__msg'>{message}</p>
         </div>
         <div className='modalFooter'>
           <button
