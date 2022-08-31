@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
-.chat-body {
+.chat__body {
   display: flex;
   flex-direction: column;
   max-height: 74vh;
   overflow-y: auto;
 }
-.chat-body__padding {
+.chat__body__padding {
   height: 24vh;
 }
-
-.chat-footer {
+.chat__footer {
   background-color: #fff;
   position: fixed;
   bottom: 7.5vh;
@@ -19,20 +18,20 @@
   height: 6vh;
   justify-content: center;
 }
-.chat-footer__input {
+.chat__footer__input {
   width: 85vw;
 }
-.chat-footer__button {
+.chat__footer__button {
   width: 10vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: none;
 }
-.chat-footer__button:active {
+.chat__footer__button:active {
   background-color: aqua;
 }
-.chat-footer__send-icon {
+.chat__footer__send-icon {
   width: 9vw;
   height: 9vw;
   margin: 0;

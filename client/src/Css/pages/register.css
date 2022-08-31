@@ -38,18 +38,18 @@
   margin-bottom: 2vh;
 }
 
-.cookieCheck {
+.cookie-check {
   width: 92%;
   display: flex;
   flex-direction: row;
   margin-bottom: 2vh;
 }
 
-.textBox {
+.text-box {
   width: 70%;
 }
 
-.checkBox {
+.checkbox {
   margin-left: 5%;
   display: flex;
   flex-direction: row;

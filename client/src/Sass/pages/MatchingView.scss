@@ -1,9 +1,5 @@
 @use '../abstracts' as *;
 
-ul {
-  display: flex;
-}
-
 .no-matches {
   display: flex;
   flex-direction: column;

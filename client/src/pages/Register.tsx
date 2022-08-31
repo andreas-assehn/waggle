@@ -159,15 +159,15 @@ function Register() {
           />
         </fieldset>
 
-        <div className='cookieCheck'>
-          <div className='textBox'>
+        <div className='cookie-check'>
+          <div className='text-box'>
             <p>
               This app uses cookies to provide a better user experience. By
               choosing to accept, you consent to ALL cookies necessary to
               provide an optimal user experience.
             </p>
           </div>
-          <div className='checkBox'>
+          <div className='checkbox'>
             <input
               type='checkbox'
               checked={checked}
@@ -176,7 +176,9 @@ function Register() {
             />
 
             <div className='accept'>
-              <span>Accept</span>
+              <span>
+                <p>Accept</p>
+              </span>
             </div>
           </div>
         </div>

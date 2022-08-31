@@ -1,43 +1,45 @@
 @use '../abstracts' as *;
 
-.chat-body {
-  display: flex;
-  flex-direction: column;
-  max-height: 74vh;
-  overflow-y: auto;
-  &__padding {
-    height: 24vh;
-  }
-}
-
-.chat-footer {
-  background-color: $background-white;
-  position: fixed;
-  bottom: 7.5vh;
-  width: 100vw;
-  display: flex;
-  padding: 0.5rem 0;
-  height: 6vh;
-  justify-content: center;
-
-  &__input {
-    width: 85vw;
-  }
-  &__button {
-    width: 10vw;
+.chat {
+  &__body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: none;
-    &:active {
-      background-color: aqua;
+    flex-direction: column;
+    max-height: 74vh;
+    overflow-y: auto;
+    &__padding {
+      height: 24vh;
     }
   }
-  &__send-icon {
-    width: 9vw;
-    height: 9vw;
-    margin: 0;
-    padding: 0;
+
+  &__footer {
+    background-color: $background-white;
+    position: fixed;
+    bottom: 7.5vh;
+    width: 100vw;
+    display: flex;
+    padding: 0.5rem 0;
+    height: 6vh;
+    justify-content: center;
+
+    &__input {
+      width: 85vw;
+    }
+    &__button {
+      width: 10vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: none;
+      &:active {
+        background-color: aqua;
+      }
+    }
+    &__send-icon {
+      width: 9vw;
+      height: 9vw;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
