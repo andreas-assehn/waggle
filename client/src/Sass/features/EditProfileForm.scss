@@ -8,11 +8,6 @@
   overflow-y: scroll;
   overflow-x: unset;
 
-  &.--centered {
-    display: flex;
-    align-content: center;
-  }
-
   &__button {
     display: flex;
     flex-direction: column;
@@ -42,9 +37,11 @@
   }
 }
 
-.edit-form-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 1vh;
+.edit-form {
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1vh;
+  }
 }

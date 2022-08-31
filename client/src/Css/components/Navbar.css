@@ -5,8 +5,7 @@
   width: 100vw;
   z-index: 100;
 }
-
-.btn-container {
+.navbar__btn-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,7 +14,6 @@
   height: 8vh;
   min-height: 60px;
 }
-
 .navbar__icon-background {
   padding-inline: 6px;
   padding-block: 6px;
@@ -23,12 +21,10 @@
   max-height: 34px;
   box-sizing: border-box;
 }
-
-.--current {
+.navbar--current {
   background-color: #e46472;
 }
-
-.nav-btn {
+.navbar__btn {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +33,7 @@
   cursor: none;
   color: #ffffff;
 }
-.nav-btn p {
+.navbar__btn__text {
   font-size: small;
   margin: 0;
   padding-top: 2px;

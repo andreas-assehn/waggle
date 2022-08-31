@@ -146,6 +146,12 @@ input {
   }
 }
 
+label {
+  font-family: $body-font;
+  font-size: $p-size;
+  font-weight: 500;
+}
+
 select {
   @extend input;
 }

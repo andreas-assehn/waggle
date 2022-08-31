@@ -133,6 +133,12 @@ input::placeholder, select::placeholder {
   color: #313742;
 }
 
+label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .navbar-padding {
   height: 8vh;
 }

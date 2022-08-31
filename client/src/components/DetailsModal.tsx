@@ -18,8 +18,8 @@ function DetailsModal({
   if (!openDescriptionModal) return null;
   return user ? (
     <div className='modal modal--inverted'>
-      <div className='detailsModalContainer'>
-        <div className='detailsModalContainer__topline'>
+      <div className='modal__details-container'>
+        <div className='modal__details-container__topline'>
           <h2 className='dogcard__headline-text__dog'>
             {user.dog?.name}
             {user.dog?.age && <>, {user.dog?.age}</>}{' '}

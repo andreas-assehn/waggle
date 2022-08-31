@@ -7,43 +7,44 @@
   font-family: $body-font;
   font-size: $p-size;
   margin: $page-margin $page-margin 0 $page-margin;
-  & p {
+
+  &__text {
     padding-left: 10px;
   }
-  & h2 {
-    padding-left: 10px;
-  }
+
   &__no-matches {
+    padding-left: 10px;
     margin: 0 0 15px;
   }
-}
 
-.your-matches__bubbles {
-  overflow: auto;
-  display: flex;
-  flex-direction: row;
-  padding-inline-start: 5px;
+  &__bubbles {
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    padding-inline-start: 5px;
 
-  & .your-matches__profile {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__profile {
     object-fit: cover;
     height: 60px;
     width: 60px;
     border-radius: 50%;
   }
-}
-.your-matches__bubble {
-  display: flex;
-  margin: 0 6px 10px;
-}
 
-.your-matches__bubbles::-webkit-scrollbar {
-  display: none;
-}
+  &__bubble {
+    display: flex;
+    margin: 0 6px 10px;
+  }
 
-.your-matches__background {
-  background-color: $button-blue;
-  color: $text-white;
-  width: 100%;
-  border-radius: 10px;
-  margin-block: 5px;
+  &__background {
+    background-color: $button-blue;
+    color: $text-white;
+    width: 100%;
+    border-radius: 10px;
+    margin-block: 5px;
+  }
 }

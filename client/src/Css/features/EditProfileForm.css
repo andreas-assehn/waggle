@@ -7,10 +7,6 @@
   overflow-y: scroll;
   overflow-x: unset;
 }
-.profile-form.--centered {
-  display: flex;
-  align-content: center;
-}
 .profile-form__button {
   display: flex;
   flex-direction: column;
@@ -36,7 +32,7 @@
   box-sizing: border-box;
 }
 
-.edit-form-title {
+.edit-form__title {
   display: flex;
   flex-direction: row;
   justify-content: center;

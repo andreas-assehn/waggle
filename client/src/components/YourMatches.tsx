@@ -3,6 +3,7 @@ import { User } from '../../../globalUtils/Types';
 import '../Css/components/YourMatches.css';
 import { Link } from 'react-router-dom';
 import defaultDogPic from '../assets/default-dog-pic.jpg';
+import Loading from './Loading';
 
 export default function YourMatches({
   user,
@@ -11,7 +12,7 @@ export default function YourMatches({
   user: User | null;
   matchedUsers: User[] | null;
 }) {
-  if (!user) return <p>Loading...</p>;
+  if (!user) return <Loading />;
 
   return (
     <div className='your-matches'>
@@ -52,7 +53,7 @@ export default function YourMatches({
           </div>
         </div>
       ) : (
-        <p>Loading..</p>
+        <Loading />
       )}
     </div>
   );
