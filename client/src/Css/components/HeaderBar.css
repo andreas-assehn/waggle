@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .header-bar {
-  position: fixed;
+  position: absolute;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
 }
 .header-bar__title {
@@ -16,5 +16,5 @@
   justify-content: space-between;
   background-color: #313742;
   color: #fff;
-  height: 9vh;
+  height: 8vh;
 }
