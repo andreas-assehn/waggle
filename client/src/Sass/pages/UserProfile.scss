@@ -11,8 +11,6 @@
     box-shadow: 0 0 8px $box-shadow-grey;
     width: 91.9vw;
     height: 80vw;
-    max-width: 400px;
-    max-height: 400px;
     object-fit: cover;
     display: block;
     border-radius: 10px 10px 0 0;
@@ -22,9 +20,11 @@
   &__details-container {
     margin: 0 $page-margin;
     box-shadow: 0 0 8px $box-shadow-grey;
+    width: 91.9vw;
     padding: 1em 0.5em;
     border-radius: 0 0 10px 10px;
     background-color: $background-white;
+    box-sizing: border-box;
   }
 
   &__headline {

@@ -1,5 +1,9 @@
 @use '../abstracts' as *;
 
+body {
+  height: 98%;
+}
+
 h1 {
   font-family: $header-font;
   font-weight: 500;

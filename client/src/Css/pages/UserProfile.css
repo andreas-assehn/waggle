@@ -10,8 +10,6 @@
   box-shadow: 0 0 8px #797979;
   width: 91.9vw;
   height: 80vw;
-  max-width: 400px;
-  max-height: 400px;
   object-fit: cover;
   display: block;
   border-radius: 10px 10px 0 0;
@@ -20,9 +18,11 @@
 .user-profile__details-container {
   margin: 0 15px;
   box-shadow: 0 0 8px #797979;
+  width: 91.9vw;
   padding: 1em 0.5em;
   border-radius: 0 0 10px 10px;
   background-color: #fff;
+  box-sizing: border-box;
 }
 .user-profile__headline {
   display: flex;
