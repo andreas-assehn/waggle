@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
-.settingsView {
+.settings-view {
   overflow-y: auto;
   overflow: hidden;
   font-family: "Nunito", sans-serif;
@@ -9,39 +9,34 @@
   align-items: center;
   margin: 0 15px;
 }
-
-.settingsViewUser__text {
-  text-align: center;
-}
-
-.settingsViewUser {
+.settings-view__user {
   width: 100vw;
   display: flex;
   flex-direction: row;
   align-content: center;
 }
-
-.settingsViewUserBackground {
+.settings-view__user__text {
+  text-align: center;
+}
+.settings-view__user-background {
   width: 100%;
   border-radius: 10px;
   margin: 15px 0 5px;
   background-color: #e2e2e2;
 }
-
-.settingsViewBtns {
+.settings-view__btns {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.settingsViewBtns button {
-  margin: 10px;
-  width: 140px;
-}
-.settingsViewBtns__sign-out {
+.settings-view__btns__sign-out {
   margin-top: 3px !important;
 }
-
-.settingsView-profileBtns {
+.settings-view__profile-btns {
   display: flex;
   flex-direction: row;
+}
+.settings-view__button {
+  margin: 10px;
+  width: 140px;
 }

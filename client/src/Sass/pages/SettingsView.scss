@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.settingsView {
+.settings-view {
   overflow-y: auto;
   overflow: hidden;
   font-family: $body-font;
@@ -9,40 +9,39 @@
   flex-direction: column;
   align-items: center;
   margin: 0 $page-margin;
-}
 
-.settingsViewUser__text {
-  text-align: center;
-}
+  &__user {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    &__text {
+      text-align: center;
+    }
+  }
 
-.settingsViewUser {
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-}
+  &__user-background {
+    width: 100%;
+    border-radius: 10px;
+    margin: $page-margin 0 5px;
+    background-color: $background-light-grey;
+  }
 
-.settingsViewUserBackground {
-  width: 100%;
-  border-radius: 10px;
-  margin: $page-margin 0 5px;
-  background-color: $background-light-grey;
-}
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.settingsViewBtns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & button {
+    &__sign-out {
+      margin-top: 3px !important;
+    }
+  }
+  &__profile-btns {
+    display: flex;
+    flex-direction: row;
+  }
+  &__button {
     margin: 10px;
     width: 140px;
   }
-  &__sign-out {
-    margin-top: 3px !important;
-  }
-}
-.settingsView-profileBtns {
-  display: flex;
-  flex-direction: row;
 }

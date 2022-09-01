@@ -33,30 +33,26 @@
 .register__redirect {
   margin-top: 2vh;
 }
-.register fieldset #confirmPassword,
-.register fieldset #confirm-password-label {
+.register__fieldset #confirmPassword,
+.register__fieldset #confirm-password-label {
   margin-bottom: 2vh;
 }
-
-.cookie-check {
+.register__cookie-check {
   width: 92%;
   display: flex;
   flex-direction: row;
   margin-bottom: 2vh;
 }
-
-.text-box {
+.register__text-box {
   width: 70%;
 }
-
-.checkbox {
+.register__checkbox {
   margin-left: 5%;
   display: flex;
   flex-direction: row;
   width: 20%;
 }
-
-.accept {
+.register__accept {
   display: flex;
   flex-direction: column;
   justify-content: center;
