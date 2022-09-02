@@ -5,6 +5,8 @@
   bottom: 0;
   width: 100%;
   z-index: 100;
+  height: $navbar-height;
+  min-height: $navbar-height;
 
   &__btn-container {
     display: flex;
@@ -12,8 +14,7 @@
     align-items: center;
     justify-content: space-around;
     background-color: $main-dark-grey;
-    height: $navbar-height;
-    min-height: 60px;
+    height: 100%;
   }
 
   &__icon-background {

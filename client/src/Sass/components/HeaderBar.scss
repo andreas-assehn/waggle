@@ -5,6 +5,7 @@
   top: 0;
   width: 100%;
   z-index: 1;
+  height: $header-height;
 
   &__title {
     align-self: center;
@@ -19,6 +20,6 @@
     justify-content: space-between;
     background-color: $main-dark-grey;
     color: $background-white;
-    height: $header-height;
+    height: 100%;
   }
 }

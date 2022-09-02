@@ -37,7 +37,7 @@ function HeaderBar({ name }: { name?: string }) {
       </div>
     </>
   ) : (
-    <></>
+    <div className='header-padding' />
   );
 }
 

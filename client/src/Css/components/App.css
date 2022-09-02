@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .app {
-  max-width: 480px;
-  max-height: 853px;
   height: 100vh;
   width: 100vw;
+  max-width: 480px;
+  max-height: 853px;
   position: relative;
   display: block;
   margin: 0 auto;
@@ -11,7 +11,8 @@
 }
 .app__content {
   overflow-y: auto;
-  max-height: 84vh;
+  overflow-x: hidden;
+  max-height: 82%;
 }
 
 h1 {
@@ -155,9 +156,9 @@ label {
 }
 
 .navbar-padding {
-  height: 8vh;
+  height: 9%;
 }
 
 .header-padding {
-  height: 8vh;
+  height: 9%;
 }

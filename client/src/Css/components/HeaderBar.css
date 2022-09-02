@@ -4,6 +4,7 @@
   top: 0;
   width: 100%;
   z-index: 1;
+  height: 9%;
 }
 .header-bar__title {
   align-self: center;
@@ -16,5 +17,5 @@
   justify-content: space-between;
   background-color: #313742;
   color: #fff;
-  height: 8vh;
+  height: 100%;
 }

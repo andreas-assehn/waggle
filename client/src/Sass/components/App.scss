@@ -1,16 +1,17 @@
 @use '../abstracts' as *;
 
 .app {
-  max-width: $max-width;
-  max-height: $max-height;
   height: 100vh;
   width: 100vw;
+  max-width: $max-width;
+  max-height: $max-height;
   position: relative;
   display: block;
   margin: 0 auto;
   overflow: hidden;
   &__content {
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: $content-height;
   }
 }

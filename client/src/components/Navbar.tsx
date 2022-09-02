@@ -82,7 +82,7 @@ function Navbar() {
       </div>
     </>
   ) : (
-    <></>
+    <div className='navbar-padding' />
   );
 }
 

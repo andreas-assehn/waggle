@@ -2,15 +2,16 @@
 
 .user-profile {
   position: relative;
-  width: 100vw;
-  height: 81vh;
+  width: 100%;
+  height: $content-height;
   background-size: cover;
   background-position: center;
 
   &__profile-image {
     box-shadow: 0 0 8px $box-shadow-grey;
-    width: 91.9vw;
-    height: 80vw;
+    width: 91.9%;
+    height: 40%;
+    max-height: 360px;
     object-fit: cover;
     display: block;
     border-radius: 10px 10px 0 0;
@@ -20,7 +21,7 @@
   &__details-container {
     margin: 0 $page-margin;
     box-shadow: 0 0 8px $box-shadow-grey;
-    width: 91.9vw;
+    width: 91.9%;
     padding: 1em 0.5em;
     border-radius: 0 0 10px 10px;
     background-color: $background-white;
@@ -31,11 +32,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__headline-text {
     &__dog {
-      margin: 0 0 0 3vw;
+      margin: 0 0 0 2vw;
     }
     & p {
       margin: 0;
@@ -58,11 +60,11 @@
   }
 
   &__owner-image {
-    width: 13vw;
-    height: 13vw;
+    width: 60px;
     object-fit: cover;
-    border-radius: 8vw;
+    border-radius: 34px;
     display: inline-block;
+    margin: 0 2vw 0 0;
   }
   &__key-facts {
     display: flex;
@@ -77,8 +79,8 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      height: 15vw;
-      width: 25vw;
+      height: 70px;
+      width: 100px;
       background-color: $button-blue;
       border-radius: 10px;
       color: $text-white;
@@ -98,6 +100,9 @@
     display: flex;
     justify-content: center;
     margin: 8px 0;
+    &__padding {
+      height: 3em;
+    }
   }
 
   &__details-button {
