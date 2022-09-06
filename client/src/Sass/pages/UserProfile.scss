@@ -70,17 +70,19 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
-    margin-top: 0.5rem;
+    margin: 0.5rem auto;
     flex-wrap: wrap;
+    max-width: 350px;
 
     &__key-detail {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      height: 70px;
-      width: 100px;
+      height: 65px;
+      width: 95px;
       background-color: $button-blue;
       border-radius: 10px;
       color: $text-white;
