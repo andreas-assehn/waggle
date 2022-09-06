@@ -97,8 +97,8 @@ function SwipeCard({ user }: { user: User }) {
       <motion.div
         key={user.userId}
         style={{
-          position: 'fixed',
-          maxWidth: '100%',
+          position: 'absolute',
+          maxWidth: '480px',
           width: '100%',
           height: '92%',
           borderRadius: '10px',
