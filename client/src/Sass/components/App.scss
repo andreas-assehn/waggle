@@ -97,11 +97,12 @@ button {
   &.--round {
     display: flex;
     justify-content: center;
+    align-content: center;
     width: 35px;
     height: 35px;
     border-radius: 20px;
     padding: 0;
-    font-size: 5.5vw;
+    font-size: $header-medium-size;
   }
 
   &.--fixed-width {

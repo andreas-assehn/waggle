@@ -3,8 +3,9 @@
 .event-card {
   display: flex;
   align-items: center;
-  padding: 1vw 2vw;
-  margin: 2vw;
+  justify-content: space-between;
+  padding: 10px 10px;
+  margin: $page-margin;
   background-color: $background-white;
   border-radius: 6px;
   color: $text-dark-grey;
@@ -22,14 +23,14 @@
     align-items: center;
   }
   &__image {
-    width: 20vw;
-    height: 20vw;
+    width: 80px;
+    height: 80px;
     border-radius: 6px;
     object-fit: cover;
-    margin: 0.5vh 1vw;
+    margin: 5px 5px;
   }
   &__more-info {
-    width: 20vw;
+    width: 80px;
     font-size: $p-small-size;
   }
 }

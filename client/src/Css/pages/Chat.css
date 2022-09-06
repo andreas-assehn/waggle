@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+.chat {
+  width: 100%;
+}
 .chat__body {
   display: flex;
   flex-direction: column;
@@ -10,19 +13,19 @@
 }
 .chat__footer {
   background-color: #fff;
-  position: fixed;
-  bottom: 7.5vh;
-  width: 100vw;
+  position: absolute;
+  bottom: 9%;
+  width: 100%;
   display: flex;
   padding: 0.5rem 0;
   height: 6vh;
   justify-content: center;
 }
 .chat__footer__input {
-  width: 85vw;
+  width: 85%;
 }
 .chat__footer__button {
-  width: 10vw;
+  width: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +35,7 @@
   background-color: aqua;
 }
 .chat__footer__send-icon {
-  width: 9vw;
-  height: 9vw;
+  height: 100%;
   margin: 0;
   padding: 0;
 }

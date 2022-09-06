@@ -2,8 +2,9 @@
 .event-card {
   display: flex;
   align-items: center;
-  padding: 1vw 2vw;
-  margin: 2vw;
+  justify-content: space-between;
+  padding: 10px 10px;
+  margin: 15px;
   background-color: #fff;
   border-radius: 6px;
   color: #313742;
@@ -20,13 +21,13 @@
   align-items: center;
 }
 .event-card__image {
-  width: 20vw;
-  height: 20vw;
+  width: 80px;
+  height: 80px;
   border-radius: 6px;
   object-fit: cover;
-  margin: 0.5vh 1vw;
+  margin: 5px 5px;
 }
 .event-card__more-info {
-  width: 20vw;
+  width: 80px;
   font-size: 0.8rem;
 }

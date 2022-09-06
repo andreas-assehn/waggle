@@ -94,11 +94,12 @@ button.--dark, input.--dark[type=submit], select.--dark[type=submit] {
 button.--round, input.--round[type=submit], select.--round[type=submit] {
   display: flex;
   justify-content: center;
+  align-content: center;
   width: 35px;
   height: 35px;
   border-radius: 20px;
   padding: 0;
-  font-size: 5.5vw;
+  font-size: 1.4rem;
 }
 button.--fixed-width, input.--fixed-width[type=submit], select.--fixed-width[type=submit] {
   width: 60vw;

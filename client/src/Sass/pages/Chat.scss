@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 
 .chat {
+  width: 100%;
   &__body {
     display: flex;
     flex-direction: column;
@@ -13,19 +14,19 @@
 
   &__footer {
     background-color: $background-white;
-    position: fixed;
-    bottom: 7.5vh;
-    width: 100vw;
+    position: absolute;
+    bottom: $navbar-height;
+    width: 100%;
     display: flex;
     padding: 0.5rem 0;
     height: 6vh;
     justify-content: center;
 
     &__input {
-      width: 85vw;
+      width: 85%;
     }
     &__button {
-      width: 10vw;
+      width: 8%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -35,8 +36,7 @@
       }
     }
     &__send-icon {
-      width: 9vw;
-      height: 9vw;
+      height: 100%;
       margin: 0;
       padding: 0;
     }
