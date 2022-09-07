@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .login {
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0 6vw;
+  height: 82%;
+  margin: 0;
 }
 .login__title {
   font-family: "Satisfy", cursive;
@@ -24,8 +25,9 @@
   border: none;
 }
 .login__form label {
-  width: 20vw;
+  width: 20%;
   min-width: 70px;
+  margin-right: 4px;
 }
 .login__link {
   margin: 0 4px;
@@ -33,7 +35,6 @@
 .login__redirect {
   margin-top: 2vh;
 }
-.login fieldset #password,
-.login fieldset #password-label {
-  margin-bottom: 2vh;
+.login fieldset {
+  padding: 5px 0;
 }

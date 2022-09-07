@@ -7,38 +7,32 @@
   font-size: 1rem;
   margin: 15px 15px 0 15px;
 }
-.your-matches p {
-  padding-left: 10px;
-}
-.your-matches h2 {
+.your-matches__text {
   padding-left: 10px;
 }
 .your-matches__no-matches {
+  padding-left: 10px;
   margin: 0 0 15px;
 }
-
 .your-matches__bubbles {
-  overflow: auto;
+  overflow-x: auto;
   display: flex;
   flex-direction: row;
   padding-inline-start: 5px;
 }
-.your-matches__bubbles .your-matches__profile {
+.your-matches__bubbles::-webkit-scrollbar {
+  display: none;
+}
+.your-matches__profile {
   object-fit: cover;
   height: 60px;
   width: 60px;
   border-radius: 50%;
 }
-
 .your-matches__bubble {
   display: flex;
   margin: 0 6px 10px;
 }
-
-.your-matches__bubbles::-webkit-scrollbar {
-  display: none;
-}
-
 .your-matches__background {
   background-color: #009b9b;
   color: #ffffff;

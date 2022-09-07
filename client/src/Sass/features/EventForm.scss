@@ -10,21 +10,19 @@
   margin-inline: 15px;
 
   &__input {
-    width: 85vw;
+    width: 95%;
     margin-block: 1vh;
   }
 
-  & .event-form__autocomplete {
+  &__autocomplete {
     display: flex;
     justify-content: center;
     align-self: stretch;
     width: auto;
     margin: 1vh 0;
   }
-}
 
-h2 {
-  &.event-form__title {
+  &__title {
     display: flex;
     justify-content: center;
     margin-block-start: 1vh;

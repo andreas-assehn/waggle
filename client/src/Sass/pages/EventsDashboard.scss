@@ -1,17 +1,18 @@
 @use '../abstracts' as *;
 
 .events-dashboard {
-  margin: $page-margin $page-margin 0;
+  margin: $page-margin auto 0;
+  width: 100%;
   &__add-events {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    position: fixed;
-    bottom: 8.5vh;
-    width: 95vw;
+    position: absolute;
+    bottom: $navbar-height;
+    width: 99%;
   }
   &__add-events-padding {
-    height: 45px;
+    height: $navbar-height;
   }
   &__attending {
     background-color: $dark-blue-contrast;

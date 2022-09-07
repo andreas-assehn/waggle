@@ -1,12 +1,13 @@
 @use '../abstracts/fonts' as *;
+@use '../abstracts/sizes' as *;
 
 @mixin login-register {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0 6vw;
+  height: $content-height;
+  margin: 0;
 
   &__title {
     font-family: $title-font;
@@ -25,8 +26,9 @@
       border: none;
     }
     & label {
-      width: 20vw;
+      width: 20%;
       min-width: 70px;
+      margin-right: 4px;
     }
   }
 

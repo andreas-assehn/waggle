@@ -8,71 +8,69 @@
   font-size: $p-size;
   color: $text-dark-grey;
   margin: 0 $page-margin;
-  & p {
+
+  &__tripledot {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__background {
+    background-color: $background-white;
+    box-shadow: 0 0 8px $box-shadow-grey;
+    width: 100%;
+    border-radius: 10px;
+    margin-block: 5px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__picture-container {
+    display: flex;
+    padding-inline-start: 10px;
+    padding-block: 10px;
+  }
+  &__picture {
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    justify-content: center;
     margin-block: 0;
     padding-left: 10px;
   }
-}
 
-.message-card__tripledot {
-  margin: 0;
-  padding: 0;
-}
+  &__additional-info {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    width: 80px;
+    align-items: flex-end;
 
-.message-card__background {
-  background-color: $background-white;
-  box-shadow: 0 0 8px $box-shadow-grey;
-  width: 100%;
-  border-radius: 10px;
-  margin-block: 5px;
-}
-
-.message-card__content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.message-card__picture-container {
-  display: flex;
-  padding-inline-start: 10px;
-  padding-block: 10px;
-}
-.message-card__picture {
-  object-fit: cover;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-}
-
-.message-card__text {
-  display: flex;
-  flex-direction: column;
-  flex: auto;
-  justify-content: center;
-}
-
-.message-card__additional-info {
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  width: 80px;
-  align-items: flex-end;
-
-  & p {
-    margin-inline-end: 8px;
-    font-size: small;
+    & p {
+      margin-inline-end: 8px;
+      font-size: small;
+    }
   }
-}
 
-.message-card__read-unread {
-  height: 21px;
-}
+  &__read-unread {
+    height: 21px;
+  }
 
-.message-card__link {
-  display: flex;
-  flex-direction: row;
-  color: $text-dark-grey;
-  text-decoration: none;
+  &__link {
+    display: flex;
+    flex-direction: row;
+    color: $text-dark-grey;
+    text-decoration: none;
+  }
 }

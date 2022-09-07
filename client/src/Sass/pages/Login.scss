@@ -1,11 +1,9 @@
 @use '../abstracts' as *;
 
 .login {
+  padding-top: 100px;
   @include login-register;
   & fieldset {
-    & #password,
-    #password-label {
-      margin-bottom: 2vh;
-    }
+    padding: 5px 0;
   }
 }

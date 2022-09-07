@@ -12,6 +12,7 @@ import SentChat from '../components/SentChat';
 import apiUserService from '../utils/services/apiUserService';
 import { useDispatch } from 'react-redux';
 import { setNameState } from '../app/chatNameSlice';
+import Loading from '../components/Loading';
 
 const socket = io('http://localhost:4000');
 
@@ -82,8 +83,8 @@ function Chat() {
   };
 
   return userAuth ? (
-    <>
-      <div className='chat-body'>
+    <div className='chat'>
+      <div className='chat__body'>
         {chatMessages.map((msg, i) =>
           userAuth.userId === msg.userId ? (
             <SentChat key={i} message={msg} />
@@ -91,11 +92,11 @@ function Chat() {
             <ReceivedChat key={i} message={msg} />
           )
         )}
-        <div className='chat-body__padding'></div>
+        <div className='chat__body__padding'></div>
       </div>
-      <form onSubmit={(event) => sendMessage(event)} className='chat-footer'>
+      <form onSubmit={(event) => sendMessage(event)} className='chat__footer'>
         <input
-          className='chat-footer__input'
+          className='chat__footer__input'
           type='text'
           placeholder='Message...'
           value={message}
@@ -104,13 +105,13 @@ function Chat() {
             setMessage(event.target.value);
           }}
         />
-        <button className='chat-footer__button --transparent' type='submit'>
-          <img className='chat-footer__send-icon' src={sendIcon} />
+        <button className='chat__footer__button --transparent' type='submit'>
+          <img className='chat__footer__send-icon' src={sendIcon} />
         </button>
       </form>
-    </>
+    </div>
   ) : (
-    <div>Loading ...</div>
+    <Loading />
   );
 }
 

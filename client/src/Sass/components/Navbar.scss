@@ -1,45 +1,46 @@
 @use '../abstracts' as *;
 
 .navbar {
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 100;
-}
-
-.btn-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  background-color: $main-dark-grey;
   height: $navbar-height;
-  min-height: 60px;
-}
+  min-height: $navbar-height;
 
-.navbar__icon-background {
-  padding-inline: 6px;
-  padding-block: 6px;
-  border-radius: 20px;
-  max-height: 34px;
-  box-sizing: border-box;
-}
+  &__btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $main-dark-grey;
+    height: 100%;
+  }
 
-.--current {
-  background-color: $pop-color;
-}
+  &__icon-background {
+    padding-inline: 6px;
+    padding-block: 6px;
+    border-radius: 20px;
+    max-height: 34px;
+    box-sizing: border-box;
+  }
 
-.nav-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: none;
-  color: $text-white;
-  & p {
-    font-size: small;
-    margin: 0;
-    padding-top: 2px;
+  &--current {
+    background-color: $pop-color;
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: none;
+    color: $text-white;
+    &__text {
+      font-size: small;
+      margin: 0;
+      padding-top: 2px;
+    }
   }
 }

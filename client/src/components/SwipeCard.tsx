@@ -85,7 +85,7 @@ function SwipeCard({ user }: { user: User }) {
   ]);
 
   return (
-    <>
+    <div>
       {matchModal && (
         <MatchModal
           user={user}
@@ -98,9 +98,9 @@ function SwipeCard({ user }: { user: User }) {
         key={user.userId}
         style={{
           position: 'absolute',
-          maxWidth: '100vw',
-          width: '100vw',
-          height: '92vh',
+          maxWidth: '480px',
+          width: '100%',
+          height: '92%',
           borderRadius: '10px',
           transformOrigin: 'center right',
           listStyle: 'none',
@@ -122,7 +122,7 @@ function SwipeCard({ user }: { user: User }) {
           setModalActive={setModalActive}
         />
       </motion.div>
-    </>
+    </div>
   );
 }
 

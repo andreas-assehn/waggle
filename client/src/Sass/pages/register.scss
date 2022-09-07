@@ -2,33 +2,32 @@
 
 .register {
   @include login-register;
-  & fieldset {
-    & #confirmPassword,
-    #confirm-password-label {
-      margin-bottom: 2vh;
-    }
+
+  &__fieldset {
+    padding: 5px 0;
   }
-}
 
-.cookieCheck {
-  width: 92%;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2vh;
-}
+  &__cookie-check {
+    width: 92%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+  }
 
-.textBox {
-  width: 70%;
-}
-.checkBox {
-  margin-left: 5%;
-  display: flex;
-  flex-direction: row;
-  width: 20%;
-}
+  &__text-box {
+    width: 70%;
+  }
 
-.accept {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  &__checkbox {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    width: 20px;
+  }
+
+  &__accept {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

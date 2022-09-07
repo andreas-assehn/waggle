@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
 .event-details__images {
-  width: 100vw;
+  width: 100%;
 }
 .event-details__details-container {
   padding: 0 15px;

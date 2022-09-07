@@ -21,11 +21,11 @@ function PictureModal({
   if (!openModal) return null;
 
   return (
-    <div className='modalBackground'>
-      <div className='pictureModalContainer'>
-        <div className='titleCloseBtn'>
+    <div className='modal'>
+      <div>
+        <div className='modal__title-close-btn'>
           <button
-            className='titleCloseBtn__btn --round'
+            className='--round'
             onClick={() => {
               setOpenModal(false);
               if (setModalActive) {
@@ -36,7 +36,7 @@ function PictureModal({
             &times;
           </button>
         </div>
-        <div className='pictureModal'>
+        <div className='modal__picture-carousel'>
           <Carousel className='carousel'>
             {images &&
               images.map((image, index) => (

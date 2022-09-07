@@ -21,68 +21,68 @@ function Navbar() {
     <>
       <div className='navbar-padding' />
       <div className='navbar'>
-        <div className='btn-container'>
-          <Link className='nav-btn' to={'/matchingView'}>
+        <div className='navbar__btn-container'>
+          <Link className='navbar__btn' to={'/matchingView'}>
             <div
               className={
                 url === '/matchingView'
-                  ? 'navbar__icon-background --current'
+                  ? 'navbar__icon-background navbar--current'
                   : 'navbar__icon-background'
               }
             >
               <img src={matches} />
             </div>
             <div>
-              <p>Matches</p>
+              <p className='navbar__btn__text'>Matches</p>
             </div>
           </Link>
-          <Link className='nav-btn' to={'/profile'}>
+          <Link className='navbar__btn' to={'/profile'}>
             <div
               className={
                 url === '/profile'
-                  ? 'navbar__icon-background --current'
+                  ? 'navbar__icon-background navbar--current'
                   : 'navbar__icon-background'
               }
             >
               <img src={profile} />
             </div>
             <div>
-              <p>Profile</p>
+              <p className='navbar__btn__text'>Profile</p>
             </div>
           </Link>
-          <Link className='nav-btn' to={'/eventsDashboard'}>
+          <Link className='navbar__btn' to={'/eventsDashboard'}>
             <div
               className={
                 url === '/eventsDashboard'
-                  ? 'navbar__icon-background --current'
+                  ? 'navbar__icon-background navbar--current'
                   : 'navbar__icon-background'
               }
             >
               <img src={events} />
             </div>
             <div>
-              <p>Events</p>
+              <p className='navbar__btn__text'>Events</p>
             </div>
           </Link>
-          <Link className='nav-btn' to={'/chatDashboard'}>
+          <Link className='navbar__btn' to={'/chatDashboard'}>
             <div
               className={
                 url === '/chatDashboard'
-                  ? 'navbar__icon-background --current'
+                  ? 'navbar__icon-background navbar--current'
                   : 'navbar__icon-background'
               }
             >
               <img src={chat} />
             </div>
             <div>
-              <p>Chat</p>
+              <p className='navbar__btn__text'>Chat</p>
             </div>
           </Link>
         </div>
       </div>
     </>
   ) : (
-    <></>
+    <div className='navbar-padding' />
   );
 }
 

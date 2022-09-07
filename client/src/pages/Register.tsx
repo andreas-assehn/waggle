@@ -108,7 +108,7 @@ function Register() {
       <h2 className='register__title'>Register</h2>
 
       <form onSubmit={handleSubmit} className='register__form'>
-        <fieldset>
+        <fieldset className='register__fieldset'>
           <label htmlFor='name'>Name</label>
           <input
             type='text'
@@ -121,7 +121,7 @@ function Register() {
           />
         </fieldset>
 
-        <fieldset>
+        <fieldset className='register__fieldset'>
           <label htmlFor='email'>Email</label>
           <input
             type='email'
@@ -133,7 +133,7 @@ function Register() {
             required
           />
         </fieldset>
-        <fieldset>
+        <fieldset className='register__fieldset'>
           <label htmlFor='password'>Password</label>
           <input
             type='password'
@@ -145,7 +145,7 @@ function Register() {
           />
         </fieldset>
 
-        <fieldset>
+        <fieldset className='register__fieldset'>
           <label htmlFor='confirmPassword' id='confirm-password-label'>
             Confirm Password
           </label>
@@ -159,15 +159,15 @@ function Register() {
           />
         </fieldset>
 
-        <div className='cookieCheck'>
-          <div className='textBox'>
+        <div className='register__cookie-check'>
+          <div className='register__text-box'>
             <p>
               This app uses cookies to provide a better user experience. By
               choosing to accept, you consent to ALL cookies necessary to
               provide an optimal user experience.
             </p>
           </div>
-          <div className='checkBox'>
+          <div className='register__checkbox'>
             <input
               type='checkbox'
               checked={checked}
@@ -175,8 +175,10 @@ function Register() {
               id='box'
             />
 
-            <div className='accept'>
-              <span>Accept</span>
+            <div className='register__accept'>
+              <span>
+                <p>Accept</p>
+              </span>
             </div>
           </div>
         </div>

@@ -69,9 +69,7 @@ export default function UserProfile() {
             <div className='user-profile__key-facts'>
               {userAuth.dog?.energyLevel && (
                 <div className='user-profile__key-facts__key-detail'>
-                  <p className='user-profile__key-facts__key-detail__p'>
-                    Energy
-                  </p>
+                  <p>Energy</p>
                   <Scale scaleValue={userAuth.dog?.energyLevel} />
                 </div>
               )}
