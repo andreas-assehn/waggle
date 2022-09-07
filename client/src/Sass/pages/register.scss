@@ -4,17 +4,14 @@
   @include login-register;
 
   &__fieldset {
-    & #confirmPassword,
-    #confirm-password-label {
-      margin-bottom: 2vh;
-    }
+    padding: 5px 0;
   }
 
   &__cookie-check {
     width: 92%;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2vh;
+    margin: 5px 0;
   }
 
   &__text-box {
@@ -25,7 +22,7 @@
     margin-left: 5%;
     display: flex;
     flex-direction: row;
-    width: 20%;
+    width: 20px;
   }
 
   &__accept {

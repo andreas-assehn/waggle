@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 82%;
-  margin: 0 6vw;
+  margin: 0;
 }
 .register__title {
   font-family: "Satisfy", cursive;
@@ -24,8 +24,9 @@
   border: none;
 }
 .register__form label {
-  width: 20vw;
+  width: 20%;
   min-width: 70px;
+  margin-right: 4px;
 }
 .register__link {
   margin: 0 4px;
@@ -33,15 +34,14 @@
 .register__redirect {
   margin-top: 2vh;
 }
-.register__fieldset #confirmPassword,
-.register__fieldset #confirm-password-label {
-  margin-bottom: 2vh;
+.register__fieldset {
+  padding: 5px 0;
 }
 .register__cookie-check {
   width: 92%;
   display: flex;
   flex-direction: row;
-  margin-bottom: 2vh;
+  margin: 5px 0;
 }
 .register__text-box {
   width: 70%;
@@ -50,7 +50,7 @@
   margin-left: 5%;
   display: flex;
   flex-direction: row;
-  width: 20%;
+  width: 20px;
 }
 .register__accept {
   display: flex;

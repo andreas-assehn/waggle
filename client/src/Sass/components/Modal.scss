@@ -8,8 +8,10 @@
   align-items: center;
   top: 0;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  max-width: $max-width;
+  max-height: $max-height;
   background-color: $translucent-white;
   z-index: 1;
 
@@ -78,7 +80,7 @@
     display: flex;
     flex-direction: column;
     padding: 1em 1em;
-    margin: 5vw;
+    margin: 0 $page-margin;
     border-radius: 10px;
     background-color: $background-white;
     &__topline {
@@ -125,7 +127,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 90vh;
+  height: 85vh;
 }
 
 .slide {

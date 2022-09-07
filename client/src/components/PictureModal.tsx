@@ -23,7 +23,7 @@ function PictureModal({
   return (
     <div className='modal'>
       <div>
-        <div className='title-close-btn'>
+        <div className='modal__title-close-btn'>
           <button
             className='--round'
             onClick={() => {

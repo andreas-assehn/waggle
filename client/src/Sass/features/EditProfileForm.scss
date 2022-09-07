@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0 15px 10px 15px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: unset;
 
   &__button {

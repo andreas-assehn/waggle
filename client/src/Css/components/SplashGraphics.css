@@ -4,13 +4,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .splash-graphics__animation {
   transform: rotate(45deg) scale(1.6);
   object-fit: cover;
-  width: 80vw;
-  height: 35vh;
+  width: 170px;
+  height: 170px;
 }
 .splash-graphics__logo {
-  margin-top: 2vh;
+  margin-top: 4px;
 }
