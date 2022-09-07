@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Satisfy&display=swap');
 .no-matches {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60vw;
+  width: 60%;
   flex-wrap: wrap;
-  margin: 30vh auto;
+  margin: 30% auto;
   text-align: center;
 }
 .no-matches__title {
-  font-family: "Satisfy", cursive;
+  font-family: 'Satisfy', cursive;
   align-self: center;
   flex-wrap: wrap;
 }
