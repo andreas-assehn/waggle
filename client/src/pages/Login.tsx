@@ -39,7 +39,7 @@ function Login() {
         dispatch(login(res));
       })
       .catch((error) => {
-        console.log(error);
+        setError('Invalid username or password');
       });
   };
 
@@ -51,7 +51,7 @@ function Login() {
         dispatch(login(res));
       })
       .catch((error) => {
-        console.log(error);
+        setError('Error logging you in');
       });
   };
 
@@ -86,14 +86,14 @@ function Login() {
           />
         </fieldset>
 
-        <button type='submit' className='--fixed-width'>
+        <button type='submit' className='--fixed-width' id='login-btn'>
           Login
         </button>
       </form>
       <button onClick={handleSignInWithGoogle} className='--fixed-width'>
         Sign In with Google
       </button>
-      <p>{error}</p>
+      <p id='error-msg'>{error}</p>
       <p className='register__redirect'>
         Create an account
         <Link to='/register' className='login__link'>

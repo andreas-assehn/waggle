@@ -27,7 +27,11 @@ function BurgerMenu() {
 
   return (
     <>
-      <button onClick={handleShowModal} className='--transparent'>
+      <button
+        onClick={handleShowModal}
+        className='--transparent'
+        id='burger-menu-btn'
+      >
         <img src={burgerMenuIcon} />
       </button>
       {showModal ? (
@@ -54,6 +58,7 @@ function BurgerMenu() {
               </button>
               <button
                 className='--pop'
+                id='logout-btn'
                 onClick={() => {
                   handleSignOut(), navigate('/');
                 }}
